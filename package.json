@@ -1,0 +1,24 @@
+{
+  "name": "HugoBlog",
+  "version": "1.0.0",
+  "description": "使用hugo写博客",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "post": "hugo new posts/${title}",
+    "start": "hugo server -D",
+    "dev": "npm run start",    
+    "build": "hugo -D"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pengjielee/hugoblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pengjielee/hugoblog/issues"
+  },
+  "homepage": "https://github.com/pengjielee/hugoblog#readme"
+}
