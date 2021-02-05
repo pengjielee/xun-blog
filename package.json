@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "post": "hugo new post/${title}",
     "start": "hugo server -D",
-    "dev": "npm run start",    
-    "build": "hugo -D"
+    "dev": "npm run start",
+    "build": "hugo -D",
+    "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/pengjielee/hugoblog/issues"
   },
-  "homepage": "https://github.com/pengjielee/hugoblog#readme"
+  "homepage": "https://github.com/pengjielee/hugoblog#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
 }

@@ -2,3 +2,4 @@
 .env.build
 resources/*
 public/*
+node_modules/*
