@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-  {{ partial "head.html" . }}
-  <body>
-    {{ range.Data.Pages }}
-    <h1>
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h1>
-    {{ end }}
-  </body>
-</html>
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<section class="article-list">
+  {{ range .Pages.ByPublishDate.Reverse }}
+	<article class="article-item">
+	    <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+	    {{ partial "metadata.html" . }}
+	    <a class="summary" href="{{ .RelPermalink }}">
+	        <p>{{ .Summary }}</p>
+	    </a>
+	</article>
+	{{ end }}
+</section>
+{{ end }}

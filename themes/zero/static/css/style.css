@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-size: 14px;
+	padding: 20px;
+}
+
+.navs a {
+	margin-right: 10px;
+}
+
+.article-list {
+	margin: 20px 0;
+}
+
+.article-item {
+	margin-bottom: 20px;
+}
