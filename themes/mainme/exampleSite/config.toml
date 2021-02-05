@@ -1,28 +1,27 @@
-baseurl = "https://www.pengjielee.cn"
-title = "Pengjielee's blog"
-languageCode = "zh-cn"
+baseurl = "/"
+title = "Mainroad"
+languageCode = "en-us"
 paginate = "10" # Number of posts per page
-theme = "mainme"
+theme = "mainroad"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author]
-  name = "Pengjielee"
-  bio = ""
+  name = "John Doe"
+  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
   avatar = "img/avatar.png"
 
 [Params]
-  description = "Pengjielee的个人博客" # Description of your site
+  description = "John Doe's Personal blog about everything" # Description of your site
   opengraph = true
   twitter_cards = false
   readmore = false # Show "Read more" button in list if true
   authorbox = true
   pager = true
   post_meta = ["date", "categories"] # Order of post meta information
-  mainSections = ["post", "blog", "docs"]
 
 [Params.logo]
-  subtitle = "真正的优秀不是优于别人，而是优于过去的自己。" # Logo subtitle
+  subtitle = "Just another site" # Logo subtitle
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
@@ -34,24 +33,3 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
-
-[[menu.main]]             # config your menu              # 配置目录
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
-[[menu.main]]
-  name = "Archives"
-  weight = 20
-  identifier = "archives"
-  url = "/post/"
-[[menu.main]]
-  name = "Tags"
-  weight = 30
-  identifier = "tags"
-  url = "/tags/"
-[[menu.main]]
-  name = "Categories"
-  weight = 40
-  identifier = "categories"
-  url = "/categories/"
