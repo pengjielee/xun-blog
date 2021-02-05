@@ -16,7 +16,7 @@ module.exports = {
         parser: 'angular',
         htmlWhitespaceSensitivity: 'ignore',
         printWidth: 120,
-        tabWidth: 4
+        tabWidth: 2
       },
     },
   ],
