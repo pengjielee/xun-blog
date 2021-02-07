@@ -10,7 +10,7 @@ draft: false
 
 ## 统计shell脚本执行时间
 
-```
+```Bash
 #!/bin/bash
 
 #记录开始时间
@@ -34,14 +34,15 @@ echo "cost time is $(($cost_time/60))min $(($cost_time%60))s"
 ## 分析webpack编译时间
 
 1、安装speed-measure-webpack-plugin
-```
+
+```JavaScript
 $ npm install --save-dev speed-measure-webpack-plugin
 ```
 
 2、更新webpack配置
 
 Change your webpack config from
-```
+```JavaScript
 const webpackConfig = {
   plugins: [
     new MyPlugin(),
@@ -51,15 +52,15 @@ const webpackConfig = {
 ```
 
 to
-```
+```JavaScript
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
- 
+
 const smp = new SpeedMeasurePlugin();
- 
+
 const webpackConfig = smp.wrap({
   plugins: [
-    new MyPlugin(),
-    new MyOtherPlugin()
-  ]
+	  new MyPlugin(), 
+	  new MyOtherPlugin()
+  ],
 });
 ```
