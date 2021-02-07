@@ -1,5 +1,6 @@
 ---
 title: "如何加速webpack构建"
+url: "post/how-do-speed-up-webpack-builds"
 date: 2021-02-01T15:14:03+08:00
 keywords: "webpack,webpack构建"
 description: 'webpack,webpack构建'
