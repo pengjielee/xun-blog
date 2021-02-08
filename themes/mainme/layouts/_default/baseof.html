@@ -32,6 +32,8 @@
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+	{{ $custom := resources.Get "css/custom.css" | resources.ExecuteAsTemplate "css/custom.css" . -}}
+	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
 	{{ range .Site.Params.customCSS -}}
 	<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
@@ -46,34 +48,6 @@
 	{{- end }}
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/monokai-sublime.min.css" integrity="sha512-/l4iViNMhxR5MhSlak3Yw/L/7qUBifVy7MpLjeJTc8BPMRFbGplGN0xqufCDwhSdxSnVgy+e/OYsNnU75K3yyQ==" crossorigin="anonymous" />
-	<style type="text/css">
-		.hljs {
-			padding: 1.2em;
-		}
-		.archive-list .collection-title {
-			list-style-type: none;
-			border-bottom: 1px solid #ddd;
-			padding-bottom: 10px;
-			margin-bottom: 15px;
-		}
-		.archive-list .collection-title h2 {
-			margin-bottom: 0;
-		}
-		.archive-post {
-			margin-bottom: 10px;
-			list-style-type: square;
-		}
-		.archive-post-time {
-			font-weight: 350;
-	    color: #656262;
-	    font-size: 14px;
-		}
-		.archive-post-title{
-			font-weight: 450;
-    	font-size: 16px;
-    	color: #000;
-		}
-	</style>
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -98,12 +72,36 @@
 {{- end }}
 {{- partial "mathjax.html" . -}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js" integrity="sha512-9GIHU4rPKUMvNOHFOer5Zm2zHnZOjayOO3lZpokhhCtgt8FNlNiW/bb7kl0R5ZXfCDVPcQ8S4oBdNs92p5Nm2w==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous"></script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 <script>
+function flashCopyMessage(el, msg) {
+  el.textContent = msg;
+  setTimeout(function() {
+    el.textContent = "Copy";
+  }, 1000);
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
   document.querySelectorAll('pre').forEach((block) => {
     hljs.highlightBlock(block);
+    const copyBtn = document.createElement("a");
+    copyBtn.className = 'copy-btn';
+    copyBtn.textContent = 'Copy';
+    block.append(copyBtn);
   });
+  const clipboard = new ClipboardJS('.copy-btn', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+    }
+	});
+	clipboard.on('success', function(e) {
+	    flashCopyMessage(e.trigger, 'Copied');
+	    e.clearSelection();
+	});
+	clipboard.on('error', function(e) {
+	    flashCopyMessage(e.trigger, 'Failed');
+	});
 });
 </script>
 </body>

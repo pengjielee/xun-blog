@@ -1,0 +1,64 @@
+.hljs {
+	padding: 1.2em;
+}
+.archive-list .collection-title {
+	list-style-type: none;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+.archive-list .collection-title h2 {
+	margin-bottom: 0;
+}
+.archive-post {
+	margin-bottom: 10px;
+	list-style-type: square;
+}
+.archive-post-time {
+	font-weight: 350;
+  color: #656262;
+  font-size: 14px;
+}
+.archive-post-title{
+	font-weight: 450;
+	font-size: 16px;
+	color: #000;
+}
+
+/*pre {
+	position: relative;
+}
+pre:before {
+	position: absolute;
+	top: 0;
+	right: 5px;
+	content:'copy';
+  display:none;
+}
+pre:hover:before {
+	display: block;
+}*/
+pre {
+	position: relative;
+}
+pre>.copy-btn {
+	position: absolute;
+  top: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.8em;
+  line-height: 1.8;
+  color: #fff;
+  background-color: #777;
+  min-width: 55px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+pre>.copy-btn:hover {
+	color: #fff;
+	text-decoration: none;
+	transform: scale(1.1);
+}
