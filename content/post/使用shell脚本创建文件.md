@@ -3,7 +3,7 @@ title: "使用shell脚本创建文件"
 date: 2021-01-15T16:24:14+08:00
 keywords: 'shell,创建文件'
 description: ''
-tags: ['shell']
+tags: ['Shell']
 categories: []
 draft: true
 ---
