@@ -79,7 +79,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous"></script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 <script async defer src="{{ "js/cursor-effects.js" | relURL }}"></script>
-<script async defer src="{{ "js/custom.js" | relURL }}"></script>
+<script type="text/javascript">
+	function flashCopyMessage(el, msg) {
+  el.textContent = msg;
+  setTimeout(function() {
+    el.textContent = "Copy";
+  }, 1000);
+}
 
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre').forEach((block) => {
+    hljs.highlightBlock(block);
+    const copyBtn = document.createElement("a");
+    copyBtn.className = 'copy-btn';
+    copyBtn.textContent = 'Copy';
+    block.append(copyBtn);
+  });
+  const clipboard = new ClipboardJS('.copy-btn', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+    }
+	});
+	clipboard.on('success', function(e) {
+	    flashCopyMessage(e.trigger, 'Copied');
+	    e.clearSelection();
+	});
+	clipboard.on('error', function(e) {
+	    flashCopyMessage(e.trigger, 'Failed');
+	});
+});
+</script>
 </body>
 </html>
