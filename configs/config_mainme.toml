@@ -12,6 +12,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   avatar = "img/avatar.png"
 
 [Params]
+  keywords = "pengjielee,个人博客"
   description = "Pengjielee的个人博客" # Description of your site
   opengraph = true
   twitter_cards = false
@@ -20,6 +21,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   pager = true
   post_meta = ["date", "categories"] # Order of post meta information
   mainSections = ["post", "blog", "docs"]
+  dateformat = "2006-01-02"
 
 [Params.logo]
   subtitle = "真正的优秀不是优于别人，而是优于过去的自己。" # Logo subtitle
@@ -55,3 +57,4 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   weight = 40
   identifier = "categories"
   url = "/categories/"
+
