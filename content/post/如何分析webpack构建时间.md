@@ -1,6 +1,6 @@
 ---
 title: "如何分析webpack构建时间"
-url: "post/how-do-speed-up-webpack-builds"
+url: "post/how-do-analyze-webpack-builds-time"
 date: 2021-02-01T15:14:03+08:00
 keywords: "webpack,webpack构建,构建时间"
 description: 'webpack,webpack构建'

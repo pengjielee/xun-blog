@@ -1,6 +1,6 @@
 ---
 title: "如何在React中全屏化页面"
-url: "post/how-to-make-a-full-screen-page"
+url: "post/how-to-make-a-full-screen-page-in-react"
 date: 2021-02-04T15:12:18+08:00
 keywords: "React全屏,React全屏页面,screenfull"
 description: '如何在React中全屏化页面'

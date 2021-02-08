@@ -1,6 +1,6 @@
 ---
-title: "JavaScript保护手机号(中间4位用 * 号替换)"
-url: "javascript-encrypts-the-phone-number"
+title: "JavaScript保护手机号隐私(中间4位用 * 号替换)"
+url: "post/javascript-protects-the-privacy-of-the-phone-number"
 date: 2021-02-08T10:34:27+08:00
 keywords: '加密,手机号,数据脱敏,隐私手机号'
 description: ''
