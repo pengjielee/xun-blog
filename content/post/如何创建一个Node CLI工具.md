@@ -1,10 +1,10 @@
 ---
 title: "如何创建一个Node CLI工具"
-url: "post/"
+url: "post/how-do-create-a-node-cli-tool"
 date: 2020-10-15T17:08:27+08:00
-keywords: ''
+keywords: 'Node CLI,工具'
 description: ''
-tags: []
+tags: ['Tool']
 categories: []
 draft: false
 ---
