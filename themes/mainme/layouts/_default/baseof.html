@@ -32,8 +32,7 @@
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-	{{ $custom := resources.Get "css/custom.css" | resources.ExecuteAsTemplate "css/custom.css" . -}}
-	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
+	
 	{{ range .Site.Params.customCSS -}}
 	<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
@@ -48,6 +47,10 @@
 	{{- end }}
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/monokai-sublime.min.css" integrity="sha512-/l4iViNMhxR5MhSlak3Yw/L/7qUBifVy7MpLjeJTc8BPMRFbGplGN0xqufCDwhSdxSnVgy+e/OYsNnU75K3yyQ==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+
+	{{ $custom := resources.Get "css/custom.css" | resources.ExecuteAsTemplate "css/custom.css" . -}}
+	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -66,6 +69,7 @@
 		</div>
 		{{ partial "footer" . }}
 	</div>
+	<a class="github-fork-ribbon right-top fixed" target="_blank" href="https://github.com/pengjielee" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 <script async defer src="{{ "js/menu.js" | relURL }}"></script>
 {{ range .Site.Params.customJS -}}
 <script src="{{ . | relURL }}"></script>
