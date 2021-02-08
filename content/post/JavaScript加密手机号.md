@@ -11,7 +11,7 @@ draft: false
 
 需求：将手机号码中间4位用 * 号替换，保护隐私。
 
-== 使用正则
+## 使用正则
 
 ```
 const encryptPhoneNumber = (str) => {
@@ -26,7 +26,7 @@ const encryptPhoneNumber = (str) => {
 encryptPhoneNumber('18614023235'); //output: 186****3235
 ```
 
-== 使用substring
+## 使用substring
 
 ```
 const encryptPhoneNumber = (str) => {
@@ -40,7 +40,7 @@ const encryptPhoneNumber = (str) => {
 encryptPhoneNumber('18614023235'); //output: 186****3235
 ```
 
-== 加密身份证号
+## 加密身份证号
 
 ```
 const encryptIDNumber = str => {
