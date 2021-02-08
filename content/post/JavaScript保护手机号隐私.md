@@ -16,14 +16,14 @@ draft: false
 ```
 const encryptPhoneNumber = (str) => {
   if (str) {
-  	str = str.trim();
+    str = str.trim();
     const reg = /(\d{3})\d{4}(\d{3})/;
-    str = str.replace(reg,'$1****$2');
+    str = str.replace(reg, "$1****$2");
   }
   return str;
 };
 
-encryptPhoneNumber('18614023235'); //output: 186****3235
+encryptPhoneNumber("18614023235"); //output: 186****3235
 ```
 
 ## 使用substring
@@ -43,13 +43,15 @@ encryptPhoneNumber('18614023235'); //output: 186****3235
 ## 加密身份证号
 
 ```
-const encryptIDNumber = str => {
-    if (str) {
-        str = str.trim();
-        str = `${str.substring(0, 4)}${'*'.repeat(10)}${str.substring(str.length - 4)}`;
-    }
-    return idno;
+const encryptIDNumber = (str) => {
+  if (str) {
+    str = str.trim();
+    str = `${str.substring(0, 4)}${"*".repeat(10)}${str.substring(
+      str.length - 4
+    )}`;
+  }
+  return idno;
 };
 
-encryptIDNumber('110101199003071137'); //output: 1101**********1137
+encryptIDNumber("110101199003071137"); //output: 1101**********1137
 ```

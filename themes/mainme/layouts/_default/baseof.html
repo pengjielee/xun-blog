@@ -51,6 +51,15 @@
 
 	{{ $custom := resources.Get "css/custom.css" | resources.ExecuteAsTemplate "css/custom.css" . -}}
 	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?79c3446ec25281e7ea9ef943aeea505a";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
 </head>
 <body class="body">
 	<div class="container container--outer">
