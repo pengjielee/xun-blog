@@ -56,6 +56,10 @@ pre>.copy-btn {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  display: none;
+}
+pre:hover .copy-btn{
+	display: block;
 }
 pre>.copy-btn:hover {
 	color: #fff;
@@ -73,10 +77,21 @@ pre>.copy-btn:hover {
 
 @media screen and (max-width: 620px) { 
 	.github-fork-ribbon {
-		top: -10px;
-		right: -15px;
+		display: none;
 	}
-	.github-fork-ribbon.fixed {
-		position: absolute;
+	pre>.copy-btn {
+		display: block;
+		top: 0;
+		right: 0;
+		min-width: unset;
+		line-height: unset;
+		padding: 0 2px;
 	}
+}
+
+.authorbox__avatar {
+	border: none;
+}
+.authorbox__avatar .avatar {
+	border-radius: 50%;
 }
