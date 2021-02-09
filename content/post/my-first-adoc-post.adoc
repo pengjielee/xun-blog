@@ -1,0 +1,114 @@
+---
+title: "My First Adoc Post"
+date: 2021-02-09T10:47:48+08:00
+keywords: ''
+description: ''
+tags: []
+categories: []
+draft: false
+---
+
+
+= Hello, AsciiDoc!
+Doc Writer <doc@example.com>
+
+An introduction to http://asciidoc.org[AsciiDoc].
+
+== h2 title
+=== h3 title
+==== h4 title
+===== h5 title
+====== h6 title
+
+== 无序列表
+
+* item 1
+* item 2
+
+== 有序列表
+
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+
+== 清单
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+
+== 代码
+
+[source,ruby]
+puts "Hello, World!"
+
+== 图片
+
+image::https://static01.imgkr.com/temp/b399f608741e4305930ca18b06fc977e.jpg[Sunset1,50,50]
+
+.百度
+[#img-baidu]
+[caption="你妹的",link=https://baidu.com,target="_blank"]
+image::https://www.baidu.com/img/flexible/logo/pc/result.png[Sunset,100,50]  
+
+== 链接 
+
+http://asciidoctor.org[Asciidoctor]
+
+== 加粗、斜体
+
+_italic phrase_
+
+*bold phrase*
+
+**b**old le**tt**ers
+
+*_bold italic phrase_*
+
+`monospace phrase` and le``tt``ers
+
+^super^script phrase
+
+2^3^ phrase
+
+log~2~4
+
+~sub~script phrase
+
+~sub~script phrase
+
+'`single curved quotes`'
+
+"`double curved quotes`"
+
+== 表格
+
+.Table Title 
+|=== 
+|Column 1, Header Row |Column 2, Header Row 
+
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|===
+
+== 图表
+
+[ditaa]
+----
+              +-------------+
+              | asciidoctor |-----------+
+              |  diagram    |           |
+              +-------------+           | image
+                    ^                   |
+                    | diagram source    |
+                    |                   v
+ +--------+   +-----+-------+    /---------------\
+ |  adoc  |-->+ asciidoctor +    | HTML + image  |
+ +--------+   +-------------+    \---------------/
+----
