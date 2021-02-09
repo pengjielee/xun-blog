@@ -1,11 +1,11 @@
 baseurl = "https://www.pengjielee.cn"
 title = "Pengjielee's blog"
-languageCode = "zh-cn"
 paginate = "10" # Number of posts per page
 theme = "mainme"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 publishDir = '../online/public'
+defaultContentLanguage = "zh-cn"
 
 [Author]
   name = "Pengjielee"
@@ -39,23 +39,24 @@ publishDir = '../online/public'
   tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
 
 [[menu.main]]             # config your menu              # 配置目录
-  name = "Home"
+  name = "首页"
   weight = 10
   identifier = "home"
   url = "/"
 [[menu.main]]
-  name = "Archives"
+  name = "归档"
   weight = 20
   identifier = "archives"
   url = "/post/"
 [[menu.main]]
-  name = "Tags"
+  name = "标签"
   weight = 30
   identifier = "tags"
   url = "/tags/"
 [[menu.main]]
-  name = "Categories"
+  name = "分类"
   weight = 40
   identifier = "categories"
   url = "/categories/"
+
 
