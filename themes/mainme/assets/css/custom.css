@@ -66,3 +66,17 @@ pre>.copy-btn:hover {
 .github-fork-ribbon:before {
 	background-color: #090;
 }
+
+.menu__btn-title {
+	text-align: left;
+}
+
+@media screen and (max-width: 620px) { 
+	.github-fork-ribbon {
+		top: -10px;
+		right: -15px;
+	}
+	.github-fork-ribbon.fixed {
+		position: absolute;
+	}
+}
