@@ -232,16 +232,16 @@ $ tar -czf - dist.tar.bz2 | wc -c
 
 ## Tar Usage and Options
 
-c – create a archive file.
-x – extract a archive file.
-v – show the progress of archive file.
-f – filename of archive file.
-t – viewing content of archive file.
-j – filter archive through bzip2.
-z – filter archive through gzip.
-r – append or update files or directories to existing archive file.
-W – Verify a archive file.
-wildcards – Specify patterns in unix tar command.
+c – create a archive file.  
+x – extract a archive file.  
+v – show the progress of archive file.  
+f – filename of archive file.  
+t – viewing content of archive file.  
+j – filter archive through bzip2.  
+z – filter archive through gzip.  
+r – append or update files or directories to existing archive file.  
+W – Verify a archive file.  
+wildcards – Specify patterns in unix tar command.  
 
 ## Source
 https://www.tecmint.com/18-tar-command-examples-in-linux/
