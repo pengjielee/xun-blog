@@ -75,6 +75,17 @@ pre>.copy-btn:hover {
 	text-align: left;
 }
 
+.authorbox__avatar {
+	border: none;
+}
+.authorbox__avatar .avatar {
+	border-radius: 50%;
+}
+.authorbox {
+	display: flex;
+	align-items: center;
+}
+
 @media screen and (max-width: 620px) { 
 	.github-fork-ribbon {
 		display: none;
@@ -87,11 +98,8 @@ pre>.copy-btn:hover {
 		line-height: unset;
 		padding: 0 2px;
 	}
-}
 
-.authorbox__avatar {
-	border: none;
-}
-.authorbox__avatar .avatar {
-	border-radius: 50%;
+	.authorbox {
+		flex-direction: column;
+	}
 }

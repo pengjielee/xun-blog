@@ -58,5 +58,9 @@ defaultContentLanguage = "zh-cn"
   weight = 40
   identifier = "categories"
   url = "/categories/"
+[[menu.main]]
+  name = "剑指offer"
+  weight = 40
+  url = "/tags/swordoffer"
 
 
