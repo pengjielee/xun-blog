@@ -84,3 +84,25 @@ module.exports = {
 
 - overrides  
 重定义配置
+
+## npm scripts
+
+1、安装
+```
+npm install prettier
+npm install onchange
+```
+
+2、package.json
+```
+{
+  ...
+  "scripts": {
+    "prettier": "prettier --write src/**/*.{js,css}",
+    "prettier:check": "prettier --check src/**/*.{js,css}",
+    "prettier:watch": "onchange 'src/**/*.{js,css}' -- prettier --write {{changed}}",
+    "prettier:html": "prettier --write src/pages/**/*.html"
+  },
+  ...
+}
+```
