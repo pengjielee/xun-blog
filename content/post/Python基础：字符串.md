@@ -1,0 +1,187 @@
+---
+title: "Python基础：字符串"
+url: "post/python-basic-string"
+date: 2021-02-22T16:25:55+08:00
+keywords: ''
+description: ''
+tags: ['Python']
+categories: []
+draft: true
+---
+
+## 创建字符串
+
+使用单引号' ' 或 双引号 " " 来创建字符串
+
+```Python
+str1 = "Jack"
+str2 = 'Jim'
+```
+
+## 字符串操作
+
+1、 字符串索引访问
+
+```Python
+message = 'hello'
+print(message[0])  # Prints out: h
+print(message[1])  # Prints out: e
+print(message[-1]) # Prints out: o
+print(message[-2]) # Prints out: l
+print(message[5]) # IndexError: string index out of range
+```
+
+2、字符串拼接
+
+```Python
+last_name = 'lee'
+first_name = 'pengjie'
+
+full_name = first_name + " " + last_name
+print(full_name) # Prints out: pengjie lee
+```
+
+3、重复输出字符串
+
+```Python
+message = 'hello'
+message = message * 3
+print(message) # Prints out: hellohellohello
+```
+
+4、字符串截取（左闭右开，正序：从0开始索引，倒序：从-1开始索引）
+
+```Python
+message = 'hello world'
+print(message[3:5]) # Prints out: lo
+print(message[3:100]) # Prints out: lo world
+print(message[3:-1]) # Prints out: lo worl
+print(message[3:-2]) # Prints out: lo wor
+print(message[-3:-1]) # Prints out: rl
+```
+
+5、成员运算
+
+```Python
+message = 'hello world'
+print('h' in message) # Prints out: True
+print('z' not in message) # Prints out: True
+```
+
+## 字符串方法
+
+1、返回字符串长度
+```Python
+message = 'hello'
+print(len(message)) # Prints out: 5
+```
+
+2、首字母大写
+```Python
+name = 'li peng jie'
+print(name.capitalize()) # Prints out: Li peng jie
+```
+
+3、返回原字符串的标题版本，其中每个单词第一个字母为大写，其余字母为小写。
+
+```Python
+name = 'li peng jie'
+print(name.title()) # Prints out: Li Peng Jie
+
+#该算法使用一种简单的与语言无关的定义，将连续的字母组合视为单词。 该定义在多数情况下都很有效，但它也意味着代表缩写形式与所有格的撇号也会成为单词边界，这可能导致不希望的结果:
+print("they're bill's friends from the UK".title()) # Prints out: They'Re Bill'S Friends From The Uk
+```
+
+4、均转换为大写
+```Python
+name = 'li peng jie'
+print(name.upper()) # Prints out: LI PENG JIE
+```
+
+5、均转换为小写
+```Python
+name = 'LI PENG JIE'
+print(name.lower()) # Prints out: li peng jie
+```
+
+6、分隔字符串
+```Python
+name = 'li peng jie'
+print(name.split(' ')) # Prints out: ['li', 'peng', 'jie']
+```
+
+7、对字符串进行切片，运算符是[i:j:k]，其中i是开始索引，索引对应的字符可以取到；j是结束索引，索引对应的字符不能取到；k是步长，默认值为1，表示从前向后获取相邻字符的连续切片，所以:k部分可以省略。
+
+```Python
+message = "Hello World"
+print(message.index("o")) # Prints out: 4
+print(message.count("l")) # Prints out: 3
+print(message[3:7]) # Prints out: lo W
+print(message[3:7:2]) # Prints out: l
+print(message[3:7:1]) # Prints out: lo W
+print(message[::-1])  # Prints out: dlroW olleH
+```
+
+8、查找
+```Python
+message = "Hello World"
+print(message.startswith("Hello")) # Prints out: True
+print(message.endswith("asdfasdfasdf")) # Prints out: False
+print(message.find('lo')) # Prints out: 3
+print(message.find('li')) # Prints out: -1
+print(message.index('lo')) # Prints out: 3
+print(message.index('li')) # ValueError: substring not found
+
+# 从索引为4的位置开始查找
+print(message.find('lo',4)) # Prints out: -1
+
+# 逆向查找
+print(message.rfind('r')) # Prints out: 8
+print(message.rindex('r')) # Prints out: 8
+```
+
+9、判断字符串是否是数字
+```Python
+str1 = '123'
+str2 = 'abc'
+str3 = str1 + str2
+print(str1.isdigit()) # Prints out: True
+print(str2.isdigit()) # Prints out: False
+print(str3.isdigit()) # Prints out: False
+```
+
+10、判断字符串是否是字母
+```Python
+str1 = '123'
+str2 = 'abc'
+str3 = str1 + str2
+print(str1.isalpha()) # Prints out: False
+print(str2.isalpha()) # Prints out: True
+print(str3.isalpha()) # Prints out: False
+```
+
+11、判断字符串是否是数字或字母（汉字也是True）
+```Python
+str1 = '123'
+str2 = 'abc'
+str3 = '我'
+str4 = '123_'
+print(str1.isalnum()) # Prints out: True
+print(str2.isalnum()) # Prints out: True
+print(str3.isalnum()) # Prints out: True
+print(str4.isalnum()) # Prints out: False
+```
+
+12、去除字符串空白（包括换行符\n和制表符\t）
+```Python
+str1 = ' hello world '
+print(str1.lstrip()) # Prints out: 'hello world '
+print(str1.rstrip())  # Prints out: ' hello world'
+print(str1.strip()) # Prints out: 'hello world'
+
+str2 = '\t hello world \t\n'
+print(str2.lstrip()) # Prints out: 'hello world \t\n'
+print(str2.rstrip())  # Prints out: '\t hello world'
+print(str2.strip()) # Prints out: 'hello world'
+```
+
