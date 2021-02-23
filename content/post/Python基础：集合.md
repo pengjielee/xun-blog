@@ -1,5 +1,6 @@
 ---
 title: "Python基础：集合"
+url: "post/python-basic-set"
 date: 2021-02-22T16:12:22+08:00
 keywords: ''
 description: ''
@@ -7,3 +8,203 @@ tags: ['Python']
 categories: []
 draft: true
 ---
+
+## 集合特性
+
+集合（set）是一个无序的不重复元素序列。
+
+1. 确定性。
+2. 互异性。
+3. 无序性。
+
+## 创建集合
+
+1、使用大括号 {} 创建
+```Python
+colors = { 'red', 'green', 'blue' }
+print(colors) # Prints out: {'green', 'red', 'blue'} 
+
+numbers = { 1, 2, 3, 3, 4 }
+print(numbers) # Prints out: {1, 2, 3, 4}
+```
+
+2、使用 set() 函数创建
+```Python
+colors = set(('red', 'green', 'blue'))
+print(colors) # Prints out: {'green', 'red', 'blue'}
+
+numbers = set([1,2,3,3,4])
+print(numbers) # Prints out: {1, 2, 3, 4}
+
+words = set('python')
+print(words) # Prints out: {'p', 'y', 't', 'h', 'n', 'o'}
+```
+
+注意：创建一个空集合必须用 set() 而不是 {}，因为 {} 是用来创建一个空字典。
+
+## 集合方法
+
+1、添加元素
+```Python
+numbers = set()
+print(numbers) # Prints out: set()
+
+# 添加元素3
+numbers.add(3)
+print(numbers) # Prints out: {3}
+
+# 添加元素4
+numbers.add(4)
+print(numbers) # Prints out: {3, 4}
+```
+
+2、删除元素
+
+- discard()方法
+```Python
+numbers = set((3,4))
+
+# discard方法删除指定元素
+numbers.discard(3)
+print(numbers) # Prints out: {4}
+
+# discard方法删除不存在元素
+numbers.discard(5)
+print(numbers) # Prints out: {4}
+```
+
+- remove()方法
+```Python
+numbers = set((3,4))
+
+# remove方法删除指定元素
+numbers.remove(3)
+print(numbers) # Prints out: {4}
+
+# remove方法删除不存在的元素，报错KeyError
+numbers.remove(5)
+print(numbers) # Prints out: {4}
+```
+
+- pop()方法
+```Python
+numbers = set((3,4))
+
+# 随机移除元素
+number = numbers.pop()
+print(number)
+
+number = numbers.pop()
+print(number)
+
+number = numbers.pop()
+print(number) # KeyError: 'pop from an empty set'
+```
+
+3、集合元素个数
+
+```Python
+numbers = set((3,4))
+
+print(len(numbres)) # Prints out: 2
+```
+
+4、清空集合
+
+```Python
+numbers = set((3,4))
+
+# 清空集合
+numbers.clear()
+print(numbers) # Prints out: set()
+```
+
+5、判断元素是否在集合中存在
+
+```Python
+numbers = set((3,4))
+
+print(3 in numbers) # Prints out: True
+print(5 in numbers) # Prints out: False
+```
+
+6、返回集合交集
+
+- intersection() 方法是返回一个新的集合
+```Python
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set3 = set1.intersection(set2)
+print(set1) # Prints out: {1, 2, 3}
+print(set3) # Prints out: {2}
+```
+
+- intersection_update() 方法是在原始的集合上移除不重叠的元素。
+```Python
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set1.intersection_update(set2)
+print(set1) # Prints out: {2}
+```
+
+7、返回集合并集
+```Python
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set3 = set1.union(set2)
+print(set3) # Prints out: {1, 2, 3, 4, 6}
+```
+
+8、返回集合差集
+
+- difference() 方法返回一个移除相同元素的新集合
+```Python
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set3 = set1.difference(set2)
+print(set3) # Prints out: {1, 3}
+
+set4 = set2.difference(set1)
+print(set4) # Prints out: {4, 6}
+```
+
+- difference_update() 方法是直接在原来的集合中移除元素，没有返回值。
+```Python
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set1.difference_update(set2)
+print(set1) # Prints out: {1, 3}
+
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set2.difference_update(set1)
+print(set2) # Prints out: {4, 6}
+```
+
+9、对称差
+
+```Python
+# symmetric_difference() 方法返回两个集合中不重复的元素集合，即会移除两个集合中都存在的元素。
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set3 = set1.symmetric_difference(set2)
+print(set3) # Prints out: {1, 3, 4, 6}
+
+# symmetric_difference_update() 方法移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。
+set1 = set((1,2,3))
+set2 = set((2,4,6))
+
+set1.symmetric_difference_update(set2)
+print(set1) # Prints out: {1, 3, 4, 6}
+```
+
+## More
+
+https://www.runoob.com/python3/python3-set.html

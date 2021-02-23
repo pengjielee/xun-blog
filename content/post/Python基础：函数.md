@@ -1,5 +1,6 @@
 ---
 title: "Python基础：函数"
+url: "post/python-basic-function"
 date: 2021-02-22T16:12:30+08:00
 keywords: ''
 description: ''
@@ -7,3 +8,339 @@ tags: ['Python']
 categories: []
 draft: true
 ---
+
+## 定义函数
+
+```
+# 定义函数
+def hello():
+  print('hello world!')
+
+# 调用函数
+hello()  # Prints out: hello world!
+```
+
+## 参数传递
+
+1、设置参数
+```
+def hello(name):
+    print('hello %s' % name)
+
+temp = hello('jack') # Prints out: hello jack
+print(temp)    # Prints out: None
+
+def sum(a,b):
+    return a + b
+
+sum(1,2) # Prints out: 3
+```
+
+2、参数默认值
+
+```
+def hello(name='jack'):
+    print('hello %s' % name)
+
+hello()     # Prints out: hello jack
+hello('jim') # Prints out: hello jim
+
+def sum(a,b=2):
+    return a + b
+
+sum(1) # Prints out: 3
+sum(2) # Prints out: 4
+
+
+# 注意：带默认值的参数必须放在不带默认值的参数之后
+def sum(a=1,b): # SyntaxError: non-default argument follows default argument
+    return a + b
+```
+
+2、可变参数
+
+通过星号表达式语法来支持可变参数。所谓可变参数指的是在调用函数时，可以向函数传入0个或任意多个参数。
+
+```
+# 对任意多个数求和
+def sum(*args):
+    result = 0
+    for value in args:
+      result += value
+    return result
+
+sum(1)       # Prints out: 1
+sum(1,2)     # Prints out: 3
+sum(1,2,3)   # Prints out: 6
+sum(1,2,3,4) # Prints out: 10
+```
+
+3、关键字参数
+
+在没有特殊处理的情况下，函数的参数都是位置参数。
+
+也可以通过参数名=参数值的方式传入函数所需的参数，因为指定了参数名，传入参数的顺序可以进行调整。
+
+调用函数时，如果希望函数的调用者必须以参数名=参数值的方式传参，可以用命名关键字参数取代位置参数。所谓命名关键字参数，是在函数的参数列表中，写在 * 之后的参数。
+
+```
+def sum(*,a,b,c):
+    return a + b + c
+
+sum(a=1,b=2,c=3)  # Prints out: 6
+sum(b=2,a=1,c=3)  # Prints out: 6
+sum(c=3,b=2,a=1)  # Prints out: 6
+
+def sum(*args):
+    result = 0
+    for value in args:
+      result += value
+    return result
+
+sum(a=1,b=2,c=3) # TypeError: sum() got an unexpected keyword argument 'a'
+
+# 同时使用可变参数和关键字参数
+def sum(*args,**kwargs): 
+    result = 0
+    for value in args: 
+        result += value
+    for value in kwargs.values(): 
+        result += value
+    return result
+
+print(sum())                # Prints out: 0
+print(sum(1,2,3))           # Prints out: 6
+print(sum(a=1,b=2,c=3))     # Prints out: 6
+print(sum(4,5,a=1,b=2,c=3)) # Prints out: 15
+
+# 注意：不带参数名的参数（位置参数）必须出现在带参数名的参数（关键字参数）之前，否则将会引发异常。
+print(sum(a=1,b=2,c=3,4,5)) # SyntaxError: positional argument follows keyword argument
+```
+
+## 匿名函数
+
+demo1:
+```
+sum = lambda a, b: a + b
+sum(1,2) # Prints out: 3
+```
+
+demo2:
+```
+numbers1 = [35, 12, 8, 99, 60, 52]
+numbers2 = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numbers1)))
+print(numbers2)    # Prints out: [144, 64, 3600, 2704]
+```
+
+demo3:
+```
+def calc(*args, init_value=0, op=lambda x, y: x + y, **kwargs):
+    result = init_value
+    for arg in args:
+        result = op(result, arg)
+    for value in kwargs.values():
+        result = op(result, value)
+    return result
+
+# 调用calc函数，使用init_value和op的默认值
+print(calc(1, 2, 3, x=4, y=5))    #  Prints out: 15
+# 调用calc函数，通过lambda函数给op参数赋值
+print(calc(1, 2, 3, x=4, y=5, init_value=1, op=lambda x, y: x * y))    #  Prints out: 120
+```
+
+demo4:
+```
+import operator, functools
+
+# 一行代码定义求阶乘的函数
+fac = lambda num: functools.reduce(operator.mul, range(1, num + 1), 1)
+# 一行代码定义判断素数的函数
+is_prime = lambda x: x > 1 and all(map(lambda f: x % f, range(2, int(x ** 0.5) + 1)))
+
+# 调用Lambda函数
+print(fac(10))        # 3628800
+print(is_prime(9))    # False
+```
+
+## 高阶函数
+
+函数本身也可以作为函数的参数或返回值，这就是所谓的高阶函数。
+
+```
+def calc(*args, init_value, op, **kwargs):
+    result = init_value
+    for arg in args:
+        result = op(result, arg)
+    for value in kwargs.values():
+        result = op(result, value)
+    return result
+
+def add(x, y):
+    return x + y
+
+def mul(x, y):
+    return x * y
+
+print(calc(1, 2, 3, init_value=0, op=add, x=4, y=5))      # Prints out: 15
+print(calc(1, 2, x=3, y=4, z=5, init_value=1, op=mul))    # Prints out: 120
+```
+
+使用内置函数实现
+```
+import operator
+
+print(calc(1, 2, 3, init_value=0, op=operator.add, x=4, y=5))      # Prints out: 15
+print(calc(1, 2, init_value=1, op=operator.mul, x=3, y=4, z=5))    # Prints out: 120
+```
+
+## 装饰器
+
+需求：统计文件的上传时间。
+
+version1:
+```
+import random
+import time
+
+def upload(filename):
+    print(f'开始上传：{filename}.')
+    time.sleep(random.randint(4, 8))
+    print(f'{filename}，上传完成.')
+
+upload('test.pdf')
+```
+
+version2:
+```
+# 记录开始时间和结束时间
+start = time.time()
+upload('test.pdf')
+end = time.time()
+print(f'花费时间: {end - start:.3f}秒')
+```
+
+version3:
+```
+# 定义装饰器函数
+def record_time(func):
+    def wrapper(*args, **kwargs):
+        # 在执行被装饰的函数之前记录开始时间
+        start = time.time()
+        # 执行被装饰的函数并获取返回值
+        result = func(*args, **kwargs)
+        # 在执行被装饰的函数之后记录结束时间
+        end = time.time()
+        # 计算和显示被装饰函数的执行时间
+        print(f'{func.__name__}执行时间: {end - start:.3f}秒')
+        # 返回被装饰函数的返回值（装饰器通常不会改变被装饰函数的执行结果）
+        return result
+    return wrapper
+
+upload = record_time(upload)
+upload('test.pdf')
+```
+
+version4:
+```
+@record_time
+def upload(filename):
+    print(f'开始上传：{filename}.')
+    time.sleep(random.randint(4, 8))
+    print(f'{filename}，上传完成.')
+
+upload('test.pdf')
+```
+
+version5:
+```
+from functools import wraps
+
+def record_time(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f'{func.__name__}执行时间: {end - start:.3f}秒')
+        return result
+
+    return wrapper
+
+upload = record_time(upload)
+upload('test.pdf')
+
+# 取消装饰器
+upload = upload.__wrapped__
+upload('test.pdf')
+```
+
+version6:
+```
+class RecordTime:
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            start = time.time()
+            result = func(*args, **kwargs)
+            end = time.time()
+            print(f'{func.__name__}执行时间: {end - start:.3f}秒')
+            return result
+        return wrapper
+        
+# 使用装饰器语法糖添加装饰器
+@RecordTime()
+def upload(filename):
+    print(f'开始上传{filename}.')
+    time.sleep(random.randint(4, 8))
+    print(f'{filename}上传完成.')
+
+# 直接创建对象并调用对象传入被装饰的函数
+upload = RecordTime()(upload)
+```
+
+## 模块中的函数
+
+1、module.py
+```
+def hello():
+    print('Hello World.')
+
+def hello():
+    print('Hello Python.')
+
+hello() # Prints out: Hello Python.
+```
+
+2、module1.py
+```
+def say(name):
+   print("Hello %s" % name)
+   return
+```
+
+3、module2.py
+```
+def say(name):
+   print("Hello, %s" % name)
+   return
+```
+
+4、module3.py
+
+```
+import module1
+import module2
+
+module1.say('jim')
+module2.say('jim')
+```
+
+or
+```
+from module1 import say as say1
+from module2 import say as say2
+
+say1('jim')
+say2('jim')
+```
+

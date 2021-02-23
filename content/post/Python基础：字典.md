@@ -1,5 +1,6 @@
 ---
 title: "Python基础：字典"
+url: "post/python-basic-dict"
 date: 2021-02-22T16:12:18+08:00
 keywords: ''
 description: ''
@@ -7,3 +8,92 @@ tags: ['Python']
 categories: []
 draft: true
 ---
+
+## 创建字典
+
+1、使用{}字面量
+```Python
+person = { 'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing' }
+print(person) # Prints out: {'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing'}
+```
+
+2、使用内置函数dict
+```Python
+person = dict(id=1, name='peng', age=20, address='Beijing')
+print(person) # Prints out: {'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing'}
+```
+
+3、用字典生成式语法创建字典
+```Python
+items3 = {x: x ** 3 for x in range(1, 6)}
+print(items3)     # {1: 1, 2: 8, 3: 27, 4: 64, 5: 125}
+```
+
+## 访问字典的值
+
+```Python
+person = { 'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing' }
+print(person['id']) # Prints out: 1
+print(person['hobby']) # KeyError: 'hobby'
+
+# 使用get方法
+print(person.get('id')) # Prints out: 1
+print(person.get('hobby')) # Prints out: None
+
+# 获取所有键
+print(person.keys()) # Prints out: dict_keys(['id', 'name', 'age', 'address'])
+
+# 获取所有值 
+print(person.values()) # Prints out: dict_values([1, 'peng', 20, 'Beijing'])
+
+# 获取所有键值对
+print(person.items()) # Prints out: dict_items([('id', 1), ('name', 'peng'), ('age', 20), ('address', 'Beijing')])
+```
+
+## 修改字典
+
+```Python
+person = { 'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing' }
+print(person['id']) # Prints out: 1
+
+person['id'] = 2
+print(person['id']) # Prints out: 2
+```
+
+## 删除字典元素
+
+```Python
+person = { 'id': 1, 'name': 'peng', 'age': 20, 'address': 'Beijing' }
+print(person['id']) # Prints out: 1
+
+# 删除字典元素
+del person['id']
+print(person) # Pritns out: {'name': 'peng', 'age': 20, 'address': 'Beijing'}
+
+# 清空字典
+person.clear()
+print(person) # Prints out: {}
+
+# 删除字典
+del person
+print(person) # NameError: name 'person' is not defined
+```
+
+## 字典健的特性
+
+1、不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会覆盖前一个。  
+2、键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行。
+
+## 字典应用
+
+输入一段话，统计每个英文字母出现的次数。
+
+```Python
+sentence = input('请输入一段话: ')
+counter = {}
+for ch in sentence:
+    if 'A' <= ch <= 'Z' or 'a' <= ch <= 'z':
+        counter[ch] = counter.get(ch, 0) + 1
+for key, value in counter.items():
+    print(f'字母{key}出现了{value}次.')
+```

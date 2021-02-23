@@ -1,5 +1,6 @@
 ---
-title: "Python基础：文件操作"
+title: "Python基础：文件读写"
+url: "post/python-basic-reading-and-writing-file"
 date: 2021-02-22T16:12:39+08:00
 keywords: ''
 description: ''
@@ -7,3 +8,65 @@ tags: ['Python']
 categories: []
 draft: true
 ---
+
+## 准备工作
+
+1、文件结构
+
+```
+python_work（目录）
+-- hello.txt
+-- read_all.py
+-- read_by_line.py
+-- write_file.py
+-- append_file.py
+```
+
+2、创建hello.txt，内容如下：
+
+```
+hello world
+hello tomorrow
+hello time
+hello myself
+```
+
+## 读取整个文件
+
+创建read_all.py，内容如下：
+
+```
+with open('hello.txt') as file_reader:
+  content = file_reader.read()
+  print(content)
+```
+
+## 逐行读取文件
+
+创建read_by_line.py，内容如下：
+
+```
+with open('hello.txt') as file_reader:
+  for line in file_reader:
+    print(line.strip())
+```
+
+## 写入空文件
+
+创建write_file.py，内容如下：
+
+```
+# newfile.txt不存在，会创建；如果存在，会重新写入内容（覆盖原来内容）
+with open('newfile.txt', 'w') as file_writer:
+  file_writer.write('Hello World.')
+```
+
+## 追加写入文件
+
+创建append_file.py，内容如下：
+
+```
+# appendfile.txt不存在，会创建；如果存在，会追加写入内容（不会覆盖原来内容）
+with open('appendfile.txt', 'a') as file_writer:
+  file_writer.write('Hello World.')
+```

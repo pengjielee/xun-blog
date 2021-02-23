@@ -1,0 +1,147 @@
+---
+title: "Python基础：元组"
+url: "post/python-baisc-tuple"
+date: 2021-02-22T16:12:34+08:00
+keywords: ''
+description: ''
+tags: ['Python']
+categories: []
+draft: true
+---
+
+
+## 创建元组
+
+```
+# 定义空元组
+t1 = ()
+print(t1) # Prints out: ()
+print(type(t1)) # Prints out: <class 'tuple'>
+
+# 定义一元组
+t2 = (2,)
+print(t2) # Prints out: (2,)
+print(type(t2)) # Prints out: <class 'tuple'>
+
+
+# 定义三元组
+t3 = (30, 10, 55)
+print(t3) # Prints out: (30, 10, 55)
+print(type(t3)) # Prints out: <class 'tuple'>
+```
+
+## 访问元组
+
+```Python
+t1 = (1,3,5,7,9)
+print(t1[0]) # Prints out: 1
+print(t1[5]) # IndexError: tuple index out of range
+print(t1[1:3]) # Prints out: (3, 5)
+print(t1[-2]) # Prints out: 7
+
+```
+
+## 修改元组
+
+```Python
+t1 = (1,3,5,7,9)
+t1[0] = 2 # TypeError: 'tuple' object does not support item assignment
+
+t2 = (2,4)
+
+t3 = t1 + t2
+print(t3) # Prints out: (1, 3, 5, 7, 9, 2, 4)
+```
+
+## 删除元组
+
+```Python
+t1 = (1,3,5,7,9)
+print(t1) # Prints out: (1, 3, 5, 7, 9)
+ 
+del t1
+print(t1) # NameError: name 't1' is not defined
+```
+
+## 元组运算
+
+```Python
+
+# 计算元素个数
+t1 = (1,3,5,7,9)
+print(len(t1)) # Prints out: 5
+
+# 连接
+t1 = (1,3,5,7,9)
+t2 = (2,4)
+print(t1 + t2) # Prints out: (1, 3, 5, 7, 9, 2, 4)
+
+# 复制
+t1 = (2,4)
+print(t1 * 3) # Prints out: (2, 4, 2, 4, 2, 4)
+
+# 元素是否存在
+t1 = (2,4)
+print(2 in t1) # Prints out: True
+
+# 遍历
+t1 = (2,4)
+for x in t1:
+  print(x)
+
+# 截取元素
+t1 = (1,3,5,7,9) 
+print(t1[1:]) # Prints out: (3, 5, 7, 9)
+```
+
+## 元组与列表
+
+Python的元组与列表类似，不同之处在于元组的元素不能修改。
+
+元组使用小括号，列表使用方括号。
+
+```Python
+# 元组转为列表
+t1 = (1,3,5,7,9)
+print(list(t1)) # Prints out: [1, 3, 5, 7, 9]
+
+# 列表转为元组
+list = [1,3,5,7,9]
+print(tuple(list)) # Prints out: (1,3,5,7,9)
+```
+
+## 元组应用
+
+1、打包和解包操作。
+
+当我们把多个用逗号分隔的值赋给一个变量时，多个值会打包成一个元组类型；
+当我们把一个元组赋值给多个变量时，元组会解包成多个值然后分别赋给对应的变量
+
+```Python
+# 打包
+a = 1, 10, 100
+print(type(a), a)    # <class 'tuple'> (1, 10, 100)
+
+# 解包
+i, j, k = a
+print(i, j, k)       # 1 10 100
+```
+
+2、交换两个变量的值。
+
+```Python
+# 交换两个变量的值
+a, b = b, a
+
+# 交换三个变量的值
+a, b, c = b, c, a
+```
+
+3、让函数返回多个值。
+
+```Python
+def hello():
+  name = "jim"
+  age = 20
+  return name, age
+```

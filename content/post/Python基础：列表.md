@@ -1,5 +1,6 @@
 ---
 title: "Python基础：列表"
+url: "post/python-basic-list"
 date: 2021-02-22T16:11:59+08:00
 keywords: ''
 description: ''
@@ -7,3 +8,118 @@ tags: ['Python']
 categories: []
 draft: true
 ---
+
+## 创建列表
+
+1、使用[]字面量
+
+```
+numbers = [1,3,5,7,9,10]
+print(numbers) # Prints out: [1, 3, 5, 7, 9, 10]
+```
+
+2、使用list()函数创建
+
+```
+numbrers = list((1,3,5,7,9,10))
+print(numbers) # Prints out: [1, 3, 5, 7, 9, 10]
+
+str = list('python')
+print(str) # Prints out: ['p', 'y', 't', 'h', 'o', 'n']
+```
+
+## 访问列表
+
+```
+list1 = ['red','green','blue']
+list2 = [1,3,5,7,9]
+
+print(list1[0]) # Prints out: red
+print(list2[1:5]) # Prints out: [3, 5, 7, 9]
+```
+
+## 更新列表
+
+```
+list1 = ['red','green','blue']
+print(list1[0]) # Prints out: red
+list1[0] = 'black'
+print(list1[0]) # Prints out: black
+```
+
+## 遍历列表
+
+```
+list1 = ['red','green','blue']
+
+# Prints out: red green blue
+for item in list1:
+  print(item)
+
+# Prints out: red green blue
+for index in range(len(list1)):
+  print(list1[index])
+```
+
+## 列表方法
+
+```
+list1 = [1,2,3,4]
+
+# 在尾部添加元素
+list1.append(5) 
+print(list1) # Prints out: [1, 2, 3, 4, 5]
+
+# 在指定位置插入元素
+list1.insert(0,6)
+print(list1) # Prints out: [6, 1, 2, 3, 4, 5]
+
+# 删除指定元素
+list1.remove(6)
+print(list1) # Prints out: [1, 2, 3, 4, 5]
+
+# 删除不存在元素
+list1.remove(7) #ValueError: list.remove(x): x not in list
+
+# 删除指定索引位置的元素
+list1.pop(0) # Prints out: 1
+print(list1) # Prints out: [2, 3, 4, 5]
+
+# 删除超出索引位置的无素
+list1.pop(100) # IndexError: pop index out of range
+
+# del方法
+del list1[0]
+print(list1) # Prints out: [3, 4, 5]
+
+# 列表排序
+list1 = [1,3,5,8,2]
+list1.sort() 
+print(list1) # Prints out: [1, 2, 3, 5, 8]
+
+# 列表反转
+list1 = [1,3,5,8,2]
+list1.reverse() 
+print(list1) # Prints out: [2, 8, 5, 3, 1]
+
+# 元素索引
+list1 = [1,3,5,8,2]
+list1.index(3) # Prints out: 1
+list1.index(3,1) # Prints out: 1
+list1.index(3,2) # ValueError: 3 is not in list
+
+# 元素出现次数
+list1 = [1,3,5,8,2]
+list1.count(1) # Prints out: 1
+list1.count(9) # Prints out: 0
+
+# 列表长度
+list1 = [1,3,5,8,2]
+print(len(list1)) # Prints out: 5
+
+# 清空列表
+list1.clear()
+print(list1) # Prints out: []
+```
+
+
