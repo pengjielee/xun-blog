@@ -60,7 +60,11 @@ defaultContentLanguage = "zh-cn"
   url = "/categories/"
 [[menu.main]]
   name = "剑指offer"
-  weight = 40
+  weight = 50
   url = "/tags/swordoffer"
+[[menu.main]]
+  name = "Python基础"
+  weight = 60
+  url = "/tags/python"
 
 
