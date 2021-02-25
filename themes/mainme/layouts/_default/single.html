@@ -11,7 +11,7 @@
 			{{- end }}
 		</header>
 		{{- if .Params.thumbnail }}
-		<figure class="post__thumbnail">
+		<figure class="post__thumbnail" style="display: none">
 			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
 		</figure>
 		{{- end }}
