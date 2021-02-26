@@ -1,16 +1,9 @@
 {{ define "main" }}
 <main class="main list" role="main">
-	{{ $title := .Title -}}
-	{{ if eq $title "swordoffer" -}}
-		<header class="main__header">
-			<h1 class="main__title">剑指Offer</h1>
-		</header>
-	{{- else -}}
-		{{- with .Title }}
-		<header class="main__header">
-			<h1 class="main__title">{{ . }}</h1>
-		</header>
-		{{- end }}
+	{{- with .Title }}
+	<header class="main__header">
+		<h1 class="main__title">{{ . }}</h1>
+	</header>
 	{{- end }}
 	{{- with .Content }}
 	<div class="content main__content clearfix">

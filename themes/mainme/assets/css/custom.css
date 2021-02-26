@@ -102,4 +102,71 @@ pre>.copy-btn:hover {
 	.authorbox {
 		flex-direction: column;
 	}
+
+	.list__header {
+		overflow: hidden;
+	}
+
+	.list__thumbnail {
+	  max-width: 140px;
+	  margin-right: 10px;
+	}
+}
+
+.imageblock {
+	margin-bottom: 20px;
+}
+
+html[theme="dark-mode"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[theme="dark-mode"] img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html {
+  transition: color 300ms;
+  background-color 300ms;
+}
+
+.logo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo .toggle-theme {
+	height: 30px;
+	width: 100px;
+}
+
+
+
+.terms .terms-title {
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.terms .terms-tags {
+	padding: 0 50px 50px;
+}
+.terms .terms-tags .terms-link {
+    display: inline-block;
+    position: relative;
+    margin: 5px 10px;
+    word-wrap: break-word;
+    transition-duration: .2s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+    font-size: 18px;
+}
+
+.terms .terms-tags .terms-link .terms-count {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    right: -2px;
+    color: #c05b4d;
+    font-size: 12px;
 }

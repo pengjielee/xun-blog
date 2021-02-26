@@ -62,6 +62,7 @@
 	</script>
 </head>
 <body class="body">
+	{{ $name := .Data.Plural -}}
 	<div class="container container--outer">
 		{{ partial "header" . }}
 		<div class="wrapper flex">
@@ -74,7 +75,12 @@
 				{{ end }}
 			{{ end }}
 			</div>
-			{{ partial "sidebar.html" . }}
+			{{ if eq $name "tags" -}}
+				
+			{{ else }}
+				{{ partial "sidebar.html" . }}
+			{{- end }}
+
 		</div>
 		{{ partial "footer" . }}
 	</div>
@@ -88,6 +94,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous"></script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 <script async defer src="{{ "js/cursor-effects.js" | relURL }}"></script>
+<script async defer src="{{ "js/toggle-theme.js" | relURL }}"></script>
 <script type="text/javascript">
 	function flashCopyMessage(el, msg) {
   el.textContent = msg;
