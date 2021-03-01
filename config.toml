@@ -59,12 +59,9 @@ defaultContentLanguage = "zh-cn"
   identifier = "categories"
   url = "/categories/"
 [[menu.main]]
-  name = "剑指offer"
+  name = "系列"
+  identifier = "series"
   weight = 50
-  url = "/categories/swordoffer"
-[[menu.main]]
-  name = "Python系列"
-  weight = 60
-  url = "/tags/python"
+  url = "/series"
 
 
