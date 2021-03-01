@@ -1,6 +1,7 @@
 ---
 title: "使用Asciidoctor写文章"
 url: "post/write-articles-using-asciidoctor"
+thumbnail: "https://i.loli.net/2021/03/01/wfBVEC6aoDWRZYH.jpg"
 date: 2021-02-26T13:42:01+08:00
 keywords: ''
 description: ''

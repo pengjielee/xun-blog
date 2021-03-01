@@ -1,5 +1,6 @@
 ---
 title: "Weekly-20210226"
+thumbnail: "https://i.loli.net/2021/03/01/DMdXaw8p4bWuEhV.jpg"
 date: 2021-02-26T09:21:13+08:00
 keywords: ''
 description: ''
