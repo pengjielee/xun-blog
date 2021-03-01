@@ -63,5 +63,9 @@ defaultContentLanguage = "zh-cn"
   identifier = "series"
   weight = 50
   url = "/series"
+[[menu.main]]
+  name = "网址导航"
+  weight = 60
+  url = "/abc"
 
 
