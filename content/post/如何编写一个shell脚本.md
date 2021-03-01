@@ -1,6 +1,7 @@
 ---
 title: "如何编写一个shell脚本"
 url: "post/how-do-i-write-a-shell-script"
+thumbnail : "https://i.loli.net/2021/03/01/qNIXpEZPMHWku2S.jpg"
 date: 2021-02-26T11:17:08+08:00
 keywords: 'Shell脚本'
 description: ''

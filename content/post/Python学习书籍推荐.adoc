@@ -1,6 +1,7 @@
 ---
 title: "Python学习书籍推荐"
 url: "post/python-learning-book-recommendations"
+thumbnail: "https://i.loli.net/2021/03/01/94tuR3YpnI26gwZ.jpg"
 date: 2021-02-26T11:54:37+08:00
 keywords: 'Python学习,Python书籍,Python编程,Python入门,Python核心编程'
 description: ''
