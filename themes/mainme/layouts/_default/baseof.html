@@ -94,7 +94,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous"></script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 <script async defer src="{{ "js/cursor-effects.js" | relURL }}"></script>
-<script async defer src="{{ "js/toggle-theme.js" | relURL }}"></script>
 <script type="text/javascript">
 	function flashCopyMessage(el, msg) {
   el.textContent = msg;
@@ -122,6 +121,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	});
 	clipboard.on('error', function(e) {
 	    flashCopyMessage(e.trigger, 'Failed');
+	});
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+	var html = document.querySelector('html');
+	var toggle = document.querySelector('#toggle');
+
+	if (localStorage.getItem('theme') === 'dark-mode') {
+	  html.setAttribute('theme','dark-mode');
+	}
+
+	toggle.addEventListener('click',() => {
+		var theme = html.getAttribute('theme') || '';
+		if(theme && theme === 'dark-mode') {
+			html.setAttribute('theme','');
+		} else {
+			html.setAttribute('theme','dark-mode');
+		}
+		localStorage.setItem('theme', html.getAttribute('theme'));
 	});
 });
 </script>
