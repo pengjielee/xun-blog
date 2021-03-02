@@ -154,6 +154,20 @@ html {
   font-size: 12px;
 }
 
+.post__header {
+  overflow: hidden;
+  display: flex;
+}
+.post__header .post__thumbnail {
+  flex: 0 1 200px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  font-size: 0;
+}
+.post__header .post__header_right {
+  padding-top: 10px;
+}
+
 @media screen and (max-width: 620px) { 
 	.github-fork-ribbon {
 		display: none;
