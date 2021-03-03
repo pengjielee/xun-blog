@@ -115,7 +115,6 @@ html {
 
 .toggle-theme {
 	width: 100px;
-	height: 35px;
 	line-height: 35px;
 	text-align: center;
 	border: 1px solid #ddd;
@@ -204,4 +203,8 @@ html {
 	.terms .terms-tags {
 		padding: 0 20px 50px;
 	}
+
+  .post__header {
+    flex-direction: column;
+  }
 }
