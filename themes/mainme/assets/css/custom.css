@@ -166,6 +166,9 @@ html {
 .post__header .post__header_right {
   padding-top: 10px;
 }
+dl.archive-list {
+  margin-left: 0;
+}
 
 @media screen and (max-width: 620px) { 
 	.github-fork-ribbon {

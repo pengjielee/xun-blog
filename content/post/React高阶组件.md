@@ -1,6 +1,7 @@
 ---
 title: "React高阶组件"
 url: "post/the-react-higher-order-component"
+thumbnail: "https://i.loli.net/2021/03/01/cozq9wCtlRYLUb2.jpg"
 date: 2020-11-11T10:34:27+08:00
 keywords: '高级组件,React'
 description: ''

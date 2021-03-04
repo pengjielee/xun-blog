@@ -41,10 +41,10 @@ $ npm install -D webpack webpack-cli webpack-dev-serve
 
 ```javascript
 hello-world
-  dist/
-    /index.html
+  /dist
+    index.html
   /src
-    /index.js
+    index.js
   package.json
   webpack.config.js
 ```
@@ -123,12 +123,10 @@ module.exports = {
 
 ```json
 {
-  ...
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack"
   },
-  ...
 }
 ```
 

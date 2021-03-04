@@ -1,6 +1,7 @@
 ---
 title: "React中使用TypeScript"
 url: "post/use-typescript-in-react"
+thumbnail: "https://i.loli.net/2021/03/01/ajSIkp5bDs8EYv9.jpg"
 date: 2020-11-11T10:34:27+08:00
 keywords: 'React,TypeScript'
 description: ''
