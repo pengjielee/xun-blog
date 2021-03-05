@@ -78,10 +78,14 @@
 			{{ end }}
 			</div>
 			{{ if eq $name "tags" -}}
-				
-			{{ else }}
-				{{ partial "sidebar.html" . }}
+			{{ else }} 
 			{{- end }}
+
+			{{ if hasPrefix .File.Path "post/weekly" -}}
+			{{ else }}
+			{{- end }}
+
+			{{ partial "sidebar.html" . }}
 
 		</div>
 		{{ partial "footer" . }}
