@@ -64,6 +64,7 @@
 	</script>
 </head>
 <body class="body">
+	<iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=&f=&ltf=009944&htf=cc0000&q=1&e=1&a=1&c=54511&w=180&h=36&align=center"></iframe>
 	{{ $name := .Data.Plural -}}
 	<div class="container container--outer">
 		{{ partial "header" . }}
@@ -77,16 +78,7 @@
 				{{ end }}
 			{{ end }}
 			</div>
-			{{ if eq $name "tags" -}}
-			{{ else }} 
-			{{- end }}
-
-			{{ if hasPrefix .File.Path "post/weekly" -}}
-			{{ else }}
-			{{- end }}
-
 			{{ partial "sidebar.html" . }}
-
 		</div>
 		{{ partial "footer" . }}
 	</div>
