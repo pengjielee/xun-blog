@@ -66,6 +66,6 @@ defaultContentLanguage = "zh-cn"
 [[menu.main]]
   name = "网址导航"
   weight = 60
-  url = "/abc"
+  url = "/123"
 
 

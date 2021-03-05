@@ -164,7 +164,8 @@ html {
   font-size: 0;
 }
 .post__header .post__header_right {
-  padding-top: 10px;
+  /*padding-top: 10px;*/
+  flex: 0 1 100%;
 }
 dl.archive-list {
   margin-left: 0;
