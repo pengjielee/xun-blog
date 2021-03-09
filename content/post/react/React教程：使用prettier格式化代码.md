@@ -80,6 +80,8 @@ prettier --check，用于检查哪些文件需要格式化；
 prettier --write，用于格式化代码；
 
 
+项目源码见（切换 tag 至 prettier）git checkout prettier： https://github.com/pengjielee/reactapp/tree/main/hello-world
+
 ## More 
 
 Prettier官网  

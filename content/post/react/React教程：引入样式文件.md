@@ -69,6 +69,9 @@ ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));
 
 ![20210304110019.jpg](https://i.loli.net/2021/03/04/imn2pFZt7EBJDe4.jpg)
 
+
+项目源码见（切换 tag 至 css-loader）git checkout css-loader： https://github.com/pengjielee/reactapp/tree/main/hello-world
+
 ## 添加 .scss 文件
 
 1、安装 sass-loader / sass  
@@ -91,6 +94,9 @@ module.exports = {
   },
 };
 ```
+
+
+项目源码见（切换 tag 至 sass-loader）git checkout sass-loader： https://github.com/pengjielee/reactapp/tree/main/hello-world
 
 ## 提取 css 文件
 
@@ -191,6 +197,9 @@ module.exports = {
   index.html
   main.bundle.js
 ```
+
+
+项目源码见（切换 tag 至 extract-loader）git checkout extract-loader： https://github.com/pengjielee/reactapp/tree/main/hello-world
 
 
 
