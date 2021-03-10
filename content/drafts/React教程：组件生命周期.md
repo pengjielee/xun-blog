@@ -5,7 +5,7 @@ thumbnail: ""
 date: 2021-03-09T11:08:38+08:00
 keywords: ''
 description: ''
-tags: ['React']
+tags: []
 categories: []
 draft: true
 ---
@@ -65,17 +65,17 @@ class Parent extends React.Component {
 export default Parent;
 ```
 
-进入页面时页面输出：
-parent constructor
-parent render
-child constructor
-child render
-child didMount
-parent didMount
+进入页面时页面输出：   
+parent constructor  
+parent render  
+child constructor  
+child render  
+child didMount  
+parent didMount  
 
-切换页面时输出：
-parent willMount
-child willMount
+切换页面时输出：  
+parent willMount  
+child willMount  
 
 
 ## 版本2：在父组件中更新state 
@@ -119,9 +119,9 @@ class Parent extends React.Component {
 }
 ```
 
-页面会重新render，此时输出：
-parent render
-child render
+页面会重新render，此时输出：  
+parent render  
+child render  
 
 
 
