@@ -69,7 +69,7 @@ defaultContentLanguage = "zh-cn"
   weight = 50
   url = "/series"
 [[menu.main]]
-  name = "网址导航"
+  name = "快捷导航"
   weight = 60
   url = "/123"
 
