@@ -71,6 +71,6 @@ defaultContentLanguage = "zh-cn"
 [[menu.main]]
   name = "快捷导航"
   weight = 70
-  url = "/123"
+  url = "/quick"
 
 

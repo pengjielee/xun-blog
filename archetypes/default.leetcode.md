@@ -3,8 +3,8 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 keywords: ''
 description: ''
-tags: []
-categories: ['leetcode']
+tags: ['leetcode']
+categories: []
 draft: true
 ---
 
