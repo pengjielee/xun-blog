@@ -5,7 +5,6 @@ keywords: ''
 draft: true
 ---
 
-- [剑指Offer系列](/categories/swordoffer/)
 - [Python基础系列](/tags/python/)
 
 

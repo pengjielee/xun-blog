@@ -59,11 +59,6 @@ defaultContentLanguage = "zh-cn"
   identifier = "tags"
   url = "/tags/"
 [[menu.main]]
-  name = "分类"
-  weight = 40
-  identifier = "categories"
-  url = "/categories/"
-[[menu.main]]
   name = "系列"
   identifier = "series"
   weight = 50
