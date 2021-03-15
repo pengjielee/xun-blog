@@ -1,10 +1,9 @@
 ---
 title: 'Leetcode Index'
-url: 'leetcode/index'
 date: 2021-03-15T09:38:43+08:00
 keywords: ''
 description: ''
-tags: ['LeetCode']
+tags: ['leetcode']
 categories: []
 draft: true
 ---
