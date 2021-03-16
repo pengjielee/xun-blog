@@ -31,6 +31,13 @@ https://leetcode-cn.com/tag/stack/
 020.有效的括号 (easy)  
 155.最小栈 (easy)
 
+## 数组 
+
+https://leetcode-cn.com/tag/array/   
+
+001.两数之和 (easy)  
+026.删除有序数组中的重复项 (easy)
+
 
 
 
