@@ -62,7 +62,12 @@ https://www.zhihu.com/question/24964987
 
 1、设计问题
 
-384.打乱数组 (middle)
-155.最小栈 (easy)
+384.打乱数组 (middle)  
+155.最小栈 (easy)  
+
+2、排序和搜索
+
+088.合并两个有序数组 (esay)  
+278.第一个错误的版本 (easy)  
 
 
