@@ -82,7 +82,13 @@ https://leetcode-cn.com/leetbook/detail/top-interview-questions-easy/
 070.爬楼梯  (easy)
 121.买卖股票的最佳时机   (easy)    
 053.最大子序和  (easy)   
-198.打家劫舍  (middle)          
+198.打家劫舍  (middle)   
+
+5、字符串 
+
+344.反转字符串 (easy)   
+387.字符串中的第一个唯一字符   (easy)     
+       
 
 
 
