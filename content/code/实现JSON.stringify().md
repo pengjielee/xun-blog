@@ -11,14 +11,16 @@ draft: true
 写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如
 
 ```javascript
-输入 var object = {
+//输入 
+var object = {
     a: 1,
     b: 2,
     c: { d: 3 },
     e: [4, 5, { g: 6 }]
 }
-输出 参考 JSON.stringify(object, null, '  ')
-"{
+//输出 参考 JSON.stringify(object, null, '  ')
+"
+{
   "a": 1,
   "b": 2,
   "c": {
@@ -31,39 +33,8 @@ draft: true
       "g": 6
     }
   ]
-}"
-```
-
-## 我的（未实现）
-
-```javascript
-function jsonformat(object){
-  let result = [];
-  result.push("{");
-
-  format(object,result);
-
-  result.push("}");
-  return result.join('');
 }
-
-function format(object, result){
-  for(let key in object){
-    if(typeof object[key] === 'object'){
-      if (Array.isArray(object[key])){
-        result.push("[");
-        format(object[key], result);
-        result.push("]");
-      } else {
-        result.push("{");
-        format(object[key], result);
-        result.push("}");
-      }
-    } else {
-      result.push(`${key}:${object[key]}`);
-    }
-  }
-}
+"
 ```
 
 ## 参考1（不符题目要求，未格式化输出）
@@ -77,7 +48,8 @@ function jsonStringify(obj) {
     }
     return String(obj);
   } else {
-    let json = [], arr = obj && obj.constructor === Array;
+    let json = [],
+      arr = obj && obj.constructor === Array;
     for (let k in obj) {
       let v = obj[k];
       let type = typeof v;
