@@ -44,7 +44,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 1、安装依赖
 
-```
+```bash
 $ npm install -D babel-loader @babel/preset-react -D
 ```
 
