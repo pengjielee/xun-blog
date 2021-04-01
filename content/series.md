@@ -51,3 +51,20 @@ draft: true
 - [React Hook使用](/post/the-react-hook-use/)
 - [创建你自己的React](/post/build-your-react/)
 - [React Hooks原理](/post/deep-dive-react-hooks/)
+
+## 算法
+
+- [字符串反转](/algorithm/string-inversion/)
+- [判断单链表是否有环](/algorithm/determine-if-a-single-linked-list-has-a-loop/)
+- [斐波那契数列](/algorithm/fibonacci-sequence/)
+- [判断括号匹配](/algorithm/determine-bracket-match/)
+- [两个数组的交集,并集,差集,子集](/algorithm/the-intersection-union-difference-subset-of-two-arrays/)
+- [打印蛇形矩阵](/algorithm/print-the-serpentine-matrix/)
+- [二分查找](/algorithm/binary-search/)
+- [二分查找变形](/algorithm/binary-search-deformation/)
+- [二叉树](/algorithm/binary-tree/)
+- [二叉树遍历](/algorithm/binary-tree-traversal/)
+- [二叉查找树](/algorithm/binary-search-tree/)
+- [判断对称二叉树](/algorithm/determine-symmetric-binary-tree/)
+- [合并两个有序数组](/algorithm/merges-two-ordered-arrays/)
+- [合并两个有序链表](algorithm/merges-two-ordered-linked-lists/)
