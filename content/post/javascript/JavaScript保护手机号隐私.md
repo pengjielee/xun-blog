@@ -13,7 +13,7 @@ draft: false
 
 ## 使用正则
 
-```
+```javascript
 const encryptPhoneNumber = (str) => {
   if (str) {
     str = str.trim();
@@ -28,7 +28,7 @@ encryptPhoneNumber("18614023235"); //output: 186****3235
 
 ## 使用substring
 
-```
+```javascript
 const encryptPhoneNumber = (str) => {
   if (str) {
     str = str.trim();
@@ -42,7 +42,7 @@ encryptPhoneNumber('18614023235'); //output: 186****3235
 
 ## 加密身份证号
 
-```
+```javascript
 const encryptIDNumber = (str) => {
   if (str) {
     str = str.trim();

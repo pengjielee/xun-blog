@@ -15,6 +15,7 @@
 				{{ with partial "post_meta.html" . -}}
 				<div class="post__meta meta">{{ . }}</div>
 				{{- end }}
+				{{- partial "post_reading.html" . -}}
 			</div>
 		</header>
 		{{- partial "post_toc.html" . -}}
@@ -31,4 +32,5 @@
 {{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
 {{ partial "comments.html" . }}
+{{ partial "backtop.html" . }}
 {{ end }}
