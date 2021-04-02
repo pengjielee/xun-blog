@@ -46,11 +46,11 @@ draft: true
 - [React教程：设置样式](/post/react-tutorial-set-the-style/)
 - [React教程：useMemo用法](/post/react-tutorial-usememo-usage/)
 - [React教程：绑定事件](/post/react-tutorial-bind-events/)
-- [React高阶组件](/post/the-react-higher-order-component/)
-- [React中使用TypeScript](/post/use-typescript-in-react/)
-- [React Hook使用](/post/the-react-hook-use/)
-- [创建你自己的React](/post/build-your-react/)
-- [React Hooks原理](/post/deep-dive-react-hooks/)
+- [React教程：高阶组件](/post/the-react-higher-order-component/)
+- [React教程：使用TypeScript](/post/use-typescript-in-react/)
+- [React教程：Hook使用](/post/the-react-hook-use/)
+- [React教程：创建你自己的React](/post/build-your-react/)
+- [React教程：Hooks原理](/post/deep-dive-react-hooks/)
 
 ## 算法
 
