@@ -62,15 +62,25 @@ defaultContentLanguage = "zh-cn"
   name = "系列"
   identifier = "series"
   weight = 50
-  url = "/series"
+  url = "/pages/series"
 [[menu.main]]
   name = "个人项目"
   weight = 60
   identifier = "projects"
-  url = "/projects/"
+  url = "/pages/projects/"
 [[menu.main]]
   name = "快捷导航"
   weight = 70
-  url = "/quick"
+  url = "/pages/quick"
+[[menu.main]]
+  name = "好文收藏"
+  weight = 80
+  identifier = "articles"
+  url = "/pages/articles/"
+[[menu.main]]
+  name = "博客收藏"
+  weight = 90
+  identifier = "blogs"
+  url = "/pages/blogs/"
 
 
