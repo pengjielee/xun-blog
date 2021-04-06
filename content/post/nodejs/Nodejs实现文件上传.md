@@ -24,7 +24,7 @@ draft: true
 ```
 
 2、后端
-```JavaScript
+```javascript
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -144,7 +144,7 @@ app.post('/api/upload/more', upload.array('files'), (req, res) => {
 
 2、前端JS
 
-```JavaScript
+```javascript
 //上传文件
 const uploadFiles = (files, progressBar) => {
   if (files.length <= 0) {
@@ -256,7 +256,7 @@ const dragUpload = {
 
 2、前端JS
 
-```JavaScript
+```javascript
 //大文件上传
 const bigFileUpload = function () {
   const fileInput = document.querySelector('#fileInput');
@@ -369,7 +369,7 @@ bigFileUpload();
 
 3、后端
 
-```JavaScript
+```javascript
 const uploadChunk = multer({ dest: uploadDir }).single('file');
 
 // 上传文件切片

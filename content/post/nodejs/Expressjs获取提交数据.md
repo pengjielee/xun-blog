@@ -11,7 +11,7 @@ draft: true
 
 ## 获取url中的参数
 
-```
+```javascript
 app.get('/blog/:id', (req, res) => {
   const id = req.params.id;
   console.log(id);
@@ -24,7 +24,7 @@ app.get('/blog/:id', (req, res) => {
 
 ## 获取url中?后的参数
 
-```
+```javascript
 app.get('/blog', (req, res) => {
   const query = req.query;
   res.send(query);
@@ -38,13 +38,13 @@ app.get('/blog', (req, res) => {
 
 Enctype: application/x-www-form-urlencoded (default)
 
-```
+```javascript
 app.post('/blog', (req, res) => {
   res.send(req.body);
 });
 ```
 
-```
+```javascript
 <form action="/blog" method="post">
   <div class="form-group">
     <label>
@@ -68,7 +68,7 @@ app.post('/blog', (req, res) => {
 
 Enctype: multipart/form-data
 
-```
+```javascript
 const formidable = require('formidable');
 const uploadDir = path.join(__dirname, './public/uploads');
 
@@ -88,7 +88,7 @@ app.post('/api/user', (req, res, next) => {
 });
 ```
 
-```
+```html
 <form action="/api/user" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label>
@@ -107,7 +107,7 @@ app.post('/api/user', (req, res, next) => {
 ```
 
 提交表单，输出：
-```
+```json
 {
   "fields": { "nickname": "12212" },
   "files": {
