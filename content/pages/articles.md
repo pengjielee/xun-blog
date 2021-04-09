@@ -6,6 +6,12 @@ draft: true
 
 ## 框架
 
+- WTF is JSX   
+https://jasonformat.com/wtf-is-jsx/
+
+- React VS Vue：谁会成为2020年的冠军？  
+https://zhuanlan.zhihu.com/p/89416436
+
 - 从头实现一个koa框架  
 https://zhuanlan.zhihu.com/p/35040744
 
@@ -40,6 +46,30 @@ https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work
 
 - ReactHooks原理及简单实现   
 https://www.shymean.com/article/ReactHooks%E5%8E%9F%E7%90%86%E5%8F%8A%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0
+
+- build-your-own-react   
+https://pomb.us/build-your-own-react/    
+
+- didact   
+https://github.com/pomber/didact 
+
+- 深入理解React：事件机制原理  
+https://www.cnblogs.com/forcheng/p/13187388.html  
+
+- 谈谈React事件机制和未来(react-events)  
+https://bobi.ink/2019/07/29/react-event/   
+
+- 一文吃透 react 事件机制原理  
+https://cloud.tencent.com/developer/article/1516369
+
+- 通过几个例子来理解 React 的事件系统  
+https://mp.weixin.qq.com/s/NLJlcdhMcPPgrS8KrnmQ9A
+
+## 设计模式
+
+- 观察者模式 vs 发布订阅模式（原文）  
+https://zhuanlan.zhihu.com/p/51357583  
+https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c
 
 ## 异步
 
