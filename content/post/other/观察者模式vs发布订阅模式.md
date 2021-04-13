@@ -1,0 +1,282 @@
+---
+title: "观察者模式vs发布订阅模式"
+date: 2021-04-13T17:16:48+08:00
+keywords: ''
+description: ''
+tags: ['pattern']
+categories: []
+draft: true
+---
+
+## 联系 / 意图 / 区别 / 适用场景
+
+1、联系
+
+发布-订阅模式是观察者模式的一种变体。发布-订阅只是把一部分功能抽象成一个独立的ChangeManager。
+
+2、意图
+
+都是某个对象(subject, publisher)改变，使依赖于它的多个对象(observers, subscribers)得到通知。
+
+3、区别与适用场景
+
+总的来说，发布-订阅模式适合更复杂的场景。
+
+在「一对多」的场景下，发布者的某次更新只想通知它的部分订阅者？
+
+在「多对一」或者「多对多」场景下。一个订阅者依赖于多个发布者，某个发布者更新后是否需要通知订阅者？还是等所有发布者都更新完毕再通知订阅者？
+
+这些逻辑都可以放到ChangeManager里。
+
+4、简单理解 
+
+观察者模式没有中介，发布者和订阅者必须知道对方的存在
+
+发布订阅模式有中介，发布者和订阅者不需要知道对方是谁，只要通过中介进行信息的传递和过滤就可以了
+
+
+## 代码理解
+
+观察者模式：
+```javascript
+// 被观察者
+var subject = {
+  observers: [],
+  notify() {
+    this.observers.forEach((observer) => {
+      observer.update();
+    });
+  },
+  attach(observer) {
+    this.observers.push(observer);
+  },
+};
+// 观察者
+var observer = {
+  update() {
+    alert("updated");
+  },
+};
+// 绑定观察者
+subject.attach(observer);
+// 通知观察者
+subject.notify();
+```
+
+发布订阅模式：
+```javascript
+//发布订阅对象
+var pubsub = {
+  subscribes: [],
+  publish() {
+    this.subscribes.forEach((subscribe) => {
+      subscribe.update();
+    });
+  },
+  subscribe(sub) {
+    this.subscribes.push(sub);
+  },
+};
+
+// 发布者
+var publisher = {
+  publish(pubsub) {
+    pubsub.publish();
+  },
+};
+// 订阅者
+var subscriber = {
+  update() {
+    console.log("update");
+  },
+  subscribe(pubsub) {
+    pubsub.subscribe(this);
+  },
+};
+subscriber.subscribe(pubsub);
+publisher.publish(pubsub);
+```
+
+## 观察者模式
+
+介绍：
+
+- 当对象存在一对多的关系时，则使用观察者模式（Observer Pattern）,例如当一个对象被修改时候，则会自动通知它的依赖对象。观察者模式属于行为型模式。 
+- 与发布/订阅模式不同的是，观察模式没有调度中心，由目标直接调度观察者，观察者模式的观察者跟目标之间是存在依赖的，
+
+详细：
+
+- 意图：定义对象的一种一对多的依赖关系，当一个对象的状态发生改变时候，所有依赖它的对象都被通知并且更新状态。
+- 主要解决：一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。
+- 何时使用：一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。
+- 如何解决：使用面向对象技术，可以将依赖关系弱化。
+- 关键代码：在抽象类里有一个ArrayList存在观察者们。
+- 应用实例：拍卖时候，拍卖师观察最高价，通知其他竞价者竞价。
+
+优点：
+
+- 观察者和被观察者是抽象耦合的；
+- 建立一套触发机制；
+
+缺点：
+
+- 一个被观察者对象如果有太多间接或者直接的观察者，将花费时间通知观察者；
+- 如果存在循环依赖，可能导致系统崩溃；
+- 观察者仅仅知道别观察者发生了变化，而不知道如何发生了变化；
+
+
+```javascript
+//观察者模式
+function ObserverList() {
+  this.observerList = [];
+}
+ObserverList.prototype.add = function (obj) {
+  return this.observerList.push(obj);
+};
+ObserverList.prototype.count = function () {
+  return this.observerList.length;
+};
+ObserverList.prototype.get = function (index) {
+  if (index > -1 && index < this.observerList.length) {
+    return this.observerList[index];
+  }
+};
+ObserverList.prototype.indexOf = function (obj, startIndex) {
+  let i = startIndex;
+  while (i < this.observerList.length) {
+    if (this.observerList[i] == obj) {
+      return i;
+    }
+    i++;
+  }
+  return -1;
+};
+ObserverList.prototype.removeAt = function (index) {
+  this.observerList.splice(index, i);
+};
+
+function Subject() {
+  this.observers = new ObserverList();
+}
+Subject.prototype.addObserver = function (observer) {
+  this.observers.add(observer);
+};
+Subject.prototype.removeObserver = function (observer) {
+  this.observer.removeAt(this.observers.indexOf(observer, 0));
+};
+Subject.prototype.notify = function (context) {
+  let observerCount = this.observers.count();
+  for (let index = 0; index < observerCount; index++) {
+    this.observers.get(index).update(context);
+  }
+};
+
+function Observer() {
+  this.update = (context) => {
+    console.log(context);
+  };
+}
+let o = new Observer();
+let subject = new Subject();
+subject.addObserver(o);
+subject.notify(55);
+```
+
+
+## 发布订阅模式
+
+发布订阅模式，它定义了一种一对多的关系，可以使多个观察者对象对一个主题对象进行监听，当这个主题对象发生改变时，依赖的所有对象都会被通知到。 发布订阅模式跟观察者模式的区别在于，订阅发布模式，有统一调度中心。
+
+PubSub 模式，是 Publish/Subscribe 的缩写，意为“发布/订阅”模式。
+
+在实际使用中，我们应该也会接触到 PubSub 模式，例如 Nodejs 中的 EventEmitter、Backbone 中的事件模型、以及 jQuery 中的事件。 以 EventEmitter 为例子，它提供了 addListener(event, listener)，removeListener(event, listener)，emit(event, [arg1], [arg2], [...]) 方法。
+
+
+```javascript
+var pubsub = {};
+(function (myObject) {
+  // Storage for topics that can be broadcast
+  // or listened to
+  var topics = {};
+  // An topic identifier
+  var subUid = -1;
+  // Publish or broadcast events of interest
+  // with a specific topic name and arguments
+  // such as the data to pass along
+  myObject.publish = function (topic, args) {
+    if (!topics[topic]) {
+      return false;
+    }
+    var subscribers = topics[topic],
+      len = subscribers ? subscribers.length : 0;
+    while (len--) {
+      subscribers[len].func(topic, args);
+    }
+    return this;
+  };
+  // Subscribe to events of interest
+  // with a specific topic name and a
+  // callback function, to be executed
+  // when the topic/event is observed
+  myObject.subscribe = function (topic, func) {
+    if (!topics[topic]) {
+      topics[topic] = [];
+    }
+    var token = (++subUid).toString();
+    topics[topic].push({
+      token: token,
+      func: func,
+    });
+    return token;
+  };
+  // Unsubscribe from a specific
+  // topic, based on a tokenized reference
+  // to the subscription
+  myObject.unsubscribe = function (token) {
+    for (var m in topics) {
+      if (topics[m]) {
+        for (var i = 0, j = topics[m].length; i < j; i++) {
+          if (topics[m][i].token === token) {
+            topics[m].splice(i, 1);
+            return token;
+          }
+        }
+      }
+    }
+    return this;
+  };
+})(pubsub);
+
+//订阅者1订阅了test
+pubsub.subscribe("test", function () {
+  console.log(arguments, 1);
+});
+//订阅者2订阅了test
+pubsub.subscribe("test", function () {
+  console.log(arguments, 2);
+});
+//订阅者3订阅了test
+pubsub.subscribe("test", function () {
+  console.log(arguments, 2);
+});
+
+//发布者发布事件
+pubsub.publish("test", 666);
+```
+
+
+
+## More 
+
+观察者模式和订阅-发布模式的区别   
+https://muyiy.cn/question/design/23.html   
+
+观察者模式（Observer Pattern）   
+https://note.youdao.com/ynoteshare1/index.html?id=c2f89f7d0076a5aeb9f55e5d8c107eb8&type=note   
+
+发布/订阅模式  
+https://note.youdao.com/ynoteshare1/index.html?id=223c881cd073f84e571a5298767fd45a&type=note
+
+
+
+
