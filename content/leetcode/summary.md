@@ -1,5 +1,6 @@
 ---
 title: 'Leetcode Index'
+url: '/tags/leetcode/index'
 date: 2021-03-15T09:38:43+08:00
 keywords: ''
 description: ''
