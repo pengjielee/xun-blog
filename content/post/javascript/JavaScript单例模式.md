@@ -3,7 +3,7 @@ title: "JavaScript单例模式"
 date: 2021-04-06T10:03:24+08:00
 keywords: ''
 description: ''
-tags: []
+tags: ['javascript']
 categories: []
 draft: true
 ---

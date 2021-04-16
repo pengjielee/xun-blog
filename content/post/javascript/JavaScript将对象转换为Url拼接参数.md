@@ -4,7 +4,7 @@ url: "post/javascript-converts-the-object-into-a-url-concatenation-parameter"
 date: 2021-02-20T16:22:28+08:00
 keywords: '对象转换'
 description: ''
-tags: ['Code','JavaScript']
+tags: ['javascript']
 categories: []
 draft: false
 ---

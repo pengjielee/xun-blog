@@ -3,7 +3,7 @@ title: "JavaScript变量声明提升"
 date: 2021-04-02T11:38:41+08:00
 keywords: ''
 description: ''
-tags: []
+tags: ['javascript']
 categories: []
 draft: true
 ---

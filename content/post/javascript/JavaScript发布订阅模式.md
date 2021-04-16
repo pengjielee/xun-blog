@@ -3,7 +3,7 @@ title: "JavaScript发布订阅模式"
 date: 2021-04-06T10:03:32+08:00
 keywords: ''
 description: ''
-tags: []
+tags: ['javascript']
 categories: []
 draft: true
 ---
