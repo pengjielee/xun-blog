@@ -212,3 +212,22 @@ dl.archive-list {
     flex-direction: column;
   }
 }
+.post-header-custom {
+  margin-bottom: 0;
+}
+.post-header-custom .tags {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.tags__badge {
+  height: 28px;
+}
+ .post-header-custom .tags .tags__link {
+  background: #e22d30;
+}
+.tags__link, .tags__link:hover {
+  padding: 8px 15px;
+}
+.post-header-custom .btn:hover {
+  background: #2a2a2a;
+}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="main" role="main">
 	<article class="post">
-		<header class="post__header">
+		<header class="post__header post-header-custom">
 			{{- if .Params.thumbnail }}
 			<figure class="post__thumbnail" style="display: block">
 				<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
@@ -16,6 +16,9 @@
 				<div class="post__meta meta">{{ . }}</div>
 				{{- end }}
 				{{- partial "post_reading.html" . -}}
+				<div>
+					{{- partial "post_tags.html" . }}
+				</div>
 			</div>
 		</header>
 		{{- partial "post_toc.html" . -}}
