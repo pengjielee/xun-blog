@@ -213,11 +213,11 @@ dl.archive-list {
   }
 }
 .post-header-custom {
-  margin-bottom: 0;
+  /*margin-bottom: 15px;*/
 }
 .post-header-custom .tags {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 .tags__badge {
   height: 28px;
