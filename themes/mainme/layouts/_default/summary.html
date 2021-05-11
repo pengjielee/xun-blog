@@ -14,12 +14,16 @@
 				{{ .Title }}
 				</a>
 			</h2>
-			{{- with .Params.lead }}
-			<p class="list__lead post__lead">{{ . }}</p>
-			{{- end }}
-			{{ with partial "post_meta.html" . -}}
-			<div class="list__meta meta">{{ . }}</div>
-			{{- end }}
+			<div class="meta-wrapper">
+				{{- with .Params.lead }}
+				<p class="list__lead post__lead">{{ . }}</p>
+				{{- end }}
+				{{ with partial "post_meta.html" . -}}
+				<div class="list__meta meta">{{ . }}</div>
+				{{- end }}
+
+				{{ partial "post_tags_custom.html" . }}
+			</div>
 		</div>
 	</header>
 
