@@ -215,6 +215,10 @@ dl.archive-list {
 .tag-list .tag-link {color: #666;}
 .tag-list .tag-link:hover { color: #e22d30; }
 
+.logo__tagline {
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 620px) { 
   .github-fork-ribbon {
     display: none;
