@@ -9,8 +9,6 @@
     "start": "hugo server -D",
     "dev": "npm run start",
     "build": "hugo -D",
-    "copy": "rsync -r public ../online",
-    "deploy": "rm -rf public/* && npm run build && npm run copy",
     "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html"
   },
   "repository": {
