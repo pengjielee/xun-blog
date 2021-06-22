@@ -1,18 +1,10 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+thumbnail: ""
 date: {{ .Date }}
 keywords: ''
 description: ''
-tags: ['leetcode']
+tags: []
 categories: []
 draft: true
 ---
-
-## 题目
-
-
-## JS实现
-
-```javascript
-
-```
