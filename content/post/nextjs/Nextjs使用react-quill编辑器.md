@@ -1,5 +1,5 @@
 ---
-title: "nextjs使用react-quill编辑器"
+title: "Nextjs使用react-quill编辑器"
 thumbnail: ""
 date: 2021-06-22T14:53:53+08:00
 keywords: ''

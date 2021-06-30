@@ -1,5 +1,5 @@
 ---
-title: "nextjs配置antd语言包"
+title: "Nextjs配置antd语言包"
 date: 2021-06-22T14:47:23+08:00
 keywords: ''
 description: ''

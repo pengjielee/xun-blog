@@ -1,5 +1,5 @@
 ---
-title: "nextjs使用wangeditor"
+title: "Nextjs使用wangeditor"
 thumbnail: ""
 date: 2021-06-22T15:18:51+08:00
 keywords: ''

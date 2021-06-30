@@ -1,5 +1,5 @@
 ---
-title: "nextjs定制错误页"
+title: "Nextjs定制错误页"
 thumbnail: ""
 date: 2021-06-22T15:54:41+08:00
 keywords: ''

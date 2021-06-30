@@ -1,5 +1,5 @@
 ---
-title: "nextjs注入环境变量"
+title: "Nextjs注入环境变量"
 thumbnail: ""
 date: 2021-06-22T15:35:14+08:00
 keywords: ''
