@@ -1,3 +1,32 @@
+## 构建
+
+```
+$ npm run build
+```
+
+注意：目录结构
+
+```
+hubowriter
+	-online //线上发布库
+	-posts  //源代码库
+```
+
+posts/config.toml
+```
+publishDir = '../online/public'
+```
+
+## 开发
+
+```
+$ npm run dev
+
+or
+
+$ npm run start
+```
+
 ## 创建博客 
 
 ```

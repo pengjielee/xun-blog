@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "post": "hugo new post/${title}",
-    "start": "hugo server -D",
     "dev": "npm run start",
+    "start": "hugo server -D",
     "build": "hugo -D",
     "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html"
   },
