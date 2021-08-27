@@ -33,7 +33,7 @@ title: '${title}'
 date: ${date}
 keywords: ''
 description: ''
-tags: ['offer']
+tags: ['sword2']
 categories: []
 draft: true
 difficulty: ''
