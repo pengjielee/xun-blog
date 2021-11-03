@@ -1,6 +1,6 @@
 .env
 .env.build
 resources/*
-public/*
 node_modules/*
 .DS_Store
+dist/

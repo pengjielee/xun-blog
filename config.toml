@@ -4,7 +4,7 @@ paginate = "10" # Number of posts per page
 theme = "mainme"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
-publishDir = '../online/public'
+publishDir = 'dist'
 defaultContentLanguage = "zh-cn"
 
 [Author]

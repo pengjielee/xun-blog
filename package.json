@@ -10,7 +10,9 @@
     "start": "hugo server -D",
     "build": "hugo -D",
     "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html",
-    "newfile": "node scripts/newfile.js"
+    "newfile": "node scripts/newfile.js",
+    "deploy": "npm run build && gh-pages -d dist",
+    "temp": "exit 1"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   "homepage": "https://github.com/pengjielee/hugoblog#readme",
   "devDependencies": {
     "fs-extra": "^10.0.0",
+    "gh-pages": "^3.2.3",
     "prettier": "^2.2.1"
   }
 }
