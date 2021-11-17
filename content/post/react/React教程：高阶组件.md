@@ -16,7 +16,7 @@ draft: false
 
 高阶组件是参数为组件，返回值为新组件的函数。
 
-```JavaScript
+```javascript
 class NoteList extends React.Component {
   constructor(props) {
     super(props);

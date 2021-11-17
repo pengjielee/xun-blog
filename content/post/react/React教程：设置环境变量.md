@@ -15,6 +15,7 @@ draft: true
 1、注入环境变量，`export NODE_ENV=development`
 
 package.json
+
 ```json
 {
   "scripts": {
@@ -27,6 +28,7 @@ package.json
 2、使用环境变量 `process.env.NODE_ENV` 
 
 webpack.config.js
+
 ```javascript
 const path = require('path');
 
@@ -48,12 +50,14 @@ module.exports = {
 ## cross-env，跨平台设置环境变量
 
 1、安装
-```
+
+```bash
 $ npm install --save-dev cross-env
 ```
 
 2、注入
-```
+
+```json
 {
   "scripts": {
     "cross:dev": "cross-env NODE_ENV=development webpack serve",
