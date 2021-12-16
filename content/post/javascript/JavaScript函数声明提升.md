@@ -19,6 +19,7 @@ function foo() {
 ```
 
 解释：
+
 ```javascript
 function foo() {
   console.log('bar');
@@ -38,6 +39,7 @@ var baz = function() {
 ```
 
 解释：
+
 ```javascript
 var baz;
 baz();
@@ -60,6 +62,7 @@ foo();  //123
 ```
 
 解释：
+
 ```javascript
 var foo;  // 变量声明提升
 function foo(){  // 函数声明提升

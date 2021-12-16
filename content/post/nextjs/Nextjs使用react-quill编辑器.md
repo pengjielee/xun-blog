@@ -14,7 +14,7 @@ draft: true
 ```javascript
 $ npm install react-quill --save
 
-or
+// or
 
 $ yarn add react-quill
 ```
@@ -62,7 +62,7 @@ export default function Editor(props) {
 }
 ```
 
-## 封装组件
+## 封装组件  
 
 ```javascript
 import dynamic from "next/dynamic";
@@ -141,7 +141,7 @@ export default function QuillEditor(props) {
 
 ## 问题
 
-next.js中如何quill编辑器的实例呢？
+next.js中如何获取quill编辑器的实例呢？
 
 ## More 
 

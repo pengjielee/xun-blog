@@ -22,6 +22,7 @@ const obj2str = obj => {
 ```
 
 实例：
+
 ```javascript
 var data  = { "name": "jie", "age" : 20 };
 console.log(obj2str(data)); //output: name=jie&age=20
@@ -45,14 +46,15 @@ for (const [key, value] of Object.entries(data)) {
 ```
 
 Object.entries()的Polyfill
+
 ```javascript
 if (!Object.entries) {
   Object.entries = function (obj) {
-    var ownProps = Object.keys(obj),
-      i = ownProps.length,
-      resArray = new Array(i); // preallocate the Array
-    while (i--) {
-      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+    let ownProps = Object.keys(obj),
+      len = ownProps.length,
+      resArray = new Array(len); // preallocate the Array
+    while (len--) {
+      resArray[len] = [ownProps[len], obj[ownProps[len]]];
     }
 
     return resArray;
@@ -75,19 +77,19 @@ console.log(Object.values(data)); //output: ['jie',20]
 ```
 
 Object.values()的Polyfill
+
 ```javascript
 if (!Object.values) {
   Object.values = function (obj) {
     if (obj !== Object(obj))
       throw new TypeError("Object.values called on a non-object");
-    var val = [],
-      key;
-    for (key in obj) {
+    const values = [];
+    for (let key in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        val.push(obj[key]);
+        values.push(obj[key]);
       }
     }
-    return val;
+    return values;
   };
 }
 

@@ -26,8 +26,7 @@ const Home = props => {
         color: 'red',
         fontSize: '30px',
         paddingLeft: '20px',
-      }}
-    >
+      }}>
       { name }
     </div>
   );
@@ -36,7 +35,8 @@ const Home = props => {
 export default Home;
 ```
 
-注意：  
+注意：
+
 - 行内样式的属性名需使用驼峰命名。  
 - 行内样式需要使用双大括号`{{ }}`，变量用单个大括号`{ }`  
 
@@ -44,6 +44,7 @@ export default Home;
 
 ```javascript
 import React from 'react';
+
 const Home = props => {
   const name = 'Home Page';
 

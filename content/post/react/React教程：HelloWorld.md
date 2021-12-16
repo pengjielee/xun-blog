@@ -13,33 +13,33 @@ draft: true
 
 ## 创建项目
 
-```
-// 创建项目目录
+```bash
+# 创建项目目录
 $ mkdir hello-world
 
-// 进入项目目录 
+# 进入项目目录 
 $ cd hello-world
 
-// 初始化 package.json 文件
+# 初始化 package.json 文件
 $ npm init -y
 
-// 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js
+# 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js
 $ mkdir src && touch index.js
 
-// 安装react和react-dom
+# 安装react和react-dom
 $ npm install react react-dom
 
-// 安装babel-loader，用于处理js文件 
-// 安装@babel/preset-react，用于处理jsx
+# 安装babel-loader，用于处理js文件 
+# 安装@babel/preset-react，用于处理jsx
 $ npm install -D babel-loader @babel/preset-react
 
-// 安装webpack相关库
+# 安装webpack相关库
 $ npm install -D webpack webpack-cli webpack-dev-serve
 ```
 
 ## 项目结构
 
-```javascript
+```
 hello-world
   /dist
     index.html
@@ -133,10 +133,10 @@ module.exports = {
 ## 开发及编译
 
 ```bash
-// 本地开发
+# 本地开发
 $ npm run dev
 
-// 编译构建
+# 编译构建
 $ npm run build
 ```
 

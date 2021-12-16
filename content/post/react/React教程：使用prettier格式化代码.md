@@ -58,7 +58,8 @@ module.exports = {
 .prettierignore 文件用来设置哪些文件不需要格式化。
 
 .prettierignore
-```bash
+
+```
 build
 coverage
 dist/*.js
@@ -67,6 +68,7 @@ dist/*.js
 ## 使用 npm scripts 格式化
 
 package.json
+
 ```json
 {
   scripts: {

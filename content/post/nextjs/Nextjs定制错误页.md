@@ -9,35 +9,6 @@ categories: []
 draft: true
 ---
 
-## 获取数据
-
-```javascript
-import Error from 'next/error';
-
-export default function Index({ result }) {
-  const data = result && result.data || [];
-
-  return (
-    <>
-      <ul className="list">
-        {data.map(item => (
-          <li key={item.id}>{item.title}</li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
-export async function getServerSideProps(context) {
-  const response = await fetch('https://cnodejs.org/api/v1/topics');
-  const result = await response.json();
-
-  return {
-    props: { result },
-  };
-}
-```
-
 ## 定制错误页
 
 ```javascript

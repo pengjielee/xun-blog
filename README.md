@@ -1,38 +1,25 @@
 ## 构建
 
-```
+```bash
 $ npm run build
-```
-
-注意：目录结构
-
-```
-hubowriter
-	-online //线上发布库
-	-posts  //源代码库
-```
-
-posts/config.toml
-```
-publishDir = '../online/public'
 ```
 
 ## 开发
 
-```
+```bash
 $ npm run dev
 
-or
+# or
 
 $ npm run start
 ```
 
 ## 创建博客 
 
-```
+```bash
 $ hugo new post/my-first-post.md
 
-or
+# or
 
 $ title='hello.md' npm run post
 ```
@@ -43,6 +30,7 @@ $ title='hello.md' npm run post
 themes/mainroad  
 
 创建主题
-```
+
+```bash
 $ hugo new theme zero
 ``` 

@@ -8,12 +8,11 @@ categories: []
 draft: true
 ---
 
-### 需求
+## 需求
 
 antd 目前的默认文案是英文，我们需要使用中文。
 
-
-### nextjs自定义 App
+## nextjs自定义 App
 
 创建./pages/_app.js  
 
@@ -27,17 +26,17 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 ```
 
-### 安装antd
+## 安装antd
 
 ```bash
 $ npm install antd --save
 
-or
+# or
 
 $ yarn add antd
 ```
 
-### 配置
+## 配置
 
 ```javascript
 import { ConfigProvider } from 'antd';

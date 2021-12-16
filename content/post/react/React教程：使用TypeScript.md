@@ -12,7 +12,7 @@ draft: false
 
 ## 初始化
 
-```
+```bash
 $ mkdir react-ts-app
 $ cd react-ts-app
 $ npm init -y
@@ -26,7 +26,7 @@ $ touch App.tsx
 
 ## src/index.html
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,14 +44,15 @@ $ touch App.tsx
 
 ## 安装Parcel
 
-```
+```bash
 $ npm i parcel-bundler -D
 $ npm i typescript -D
 $ npm i -D @types/react @types/react-dom
 ```
 
 package.json
-```
+
+```json
 {
   "name": "react-ts-app",
   "version": "1.0.0",
@@ -67,7 +68,7 @@ package.json
 
 ## Counter.tsx
 
-```
+```javascript
 import * as React from 'react';
 
 export default class Counter extends React.Component {
@@ -101,7 +102,7 @@ export default class Counter extends React.Component {
 
 ## src/App.tsx
 
-```
+```javascript
 import * as React from 'react';
 import { render } from 'react-dom';
 
@@ -112,13 +113,13 @@ render(<Counter />, document.getElementById('main'));
 
 ## 运行 (http://localhost:1234)
 
-```
+```bash
 $ npm run dev
 ```
 
 ## Count1.tsx (verseion1)
 
-```
+```javascript
 import * as React from 'react';
 
 const Count1: React.FunctionComponent<{
@@ -132,7 +133,7 @@ export default Count1;
 
 ## Count2.tsx (verseion2)
 
-```
+```javascript
 import * as React from 'react';
 
 interface Props {
@@ -148,7 +149,7 @@ export default Count2;
 
 ## Count3.tsx (verseion3: Default Props)
 
-```
+```javascript
 import * as React from 'react';
 
 interface Props {
@@ -168,7 +169,7 @@ export default class Count extends React.Component<Props> {
 
 ## Counter.tsx
 
-```
+```javascript
 import * as React from 'react';
 
 import Count1 from './Count1';

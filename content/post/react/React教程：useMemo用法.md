@@ -81,6 +81,7 @@ export default Fibc;
 ```
 
 此时：   
+
 1、我们更新count的值时，fibc函数不会再调用了；  
 2、只有在number值改变时，fibc函数才会重新调用；    
 

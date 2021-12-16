@@ -34,6 +34,7 @@ package.json
 ## 创建next.config.js文件，并设置env变量
 
 next.config.js
+
 ```javascript
 module.exports = {
   poweredByHeader: false,
@@ -55,16 +56,16 @@ let baseURL = '';
 
 switch (process.env.NEXT_PUBLIC_TARGET) {
   case 'test':
-    baseURL = 'https://test.panda.com';
+    baseURL = 'https://test.***.com';
     break;
   case 'prod':
-    baseURL = 'https://m.panda.com';
+    baseURL = 'https://m.***.com';
     break;
   case 'dev':
-    baseURL = 'https://dev.panda.com';
+    baseURL = 'https://dev.***.com';
     break;
   default:
-    baseURL = 'https://m.panda.com';
+    baseURL = 'https://m.***.com';
     break;
 }
 

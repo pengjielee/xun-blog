@@ -211,6 +211,7 @@ var bin2dec = (bin) => {
 ```
 
 测试：
+
 ```javascript
 var num1_bin = '100011';
 var num2_bin = '101111';

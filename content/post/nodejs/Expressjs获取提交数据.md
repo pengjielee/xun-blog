@@ -44,7 +44,7 @@ app.post('/blog', (req, res) => {
 });
 ```
 
-```javascript
+```html
 <form action="/blog" method="post">
   <div class="form-group">
     <label>
@@ -107,6 +107,7 @@ app.post('/api/user', (req, res, next) => {
 ```
 
 提交表单，输出：
+
 ```json
 {
   "fields": { "nickname": "12212" },

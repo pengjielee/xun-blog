@@ -16,6 +16,7 @@ var x = 3;
 ```
 
 解释：
+
 ```javascript
 var x;
 console.log(x === undefined); // true
@@ -35,6 +36,7 @@ var myvar = 'my value';
 ```
 
 解释：
+
 ```javascript
 var myvar = 'my value';
 
@@ -57,6 +59,7 @@ foo();
 ```
 
 解释：
+
 ```javascript
 function foo() {
   var x;
@@ -96,6 +99,7 @@ too();
 ```
 
 解释：
+
 ```javascript
 function too() {
   var y;

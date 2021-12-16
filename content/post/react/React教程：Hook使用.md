@@ -12,7 +12,7 @@ draft: false
 
 ## useState
 
-```
+```javascript
 import React, { useState } from 'react';
 
 function Counter() {
@@ -32,7 +32,7 @@ export default Counter;
 
 ## useEffect：设置标题
 
-```
+```javascript
 import React, { useState, useEffect } from 'react';
 
 function Counter() {
@@ -56,7 +56,7 @@ export default Counter;
 
 ## useEffect：监听滚动/移除滚动
 
-```
+```javascript
 import React, { useState, useEffect } from 'react';
 
 function Counter() {
@@ -97,7 +97,7 @@ export default Counter;
 
 ## useEffect：网络请求
 
-```
+```javascript
 import React, { useState, useEffect } from 'react';
 
 function Photos() {
@@ -128,7 +128,7 @@ export default Photos;
 
 ## useEffect：网络请求（分页）
 
-```
+```javascript
 import React, { useState, useEffect } from 'react';
 
 function Photos2() {
@@ -235,7 +235,7 @@ export default Photos3;
 
 ## useRef
 
-```
+```javascript
 import React, { useState, useEffect, useRef } from 'react';
 
 import Swiper from 'swiper';

@@ -19,7 +19,7 @@ console.log(Math.pow(2,53) - 1); //9007199254740991
 
 ## Number.MIN_SAFE_INTEGER
 
-Number.MIN_SAFE_INTEGER 代表在 JavaScript中最小的安全的integer型数字 (-(2^53 - 1)).
+Number.MIN_SAFE_INTEGER 代表在 JavaScript 中最小的安全的integer型数字 (-(2^53 - 1)).
 
 ```javascript
 console.log(Number.MIN_SAFE_INTEGER); //-9007199254740991
@@ -27,8 +27,10 @@ console.log(-(Math.pow(2,53) - 1)); //-9007199254740991
 ```
 
 2^53 是 js 内置的最大的整数值（不安全），2^53 + 1 会被舍入成 2^53：
+
 ```javascript
 Math.pow(2, 53) === Math.pow(2, 53) + 1; // true
+Math.pow(2, 53) === Math.pow(2, 53) + 2; // false
 ```
 
 ## Number.isSafeInteger()
@@ -43,17 +45,18 @@ Number.isSafeInteger() 方法用来判断传入的参数值是否是一个“安
 安全整数范围为 -(2^53 - 1)到 2^53 - 1 之间的整数，包含 -(2^53 - 1)和 2^53 - 1。
 
 ```javascript
-Number.isSafeInteger(3);                    // true
-Number.isSafeInteger(Math.pow(2, 53))       // false
-Number.isSafeInteger(Math.pow(2, 53) - 1)   // true
-Number.isSafeInteger(NaN);                  // false
-Number.isSafeInteger(Infinity);             // false
-Number.isSafeInteger("3");                  // false
-Number.isSafeInteger(3.1);                  // false
-Number.isSafeInteger(3.0);                  // true
+console.log(Number.isSafeInteger(3));                    // true
+console.log(Number.isSafeInteger(Math.pow(2, 53)));      // false
+console.log(Number.isSafeInteger(Math.pow(2, 53) - 1));  // true
+console.log(Number.isSafeInteger(NaN));                  // false
+console.log(Number.isSafeInteger(Infinity));             // false
+console.log(Number.isSafeInteger("3"));                  // false
+console.log(Number.isSafeInteger(3.1));                  // false
+console.log(Number.isSafeInteger(3.0));                  // true
 ```
 
 Polyfill
+
 ```javascript
 Number.isSafeInteger =
   Number.isSafeInteger ||

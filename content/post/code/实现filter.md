@@ -11,8 +11,8 @@ draft: true
 ## 实现myfilter
 
 ```javascript
-Array.prototype.myfilter = function (fn) {
-  let result = [];
+Array.prototype._filter = function (fn) {
+  const result = [];
   for (let i = 0; i < this.length; i++) {
     if (fn(this[i], i, this)) {
       result.push(this[i]);
@@ -30,7 +30,7 @@ var arr = [4, 5, 6, 7, 9, 10];
 var result1 = arr.filter((el) => el > 5);
 console.log(result1); //[6,7,9,10]
 
-var result2 = arr.myfilter((el) => el > 5);
+var result2 = arr._filter((el) => el > 5);
 console.log(result2); //[6,7,9,10]
 ```
 

@@ -63,7 +63,7 @@ function Editor() {
       onChange={setValue}
     ></ReactWEditor>
   );
-}
+};
 
 export default Editor;
 ```

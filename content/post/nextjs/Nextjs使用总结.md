@@ -17,22 +17,21 @@ topic.js
 export default function Topic({ result }) {
   const data = result && result.data || [];
 
-  return (
-    <>
-      <ul className="list">
-        {data.map(item => (
-          <li key={item.id}>{item.title}</li>
-        ))}
-      </ul>
-    </>
+  return ( 
+    <ul className="list">
+      {data.map(item => (
+        <li key={item.id}>{item.title}</li>
+      ))}
+    </ul>
   );
 }
+
 export async function getServerSideProps(context) {
   const response = await fetch('https://cnodejs.org/api/v1/topics');
   const result = await response.json();
 
   return {
-    props: { result },
+    props: { result }
   };
 }
 ```
@@ -111,7 +110,7 @@ module.exports = {
 
 安装sass
 
-```
+```bash
 $ npm install sass
 ```
 

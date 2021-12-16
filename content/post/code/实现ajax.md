@@ -122,6 +122,7 @@ function ajax(options) {
 ```
 
 使用  
+
 ```javascript
 ajax({
   method: "GET",

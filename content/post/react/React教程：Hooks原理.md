@@ -29,6 +29,7 @@ function useState(initialValue) {
 ```
 
 使用
+
 ```javascript
 var [foo, setFoo] = useState(0) // 数组解构
 console.log(foo()); //output: 0
@@ -144,6 +145,7 @@ var MyReact = (function(){
 ```
 
 使用
+
 ```javascript
 function Counter() {
   const [count, setCount] = MyReact.useState(0)
@@ -212,6 +214,7 @@ var MyReact = (function () {
 ```
 
 使用：
+
 ```javascript
 function Counter() {
   const [count, setCount] = MyReact.useState(0)

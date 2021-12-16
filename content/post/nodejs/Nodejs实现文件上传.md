@@ -24,6 +24,7 @@ draft: true
 ```
 
 2、后端
+
 ```javascript
 var createError = require('http-errors');
 var express = require('express');
@@ -122,7 +123,7 @@ input[type='file']设置multiple属性
 
 2、后端
 
-```
+```javascript
 // 上传多个文件
 app.post('/api/upload/more', upload.array('files'), (req, res) => {
   res.json(req.files);
@@ -208,7 +209,7 @@ ajaxUpload();
 
 1、前端Html
 
-```
+```html
 <section>
   <h2>拖拽上传文件</h2>
   <div
@@ -224,7 +225,8 @@ ajaxUpload();
 ```
 
 2、前端JS
-```
+
+```javascript
 const dragUpload = {
   progressBar: document.getElementById('dragProgress'),
   drop: function (ev) {
@@ -431,7 +433,7 @@ https://raw.githubusercontent.com/pengjielee/nodeapps/main/examples/upload/publi
 
 1、FormData添加多个文件时，不能直接把files添加进去。
 
-```
+```javascript
 // 错误的
 const files = fileInput.files;
 var fd = new FormData();

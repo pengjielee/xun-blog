@@ -21,6 +21,7 @@ $ npm install react-router-dom
 2、创建多页面
 
 文件结构：
+
 ```
 /src
   /views
@@ -34,6 +35,7 @@ $ npm install react-router-dom
 ```
 
 home.js
+
 ```javascript
 import React from 'react';
 
@@ -45,6 +47,7 @@ export default Home;
 ```
 
 about.js
+
 ```javascript
 import React from 'react';
 
@@ -56,6 +59,7 @@ export default About;
 ```
 
 blog/list.js
+
 ```javascript
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -92,6 +96,7 @@ export default BlogList;
 ```
 
 blog/detail.js
+
 ```javascript
 import React from 'react';
 import { useRouteMatch, useParams } from 'react-router-dom';
@@ -109,6 +114,7 @@ export default BlogDetail;
 ```
 
 app.js
+
 ```javascript
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -157,6 +163,7 @@ export default function App() {
 ```
 
 index.js
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -178,6 +185,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 使用BrowserRouter路由时，当我们刷新页面时，会发现出错了；
 
 开发时可以更改 webpack.config.js，配置 historyApiFallback 为true：
+
 ```javascript
 module.exports = {
   devServer: {
@@ -190,6 +198,7 @@ module.exports = {
 ```
 
 上线需要服务端同学设置一下，把页面的所有请求都重新发送到单页面上，以使用前端路由，以 express 服务器为例：
+
 ```javascript
 const express = require('express');
 const path = require('path');

@@ -33,13 +33,15 @@ $ touch index.js
 ## 问好
 
 1、index.js
-```bash
+
+```javascript
 #!/usr/bin/env node
 
 console.log("hello xun-cli")
 ```
 
 2、执行
+
 ```bash
 $ node src/index.js
 //output: hello xun-cli
@@ -48,13 +50,15 @@ $ node src/index.js
 ## 输出一个漂亮的LOGO
 
 1、安装依赖
+
 ```bash
-$ npm install chalk //在命令行输出各种颜色的文字
-$ npm install figlet //在命令行输出艺术字
+$ npm install chalk #在命令行输出各种颜色的文字
+$ npm install figlet #在命令行输出艺术字
 ```
 
 2、index.js
-```bash
+
+```javascript
 #!/usr/bin/env node
 
 const chalk = require("chalk");
@@ -67,6 +71,7 @@ console.log(chalk.yellow(figlet.textSync("xun-CLI", {
 ```
 
 3、执行
+
 ```bash
 $ node src/index.js
 
@@ -81,11 +86,13 @@ output：
 ## 显示当前时间
 
 1、安装依赖
+
 ```bash
-$ npm install yargs //构建可交互的命令行工具
+$ npm install yargs #构建可交互的命令行工具
 ```
 
 2、index.js
+
 ```javascript
 #!/usr/bin/env node
 
@@ -103,12 +110,13 @@ yargs.scriptName("xun-cli")
 3、执行
 
 ```bash
-node src/index.js date
+$ node src/index.js date
 
 //output: Current Date: Fri Oct 16 2020 10:57:51 GMT+0800 (China Standard Time)
 ```
 
 4、格式化日期输出
+
 ```bash
 $ npm install dayjs
 
@@ -119,6 +127,7 @@ const date = dayjs().format('YYYY-MM-DD HH:mm:ss');
 ## 查询天气信息
 
 1、安装依赖
+
 ```bash
 $ npm install node-fetch //发起网络请求
 ```
@@ -126,6 +135,7 @@ $ npm install node-fetch //发起网络请求
 2、准备天气API，我们使用[和风天气](https://dev.heweather.com/docs/start/)API服务：
 
 a. 获取天气信息接口：
+
 ```javascript
 请求： 
 https://devapi.heweather.net/v7/weather/now?key=ea27fd16a12c45938ae787b4059fdaba&location=101010100
@@ -159,7 +169,8 @@ https://devapi.heweather.net/v7/weather/now?key=ea27fd16a12c45938ae787b4059fdaba
 }
 ```
 
-b. 我们只准备几个热门城市
+b. 我们只查询几个热门城市
+
 ```javascript
 const hotCity = {
   "beijing": "101010100",
@@ -208,6 +219,7 @@ yargs.scriptName("xun-cli")
 ```
 
 4、执行
+
 ```bash
 $ node src/index.js weather
 //output: beijing: 晴，14摄氏度，北风
@@ -216,17 +228,20 @@ $ node src/index.js weather
 ## 查看本地IP
 
 1、安装依赖
+
 ```bash
 $ npm install shelljs
 ```
 
 2、查询本地IP命令
+
 ```bash
 $ ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6 | awk '{print $2}' | tr -d 'addr:'
 // 172.18.0.229
 ```
 
 3、index.js
+
 ```javascript
 yargs.scriptName("xun-cli")
   .usage('$0 <cmd> [args]')
@@ -240,6 +255,7 @@ yargs.scriptName("xun-cli")
 ```
 
 4、执行
+
 ```bash
 $ node src/index.js ip
 //output: Local IP: 172.18.0.229
@@ -250,6 +266,7 @@ $ node src/index.js ip
 在项目根目录中运行npm link会将符号文件链接到系统路径，从而可以在任何位置访问它。
 
 1、更新package.json
+
 ```json
 {
 	"bin": {
@@ -259,42 +276,45 @@ $ node src/index.js ip
 ```
 
 2、npm link
+
 ```bash
 $ cd xun-cli
 $ npm link
 ```
 
 3、执行
+
 ```bash
 $ cd ~
 $ xun-cli --help
-/*
-xun-cli <cmd> [args]
 
-Commands:
-  xun-cli date            显示当前日期
-  xun-cli weather [city]  显示天气（默认beijing）
-  xun-cli ip              显示本地IP
+# 
+# xun-cli <cmd> [args]
 
-Options:
-  --version  Show version number                                       [boolean]
-  --help     Show help
-*/
+# Commands:
+#   xun-cli date            显示当前日期
+#   xun-cli weather [city]  显示天气（默认beijing）
+#   xun-cli ip              显示本地IP
+
+# Options:
+#   --version  Show version number                                       [boolean]
+#   --help     Show help
+# 
 
 $ xun-cli --version
-// 1.0.0
+# 1.0.0
 
 $ xun-cli date
-// Current Date: 2020-10-16 11:32:02
+# Current Date: 2020-10-16 11:32:02
 
 $ xun-cli weather
-// Beijing: 晴，14摄氏度，北风
+# Beijing: 晴，14摄氏度，北风
 
 $ xun-cli weather tianjin
-// Tianjin: 阴，13摄氏度，北风
+# Tianjin: 阴，13摄氏度，北风
 
 $ xun-cli ip
-// Local IP: 172.18.0.229
+# Local IP: 172.18.0.229
 ```
 
 ## 项目完整代码
