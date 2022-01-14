@@ -4,6 +4,12 @@
 $ npm run build
 ```
 
+## 发布
+
+```bash
+$ npm run deploy
+```
+
 ## 开发
 
 ```bash
