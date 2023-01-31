@@ -71,7 +71,7 @@ defaultContentLanguage = "zh-cn"
 [[menu.main]]
   name = "快捷导航"
   weight = 70
-  url = "/pages/quick/"
+  url = "/pages/quick.html"
 [[menu.main]]
   name = "好文收藏"
   weight = 80
