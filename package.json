@@ -1,25 +1,23 @@
 {
-  "name": "xun-www",
+  "name": "xun-blog",
+  "homepage": "https://www.pengjielee.cn",
   "version": "1.0.0",
-  "description": "``` $ hugo new posts/my-first-post.md",
-  "main": "index.js",
+  "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "post": "hugo new post/${title}",
-    "dev": "npm run start",
+    "dev": "npm start",
     "start": "hugo server -D",
     "build": "hugo -D",
     "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html",
     "newfile": "node scripts/newfile.js",
-    "deploy": "npm run build && gh-pages -d dist",
-    "temp": "exit 1"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pengjielee/xun-www.git"
+    "url": "https://github.com/pengjielee/xun-blog.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "pengjielee",
   "license": "ISC",
   "devDependencies": {
     "fs-extra": "^10.0.0",

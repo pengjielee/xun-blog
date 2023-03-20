@@ -1,3 +1,8 @@
+# 访问地址
+
+https://www.pengjielee.cn/
+
+
 ## 构建
 
 ```bash
@@ -20,7 +25,7 @@ $ npm run dev
 $ npm run start
 ```
 
-## 创建博客 
+## 创建博客
 
 ```bash
 $ hugo new post/my-first-post.md
@@ -30,7 +35,7 @@ $ hugo new post/my-first-post.md
 $ title='hello.md' npm run post
 ```
 
-## 主题 
+## 主题
   
 当前主题： 
 themes/mainroad  
