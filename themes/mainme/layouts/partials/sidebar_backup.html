@@ -1,6 +1,10 @@
 {{- $sidebar := false }}
 {{- if eq .Kind "home" -}}
-	{{ $sidebar = (default .Site.Params.sidebar.home .Params.sidebar) }}	
+	{{ $sidebar = (default .Site.Params.sidebar.home .Params.sidebar) }}
+{{- else if eq .Kind "page" -}}
+	{{ $sidebar = (default .Site.Params.sidebar.single .Params.sidebar) }}
+{{- else -}}
+	{{ $sidebar = (default .Site.Params.sidebar.list .Params.sidebar) }}
 {{ end }}
 
 {{- if $sidebar -}}
