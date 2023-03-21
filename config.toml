@@ -10,7 +10,6 @@ defaultContentLanguage = "zh-cn"
 [Author]
   name = "Pengjielee"
   bio = "Web Developer"
-  avatar = "img/avatar.jpg"
 
 [Params]
   keywords = "pengjielee,个人博客"
@@ -29,10 +28,10 @@ defaultContentLanguage = "zh-cn"
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
-  list = "right"   # Configure layout for list pages
-  single = "right" # Configure layout for single pages
+  #list = "left"   # Configure layout for list pages
+  #single = "right" # Configure layout for single pages
   # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social"]
+  widgets = [ "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
@@ -49,6 +48,11 @@ defaultContentLanguage = "zh-cn"
   identifier = "home"
   url = "/"
 [[menu.main]]
+  name = "分类"
+  weight = 20
+  identifier = "categories"
+  url = "/categories/"
+[[menu.main]]
   name = "归档"
   weight = 20
   identifier = "archives"
@@ -60,27 +64,14 @@ defaultContentLanguage = "zh-cn"
   url = "/tags/"
 [[menu.main]]
   name = "系列"
-  identifier = "series"
+  identifier = "系列"
   weight = 50
   url = "/pages/series"
 [[menu.main]]
-  name = "个人项目"
+  name = "项目"
   weight = 60
   identifier = "projects"
   url = "/pages/projects/"
-[[menu.main]]
-  name = "快捷导航"
-  weight = 70
-  url = "/pages/quick.html"
-[[menu.main]]
-  name = "好文收藏"
-  weight = 80
-  identifier = "articles"
-  url = "/pages/articles/"
-[[menu.main]]
-  name = "博客收藏"
-  weight = 90
-  identifier = "blogs"
-  url = "/pages/blogs/"
+
 
 
