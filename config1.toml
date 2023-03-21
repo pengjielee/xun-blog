@@ -1,0 +1,86 @@
+baseurl = "https://www.pengjielee.cn"
+title = "Pengjielee's blog"
+paginate = "10" # Number of posts per page
+theme = "mainme"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+publishDir = 'dist'
+defaultContentLanguage = "zh-cn"
+
+[Author]
+  name = "Pengjielee"
+  bio = "Web Developer"
+  avatar = "img/avatar.jpg"
+
+[Params]
+  keywords = "pengjielee,个人博客"
+  description = "Pengjielee的个人博客" # Description of your site
+  opengraph = true
+  twitter_cards = false
+  readmore = true # Show "Read more" button in list if true
+  authorbox = true
+  pager = true
+  post_meta = ["date", "categories"] # Order of post meta information
+  mainSections = ["post", "blog", "docs"]
+  dateformat = "2006-01-02"
+
+[Params.logo]
+  subtitle = "真正的优秀不是优于别人，而是优于过去的自己。" # Logo subtitle
+
+[Params.sidebar]
+  home = "right"   # Configure layout for home page
+  list = "right"   # Configure layout for list pages
+  single = "right" # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["search", "recent", "categories", "taglist", "social"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+
+[Params.widgets.social]
+  github = "pengjielee"
+  email = "meetwithsmile@163.com"
+
+
+[[menu.main]]             # config your menu              # 配置目录
+  name = "首页"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[menu.main]]
+  name = "归档"
+  weight = 20
+  identifier = "archives"
+  url = "/post/"
+[[menu.main]]
+  name = "标签"
+  weight = 30
+  identifier = "tags"
+  url = "/tags/"
+[[menu.main]]
+  name = "系列"
+  identifier = "series"
+  weight = 50
+  url = "/pages/series"
+[[menu.main]]
+  name = "个人项目"
+  weight = 60
+  identifier = "projects"
+  url = "/pages/projects/"
+[[menu.main]]
+  name = "快捷导航"
+  weight = 70
+  url = "/pages/quick.html"
+[[menu.main]]
+  name = "好文收藏"
+  weight = 80
+  identifier = "articles"
+  url = "/pages/articles/"
+[[menu.main]]
+  name = "博客收藏"
+  weight = 90
+  identifier = "blogs"
+  url = "/pages/blogs/"
+
+
