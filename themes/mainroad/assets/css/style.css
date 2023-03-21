@@ -1345,3 +1345,34 @@ textarea {
 .menu {
 	border: none;
 }
+.footer {
+	color: #fff;
+}
+pre {
+	position: relative;
+}
+pre>.copy-btn {
+	position: absolute;
+  top: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.8em;
+  line-height: 1.8;
+  color: #fff;
+  background-color: #777;
+  min-width: 55px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  display: none;
+}
+pre:hover .copy-btn{
+	display: block;
+}
+pre>.copy-btn:hover {
+	color: #fff;
+	text-decoration: none;
+	transform: scale(1.1);
+}
