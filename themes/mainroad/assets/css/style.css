@@ -1335,70 +1335,10 @@ textarea {
 	}
 }
 
-
-.logo__text {
-	text-transform: unset;
-}
-.logo__tagline {
-	border-top: none;
-}
 .menu {
 	border: none;
 }
 .footer {
+	border-top: none;
 	color: #fff;
-}
-pre {
-	position: relative;
-}
-pre>.copy-btn {
-	position: absolute;
-  top: 7px;
-  right: 7px;
-  border: 0;
-  border-radius: 4px;
-  padding: 1px;
-  font-size: 0.8em;
-  line-height: 1.8;
-  color: #fff;
-  background-color: #777;
-  min-width: 55px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  display: none;
-}
-pre:hover .copy-btn{
-	display: block;
-}
-pre>.copy-btn:hover {
-	color: #fff;
-	text-decoration: none;
-	transform: scale(1.1);
-}
-.hljs {
-}
-.archive-list .collection-title {
-	list-style-type: none;
-	border-bottom: 1px solid #ddd;
-	padding-bottom: 10px;
-	margin-bottom: 15px;
-}
-.archive-list .collection-title h2 {
-	margin-bottom: 0;
-}
-.archive-post {
-	margin-bottom: 15px;
-	list-style-type: square;
-}
-.archive-post-time {
-	font-weight: 350;
-  color: #656262;
-  font-size: 14px;
-}
-.archive-post-title{
-	font-weight: 450;
-	font-size: 16px;
-	color: #000;
-	margin-left: 15px;
 }

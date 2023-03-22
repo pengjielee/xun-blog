@@ -26,6 +26,11 @@
 	{{- end }}
 
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
+	<link rel="stylesheet" href="{{ "libs/monokai-sublime.min.css" | relURL }}" />
+	<link rel="stylesheet" href="{{ "libs/gh-fork-ribbon.min.css" | relURL }}" />
+	<link rel="stylesheet" href="{{ "libs/pace-theme-flat-top-custom.css" | relURL }}" />
+	<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}" />
+
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ range .Site.Params.customCSS -}}
 	<link rel="stylesheet" href="{{ . | relURL }}">
@@ -67,6 +72,7 @@
 {{- end }}
 {{- partial "mathjax.html" . -}}
 {{- partial "backtop.html" . -}}
+{{- partial "github.html" . -}}
 <script async defer src="{{ "js/cursor-effects.js" | relURL }}"></script>
 <script async defer src="{{ "libs/highlight.min.js" | relURL }}"></script>
 <script async defer src="{{ "libs/clipboard.min.js" | relURL }}"></script>
