@@ -1376,3 +1376,29 @@ pre>.copy-btn:hover {
 	text-decoration: none;
 	transform: scale(1.1);
 }
+.hljs {
+}
+.archive-list .collection-title {
+	list-style-type: none;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+.archive-list .collection-title h2 {
+	margin-bottom: 0;
+}
+.archive-post {
+	margin-bottom: 15px;
+	list-style-type: square;
+}
+.archive-post-time {
+	font-weight: 350;
+  color: #656262;
+  font-size: 14px;
+}
+.archive-post-title{
+	font-weight: 450;
+	font-size: 16px;
+	color: #000;
+	margin-left: 15px;
+}
