@@ -10,7 +10,7 @@
     "build": "hugo -D",
     "prettier": "prettier --write  themes/zero/layouts/*.html themes/zero/layouts/**/*.html",
     "newfile": "node scripts/newfile.js",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "rm -rf dist/ && npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
