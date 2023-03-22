@@ -66,12 +66,12 @@ defaultContentLanguage = "zh-cn"
   name = "系列"
   identifier = "系列"
   weight = 50
-  url = "/pages/series"
+  url = "/series"
 [[menu.main]]
   name = "项目"
   weight = 60
   identifier = "projects"
-  url = "/pages/projects/"
+  url = "/projects/"
 
 
 
