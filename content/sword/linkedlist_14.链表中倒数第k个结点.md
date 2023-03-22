@@ -41,7 +41,7 @@ function FindKthToTail(head, k) {
 }
 ```
 
-//Test
+Test
 
 ```javascript
 var linkedlist = {
@@ -82,4 +82,48 @@ function display(linkedlist) {
 
 FindKthToTail(linkedlist.head, 3);
 ```
+
+## Go实现
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+type ListNode struct {
+  Val  int
+  Next *ListNode
+}
+
+func main() {
+  node1 := &ListNode{Val: 1}
+  node2 := &ListNode{Val: 2}
+  node3 := &ListNode{Val: 3}
+  node4 := &ListNode{Val: 4}
+  node5 := &ListNode{Val: 5}
+  node1.Next = node2
+  node2.Next = node3
+  node3.Next = node4
+  node4.Next = node5
+  fmt.Println(getKthFromEnd(node1, 1).Val) //5
+  fmt.Println(getKthFromEnd(node1, 2).Val) //4
+  fmt.Println(getKthFromEnd(node1, 3).Val) //3
+  fmt.Println(getKthFromEnd(node1, 4).Val) //2
+  fmt.Println(getKthFromEnd(node1, 5).Val) //1
+}
+
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+  slow, fast := head, head
+  for ; k > 0; k-- {
+    fast = fast.Next
+  }
+  for fast != nil {
+    slow, fast = slow.Next, fast.Next
+  }
+  return slow
+}
+```
+
 

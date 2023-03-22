@@ -16,7 +16,8 @@ draft: false
 ## JS实现
 
 1、递归实现
-```
+
+```javascript
 /*function ListNode(x){
     this.val = x;
     this.next = null;
@@ -40,7 +41,8 @@ function Merge(pHead1, pHead2) {
 ```
 
 2、非递归实现
-```
+
+```javascript
 /*function ListNode(x){
     this.val = x;
     this.next = null;
@@ -82,5 +84,92 @@ function Merge(pHead1, pHead2) {
     current.next = pHead1;
   }
   return mergedHead;
+}
+```
+
+## Go实现
+
+```go
+package main
+
+import "fmt"
+
+type ListNode struct {
+  Val  int
+  Next *ListNode
+}
+
+func main() {
+  node1 := &ListNode{Val: 1}
+  node2 := &ListNode{Val: 2}
+  node3 := &ListNode{Val: 3}
+  node4 := &ListNode{Val: 4}
+  node5 := &ListNode{Val: 5}
+  node6 := &ListNode{Val: 6}
+  node1.Next = node3
+  node3.Next = node5
+  printList(node1)
+  node2.Next = node4
+  node4.Next = node6
+  printList(node2)
+
+  // newHead := mergeTwoList1(node1, node2)
+  // printList(newHead)
+
+  newHead := Merge(node1, node2)
+  printList(newHead)
+}
+
+func printList(head *ListNode) {
+  curr := head
+  for curr != nil {
+    fmt.Printf("%d\t", curr.Val)
+    curr = curr.Next
+  }
+  fmt.Println("")
+}
+
+func mergeTwoList1(l1 *ListNode, l2 *ListNode) *ListNode {
+  head := &ListNode{}
+  result := head
+  for l1 != nil && l2 != nil {
+    if l1.Val < l2.Val {
+      head.Next = l1
+      l1 = l1.Next
+    } else {
+      head.Next = l2
+      l2 = l2.Next
+    }
+    head = head.Next
+  }
+  if l1 != nil {
+    head.Next = l1
+  }
+  if l2 != nil {
+    head.Next = l2
+  }
+  return result.Next
+}
+
+// 递归
+func Merge(l1, l2 *ListNode) *ListNode {
+  if l1 == nil {
+    return l2
+  }
+  if l2 == nil {
+    return l1
+  }
+  var tempNode *ListNode
+  if l1.Val < l2.Val {
+    tempNode = l1
+    l1.Next = Merge(l1.Next, l2)
+
+  }
+  if l1.Val > l2.Val {
+    tempNode = l2
+    l2.Next = Merge(l1, l2.Next)
+
+  }
+  return tempNode
 }
 ```

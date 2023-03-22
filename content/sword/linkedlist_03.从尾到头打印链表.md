@@ -17,7 +17,7 @@ draft: false
 
 利用JS数组的unshift()方法，在数组开头插入数据。
 
-```
+```javascript
 var nums = [1,2,3];
 var temp = nums.unshift(4);
 console.log(temp); //4
