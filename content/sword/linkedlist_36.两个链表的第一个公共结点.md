@@ -19,6 +19,7 @@ draft: false
 而是在第一链表和第二链表中都存在一个节点，该节点往后的子链表在两个链表中是相同的。
 
 如下图中链表6-7就是两个链表的公共链表，而节点6就是第一个公共节点。
+
 ```
 1 -> 2 -> 3 -> 6 -> 7  
      4 -> 5 -> 6 -> 7
@@ -28,7 +29,7 @@ draft: false
 
 ## JS实现
 
-```
+```javascript
 /*function ListNode(x){
     this.val = x;
     this.next = null;

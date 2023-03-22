@@ -62,3 +62,63 @@ function min() {
   return null;
 }
 ```
+
+## Go实现
+
+```go
+package main
+
+import (
+  "fmt"
+  "math"
+)
+
+type MinStack struct {
+  stack    []int
+  minStack []int
+}
+
+func NewMinStack() *MinStack {
+  return &MinStack{
+    stack:    []int{},
+    minStack: []int{math.MaxInt64},
+  }
+}
+func (ms *MinStack) Push(x int) {
+  ms.stack = append(ms.stack, x)
+  top := ms.minStack[len(ms.minStack)-1]
+  ms.minStack = append(ms.minStack, min(x, top))
+}
+
+func (ms *MinStack) Pop() {
+  ms.stack = ms.stack[:len(ms.stack)-1]
+  ms.minStack = ms.minStack[:len(ms.minStack)-1]
+}
+
+func (ms *MinStack) Top() int {
+  return ms.stack[len(ms.stack)-1]
+}
+
+func (ms *MinStack) Min() int {
+  return ms.minStack[len(ms.minStack)-1]
+}
+
+func min(x, y int) int {
+  if x < y {
+    return x
+  }
+  return y
+}
+
+func main() {
+  ms := NewMinStack()
+  ms.Push(2)
+  ms.Push(5)
+  fmt.Println(ms.Min()) //2
+  ms.Push(8)
+  ms.Push(1)
+  fmt.Println(ms.Min()) //1
+  ms.Pop()
+  fmt.Println(ms.Min()) //2
+}
+```

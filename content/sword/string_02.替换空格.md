@@ -49,12 +49,12 @@ import (
 
 func main() {
   str := "We are happy."
-  fmt.Println(replaceSpace(str))  //We%20are%20happy.
+  fmt.Println(replaceSpace1(str))  //We%20are%20happy.
   fmt.Println(replaceSpace2(str)) //We%20are%20happy.
   fmt.Println(replaceSpace3(str)) //We%20are%20happy.
 }
 
-func replaceSpace(str string) string {
+func replaceSpace1(str string) string {
   result := ""
   for _, v := range []byte(str) {
     if string(v) == " " {

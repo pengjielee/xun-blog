@@ -49,6 +49,41 @@ function deleteDuplication(pHead) {
 }
 ```
 
+## Go实现
+
+```go
+func deleteDuplication(pHead *ListNode) *ListNode {
+  if pHead == nil || pHead.Next == nil {
+    return pHead
+  }
+
+  //创建一个哑节点
+  dummyNode := &ListNode{Val: -1, Next: pHead}
+
+  //pre节点指向不重复的节点
+  pre := dummyNode
+
+  //工作节点
+  curr := dummyNode
+
+  for curr != nil && curr.Next != nil {
+    //如果当前节点与下一个节点的值相等
+    if curr.Val == curr.Next.Val {
+      val := curr.Val
+      for curr != nil && curr.Val == val {
+        curr = curr.Next
+      }
+      pre.Next = curr
+    } else {
+      curr = curr.Next
+      pre = pre.Next
+    }
+  }
+
+  return dummyNode.Next
+}
+```
+
 ## More
 
 

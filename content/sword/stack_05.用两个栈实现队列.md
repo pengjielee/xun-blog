@@ -66,3 +66,89 @@ function pop() {
   return stack2.pop();
 }
 ```
+
+## Go实现
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Stack struct {
+	element []int
+}
+
+func NewStack(cap int) *Stack {
+	return &Stack{
+		element: make([]int, 0, cap),
+	}
+}
+
+func (s *Stack) Len() int {
+	return len(s.element)
+}
+
+func (s *Stack) Push(elem int) {
+	s.element = append(s.element, elem)
+}
+
+func (s *Stack) Pop() int {
+	if len(s.element) == 0 {
+		return 0
+	}
+	tmp := s.element[len(s.element)-1]
+	s.element = s.element[:len(s.element)-1]
+	return tmp
+}
+
+// 用两个stack，作一个队列
+type Queue struct {
+	stack1 *Stack
+	stack2 *Stack
+}
+
+func NewQueue(cap int) *Queue {
+	return &Queue{
+		stack1: NewStack(cap),
+		stack2: NewStack(cap),
+	}
+}
+func (q Queue) Push(elem int) {
+	q.stack1.Push(elem)
+}
+
+func (q Queue) Pop() int {
+	if q.stack2.Len() <= 0 {
+		for q.stack1.Len() > 0 {
+			q.stack2.Push(q.stack1.Pop())
+		}
+	}
+	return q.stack2.Pop()
+}
+
+func main() {
+	stack := NewStack(10)
+
+	stack.Push(5)
+	stack.Push(6)
+
+	fmt.Println(stack.Pop()) //6
+	fmt.Println(stack.Pop()) //5
+
+	queue := NewQueue(10)
+
+	queue.Push(5)
+	queue.Push(6)
+	queue.Push(7)
+
+	fmt.Println(queue.Pop()) //5
+	fmt.Println(queue.Pop()) //6
+
+	queue.Push(8)
+
+	fmt.Println(queue.Pop()) //7
+	fmt.Println(queue.Pop()) //8
+}
+```

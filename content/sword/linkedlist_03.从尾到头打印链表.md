@@ -55,8 +55,6 @@ function printListFromTailToHead(head) {
 
 ## Go实现
 
-
-
 ```go
 package main
 

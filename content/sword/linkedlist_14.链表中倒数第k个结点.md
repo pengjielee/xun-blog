@@ -19,7 +19,7 @@ draft: false
 
 ## JS实现
 
-```
+```javascript
 /*function ListNode(x){
     this.val = x;
     this.next = null;
@@ -42,7 +42,8 @@ function FindKthToTail(head, k) {
 ```
 
 //Test
-```
+
+```javascript
 var linkedlist = {
   length: 7,
   head: {
