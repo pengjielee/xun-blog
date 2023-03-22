@@ -1,6 +1,7 @@
 ---
 title: "与神对话1 - chapter8关系"
 date: 2022-10-12T10:40:58+08:00
+categories: ['read']
 draft: true
 ---
 

@@ -1,6 +1,7 @@
 
 title: "与神对话1 - chapter7生活"
 date: 2022-10-12T11:02:58+08:00
+categories: ['read']
 draft: true
 
 
