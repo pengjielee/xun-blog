@@ -69,4 +69,128 @@ function FindFirstCommonNode(pHead1, pHead2) {
 }
 ```
 
+## Go实现
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+type ListNode struct {
+  Val  int
+  Next *ListNode
+}
+
+func printList(head *ListNode) {
+  for head != nil {
+    fmt.Printf("%d\t", head.Val)
+    head = head.Next
+  }
+  fmt.Println("")
+}
+
+func main() {
+  l1 := &ListNode{Val: 1}
+  node2 := &ListNode{Val: 2}
+  node3 := &ListNode{Val: 3}
+  node4 := &ListNode{Val: 4}
+  node5 := &ListNode{Val: 5}
+  l1.Next = node2
+  node2.Next = node3
+  node3.Next = node4
+  node4.Next = node5
+
+  l2 := &ListNode{Val: 21}
+  l2.Next = node3
+
+  printList(l1)
+  printList(l2)
+
+  first1 := FindFirstCommonNode1(l1, l2)
+  if first1 != nil {
+    fmt.Println(first1)
+  }
+
+  first1 = FindFirstCommonNode2(l1, l2)
+  if first1 != nil {
+    fmt.Println(first1)
+  }
+
+  first1 = FindFirstCommonNode3(l1, l2)
+  if first1 != nil {
+    fmt.Println(first1)
+  }
+}
+
+// 暴力法
+func FindFirstCommonNode1(pHead1 *ListNode, pHead2 *ListNode) *ListNode {
+  // write code here
+  for p1 := pHead1; p1 != nil; p1 = p1.Next {
+    for p2 := pHead2; p2 != nil; p2 = p2.Next {
+      if p1 == p2 {
+        return p1
+      }
+    }
+  }
+  return nil
+}
+
+func FindFirstCommonNode2(pHead1 *ListNode, pHead2 *ListNode) *ListNode {
+  // write code here
+  // 1. 求出两链表长度
+  var len1, len2 int
+  for p1 := pHead1; p1 != nil; p1 = p1.Next {
+    len1++
+  }
+  for p2 := pHead2; p2 != nil; p2 = p2.Next {
+    len2++
+  }
+  // 2. 先让长链表指针走
+  // 通过长度差定义长短链表
+  var lp, sp *ListNode
+  dif := len1 - len2
+  if dif > 0 {
+    lp, sp = pHead1, pHead2
+  } else {
+    lp, sp = pHead2, pHead1
+    dif = -dif
+  }
+  for i := 0; i < dif; i++ {
+    lp = lp.Next
+  }
+  // 3. 两链表同时移动 直到相遇
+  for lp != nil && sp != nil && lp != sp {
+    lp, sp = lp.Next, sp.Next
+  }
+  return lp
+}
+
+// l1: 1 -> 2 -> 3 -> 4 -> 5
+// l2: 21 -> 3 -> 4 -> 5
+// l1+l2: 1 -> 2 -> 3 -> 4 -> 5 --> 21 -> 3 -> 4 -> 5
+// l2+l1: 21 -> 3 -> 4 -> 5 --> 1 -> 2 -> 3 -> 4 -> 5
+func FindFirstCommonNode3(pHead1 *ListNode, pHead2 *ListNode) *ListNode {
+  // write code here
+  l1, l2 := pHead1, pHead2
+
+  for l1 != l2 {
+    if l1 == nil {
+      l1 = pHead2
+    } else {
+      l1 = l1.Next
+    }
+
+    if l2 == nil {
+      l2 = pHead1
+    } else {
+      l2 = l2.Next
+    }
+  }
+
+  return l1
+}
+```
+
 

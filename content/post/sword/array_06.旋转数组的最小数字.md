@@ -23,16 +23,19 @@ NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 
 ## 详解
 
-旋转之后的数组实际上可以划分成两个有序的子数组：前面子数组的大小 都大于 后面子数组中的元素
+旋转之后的数组实际上可以划分成两个有序的子数组：前面子数组的值 都大于 后面子数组中的元素。
 
 注意到实际上最小的元素就是两个子数组的分界线。本题目给出的数组一定程度上是排序的，因此我们试着用二分查找法寻找这个最小的元素。
 
 思路：
-1. 我们用两个指针left,right分别指向数组的第一个元素和最后一个元素。
+
+1. 我们用两个指针left，right分别指向数组的第一个元素和最后一个元素。
+
 按照题目的旋转的规则，第一个元素应该是大于最后一个元素的没. 重复的元素）。
 但是如果不是旋转，第一个元素肯定小于最后一个元素。
 
 2. 找到数组的中间元素。
+
 - 中间元素大于第一个元素，则中间元素位于前面的递增子数组，此时最小元素位于中间元素的后面。我们可以让第一个指针left指向中间元素。
 移动之后，第一个指针仍然位于前面的递增数组中。
 - 中间元素小于第一个元素，则中间元素位于后面的递增子数组，此时最小元素位于中间元素的前面。我们可以让第二个指针right指向中间元素。
@@ -63,27 +66,62 @@ https://www.nowcoder.com/questionTerminal/9f3231a991af4f55b95579b44b7a01ba?f=dis
 ```javascript
 function minNumberInRotateArray(rotateArray) {
   // write code here
-  var len = rotateArray.length;
+  const len = rotateArray.length;
 
   if (len === 0) {
     return 0;
   }
 
-  var low = 0;
-  var high = len - 1;
+  let low = 0;
+  let high = len - 1;
 
   while (low < high) {
-    var mid = low + Math.floor((high - low) / 2);
+    const mid = low + Math.floor((high - low) / 2);
 
+    //(1)中间元素大于最后一个元素，则中间元素位于前面的递增子数组，low=mid+1，缩小左边界
+    //(2)中间元素等于最后一个元素，则中间元素位于后面的递增子数组，high=high-1，缩小右边界
+    //(3)中间元素小于最后一个元素，则中间元素位于后面的递增子数组，我们直接让high=mid，缩小右边界
     if (rotateArray[mid] > rotateArray[high]) {
-      low = mid + 1;
+      low = mid + 1;   //(1)
     } else if (rotateArray[mid] == rotateArray[high]) {
-      high = high - 1;
+      high = high - 1; //(2)
     } else {
-      high = mid;
+      high = mid;      //(3)
     }
   }
   return rotateArray[low];
+}
+```
+
+## Go实现
+
+```go
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  nums := []int{3, 4, 5, 1, 2}
+  fmt.Println(minArray(nums))
+}
+func minArray(arr []int) int {
+  low := 0
+  high := len(arr) - 1
+
+  for low < high {
+    mid := low + (high-low)/2
+
+    if arr[mid] < arr[high] {
+      high = mid
+    } else if arr[mid] > arr[high] {
+      low = mid + 1
+    } else {
+      high--
+    }
+  }
+  return arr[low]
 }
 ```
 

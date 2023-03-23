@@ -137,13 +137,15 @@ import (
 )
 
 func main() {
+  
+
+  //创建二维数组
   // [
   //  [1 2 3 4 5]
   //  [6 7 8 9 10]
   //  [11 12 13 14 15]
   //  [16 17 18 19 20]
   // ]
-
   arr := [4][5]int{}
   num := 1
   for i := 0; i < 4; i++ {
@@ -153,6 +155,7 @@ func main() {
     }
   }
 
+  //创建二维数组的另一种方式
   // arr := [3][4]int{
   //  {0, 1, 2, 3},   /*  第一行索引为 0 */
   //  {4, 5, 6, 7},   /*  第二行索引为 1 */
@@ -162,25 +165,29 @@ func main() {
   fmt.Println(Find(arr, 1))  //true
   fmt.Println(Find(arr, 10)) //true
   fmt.Println(Find(arr, 21)) //false
-
 }
 
 func Find(arr [4][5]int, target int) bool {
+  //获取二维数组的行数
   rows := len(arr)
   if rows == 0 {
     return false
   }
+
+  //获取二维数组的列数
   cols := len(arr[0])
   if cols == 0 {
     return false
   }
-  // 从左下开始查找
+
+  // 从左下开始查找（最后一行，最左一列）
   row := rows - 1
   col := 0
   for row >= 0 && col < cols {
+    //如果当前值比目标值小，则往右找
     if arr[row][col] < target {
       col++ //右边的都比左边大
-    } else if arr[row][col] > target {
+    } else if arr[row][col] > target { //如果当前值比目标值大，则往上找
       row-- //上边的都比下边小
     } else {
       return true

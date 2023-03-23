@@ -1349,6 +1349,12 @@ textarea {
 .logo__tagline {
 	border-top: none;
 }
+.widget-categories,h1.main__title {
+	text-transform: uppercase;
+}
+h1.main__title  {
+	margin: 20px 0 30px;
+}
 pre {
 	position: relative;
 }
@@ -1419,5 +1425,8 @@ pre>.copy-btn:hover {
     min-width: unset;
     line-height: unset;
     padding: 0 2px;
+  }
+  .backtop {
+  	display: none;
   }
 }
