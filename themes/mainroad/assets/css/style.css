@@ -1,6 +1,6 @@
 {{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#444") -}}
 
-{{- $fontSans := `"Open Sans", Helvetica, Arial, sans-serif` -}}
+{{- $fontSans := `"Ubuntu","Open Sans", Helvetica, Arial, sans-serif` -}}
 {{- $fontMono := `SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace` -}}
 {{- $fontFamilyPrimary := .Site.Params.style.vars.fontFamilyPrimary | default $fontSans -}}
 {{- $fontFamilySecondary := .Site.Params.style.vars.fontFamilySecondary | default $fontMono -}}
@@ -1429,4 +1429,17 @@ pre>.copy-btn:hover {
   .backtop {
   	display: none;
   }
+}
+
+.post__content{
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.content a {
+	color: #333;
+	text-decoration: none;
+}
+.content a:hover {
+	text-decoration: none;
 }
