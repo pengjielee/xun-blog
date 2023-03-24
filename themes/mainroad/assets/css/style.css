@@ -1427,7 +1427,7 @@ pre>.copy-btn:hover {
     padding: 0 2px;
   }
   .backtop {
-  	display: none;
+  	display: none !important;
   }
 }
 
