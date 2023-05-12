@@ -1,0 +1,9 @@
+{{ define "main" }}
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">{{ .Title }}</h1>
+            {{- partial "post_meta.html" . -}}
+        </header>
+        <div class="content">{{ .Content }}</div>
+    </div>
+{{ end }}

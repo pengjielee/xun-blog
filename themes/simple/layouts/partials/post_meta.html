@@ -1,0 +1,27 @@
+<div class="post-meta">
+    <div class="date">
+        {{- .Date.Format (.Site.Params.dateformat | default "January 02, 2006") -}}
+    </div>
+    {{- if .Params.tags }}
+        <div class="tags">
+            <label class="label">Tags：</label>
+            {{- range .Params.tags }}
+                <a class="tags_link" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/" rel="tag">
+                    {{- . -}}
+                </a>
+            {{- end }}
+        </div>
+    {{- end }}
+    {{- if .Params.categories }}
+        <div class="category">
+            <label class="label">Category：</label>
+            <a
+                class="tags_link"
+                href="{{ "categories/" | relLangURL }}{{ .Params.categories | urlize }}/"
+                rel="tag"
+            >
+                {{- .Params.categories -}}
+            </a>
+        </div>
+    {{- end }}
+</div>

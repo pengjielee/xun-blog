@@ -1,7 +1,7 @@
 baseurl = "https://www.pengjielee.cn"
 title = "Pengjielee's blog"
 paginate = "10" # Number of posts per page
-theme = "mainroad"
+theme = "simple"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 publishDir = 'dist'
@@ -12,6 +12,7 @@ defaultContentLanguage = "zh-cn"
   bio = "Web Developer"
 
 [Params]
+  subtitle = "真正的优秀不是优于别人，而是优于过去的自己。" # Logo subtitle
   keywords = "pengjielee,个人博客"
   description = "Pengjielee的个人博客" # Description of your site
   opengraph = true

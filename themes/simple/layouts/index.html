@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <div class="page-home">
+        <header class="header">
+            <h1 class="title"><a href="{{ "" | relURL }}">{{ .Site.Title }}</a></h1>
+            <div class="subtitle">{{ .Site.Params.subtitle }}</div>
+        </header>
+
+        {{- $recent := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+        {{- $recent_num := (.Site.Params.recentNum | default 10) }}
+
+        {{- if $recent }}
+            <div class="main">
+                <section class="list">
+                    {{- range first $recent_num $recent }}
+					{{- partial "post_item.html" . -}}
+					{{- end }}
+                </section>
+            </div>
+        {{- end }}
+
+        <footer class="footer">
+            <a href="#" target="_blank">@copyright</a>
+        </footer>
+    </div>
+{{ end }}

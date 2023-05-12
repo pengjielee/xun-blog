@@ -1,0 +1,7 @@
+<div class="item">
+    <div class="title">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </div>
+    {{- partial "post_meta.html" . -}}
+    <p class="summary">{{ .Summary }}</p>
+</div>
