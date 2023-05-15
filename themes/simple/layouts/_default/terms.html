@@ -8,14 +8,7 @@
             <div class="list">
                 {{- range $key, $value := $terms }}
                     <div class="item">
-                        <a
-                            class="title"
-                            href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}
-                                .html
-                            {{ else }}
-                                /
-                            {{ end }}"
-                        >
+                        <a class="terms-link" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
                             {{ $value.Term }}
                             <span class="count">({{ len $value.Pages }})</span>
                         </a>
