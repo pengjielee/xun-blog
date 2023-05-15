@@ -3,5 +3,7 @@
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{- partial "post_meta.html" . -}}
+    {{ if .Summary }}
     <p class="summary">{{ .Summary }}</p>
+    {{ end }}
 </div>

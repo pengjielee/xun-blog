@@ -2,7 +2,7 @@
     <div class="pagination">
         {{- if .Paginator.HasPrev }}
             <a class="pagination__item pagination__item--prev btn" href="{{ .Paginator.Prev.URL }}"
-                >«</a
+                >Prev</a
             >
         {{- end }}
         <span class="pagination__item pagination__item--current">
@@ -10,7 +10,7 @@
         </span>
         {{- if .Paginator.HasNext }}
             <a class="pagination__item pagination__item--next btn" href="{{ .Paginator.Next.URL }}"
-                >»</a
+                >Next</a
             >
         {{- end }}
     </div>
