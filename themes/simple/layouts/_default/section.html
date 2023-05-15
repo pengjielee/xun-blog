@@ -1,7 +1,6 @@
 {{ define "main" }}
     {{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "post") (index .Site.Params "archive-paginate" | default 20) }}
     <section id="archive" class="archive">
-        
         <dl class="archive-list">
             {{- range $index, $element := $paginator.Pages -}}
                 {{- $thisYear := $element.Date.Format "2006" }}
@@ -29,5 +28,4 @@
 
     <!-- pagination -->
     {{ partial "pagination.html" . }}
-
 {{ end }}
