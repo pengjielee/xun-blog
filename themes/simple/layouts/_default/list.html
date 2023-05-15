@@ -1,5 +1,6 @@
 {{ define "main" }}
-    <div class="page-list">
+    {{ $name := .Data.Plural -}}
+    <div class="page-list {{ $name }}">
         <h1 class="page-title">{{ .Title }}</h1>
         <section class="list">
             {{ range .Pages.ByPublishDate.Reverse }}
