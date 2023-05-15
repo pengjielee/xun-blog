@@ -6,11 +6,11 @@ date: 2021-03-09T09:11:36+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 设置行内样式 
+## 设置行内样式
 
 1、使用行内 style 样式
 

@@ -4,7 +4,7 @@ date: 2023-03-20T17:07:14+08:00
 keywords: ''
 description: ''
 tags: ['Go']
-categories: []
+categories: ''
 draft: true
 difficulty: ''
 ---

@@ -6,11 +6,11 @@ date: 2021-02-25T14:13:53+08:00
 keywords: ''
 description: ''
 tags: ['Python','Flask']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 渲染模板 
+## 渲染模板
 
 1、创建模板目录 `templates`，及模板文件
 
@@ -77,7 +77,7 @@ def login():
     return render_template('login.html', title='Login Form')
 ```
 
-## 接受 post 数据 
+## 接受 post 数据
 
 ```Python
 @app.route('/login', methods=['GET', 'POST'])
@@ -91,7 +91,7 @@ def login():
     return render_template('login.html', title='Login Form')
 ```
 
-## 文件上传  
+## 文件上传
 
 1、创建 upload.html 
 

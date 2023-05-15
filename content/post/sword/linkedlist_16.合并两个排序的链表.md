@@ -5,7 +5,7 @@ date: 2021-02-18T10:11:04+08:00
 keywords: '链表,合并链表,LinkedList,剑指offer题目'
 description: ''
 tags: ['LinkedList']
-categories: ['swordoffer']
+categories: 'swordoffer'
 draft: false
 ---
 

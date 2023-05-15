@@ -5,7 +5,7 @@ date: 2020-10-09T11:25:27+08:00
 keywords: '微信小程序,sass,miniprogram'
 description: ''
 tags: ['Miniprogram','Sass',]
-categories: []
+categories: ''
 draft: false
 ---
 
@@ -134,7 +134,7 @@ chokidar.watch(watchFile).on('all', (event, file) => {
 @import "./assets/wxss/mine.wxss";
 ```
 
-## More 
+## More
 
 Chokidar   
 https://github.com/paulmillr/chokidar 

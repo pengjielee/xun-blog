@@ -4,7 +4,7 @@ date: 2021-05-20T10:18:22+08:00
 keywords: ''
 description: ''
 tags: ['es6']
-categories: []
+categories: ''
 draft: true
 ---
 

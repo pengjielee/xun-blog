@@ -5,7 +5,7 @@ date: 2021-02-20T14:37:50+08:00
 keywords: 'expressjs,获取get数据,获取post数据,'
 description: ''
 tags: ['Nodejs']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -123,7 +123,7 @@ app.post('/api/user', (req, res, next) => {
 }
 ```
 
-## 完整代码 
+## 完整代码
 
 app.js  
 https://raw.githubusercontent.com/pengjielee/nodeapps/main/examples/params/app.js 

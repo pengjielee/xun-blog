@@ -6,15 +6,15 @@ date: 2021-03-01T15:21:17+08:00
 keywords: 'SublimeText插件,Markdown,高亮Markdown'
 description: ''
 tags: ['Sublime']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 问题 
+## 问题
 
 使用SublimeText默认打开 .md 后缀的文件，页面显示一片白，阅读起来很不爽。
 
-## MarkdownEditing 
+## MarkdownEditing
 
 MarkdownEditing是一款SublimeText插件，可以高亮显示语法，还可以快速插入 Markdown 标记。
 
@@ -59,7 +59,7 @@ c. 输入"mdi + tab"会生成下面链接标记
 ```
 
 
-## More  
+## More
 
 MarkdownEditing  
 https://github.com/SublimeText-Markdown/MarkdownEditing  

@@ -6,7 +6,7 @@ date: 2021-02-26T11:54:37+08:00
 keywords: 'Python学习,Python书籍,Python编程,Python入门,Python核心编程'
 description: ''
 tags: ['Python']
-categories: []
+categories: ''
 draft: true
 ---
 

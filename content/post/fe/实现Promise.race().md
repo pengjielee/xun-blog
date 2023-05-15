@@ -4,7 +4,7 @@ date: 2021-03-31T11:45:06+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -23,7 +23,7 @@ iterable
 
 一个待定的 Promise 只要给定的迭代中的一个promise解决或拒绝，就采用第一个promise的值作为它的值，从而异步地解析或拒绝（一旦堆栈为空）。
 
-## 理解 
+## 理解
 
 Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。
 
@@ -139,7 +139,7 @@ Promise._race = function (promises) {
 };
 ```
 
-## More 
+## More
 
 Promise.race()   
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race   

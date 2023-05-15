@@ -5,7 +5,7 @@ date: 2021-06-22T15:35:14+08:00
 keywords: ''
 description: ''
 tags: ['nextjs']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -49,7 +49,7 @@ module.exports = {
 
 为了向浏览器暴露环境变量，你必须在变量前添加 `NEXT_PUBLIC_` 前缀。
 
-## 使用环境变量 
+## 使用环境变量
 
 ```javascript
 let baseURL = '';
@@ -72,7 +72,7 @@ switch (process.env.NEXT_PUBLIC_TARGET) {
 export baseURL;
 ```
 
-## More 
+## More
 
 next.js的环境变量  
 https://www.nextjs.cn/docs/basic-features/environment-variables

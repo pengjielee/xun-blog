@@ -5,7 +5,7 @@ date: 2021-03-01T09:24:41+08:00
 keywords: ''
 description: ''
 tags: ['Stack']
-categories: ['swordoffer']
+categories: 'swordoffer'
 draft: true
 ---
 

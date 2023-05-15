@@ -4,12 +4,12 @@ date: 2021-03-13T17:12:40+08:00
 keywords: ''
 description: ''
 tags: []
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## More 
+## More
 
 虚拟 DOM 到底是什么？    
 https://juejin.cn/post/6844903870229905422#heading-6   

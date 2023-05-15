@@ -6,11 +6,11 @@ date: 2021-03-04T12:39:57+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 代码 
+## 代码
 
 1、安装
 

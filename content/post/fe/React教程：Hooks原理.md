@@ -6,7 +6,7 @@ date: 2021-03-29T14:14:15+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -113,7 +113,7 @@ App.click();
 App = MyReact.render(Counter); // render: { count: 1 }
 ```
 
-## 实现useEffect 
+## 实现useEffect
 
 ```javascript
 var MyReact = (function(){

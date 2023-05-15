@@ -6,11 +6,11 @@ date: 2021-02-25T14:34:40+08:00
 keywords: ''
 description: ''
 tags: ['Python','Flask']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 设置密钥 
+## 设置密钥
 
 ```Python
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -21,7 +21,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 $ python -c 'import os; print(os.urandom(16))'
 ```
 
-## 首页 
+## 首页
 
 ```Python
 from flask import Flask, request, redirect, url_for, session, render_template
@@ -67,7 +67,7 @@ newlogin.html
 </form>
 ```
 
-## 后台 
+## 后台
 
 ```Python
 @app.route('/admin')
@@ -87,7 +87,7 @@ admin.html
 <a href="/logout">退出登录</a>
 ```
 
-## 登出 
+## 登出
 
 ```Python
 @app.route('/logout')

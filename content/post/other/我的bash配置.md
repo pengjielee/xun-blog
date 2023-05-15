@@ -5,7 +5,7 @@ date: 2020-12-08T11:42:27+08:00
 keywords: 'bash配置'
 description: ''
 tags: ['Tool']
-categories: []
+categories: ''
 draft: false
 ---
 

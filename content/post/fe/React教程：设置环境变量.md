@@ -6,7 +6,7 @@ date: 2021-03-03T17:22:55+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -68,7 +68,7 @@ $ npm install --save-dev cross-env
 
 项目源码见（切换 tag 至 node_env）git checkout node_env： https://github.com/pengjielee/reactapp/tree/main/hello-world
 
-## More 
+## More
 
 cross-env  
 https://github.com/kentcdodds/cross-env  

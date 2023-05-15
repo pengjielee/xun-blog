@@ -6,7 +6,7 @@ date: 2021-03-08T15:55:42+08:00
 keywords: ''
 description: ''
 tags: ['Webpack']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -20,7 +20,7 @@ $ npm install chalk inquirer fs-extra -D
 - inquirer，命令行交互工具；   
 - fs-extra，fs模块的增加版；  
 
-## 创建页面的脚本 
+## 创建页面的脚本
 
 newPage.js
 ```javascript
@@ -113,7 +113,7 @@ if (name) {
 }
 ```
 
-## 定义 npm scripts 
+## 定义 npm scripts
 
 ```json
 {

@@ -4,7 +4,7 @@ date: 2021-03-13T17:24:53+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -180,7 +180,7 @@ B: react outer click.
 ```
 
 
-## 事件委托 
+## 事件委托
 
 对于li的点击事件，绑定在父元素ul上；
 
@@ -199,7 +199,7 @@ B: react outer click.
 ```
 
 
-## 事件执行顺序  
+## 事件执行顺序
 
 ```html
 <element1>
@@ -466,7 +466,7 @@ div click 2
 ```
 
 
-## More 
+## More
 
 通过几个例子来理解 React 的事件系统  
 https://mp.weixin.qq.com/s/NLJlcdhMcPPgrS8KrnmQ9A  

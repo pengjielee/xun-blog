@@ -4,7 +4,7 @@ date: 2021-03-16T21:01:08+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -43,7 +43,7 @@ var Jsonp = {
 };
 ```
 
-## Test 
+## Test
 
 ```javascript
 Jsonp.request("http://www.baidu.com", {

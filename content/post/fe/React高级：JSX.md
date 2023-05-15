@@ -4,7 +4,7 @@ date: 2021-03-13T13:46:50+08:00
 keywords: ''
 description: ''
 tags: []
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -79,7 +79,7 @@ render(foo);
 //Output: <div id="foo" className="foo">Hello!</div>
 ```
 
-## 使用JSX 
+## 使用JSX
 
 ```javascript
 // JSX
@@ -98,7 +98,7 @@ let dom = render(vdom);
 document.body.appendChild(dom);
 ```
 
-## More 
+## More
 
 WTF is JSX  
 https://jasonformat.com/wtf-is-jsx/  

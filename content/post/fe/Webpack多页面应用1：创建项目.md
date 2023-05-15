@@ -6,7 +6,7 @@ date: 2021-03-08T13:10:51+08:00
 keywords: ''
 description: ''
 tags: ['Webpack']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -100,7 +100,7 @@ module.exports = {
 }
 ```
 
-## 项目脚本  
+## 项目脚本
 
 package.json
 ```json

@@ -4,7 +4,7 @@ date: 2021-05-20T09:31:41+08:00
 keywords: ''
 description: ''
 tags: ['es6']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -118,7 +118,7 @@ let {a: aa = 10, b: bb = 5} = {a: 3};
 // aa = 3; bb = 5;
 ```
 
-## Source 
+## Source
 
 ES6 解构赋值  
 https://www.runoob.com/w3cnote/deconstruction-assignment.html

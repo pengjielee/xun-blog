@@ -6,11 +6,11 @@ date: 2021-02-25T10:41:37+08:00
 keywords: ''
 description: ''
 tags: ['Python','Flask']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 安装 flask 
+## 安装 flask
 
 ```
 $ pip install flask 
@@ -34,7 +34,7 @@ Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31)
 $ mkdir flask_web && cd flask_web
 ```
 
-## 创建 hello.py 
+## 创建 hello.py
 
 ```
 from flask import Flask
@@ -77,7 +77,7 @@ Hello, World!
 $ flask run --host=0.0.0.0
 ```
 
-## 开启调试模式 
+## 开启调试模式
 
 ```
 $ export FLASK_ENV=development

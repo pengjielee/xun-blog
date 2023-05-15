@@ -5,7 +5,7 @@ date: 2020-12-04T13:53:27+08:00
 keywords: 'git tag,git'
 description: ''
 tags: ['Git']
-categories: []
+categories: ''
 draft: false
 ---
 

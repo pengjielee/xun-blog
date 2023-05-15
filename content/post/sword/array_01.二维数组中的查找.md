@@ -5,7 +5,7 @@ date: 2021-03-10T10:31:53+08:00
 keywords: ''
 description: ''
 tags: ['array']
-categories: ['swordoffer']
+categories: 'swordoffer'
 draft: true
 ---
 

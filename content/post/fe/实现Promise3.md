@@ -4,7 +4,7 @@ date: 2021-03-31T11:42:06+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -393,7 +393,7 @@ Promise A+ 规范3.1 中也提到了：这可以通过“宏任务”机制（�
 有小伙伴说可以使用 queueMicrotask 实现微任务，我也查阅了一些资料，是可以的。不过 queueMicrotask 兼容性不是很好，IE 下完全不支持。据我所知 queueMicrotask 的 polyfill 是基于 promise 实现的，如果不支持 promise 会转成 setTimeout。
 
 
-## More 
+## More
 
 “你能手写一个 Promise 吗”  
 https://zhuanlan.zhihu.com/p/183801144

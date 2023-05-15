@@ -6,11 +6,11 @@ date: 2021-03-08T15:36:08+08:00
 keywords: ''
 description: ''
 tags: ['Webpack']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 添加 React 
+## 添加 React
 
 ```bash
 $ npm install react react-com
@@ -40,7 +40,7 @@ function App() {
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-## 更新webpack 
+## 更新webpack
 
 1、安装依赖
 

@@ -4,7 +4,7 @@ date: 2021-03-31T11:46:06+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -114,7 +114,7 @@ var object = {
 jsonstringify(object); // "{"a":1,"b":2,"c":{"d":3},"e":[4,5,{"g":6}]}"
 ```
 
-## More 
+## More
 
 如何实现一个JSON.stringify()  
 https://blog.csdn.net/qq_40028324/article/details/103135034 

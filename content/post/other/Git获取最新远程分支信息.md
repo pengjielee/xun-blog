@@ -5,7 +5,7 @@ date: 2020-09-23T10:34:27+08:00
 keywords: 'git,git pull,git branch'
 description: ''
 tags: ['Git']
-categories: []
+categories: ''
 draft: false
 ---
 

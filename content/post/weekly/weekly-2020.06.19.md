@@ -5,12 +5,12 @@ date: 2020-06-19T16:06:30+08:00
 keywords: ''
 description: ''
 tags: ['Weekly']
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## 2020.06.15 
+## 2020.06.15
 
 1、从“懂管理的IT人”，到“懂IT的管理者”  
 https://mp.weixin.qq.com/s/sj9z5nwKytD8eOquOiwORA
@@ -99,7 +99,7 @@ https://juejin.im/post/5c989ea76fb9a070ad504cd8
 https://juejin.im/post/5c9b39e2f265da611f1d9b5f
 https://juejin.im/post/5dc20a4ff265da4d4e30040b
 
-## 2020.06.18 
+## 2020.06.18
 
 1、面试官角度看应聘：问题到底出在哪？  
 https://mp.weixin.qq.com/s/goNbP4RUQF4e9F_aqJYPRQ

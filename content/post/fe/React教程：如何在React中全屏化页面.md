@@ -6,7 +6,7 @@ date: 2021-02-04T15:12:18+08:00
 keywords: "React全屏,React全屏页面,screenfull"
 description: '如何在React中全屏化页面'
 tags: ['screenfull','React']
-categories: []
+categories: ''
 draft: false
 ---
 
@@ -81,7 +81,7 @@ const Component = () => {
 }
 ```
 
-## More 
+## More
 
 screenfull    
 https://github.com/sindresorhus/screenfull.js  

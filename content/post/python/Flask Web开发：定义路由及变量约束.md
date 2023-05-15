@@ -6,7 +6,7 @@ date: 2021-02-25T11:37:03+08:00
 keywords: ''
 description: ''
 tags: ['Python','Flask']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -35,7 +35,7 @@ def about():
   return 'About Page'
 ```
 
-## 路由变量约束  
+## 路由变量约束
 
 接受变量类型：  
 - string，默认类型，接受任何字符串（斜杠除外）    

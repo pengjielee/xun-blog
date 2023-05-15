@@ -4,11 +4,11 @@ date: 2021-03-15T15:48:55+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 简单实现 
+## 简单实现
 
 ```javascript
 var xhr = null;
@@ -67,7 +67,7 @@ xhr.onload = function () {
 xhr.send(null);
 ```
 
-## 封装函数 
+## 封装函数
 
 ```javascript
 // Asynchronous Javascript And XML

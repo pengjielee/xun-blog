@@ -6,7 +6,7 @@ date: 2020-11-11T10:34:27+08:00
 keywords: 'React,TypeScript'
 description: ''
 tags: ['React','TypeScript']
-categories: []
+categories: ''
 draft: false
 ---
 

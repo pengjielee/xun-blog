@@ -4,7 +4,7 @@ date: 2021-04-02T11:38:47+08:00
 keywords: ''
 description: ''
 tags: ['javascript']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -110,7 +110,7 @@ new Foo().getName(); // 3  先new foo()得到一个实例，然后再执行实�
 new new Foo().getName(); // 3
 ```
 
-## More 
+## More
 
 MDN Function hoisting   
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Function_hoisting    

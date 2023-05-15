@@ -5,7 +5,7 @@ date: 2021-03-07T20:40:31+08:00
 keywords: ''
 description: ''
 tags: ['BinaryTree']
-categories: ['swordoffer']
+categories: 'swordoffer'
 draft: true
 ---
 

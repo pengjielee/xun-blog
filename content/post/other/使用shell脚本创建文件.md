@@ -5,7 +5,7 @@ date: 2021-01-15T16:24:14+08:00
 keywords: 'shell,创建文件'
 description: ''
 tags: ['Shell']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -31,7 +31,7 @@ file_name=$(date +%Y.%m.%d)
 echo "hello world" > "${file_name}.md"
 ```
 
-## 批量创建文件 
+## 批量创建文件
 
 newfiles.sh
 ```Bash

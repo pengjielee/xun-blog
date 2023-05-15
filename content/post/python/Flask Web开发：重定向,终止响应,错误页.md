@@ -6,11 +6,11 @@ date: 2021-02-25T14:34:40+08:00
 keywords: ''
 description: ''
 tags: ['Python','Flask']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 重定向 
+## 重定向
 
 ```Python
 from flask import abort, redirect, url_for

@@ -5,7 +5,7 @@ date: 2020-07-03T14:11:26+08:00
 keywords: ''
 description: ''
 tags: ['Weekly']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -36,7 +36,7 @@ Why - 最终再去了解原理
 
 来源：[5W1H分析法](https://baike.baidu.com/item/5W1H分析法/10091536)
 
-## 技术 
+## 技术
 
 1、Python字典  
 

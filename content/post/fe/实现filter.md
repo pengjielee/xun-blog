@@ -4,7 +4,7 @@ date: 2021-03-16T21:01:14+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -22,7 +22,7 @@ Array.prototype._filter = function (fn) {
 };
 ```
 
-## Test 
+## Test
 
 ```javascript
 var arr = [4, 5, 6, 7, 9, 10];

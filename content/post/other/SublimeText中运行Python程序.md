@@ -5,7 +5,7 @@ date: 2021-02-24T11:36:26+08:00
 keywords: ''
 description: ''
 tags: ['Sublime','Python']
-categories: []
+categories: ''
 draft: true
 ---
 

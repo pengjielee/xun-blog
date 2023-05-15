@@ -4,11 +4,11 @@ date: 2021-04-02T11:38:41+08:00
 keywords: ''
 description: ''
 tags: ['javascript']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 1、 
+## 1、
 
 ```javascript
 console.log(x === undefined); // true
@@ -142,7 +142,7 @@ if (0) {
 console.log(x); // 123
 ```
 
-## More 
+## More
 
 MDN Variable hoisting  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variable_hoisting   

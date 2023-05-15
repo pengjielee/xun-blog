@@ -6,18 +6,18 @@ date: 2021-03-04T08:58:07+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## 安装 
+## 安装
 
 ```bash
 $ npm install --save-dev --save-exact prettier
 ```
 
-## 创建一个空的配置文件 
+## 创建一个空的配置文件
  
 ```bash
 $ echo {}> .prettierrc.js
@@ -84,7 +84,7 @@ prettier --write，用于格式化代码；
 
 项目源码见（切换 tag 至 prettier）git checkout prettier： https://github.com/pengjielee/reactapp/tree/main/hello-world
 
-## More 
+## More
 
 Prettier官网  
 https://prettier.io/   

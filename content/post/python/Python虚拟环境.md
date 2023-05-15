@@ -6,11 +6,11 @@ date: 2021-02-25T09:17:00+08:00
 keywords: ''
 description: ''
 tags: ['Python']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 虚拟环境 
+## 虚拟环境
 
 虚拟环境是系统的一个位置，可以在其中安装包，并将其与其他Python包隔离。这样能够针对不同项目创建一个独立的环境，便于后期的移植。
 
@@ -21,7 +21,7 @@ draft: true
 - pipenv（功能更强大）；  
 - venv（Python3.3以上原生支持）；
 
-## 使用 virtualenv 创建虚拟环境 
+## 使用 virtualenv 创建虚拟环境
 
 1、安装virtualenv
 ```

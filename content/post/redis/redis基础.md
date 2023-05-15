@@ -4,7 +4,7 @@ date: 2023-03-24T10:34:51+08:00
 keywords: ''
 description: ''
 tags: ['redis']
-categories: []
+categories: ''
 draft: true
 difficulty: ''
 ---

@@ -5,11 +5,11 @@ date: 2021-03-05T09:25:34+08:00
 keywords: ''
 description: ''
 tags: ['Weekly']
-categories: []
+categories: ''
 draft: true
 ---
 
-## 摘录 
+## 摘录
 
 1、  
 
@@ -48,7 +48,7 @@ draft: true
 
 来源：[长期主义：永远做你余生中最重要的事！](https://mp.weixin.qq.com/s/Vs-Xok8o5SnpnWvTg-0lJA)
 
-## 文章 
+## 文章
 
 写了十年技术博客，我收获了什么  
 https://insights.thoughtworks.cn/technical-blog-experience/

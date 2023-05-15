@@ -5,7 +5,7 @@ date: 2021-02-20T08:46:29+08:00
 keywords: '文件上传,大文件上传,form上传,fileupload,ajax上传文件,拖拽上传,文件切片上传'
 description: ''
 tags: ['Nodejs']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -105,7 +105,7 @@ app.listen(port, () => {
 });
 ```
 
-## Form上传多个文件 
+## Form上传多个文件
 
 1、前端
 

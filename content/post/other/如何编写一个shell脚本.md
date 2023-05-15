@@ -6,7 +6,7 @@ date: 2021-02-26T11:17:08+08:00
 keywords: 'Shell脚本'
 description: ''
 tags: ['Shell']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -40,7 +40,7 @@ name='Peng'
 echo "Hello, $name" # output: Hello, Peng
 ```
 
-## 运行Shell脚本 
+## 运行Shell脚本
 
 ```Bash
 $ chmod +x ./test.sh #使脚本具有执行权限
@@ -51,7 +51,7 @@ or
 $ sh test.sh #执行脚本
 ```
 
-## 创建一个提交 git 记录的 shell 脚本 
+## 创建一个提交 git 记录的 shell 脚本
 
 deploy.sh
 

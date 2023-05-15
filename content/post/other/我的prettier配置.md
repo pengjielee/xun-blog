@@ -5,7 +5,7 @@ date: 2020-12-08T11:57:27+08:00
 keywords: 'prettier配置'
 description: ''
 tags: ['Tool']
-categories: []
+categories: ''
 draft: false
 ---
 
@@ -50,7 +50,7 @@ module.exports = {
 };
 ```
 
-## 说明 
+## 说明
 
 - arrowParens: 'avoid',   
 在箭头函数参数周围包含圆括号，默认"always"；avoid:x => x，always:(x) => x

@@ -5,7 +5,7 @@ date: 2021-06-22T14:53:53+08:00
 keywords: ''
 description: ''
 tags: ['nextjs']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -19,7 +19,7 @@ $ npm install react-quill --save
 $ yarn add react-quill
 ```
 
-## React中使用 
+## React中使用
 
 ```javascript
 import React, { useState } from "react";
@@ -143,7 +143,7 @@ export default function QuillEditor(props) {
 
 next.js中如何获取quill编辑器的实例呢？
 
-## More 
+## More
 
 react-quill  
 https://github.com/zenoamaro/react-quill   

@@ -6,16 +6,16 @@ date: 2021-03-08T16:26:18+08:00
 keywords: ''
 description: ''
 tags: ['Webpack']
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## 问题 
+## 问题
 
 每次创建新的页面时，如果都要去更改webpack的入口 配置文件，那样太不爽了，我们改造我们的代码来动态获取入口文件。
 
-## 改造 
+## 改造
 
 1、安装glob
 
@@ -44,7 +44,7 @@ const pages = glob.sync('./src/pages/**?/**/index.html').map(item => {
 });
 ```
 
-## 更新 webpack 
+## 更新 webpack
 
 1、创建入口 
 ```javascript

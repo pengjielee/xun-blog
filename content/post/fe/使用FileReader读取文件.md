@@ -5,7 +5,7 @@ date: 2021-02-19T17:44:54+08:00
 keywords: 'FileReader'
 description: ''
 tags: ['JavaScript']
-categories: []
+categories: ''
 draft: false
 ---
 
@@ -38,7 +38,7 @@ fileInput.addEventListener(
 );
 ```
 
-## 读取为Base64字符串 
+## 读取为Base64字符串
 
 ```
 const file = fileInput.files[0];

@@ -5,12 +5,12 @@ date: 2021-03-19T16:03:13+08:00
 keywords: ''
 description: ''
 tags: ['Weekly']
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## 摘录  
+## 摘录
 
 1、   
 人生就像一辆列车，当陪你的那个人要下车时，即使你再不舍，你也要心存感激挥手告别。  

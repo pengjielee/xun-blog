@@ -6,12 +6,12 @@ date: 2021-03-09T09:11:48+08:00
 keywords: ''
 description: ''
 tags: ['React']
-categories: []
+categories: ''
 draft: true
 ---
 
 
-## 看代码  
+## 看代码
 
 ```javascript
 import React, { useState } from 'react';
@@ -51,7 +51,7 @@ export default Fibc;
 2、但是我们发现每次改变count值时，fibc()函数还是会重新调用，造成了大量的重复计算。
 
 
-## 优化 
+## 优化
 
 ```javascript 
 import React, { useState } from 'react';

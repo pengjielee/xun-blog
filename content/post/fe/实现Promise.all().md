@@ -4,7 +4,7 @@ date: 2021-03-31T11:46:06+08:00
 keywords: ''
 description: ''
 tags: ['code']
-categories: []
+categories: ''
 draft: true
 ---
 
@@ -97,7 +97,7 @@ Promise._all([p1, p2]).then((res) => {
   所有promise都是resolve，resolve(result);
 
 
-## More 
+## More
 
 Promise.all()   
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
