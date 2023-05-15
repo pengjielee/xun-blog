@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">Tool</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/other/%E4%BD%BF%E7%94%A8curl%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/">使用curl发送请求</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-21</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/tool/" rel="tag">tool</a>
+        </div>
+</div>
+
+        <p class="summary">get请求 curl https://cnodejs.org/api/v1/topics post请求 1、application/x-www-form-urlencoded
+curl -d&#39;username=admin&amp;password=123456&#39; -X POST http://localhost:8080/api/user/login 2、application/json
+curl http://localhost:8080/api/user/login -X POST -d &#39;{&#34;username&#34;: &#34;100&#34;,&#34;password&#34;:&#34;123456&#34;}&#39; --header &#34;Content-Type: application/json&#34; 设置header curl -H &#39;Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9&#39; http://localhost:8080/api/user/list 参数 -d 参数用于发送 POST 请求的数据体。 -H 参数添加 HTTP 请求的标头。 -X 参数指定 HTTP 请求的方法。 More Curl Cookbook
+https://catonmat.net/cookbooks/curl</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/my-prettier-config/">我的prettier配置</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/tool/" rel="tag">Tool</a>
+        </div>
+</div>
+
+        <p class="summary">创建文件 touch .prettierrc.js 内容 .prettier.js
+module.exports = { arrowParens: &#34;avoid&#34;, bracketSpacing: true, printWidth: 120, semi: true, singleQuote: true, tabWidth: 4, trailingComma: &#34;all&#34;, jsxSingleQuote: false, jsxBracketSameLine: false, useTabs: false, overrides: [ { files: &#34;*.html&#34;, options: { parser: &#34;angular&#34;, htmlWhitespaceSensitivity: &#34;ignore&#34;, printWidth: 120, tabWidth: 4, }, }, { files: &#34;*.wxss&#34;, options: { parser: &#34;css&#34;, }, }, ], }; 说明 arrowParens: &lsquo;avoid&rsquo;,
+在箭头函数参数周围包含圆括号，默认&quot;always&quot;；avoid:x =&gt; x，always:(x) =&gt; x
+bracketSpacing: true,
+是否在括号之间打印空格，默认true；true:{ foo: bar }，false:{foo:bar}</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/my-bash-config/">我的bash配置</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/tool/" rel="tag">Tool</a>
+        </div>
+</div>
+
+        <p class="summary">打开bash_profile $ cd ~ $ vi .bash_profile 内容 1、快速切换到常用目录
+alias cd.pw=&#34;cd /Users/pengjie/work/panda-wechat&#34; alias cd.p5=&#34;cd /Users/pengjie/work/panda-h5&#34; alias cd.doc=&#34;cd /Users/pengjie/www/doc.pengjielee.cn&#34; alias cd.www=&#34;cd /Users/pengjie/www&#34; alias cd.try=&#34;cd /Users/pengjie/try&#34; alias cd.nginx=&#34;cd /usr/local/etc/nginx/&#34; 2、bash编辑更新
+BASH_PROFILE_PATH=&#34;$HOME/.bash_profile&#34; alias bash.open=&#34;open ${BASH_PROFILE_PATH}&#34; alias bash.src=&#34;source ${BASH_PROFILE_PATH}&#34; 3、git操作快捷键
+alias gs=&#34;git status &#34; alias ga=&#34;git add &#34; alias gaa=&#34;git add -A &#34; alias gb=&#34;git branch &#34; alias gc=&#34;git commit &#34; alias gcm=&#34;git commit -m &#34; alias gck=&#34;git checkout &#34; alias gp=&#34;git push &#34; 4、登录服务器</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/how-do-create-a-node-cli-tool/">如何创建一个Node CLI工具</a>
+    </div><div class="post-meta">
+    <div class="date">2020-10-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/tool/" rel="tag">Tool</a>
+        </div>
+</div>
+
+        <p class="summary">开始 我们的命令行工具起名xun-cli，实现功能有：
+显示当前时间； 查询天气； 查看本地IP； 创建目录 $ mkdir xun-cli $ cd xun-cli $ npm init -y $ mkdir src $ cd src $ touch index.js 问好 1、index.js
+#!/usr/bin/env node console.log(&#34;hello xun-cli&#34;) 2、执行
+$ node src/index.js //output: hello xun-cli 输出一个漂亮的LOGO 1、安装依赖
+$ npm install chalk #在命令行输出各种颜色的文字 $ npm install figlet #在命令行输出艺术字 2、index.js
+#!/usr/bin/env node const chalk = require(&#34;chalk&#34;); const figlet = require(&#34;figlet&#34;); // 输出一个漂亮的LOGO console.log(chalk.yellow(figlet.textSync(&#34;xun-CLI&#34;, { horizontalLayout: &#34;full&#34; }))); 3、执行
+$ node src/index.</p>
+    
+</div>
+
+        </section>
+    </div>
+    
+
+
+        </div></body>
+</html>

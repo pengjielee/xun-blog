@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Nextjs注入环境变量</h1><div class="post-meta">
+    <div class="date">2021-06-22</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="安装-cross-env">安装 cross-env</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install cross-env --save-dev
+</span></span></code></pre></div><h2 id="使用cross-env注入环境变量">使用cross-env注入环境变量</h2>
+<p>package.json</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">scripts:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dev&#34;</span>: <span style="color:#e6db74">&#34;next dev&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build&#34;</span>: <span style="color:#e6db74">&#34;next build&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;start&#34;</span>: <span style="color:#e6db74">&#34;next start&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build:test&#34;</span>: <span style="color:#e6db74">&#34;cross-env BUILD_TARGET=test next build&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;build:prod&#34;</span>: <span style="color:#e6db74">&#34;cross-env BUILD_TARGET=prod next build&#34;</span>,
+</span></span><span style="display:flex;"><span>  }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">};</span>
+</span></span></code></pre></div><h2 id="创建nextconfigjs文件并设置env变量">创建next.config.js文件，并设置env变量</h2>
+<p>next.config.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">poweredByHeader</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">env</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">NEXT_PUBLIC_BUILD_TARGET</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>[<span style="color:#e6db74">&#39;BUILD_TARGET&#39;</span>],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>默认情况下，所有通过 .env.local 加载的环境变量仅在 Node.js 环境中可用，这意味着它们不会暴露到浏览器端。</p>
+<p>为了向浏览器暴露环境变量，你必须在变量前添加 <code>NEXT_PUBLIC_</code> 前缀。</p>
+<h2 id="使用环境变量">使用环境变量</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NEXT_PUBLIC_TARGET</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;test&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://test.***.com&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;prod&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://m.***.com&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;dev&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://dev.***.com&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">baseURL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://m.***.com&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#a6e22e">baseURL</span>;
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>next.js的环境变量<br>
+<a href="https://www.nextjs.cn/docs/basic-features/environment-variables">https://www.nextjs.cn/docs/basic-features/environment-variables</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

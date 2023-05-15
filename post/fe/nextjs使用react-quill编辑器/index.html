@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Nextjs使用react-quill编辑器</h1><div class="post-meta">
+    <div class="date">2021-06-22</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="安装">安装</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">react</span><span style="color:#f92672">-</span><span style="color:#a6e22e">quill</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// or
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">yarn</span> <span style="color:#a6e22e">add</span> <span style="color:#a6e22e">react</span><span style="color:#f92672">-</span><span style="color:#a6e22e">quill</span>
+</span></span></code></pre></div><h2 id="react中使用">React中使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactQuill</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-quill&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;react-quill/dist/quill.snow.css&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MyComponent</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">setValue</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ReactQuill</span> <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;snow&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">value</span>} <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setValue</span>} <span style="color:#f92672">/&gt;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="nextjs中使用">Nextjs中使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">dynamic</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;next/dynamic&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;react-quill/dist/quill.snow.css&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">QuillNoSSRWrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dynamic</span>(<span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#34;react-quill&#34;</span>), {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ssr</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">loading</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Loading</span> ...<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;,</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">modules</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">toolbar</span><span style="color:#f92672">:</span> [[{ <span style="color:#a6e22e">header</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> }, <span style="color:#e6db74">&#34;bold&#34;</span>, { <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> [] }], [<span style="color:#e6db74">&#34;clean&#34;</span>]],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Editor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">setValue</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">QuillNoSSRWrapper</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;snow&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">value</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modules</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">modules</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">setValue</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="封装组件">封装组件</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">dynamic</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;next/dynamic&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;react-quill/dist/quill.snow.css&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">QuillNoSSRWrapper</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dynamic</span>(<span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#34;react-quill&#34;</span>), {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ssr</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">loading</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Loading</span> ...<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;,</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">defaultModules</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">toolbar</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>    [{ <span style="color:#a6e22e">header</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1&#34;</span> }, { <span style="color:#a6e22e">header</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2&#34;</span> }, { <span style="color:#a6e22e">font</span><span style="color:#f92672">:</span> [] }],
+</span></span><span style="display:flex;"><span>    [{ <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> [] }],
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#34;bold&#34;</span>, <span style="color:#e6db74">&#34;italic&#34;</span>, <span style="color:#e6db74">&#34;underline&#34;</span>, <span style="color:#e6db74">&#34;strike&#34;</span>, <span style="color:#e6db74">&#34;blockquote&#34;</span>],
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ordered&#34;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">list</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;bullet&#34;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">indent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-1&#34;</span> },
+</span></span><span style="display:flex;"><span>      { <span style="color:#a6e22e">indent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;+1&#34;</span> },
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#34;link&#34;</span>, <span style="color:#e6db74">&#34;image&#34;</span>, <span style="color:#e6db74">&#34;video&#34;</span>],
+</span></span><span style="display:flex;"><span>    [<span style="color:#e6db74">&#34;clean&#34;</span>],
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">clipboard</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// toggle to add extra line breaks when pasting HTML:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">matchVisual</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Quill editor formats
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * See https://quilljs.com/docs/formats/
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">defaultFormats</span> <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;header&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;font&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;size&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bold&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;italic&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;underline&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;strike&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;blockquote&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;list&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;bullet&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;indent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;link&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;image&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;video&#34;</span>,
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">QuillEditor</span>(<span style="color:#a6e22e">props</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> { <span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">onChange</span>, <span style="color:#a6e22e">modules</span>, <span style="color:#a6e22e">formats</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">props</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleChange</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">value</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//调用父组件的change方法，把value传回去
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">onChange</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;function&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onChange</span>(<span style="color:#a6e22e">value</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">modules</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">modules</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">defaultModules</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">formats</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">formats</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">defaultFormats</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">QuillNoSSRWrapper</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">value</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">value</span>) =&gt; <span style="color:#a6e22e">handleChange</span>(<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">modules</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">modules</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">formats</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">formats</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;snow&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="问题">问题</h2>
+<p>next.js中如何获取quill编辑器的实例呢？</p>
+<h2 id="more">More</h2>
+<p>react-quill<br>
+<a href="https://github.com/zenoamaro/react-quill">https://github.com/zenoamaro/react-quill</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

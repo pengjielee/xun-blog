@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：列表</h1><div class="post-meta">
+    <div class="date">2020-11-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="创建列表">创建列表</h2>
+<p>1、使用[]字面量</p>
+<pre tabindex="0"><code>numbers = [1,3,5,7,9,10]
+print(numbers) # Prints out: [1, 3, 5, 7, 9, 10]
+</code></pre><p>2、使用list()函数创建</p>
+<pre tabindex="0"><code>numbrers = list((1,3,5,7,9,10))
+print(numbers) # Prints out: [1, 3, 5, 7, 9, 10]
+
+str = list(&#39;python&#39;)
+print(str) # Prints out: [&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;o&#39;, &#39;n&#39;]
+</code></pre><h2 id="访问列表">访问列表</h2>
+<pre tabindex="0"><code>list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]
+list2 = [1,3,5,7,9]
+
+print(list1[0]) # Prints out: red
+print(list2[1:5]) # Prints out: [3, 5, 7, 9]
+</code></pre><h2 id="更新列表">更新列表</h2>
+<pre tabindex="0"><code>list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]
+print(list1[0]) # Prints out: red
+list1[0] = &#39;black&#39;
+print(list1[0]) # Prints out: black
+</code></pre><h2 id="遍历列表">遍历列表</h2>
+<pre tabindex="0"><code>list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]
+
+# Prints out: red green blue
+for item in list1:
+  print(item)
+
+# Prints out: red green blue
+for index in range(len(list1)):
+  print(list1[index])
+</code></pre><h2 id="列表方法">列表方法</h2>
+<pre tabindex="0"><code>list1 = [1,2,3,4]
+
+# 在尾部添加元素
+list1.append(5) 
+print(list1) # Prints out: [1, 2, 3, 4, 5]
+
+# 在指定位置插入元素
+list1.insert(0,6)
+print(list1) # Prints out: [6, 1, 2, 3, 4, 5]
+
+# 删除指定元素
+list1.remove(6)
+print(list1) # Prints out: [1, 2, 3, 4, 5]
+
+# 删除不存在元素
+list1.remove(7) #ValueError: list.remove(x): x not in list
+
+# 删除指定索引位置的元素
+list1.pop(0) # Prints out: 1
+print(list1) # Prints out: [2, 3, 4, 5]
+
+# 删除超出索引位置的无素
+list1.pop(100) # IndexError: pop index out of range
+
+# del方法
+del list1[0]
+print(list1) # Prints out: [3, 4, 5]
+
+# 列表排序
+list1 = [1,3,5,8,2]
+list1.sort() 
+print(list1) # Prints out: [1, 2, 3, 5, 8]
+
+# 列表反转
+list1 = [1,3,5,8,2]
+list1.reverse() 
+print(list1) # Prints out: [2, 8, 5, 3, 1]
+
+# 元素索引
+list1 = [1,3,5,8,2]
+list1.index(3) # Prints out: 1
+list1.index(3,1) # Prints out: 1
+list1.index(3,2) # ValueError: 3 is not in list
+
+# 元素出现次数
+list1 = [1,3,5,8,2]
+list1.count(1) # Prints out: 1
+list1.count(9) # Prints out: 0
+
+# 列表长度
+list1 = [1,3,5,8,2]
+print(len(list1)) # Prints out: 5
+
+# 清空列表
+list1.clear()
+print(list1) # Prints out: []
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

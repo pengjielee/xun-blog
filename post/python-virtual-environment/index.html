@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python虚拟环境</h1><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="虚拟环境">虚拟环境</h2>
+<p>虚拟环境是系统的一个位置，可以在其中安装包，并将其与其他Python包隔离。这样能够针对不同项目创建一个独立的环境，便于后期的移植。</p>
+<h2 id="虚拟环境管理工具">虚拟环境管理工具</h2>
+<p>主要有三种：</p>
+<ul>
+<li>virtualenv（历史更悠久）；</li>
+<li>pipenv（功能更强大）；</li>
+<li>venv（Python3.3以上原生支持）；</li>
+</ul>
+<h2 id="使用-virtualenv-创建虚拟环境">使用 virtualenv 创建虚拟环境</h2>
+<p>1、安装virtualenv</p>
+<pre tabindex="0"><code>$ pip install virtualenv
+</code></pre><p>2、查看安装版本</p>
+<pre tabindex="0"><code>$ python3 -m virtualenv --version
+</code></pre><p>4、创建虚拟环境</p>
+<pre tabindex="0"><code>$ python3 -m virtualenv dev_env
+</code></pre><p>这时终端显示：</p>
+<pre tabindex="0"><code>peng@localhost myblog % python3 -m virtualenv dev_env
+created virtual environment CPython3.6.5.final.0-64 in 568ms
+  creator CPython3Posix(dest=/Users/peng/python_work/myblog/dev_env, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/peng/Library/Application Support/virtualenv)
+    added seed packages: pip==21.0.1, setuptools==52.0.0, wheel==0.36.2
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+peng@localhost myblog % ls
+dev_env
+</code></pre><p>5、激活虚拟环境</p>
+<pre tabindex="0"><code>$ source dev_env/bin/activate
+</code></pre><p>6、安装flask</p>
+<pre tabindex="0"><code>$ pip install flask
+</code></pre><p>创建app.py</p>
+<pre tabindex="0"><code>from flask import Flask
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
+def hello_world():
+    return &#39;Hello, World!&#39;
+</code></pre><p>运行 <code>flask run </code></p>
+<pre tabindex="0"><code>(dev_env) peng@localhost myblog % flask run
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+</code></pre><p>7、生成requirement.txt</p>
+<p>每次开发完都要手动执行下面命令，把最新的环境写入到requirement文件中，以便项目移植。</p>
+<pre tabindex="0"><code>$ pip freeze &gt; requirement.txt
+</code></pre><p>查看requirement.txt</p>
+<pre tabindex="0"><code>(dev_env) peng@localhost myblog % cat requirement.txt
+click==7.1.2
+Flask==1.1.2
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+Werkzeug==1.0.1
+</code></pre><p>8、安装依赖</p>
+<pre tabindex="0"><code>$ pip install -r requirement.txt
+</code></pre><p>9、brew 安装 pipenv</p>
+<pre tabindex="0"><code>$ brew install pipenv
+</code></pre><h2 id="使用-pipenv-创建虚拟环境">使用 pipenv 创建虚拟环境</h2>
+<p>1、安装pipenv</p>
+<pre tabindex="0"><code>$ pip install pipenv
+</code></pre><p>2、查看安装版本</p>
+<pre tabindex="0"><code>$ python3 -m pipenv --version
+</code></pre><p>3、创建虚拟环境</p>
+<pre tabindex="0"><code>$ python3 -m pipenv check
+</code></pre><p>这时终端显示</p>
+<pre tabindex="0"><code>peng@localhost myadmin % python3 -m pipenv check
+Warning: the environment variable LANG is not set!
+We recommend setting this in ~/.profile (or equivalent) for proper expected behavior.
+Creating a virtualenv for this project...
+Pipfile: /Users/peng/python_work/myadmin/Pipfile
+Using /usr/bin/python3 (3.8.2) to create virtualenv...
+⠇ Creating virtual environment...created virtual environment CPython3.8.2.final.0-64 in 1317ms
+  creator CPython3macOsFramework(dest=/Users/peng/.local/share/virtualenvs/myadmin-5lUWQo7w, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/peng/Library/Application Support/virtualenv)
+    added seed packages: pip==21.0.1, setuptools==52.0.0, wheel==0.36.2
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+
+✔ Successfully created virtual environment!
+Virtualenv location: /Users/peng/.local/share/virtualenvs/myadmin-5lUWQo7w
+Creating a Pipfile for this project...
+Checking PEP 508 requirements...
+Passed!
+Checking installed package safety...
+All good!
+</code></pre><p>4、启动虚拟环境</p>
+<pre tabindex="0"><code>$ python3 -m pipenv shell
+</code></pre><p>终端显示：</p>
+<pre tabindex="0"><code>peng@localhost myadmin % python3 -m pipenv shell
+Launching subshell in virtual environment...
+ . /Users/peng/.local/share/virtualenvs/myadmin-5lUWQo7w/bin/activate
+peng@localhost myadmin %  . /Users/peng/.local/share/virtualenvs/myadmin-5lUWQo7w/bin/activate
+(myadmin) peng@localhost myadmin %
+</code></pre><p>5、退出虚拟环境</p>
+<pre tabindex="0"><code>$ exit
+</code></pre><p>6、安装flask</p>
+<pre tabindex="0"><code>$ pipenv install flask
+</code></pre><p>7、查看包依赖关系</p>
+<pre tabindex="0"><code>$ pipenv graph
+</code></pre><p>终端显示：</p>
+<pre tabindex="0"><code>(myadmin) peng@localhost myadmin % pipenv graph
+Flask==1.1.2
+  - click [required: &gt;=5.1, installed: 7.1.2]
+  - itsdangerous [required: &gt;=0.24, installed: 1.1.0]
+  - Jinja2 [required: &gt;=2.10.1, installed: 2.11.3]
+    - MarkupSafe [required: &gt;=0.23, installed: 1.1.1]
+  - Werkzeug [required: &gt;=0.15, installed: 1.0.1]
+</code></pre><p>8、查看虚拟环境路径</p>
+<pre tabindex="0"><code>$ pipenv --venv
+</code></pre><h2 id="使用-venv-虚拟环境-python3">使用 venv 虚拟环境 (Python3)</h2>
+<p>Python3.3以上的版本通过venv模块原生支持虚拟环境。</p>
+<p>1、创建项目目录</p>
+<pre tabindex="0"><code>$ mkdir mysite &amp;&amp; cd mysite 
+</code></pre><p>2、创建名为dev_env的虚拟环境</p>
+<pre tabindex="0"><code>$ python3 -m venv dev_env
+</code></pre><p>执行ls，会发现项目目录下多了一个dev_env的文件夹。</p>
+<p>3、激活虚拟环境</p>
+<pre tabindex="0"><code>$ source dev_env/bin/activate
+</code></pre><p>激活虚拟环境后，界面显示</p>
+<pre tabindex="0"><code>peng@localhost mysite % source dev_env/bin/activate
+(dev_env) peng@localhost mysite %
+</code></pre><p>4、停止虚拟环境 <code>deactivate</code></p>
+<pre tabindex="0"><code>(dev_env) peng@localhost mysite % deactivate
+peng@localhost mysite %
+</code></pre><p>5、安装Django</p>
+<pre tabindex="0"><code>$ pip3 install Django
+</code></pre><p>6、创建项目</p>
+<pre tabindex="0"><code>$ django-admin startproject mysite .
+</code></pre><p>7、创建数据库</p>
+<pre tabindex="0"><code>$ python3 manage.py migrate
+</code></pre><p>8、启动项目</p>
+<pre tabindex="0"><code>$ python3 manage.py runserver
+</code></pre><p>这时会看到项目已启动：</p>
+<pre tabindex="0"><code>(dev_env) peng@localhost mysite % python3 manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 25, 2021 - 01:43:19
+Django version 3.1.7, using settings &#39;mysite.settings&#39;
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

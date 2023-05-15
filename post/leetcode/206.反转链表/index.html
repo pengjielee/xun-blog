@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">206.反转链表</h1><div class="post-meta">
+    <div class="date">2021-04-21</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>反转一个单链表。</p>
+<p>示例:</p>
+<pre tabindex="0"><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+</code></pre><p>进阶:</p>
+<ul>
+<li>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/reverse-linked-list
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<p>1、迭代</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Definition for singly-linked list.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * function ListNode(val, next) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.val = (val===undefined ? 0 : val)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.next = (next===undefined ? null : next)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {ListNode} head
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {ListNode}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverseList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">head</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 前一个节点 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 当前节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">curr</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 当前节点的下一个节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 当前节点的下一个节点 指向 前一个节点（完成反转）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prev</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 前一个节点 等于 当前节点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 当前节点向右走
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prev</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>2、递归</p>
+<pre tabindex="0"><code>假设列表为：
+n(1) -&gt; ... -&gt; n(k-1) -&gt; n(k)  -&gt; n(k+1) -&gt; ... -&gt; n(m) -&gt; null
+
+若从节点 n(k+1) 到 n(m) 已经被反转，而我们正处于 n(k):
+n(1) -&gt; ... -&gt; n(k-1) -&gt; n(k) -&gt; n(k+1) &lt;- ... -&gt; n(m) 
+
+我们希望 n(k+1) 的下一个节点指向 n(k) (?)，所以，
+n(k).next.next = n(k)。
+
+备注：原来n(k+1)的next节点指向n(k+2)，现在希望n(k+1)的next节点指向n(k)。
+</code></pre><p>参考代码1：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverseList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">head</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newHead</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reverseList</span>(<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newHead</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>参考代码2：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverseList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">head</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">helper</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">head</span>, <span style="color:#a6e22e">prev</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">head</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prev</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prev</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">helper</span>(<span style="color:#a6e22e">next</span>, <span style="color:#a6e22e">head</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">helper</span>(<span style="color:#a6e22e">head</span>, <span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>测试数据：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node3</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node4</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node5</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node3</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node4</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node4</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 1 -&gt; 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node21</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node22</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node21</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node22</span>;
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

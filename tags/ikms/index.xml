@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ikms on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/ikms/</link>
+    <description>Recent content in ikms on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 20 Dec 2020 11:40:57 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/ikms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>01.Electron应用创建.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-01/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-01/</guid>
+      <description>创建Electron APP npx create-electron-app my-new-app # or yarn create electron-app my-new-app # then cd my-new-app npm start More electron-forge https://github.com/electron-userland/electron-forge</description>
+    </item>
+    
+    <item>
+      <title>02.Electron主进程代码.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-02/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-02/</guid>
+      <description>main.js const { app, BrowserWindow } = require(&amp;#39;electron&amp;#39;); const path = require(&amp;#39;path&amp;#39;); // Handle creating/removing shortcuts on Windows when installing/uninstalling. if (require(&amp;#39;electron-squirrel-startup&amp;#39;)) { // eslint-disable-line global-require app.quit(); } // Keep a global reference of the window object, if you don&amp;#39;t, the window will // be closed automatically when the JavaScript object is garbage collected. let mainWindow; const createWindow = () =&amp;gt; { // Create the browser window. mainWindow = new BrowserWindow({ width: 800, height: 600, }); // and load the index.</description>
+    </item>
+    
+    <item>
+      <title>03.Electron注入环境变量.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-03/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-03/</guid>
+      <description>package.json &amp;#34;scripts&amp;#34;: { &amp;#34;dev&amp;#34;: &amp;#34;export NODE_ENV=development &amp;amp;&amp;amp; electron-forge start&amp;#34;, &amp;#34;start&amp;#34;: &amp;#34;electron-forge start&amp;#34;, &amp;#34;package&amp;#34;: &amp;#34;electron-forge package&amp;#34;, &amp;#34;make&amp;#34;: &amp;#34;electron-forge make&amp;#34;, &amp;#34;publish&amp;#34;: &amp;#34;electron-forge publish&amp;#34; }, main.js // Open the DevTools. if (process.env.NODE_ENV === &amp;#34;development&amp;#34;) { mainWindow.webContents.openDevTools(); } </description>
+    </item>
+    
+    <item>
+      <title>04.Electron使用jQuery.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-04/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-04/</guid>
+      <description>安装jQuery $ npm install jquery index.html &amp;lt;script&amp;gt; const $ = require(&amp;#34;jquery&amp;#34;); window.jQuery = $; &amp;lt;/script&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>05.Electron渲染进程报错.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-05/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-05/</guid>
+      <description>报错信息 Uncaught ReferenceError: require is not defined at index.html:93 解决方法：设置 nodeIntegration: true mainWindow = new BrowserWindow({ minWidth: 300, backgroundColor: &amp;#34;#fff&amp;#34;, webPreferences: { nodeIntegration: true, }, }); </description>
+    </item>
+    
+    <item>
+      <title>06.Electron注册全局快捷键.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-06/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-06/</guid>
+      <description>const { app, BrowserWindow, globalShortcut } = require(&amp;#39;electron&amp;#39;); const registerGlobalKey = () =&amp;gt; { const key = &amp;#39;CommandOrControl+Option+S&amp;#39;; const ret = globalShortcut.register(key, function () { console.log(`hello world from ${key}`) }); if(!ret){ console.log(`${key} registert failed`); } } const createWindow = () =&amp;gt; { mainWindow = new BrowserWindow({ minWidth: 300, backgroundColor: &amp;#34;#fff&amp;#34;, webPreferences: { nodeIntegration: true, }, }); registerGlobalKey(); }; </description>
+    </item>
+    
+    <item>
+      <title>07.Electron主进程向渲染进程发消息.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-07/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-07/</guid>
+      <description>主进程：main.js mainWindow.webContents.send(&amp;#34;refresh-notes&amp;#34;, { message: &amp;#39;reload&amp;#39; }); 渲染进程：renderer.js const ipcRenderer = require(&amp;#34;electron&amp;#34;).ipcRenderer; ipcRenderer.on(&amp;#34;refresh-notes&amp;#34;, (event, data) =&amp;gt; { //getNotes(); }); </description>
+    </item>
+    
+    <item>
+      <title>08.Electron渲染进程向主进程发消息.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-08/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-08/</guid>
+      <description>渲染进程：renderer.js const ipcRenderer = require(&amp;#34;electron&amp;#34;).ipcRenderer; ipcRenderer.send(&amp;#34;save-dialog&amp;#34;, { filename: filename, type: type }); 主进程：main.js const { ipcMain } = require(&amp;#34;electron&amp;#34;); ipcMain.on(&amp;#34;save-dialog&amp;#34;, (event, data) =&amp;gt; { }); </description>
+    </item>
+    
+    <item>
+      <title>09.Electron保存文件对话框.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-09/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-09/</guid>
+      <description>const { dialog } = require(&amp;#34;electron&amp;#34;); const options = { title: &amp;#34;请选择要保存的文件名&amp;#34;, buttonLabel: &amp;#34;保存&amp;#34;, defaultPath: &amp;#39;test.txt&amp;#39;, filters: [{ name: &amp;#34;Custom File Type&amp;#34;, extensions: [&amp;#39;txt&amp;#39;] }], }; dialog.showSaveDialog(options).then((result) =&amp;gt; { if (!result.canceled) { console.log(result.filePath); } }); </description>
+    </item>
+    
+    <item>
+      <title>10.Electron设置系统托盘图标.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-10/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-10/</guid>
+      <description>const trayIcon = new Tray(path.join(__dirname, &amp;#34;../assets/IconTemplate.png&amp;#34;)); trayIcon.on(&amp;#34;click&amp;#34;, function () { if (mainWindow === null) { return; } if (mainWindow.isVisible()) { mainWindow.hide(); } else { mainWindow.show(); } }); </description>
+    </item>
+    
+    <item>
+      <title>11.Electron设置Dock信息.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-11/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-11/</guid>
+      <description>const { app } = require(&amp;#34;electron&amp;#34;); const path = require(&amp;#34;path&amp;#34;); app.dock.setIcon(path.join(__dirname, &amp;#34;../assets/IconTemplate@2x.png&amp;#34;)); const dockMenu = Menu.buildFromTemplate([ { label: &amp;#34;New Window&amp;#34;, click() { console.log(&amp;#34;New Window&amp;#34;); }, }, { label: &amp;#34;New Window with Settings&amp;#34;, submenu: [{ label: &amp;#34;Basic&amp;#34; }, { label: &amp;#34;Pro&amp;#34; }], }, { label: &amp;#34;New Command...&amp;#34; }, ]); app.dock.setMenu(dockMenu); app.dock.hide(); app.dock.isVisible(); app.setName(&amp;#34;我的粘贴板&amp;#34;); </description>
+    </item>
+    
+    <item>
+      <title>12.Electron设置程序菜单.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-12/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-12/</guid>
+      <description>const { app, Menu } = require(&amp;#34;electron&amp;#34;); const setAppMenu = () =&amp;gt; { if (process.platform === &amp;#34;darwin&amp;#34;) { const template = [ { label: &amp;#34;Application&amp;#34;, submenu: [ { label: &amp;#34;Quit&amp;#34;, accelerator: &amp;#34;Command+Q&amp;#34;, click: function () { app.quit(); }, }, ], }, { label: &amp;#34;Edit&amp;#34;, submenu: [ { label: &amp;#34;Copy&amp;#34;, accelerator: &amp;#34;CmdOrCtrl+C&amp;#34;, selector: &amp;#34;copy:&amp;#34; }, { label: &amp;#34;Paste&amp;#34;, accelerator: &amp;#34;CmdOrCtrl+V&amp;#34;, selector: &amp;#34;paste:&amp;#34; }, ], }, ]; Menu.setApplicationMenu(Menu.buildFromTemplate(template)); } else { Menu.setApplicationMenu(null); } }; </description>
+    </item>
+    
+    <item>
+      <title>13.Electron使用粘贴板.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-13/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-13/</guid>
+      <description>clipboard 模块在主进程和渲染进程中都可使用。
+主进程中使用 const { clipboard } = require(&amp;#34;electron&amp;#34;); clipboard.readText(); 渲染进程中使用 const { clipboard } = require(&amp;#34;electron&amp;#34;); clipboard.writeText(&amp;#39;hello world&amp;#39;); clipboard.readText(); </description>
+    </item>
+    
+    <item>
+      <title>14.使用Nodejs保存文件.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-14/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-14/</guid>
+      <description>const fs = require(&amp;#34;fs&amp;#34;); const filePath = &amp;#39;&amp;#39;; const content = &amp;#39;hello world&amp;#39;; fs.writeFileSync(filePath, content); </description>
+    </item>
+    
+    <item>
+      <title>15.Electron使用sqlite3.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-15/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-15/</guid>
+      <description>安装 $ npm install sqlite3 $ npm install bluebird App Dao const sqlite3 = require(&amp;#34;sqlite3&amp;#34;); const Promise = require(&amp;#34;bluebird&amp;#34;); class AppDAO { constructor(dbFilePath) { this.db = new sqlite3.Database(dbFilePath, (err) =&amp;gt; { if (err) { console.log(&amp;#34;Could not connect to database&amp;#34;, err); } else { console.log(&amp;#34;Connected to database&amp;#34;); } }); } run(sql, params = []) { return new Promise((resolve, reject) =&amp;gt; { this.db.run(sql, params, function (err) { if (err) { console.log(&amp;#34;Error running sql &amp;#34; + sql); console.</description>
+    </item>
+    
+    <item>
+      <title>16.使用dayjs格式化日期.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-16/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-16/</guid>
+      <description>安装 $ npm install dayjs 使用 const dayjs = require(&amp;#34;dayjs&amp;#34;); const now = dayjs(); const date = now.format(&amp;#34;YYYY-MM-DD&amp;#34;); const time = now.format(&amp;#34;HH:mm:ss&amp;#34;); const timestamp = now.valueOf(); More https://github.com/iamkun/dayjs</description>
+    </item>
+    
+    <item>
+      <title>17.Electron发送通知.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-17/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-17/</guid>
+      <description>渲染进程（H5 Notification） const notifyMe = () =&amp;gt; { const message = &amp;#39;您有新的内容保存到粘贴板&amp;#39;; // Let&amp;#39;s check if the browser supports notifications if (!(&amp;#34;Notification&amp;#34; in window)) { alert(&amp;#34;This browser does not support desktop notification&amp;#34;); } // Let&amp;#39;s check whether notification permissions have already been granted else if (Notification.permission === &amp;#34;granted&amp;#34;) { // If it&amp;#39;s okay let&amp;#39;s create a notification var notification = new Notification(message); } // Otherwise, we need to ask the user for permission else if (Notification.</description>
+    </item>
+    
+    <item>
+      <title>18.编码解码.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-18/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-18/</guid>
+      <description>const encode = (str) =&amp;gt; { var s = &amp;#34;&amp;#34;; if (str.length == 0) return &amp;#34;&amp;#34;; s = str.replace(/&amp;amp;/g, &amp;#34;&amp;amp;amp;&amp;#34;); s = s.replace(/&amp;lt;/g, &amp;#34;&amp;amp;lt;&amp;#34;); s = s.replace(/&amp;gt;/g, &amp;#34;&amp;amp;gt;&amp;#34;); s = s.replace(/\s/g, &amp;#34;&amp;amp;nbsp;&amp;#34;); s = s.replace(/\&amp;#39;/g, &amp;#34;&amp;amp;#39;&amp;#34;); s = s.replace(/\&amp;#34;/g, &amp;#34;&amp;amp;quot;&amp;#34;); return s; }; const decode = (str) =&amp;gt; { var s = &amp;#34;&amp;#34;; if (str.length == 0) return &amp;#34;&amp;#34;; s = str.replace(/&amp;amp;amp;/g, &amp;#34;&amp;amp;&amp;#34;); s = s.replace(/&amp;amp;lt;/g, &amp;#34;&amp;lt;&amp;#34;); s = s.replace(/&amp;amp;gt;/g, &amp;#34;&amp;gt;&amp;#34;); s = s.</description>
+    </item>
+    
+    <item>
+      <title>19.Electron在浏览器中打开新链接.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-19/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-19/</guid>
+      <description>const { shell } = require(&amp;#34;electron&amp;#34;); shell.openExternal(&amp;#34;https://www.baidu.com&amp;#34;); </description>
+    </item>
+    
+    <item>
+      <title>20.Electron中使用Vue.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-20/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-20/</guid>
+      <description>index.html &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;app&amp;#34;&amp;gt; &amp;lt;p class=&amp;#34;message&amp;#34;&amp;gt;{{ message }}&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue@2.6.12/dist/vue.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/vue-router@3.4.3/dist/vue-router.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/element-ui/lib/index.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;renderer.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; /pages/home/index.js const Index = { template: ` &amp;lt;div class=&amp;#34;page-home&amp;#34;&amp;gt; Hello World! &amp;lt;/div&amp;gt; `, }; module.exports = Index; renderer.js const Home = require(&amp;#34;./pages/home/index.js&amp;#34;); const About = require(&amp;#34;./pages/about/index.js&amp;#34;); const Setting = require(&amp;#34;./pages/setting/index.js&amp;#34;); const routes = [ { path: &amp;#34;/&amp;#34;, component: Home }, { path: &amp;#34;/about&amp;#34;, component: About }, { path: &amp;#34;/setting&amp;#34;, component: Setting }, ]; const router = new VueRouter({ routes, }); var app = new Vue({ el: &amp;#34;#app&amp;#34;, router, created: function () {}, data: { message: &amp;#34;Hello Vue!</description>
+    </item>
+    
+    <item>
+      <title>21.使用hightlight.js输出代码.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-21/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-21/</guid>
+      <description>install $ npm install highlight.js include &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; const hljs = require(&amp;#34;highlight.js&amp;#34;); Vue.use(hljs.vuePlugin); &amp;lt;/script&amp;gt; usage &amp;lt;highlightjs autodetect :code=&amp;#34;content&amp;#34; /&amp;gt; More https://github.com/highlightjs/highlight.js</description>
+    </item>
+    
+    <item>
+      <title>22.使用codemirror编辑器.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-22/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-22/</guid>
+      <description>include &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;assets/codemirror/codemirror.css&amp;#34; /&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; src=&amp;#34;assets/codemirror/codemirror.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; usage const Edit = { template: ` &amp;lt;div class=&amp;#34;pure-form pure-form-stacked&amp;#34;&amp;gt; &amp;lt;textarea ref=&amp;#34;code&amp;#34;&amp;gt;&amp;lt;/textarea&amp;gt; &amp;lt;el-button type=&amp;#34;primary&amp;#34; size=&amp;#34;medium&amp;#34; @click=&amp;#34;handleSave&amp;#34;&amp;gt;保存&amp;lt;/el-button&amp;gt; &amp;lt;/div&amp;gt; `, mounted: async function () { const editor = CodeMirror.fromTextArea(this.$refs.code, { lineNumbers: true, }); // editor.on(&amp;#39;change&amp;#39;, (codeMirror) =&amp;gt; {}); this.editor = editor; editor.doc.setValue(&amp;#39;hello world&amp;#39;); }, methods: { handleSave() { const content = this.editor.doc.getValue(); console.log(content); }, } }; More https://github.com/codemirror/CodeMirror</description>
+    </item>
+    
+    <item>
+      <title>23.使用prettier格式化代码.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-23/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-23/</guid>
+      <description>install $ npm install prettier usage const prettier = require(&amp;#34;prettier&amp;#34;); const code = ` const now = dayjs() const date = now.format(&amp;#34;YYYY-MM-DD&amp;#34;) const time = now.format(&amp;#34;HH:mm:ss&amp;#34;) const timestamp = now.valueOf() `; const content = prettier.format(code, { parser: &amp;#34;babel&amp;#34;, semi: false }); </description>
+    </item>
+    
+    <item>
+      <title>24.Electron消息提示框.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-24/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-24/</guid>
+      <description>const options = { type: &amp;#34;info&amp;#34;, title: &amp;#34;Information&amp;#34;, message: &amp;#39;hello world&amp;#39;, buttons: [&amp;#34;Yes&amp;#34;,&amp;#34;No&amp;#34;], }; dialog.showMessageBox(options); </description>
+    </item>
+    
+    <item>
+      <title>25.Electron备份还原sqlite数据库.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-25/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-25/</guid>
+      <description>const backupDb = () =&amp;gt; { const options = { title: &amp;#34;请选择要备份的文件名&amp;#34;, buttonLabel: &amp;#34;保存&amp;#34;, defaultPath: &amp;#34;my.db&amp;#34;, filters: [{ name: &amp;#34;Custom File Type&amp;#34;, extensions: [&amp;#34;db&amp;#34;] }], }; dialog.showSaveDialog(options).then(async (result) =&amp;gt; { if (!result.canceled) { const fileReadStream = fs.createReadStream(path.join(__dirname, &amp;#34;my.db&amp;#34;)); const fileWriteStream = fs.createWriteStream(result.filePath); fileReadStream.pipe(fileWriteStream); fileWriteStream.on(&amp;#34;close&amp;#34;, function () { showMessage(&amp;#34;备份成功&amp;#34;); }); } }); }; const restoreDb = () =&amp;gt; { const options = { title: &amp;#34;请选择要还原的文件&amp;#34;, buttonLabel: &amp;#34;还原&amp;#34;, defaultPath: &amp;#34;my.db&amp;#34;, filters: [{ name: &amp;#34;Custom File Type&amp;#34;, extensions: [&amp;#34;db&amp;#34;] }], properties: [&amp;#34;openFile&amp;#34;], }; dialog.</description>
+    </item>
+    
+    <item>
+      <title>26.Electron隐藏显示开发者工具.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-26/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-26/</guid>
+      <description>if (process.platform === &amp;#34;darwin&amp;#34;) { const template = [ { label: &amp;#34;我的知识库&amp;#34;, submenu: [ { label: &amp;#34;退出&amp;#34;, accelerator: &amp;#34;Command+Q&amp;#34;, click: function () { app.quit(); }, }, ], }, { label: &amp;#34;编辑&amp;#34;, submenu: [ { label: &amp;#34;复制&amp;#34;, accelerator: &amp;#34;CmdOrCtrl+C&amp;#34;, selector: &amp;#34;copy:&amp;#34; }, { label: &amp;#34;粘贴&amp;#34;, accelerator: &amp;#34;CmdOrCtrl+V&amp;#34;, selector: &amp;#34;paste:&amp;#34; }, ], }, { label: &amp;#34;开发&amp;#34;, submenu: [ { label: &amp;#34;DevTools&amp;#34;, accelerator: &amp;#34;CmdOrCtrl+Shift+I&amp;#34;, click(item, focusedWindow) { if (focusedWindow) focusedWindow.webContents.toggleDevTools(); }, }, ], }, ]; Menu.</description>
+    </item>
+    
+    <item>
+      <title>26.使用cheerio获取文章标题.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-26/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-26/</guid>
+      <description>install $ npm install cheerio usage const cheerio = require(&amp;#34;cheerio&amp;#34;); const $ = cheerio.load(html); const title = $(&amp;#34;head title&amp;#34;).text(); More cheerio https://github.com/cheeriojs/cheerio</description>
+    </item>
+    
+    <item>
+      <title>27.使用request获取网页内容.md</title>
+      <link>https://www.pengjielee.cn/project/ikms-27/</link>
+      <pubDate>Sun, 20 Dec 2020 11:40:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/project/ikms-27/</guid>
+      <description>install $ npm install request $ npm install request-promise usage const request = require(&amp;#39;request&amp;#39;); request(&amp;#39;https://www.baidu.com&amp;#39;, function (error, response, body) { console.error(&amp;#39;error:&amp;#39;, error); // Print the error if one occurred console.log(&amp;#39;statusCode:&amp;#39;, response &amp;amp;&amp;amp; response.statusCode); // Print the response status code if a response was received console.log(&amp;#39;body:&amp;#39;, body); // Print the HTML for the baidu homepage. }); 使用rp const rp = require(&amp;#39;request-promise&amp;#39;); rp(&amp;#39;https://www.baidu.com&amp;#39;) .then(function (htmlString) { // Process html... }) .catch(function (err) { // Crawling failed.</description>
+    </item>
+    
+  </channel>
+</rss>

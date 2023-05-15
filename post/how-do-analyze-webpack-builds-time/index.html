@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">如何分析webpack构建时间</h1><div class="post-meta">
+    <div class="date">2021-01-14</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="统计shell脚本执行时间">统计shell脚本执行时间</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#记录开始时间</span>
+</span></span><span style="display:flex;"><span>start_time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%s<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#安装及构建</span>
+</span></span><span style="display:flex;"><span>npm install
+</span></span><span style="display:flex;"><span>npm run build
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#记录结束时间</span>
+</span></span><span style="display:flex;"><span>end_time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%s<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#计算执行时间</span>
+</span></span><span style="display:flex;"><span>cost_time<span style="color:#f92672">=</span>$<span style="color:#f92672">[</span> $end_time-$start_time <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#输出执行时间</span>
+</span></span><span style="display:flex;"><span>echo $cost_time
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;cost time is </span><span style="color:#66d9ef">$((</span>$cost_time<span style="color:#f92672">/</span><span style="color:#ae81ff">60</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">min </span><span style="color:#66d9ef">$((</span>$cost_time<span style="color:#f92672">%</span><span style="color:#ae81ff">60</span><span style="color:#66d9ef">))</span><span style="color:#e6db74">s&#34;</span>
+</span></span></code></pre></div><h2 id="分析webpack编译时间">分析webpack编译时间</h2>
+<p>1、安装speed-measure-webpack-plugin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span><span style="color:#f92672">-</span><span style="color:#a6e22e">dev</span> <span style="color:#a6e22e">speed</span><span style="color:#f92672">-</span><span style="color:#a6e22e">measure</span><span style="color:#f92672">-</span><span style="color:#a6e22e">webpack</span><span style="color:#f92672">-</span><span style="color:#a6e22e">plugin</span>
+</span></span></code></pre></div><p>2、更新webpack配置</p>
+<p>Change your webpack config from</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpackConfig</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyPlugin</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyOtherPlugin</span>()
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>to</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SpeedMeasurePlugin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;speed-measure-webpack-plugin&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">smp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SpeedMeasurePlugin</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpackConfig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">smp</span>.<span style="color:#a6e22e">wrap</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">plugins</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>	  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyPlugin</span>(), 
+</span></span><span style="display:flex;"><span>	  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MyOtherPlugin</span>()
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

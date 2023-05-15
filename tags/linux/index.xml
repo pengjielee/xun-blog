@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/linux/</link>
+    <description>Recent content in Linux on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 Nov 2020 10:52:27 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>18个tar命令例子</title>
+      <link>https://www.pengjielee.cn/post/18-examples-of-tar-command/</link>
+      <pubDate>Wed, 11 Nov 2020 10:52:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/18-examples-of-tar-command/</guid>
+      <description>Prepare $ mkdir dist $ cd dist $ touch file1.txt file2.txt $ mkdir js 1. Create tar Archive File $ tar -cvf dist.tar ./dist a dist a dist/file2.txt a dist/file1.txt a dist/js NOTE: c – Creates a new .tar archive file. v – Verbosely show the .tar file progress. f – File name type of the archive file.
+2. Create tar.gz Archive File $ tar cvzf dist.tar.gz ./dist or $ tar cvzf dist.</description>
+    </item>
+    
+  </channel>
+</rss>

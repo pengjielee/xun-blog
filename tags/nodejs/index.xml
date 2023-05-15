@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/nodejs/</link>
+    <description>Recent content in Nodejs on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 20 Feb 2021 14:37:50 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Express获取提交数据</title>
+      <link>https://www.pengjielee.cn/post/express-gets-the-commit-data/</link>
+      <pubDate>Sat, 20 Feb 2021 14:37:50 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/express-gets-the-commit-data/</guid>
+      <description>获取url中的参数 app.get(&amp;#39;/blog/:id&amp;#39;, (req, res) =&amp;gt; { const id = req.params.id; console.log(id); res.send(id); }); 请求：/blog/1
+输出：1
+获取url中?后的参数 app.get(&amp;#39;/blog&amp;#39;, (req, res) =&amp;gt; { const query = req.query; res.send(query); }); 请求：/blog?id=1&amp;amp;name=jie
+输出：{&amp;ldquo;id&amp;rdquo;:&amp;ldquo;1&amp;rdquo;,&amp;ldquo;name&amp;rdquo;:&amp;ldquo;jie&amp;rdquo;}
+获取post提交的数据 Enctype: application/x-www-form-urlencoded (default)
+app.post(&amp;#39;/blog&amp;#39;, (req, res) =&amp;gt; { res.send(req.body); }); &amp;lt;form action=&amp;#34;/blog&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;form-group&amp;#34;&amp;gt; &amp;lt;label&amp;gt; 标题： &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;title&amp;#34; /&amp;gt; &amp;lt;/label&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;form-group&amp;#34;&amp;gt; &amp;lt;label&amp;gt; 日期： &amp;lt;input type=&amp;#34;date&amp;#34; name=&amp;#34;date&amp;#34; /&amp;gt; &amp;lt;/label&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;button&amp;gt;submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 提交form，输出：{&amp;ldquo;title&amp;rdquo;:&amp;ldquo;user&amp;rdquo;,&amp;ldquo;date&amp;rdquo;:&amp;ldquo;2021-02-05&amp;rdquo;}
+获取post提交的数据 Enctype: multipart/form-data
+const formidable = require(&amp;#39;formidable&amp;#39;); const uploadDir = path.</description>
+    </item>
+    
+    <item>
+      <title>Nodejs实现文件上传</title>
+      <link>https://www.pengjielee.cn/post/nodejs-implements-file-uploading/</link>
+      <pubDate>Sat, 20 Feb 2021 08:46:29 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/nodejs-implements-file-uploading/</guid>
+      <description>Form上传 1、前端
+&amp;lt;section&amp;gt; &amp;lt;h2&amp;gt;上传单个文件&amp;lt;/h2&amp;gt; &amp;lt;form action=&amp;#34;/api/upload/single&amp;#34; method=&amp;#34;post&amp;#34; enctype=&amp;#34;multipart/form-data&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;file&amp;#34; name=&amp;#34;file&amp;#34; accept=&amp;#34;image/*&amp;#34; required=&amp;#34;true&amp;#34; /&amp;gt; &amp;lt;button&amp;gt;上传&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; &amp;lt;/section&amp;gt; 2、后端
+var createError = require(&amp;#39;http-errors&amp;#39;); var express = require(&amp;#39;express&amp;#39;); var path = require(&amp;#39;path&amp;#39;); var cookieParser = require(&amp;#39;cookie-parser&amp;#39;); var logger = require(&amp;#39;morgan&amp;#39;); const fs = require(&amp;#39;fs-extra&amp;#39;); const multer = require(&amp;#39;multer&amp;#39;); var app = express(); const port = 3000; // view engine setup app.set(&amp;#39;views&amp;#39;, path.join(__dirname, &amp;#39;views&amp;#39;)); app.set(&amp;#39;view engine&amp;#39;, &amp;#39;pug&amp;#39;); app.use(logger(&amp;#39;dev&amp;#39;)); app.use(express.json()); app.use(express.urlencoded({ extended: false })); app.</description>
+    </item>
+    
+  </channel>
+</rss>

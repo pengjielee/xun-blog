@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">判断对称二叉树</h1><div class="post-meta">
+    <div class="date">2021-03-11</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="二叉树">二叉树【</h2>
+<p>每个节点最多有两个子节点。</p>
+<pre tabindex="0"><code>      10
+    /    \
+    9    20
+        /   \
+       15   35
+</code></pre><p>二叉树的特点：</p>
+<ol>
+<li>每个节点最多有两个子树，节点的度最大为2；</li>
+<li>左子树和右子树是有顺序的，次序不能颠倒；</li>
+<li>即使某节点只有一个子树，也要区分左右子树；</li>
+</ol>
+<h2 id="对称二叉树">对称二叉树</h2>
+<p>如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+<pre tabindex="0"><code>        10
+     /      \
+    5         5
+  /   \      /  \
+1      4    4    1
+</code></pre><p>实现思路:</p>
+<ol>
+<li>判断根节点相同；</li>
+<li>左子树的右节点和右子树的左节点相同；</li>
+<li>右子树的左节点和左子树的右节点相同；</li>
+</ol>
+<p>模拟一个对称二叉树和非对称二叉树：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//对称二叉树
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">symmetricalTree</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">7</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">7</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//非对称二叉树
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">binaryTree</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">7</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">9</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">7</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span> },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="js实现">JS实现</h2>
+<p>利用递归实现对称二叉树判断</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isSymmetrical</span>(<span style="color:#a6e22e">pRoot</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isSymmetricalTree</span>(<span style="color:#a6e22e">pRoot</span>, <span style="color:#a6e22e">pRoot</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isSymmetricalTree</span>(<span style="color:#a6e22e">node1</span>, <span style="color:#a6e22e">node2</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//判断两个节点都是否为空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">node1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">node2</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//判断两个节点是否存在一个为空
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">node1</span> <span style="color:#f92672">||</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">node2</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//判断两个节点是否相同
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">val</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isSymmetricalTree</span>(<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">right</span>) <span style="color:#f92672">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">isSymmetricalTree</span>(<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">left</span>)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">isSymmetrical</span>(<span style="color:#a6e22e">symmetricalTree</span>)); <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">isSymmetrical</span>(<span style="color:#a6e22e">binaryTree</span>)); <span style="color:#75715e">// false
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>对称二叉树<br>
+<a href="https://www.luogu.com.cn/problem/P5018">https://www.luogu.com.cn/problem/P5018</a></p>
+<p>对称二叉树（思路与实现）<br>
+<a href="https://blog.csdn.net/qq_28081081/article/details/80878973">https://blog.csdn.net/qq_28081081/article/details/80878973</a></p>
+<p>JavaScript判断对称二叉树<br>
+<a href="https://blog.csdn.net/AS_Tammy/article/details/93600323">https://blog.csdn.net/AS_Tammy/article/details/93600323</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

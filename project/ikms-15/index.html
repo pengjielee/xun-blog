@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">15.Electron使用sqlite3.md</h1><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="安装">安装</h2>
+<pre tabindex="0"><code>$ npm install sqlite3
+$ npm install bluebird
+</code></pre><h2 id="app-dao">App Dao</h2>
+<pre tabindex="0"><code>const sqlite3 = require(&#34;sqlite3&#34;);
+const Promise = require(&#34;bluebird&#34;);
+
+class AppDAO {
+  constructor(dbFilePath) {
+    this.db = new sqlite3.Database(dbFilePath, (err) =&gt; {
+      if (err) {
+        console.log(&#34;Could not connect to database&#34;, err);
+      } else {
+        console.log(&#34;Connected to database&#34;);
+      }
+    });
+  }
+
+  run(sql, params = []) {
+    return new Promise((resolve, reject) =&gt; {
+      this.db.run(sql, params, function (err) {
+        if (err) {
+          console.log(&#34;Error running sql &#34; + sql);
+          console.log(err);
+          reject(err);
+        } else {
+          resolve({ id: this.lastID });
+        }
+      });
+    });
+  }
+
+  get(sql, params = []) {
+    return new Promise((resolve, reject) =&gt; {
+      this.db.get(sql, params, (err, result) =&gt; {
+        if (err) {
+          console.log(&#34;Error running sql: &#34; + sql);
+          console.log(err);
+          reject(err);
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  }
+
+  all(sql, params = []) {
+    return new Promise((resolve, reject) =&gt; {
+      this.db.all(sql, params, (err, rows) =&gt; {
+        if (err) {
+          console.log(&#34;Error running sql: &#34; + sql);
+          console.log(err);
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
+  }
+}
+
+module.exports = AppDAO;
+</code></pre><h2 id="noterepository">NoteRepository</h2>
+<pre tabindex="0"><code>class NoteRepository {
+  constructor(dao) {
+    this.dao = dao;
+  }
+
+  createTable() {
+    const sql = `
+    CREATE TABLE IF NOT EXISTS notes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      content TEXT,
+      createDate TEXT,
+      createTime TEXT)`;
+    return this.dao.run(sql);
+  }
+
+  create(note) {
+    return this.dao.run(
+      &#34;INSERT INTO notes (content,createDate,createTime) VALUES (?,?,?)&#34;,
+      [note.content, note.createDate, note.createTime]
+    );
+  }
+
+  update(note) {
+    const { id, content } = note;
+    return this.dao.run(`UPDATE notes SET content = ? WHERE id = ?`, [
+      content,
+      id,
+    ]);
+  }
+
+  delete(id) {
+    return this.dao.run(`DELETE FROM notes WHERE id = ?`, [id]);
+  }
+
+  getById(id) {
+    return this.dao.get(`SELECT * FROM notes WHERE id = ?`, [id]);
+  }
+
+  getAll() {
+    return this.dao.all(`SELECT * FROM notes`);
+  }
+
+  getByPage(page, size = 10) {
+    const offset = (page - 1) * size;
+    return this.dao.all(
+      `SELECT * FROM notes order by id desc limit ${size} offset ${offset};`
+    );
+  }
+
+  getTotal() {
+    return this.dao.all(`SELECT count(*) num FROM notes`);
+  }
+
+  getByDate(date) {
+    return this.dao.all(
+      `SELECT * FROM notes WHERE createDate = ? order by id desc`,
+      [date]
+    );
+  }
+
+  search(keyword, date) {
+    let sql = `SELECT * FROM notes`;
+
+    if (keyword) {
+      sql += ` WHERE content like &#39;%${keyword}%&#39;`;
+    }
+    if (date) {
+      if (sql.indexOf(&#34;WHERE&#34;) &gt;= 0) {
+        sql += ` AND createDate = &#39;${date}&#39;`;
+      } else {
+        sql += ` WHERE createDate = &#39;${date}&#39;`;
+      }
+    }
+    console.log(sql);
+
+    return this.dao.all(sql);
+  }
+
+  reset() {
+    const sql = `
+      delete from notes;
+      update sqlite_sequence SET seq = 0 where name =&#39;notes&#39;;
+    `;
+    return this.dao.run(sql);
+  }
+}
+
+module.exports = NoteRepository;
+</code></pre><h2 id="使用">使用</h2>
+<pre tabindex="0"><code>const AppDAO = require(path.join(__dirname, &#34;db/dao.js&#34;));
+const dao = new AppDAO(path.join(__dirname, &#34;my.db&#34;));
+
+const NoteRepository = require(path.join(__dirname, &#34;db/note_repository.js&#34;));
+const noteRepo = new NoteRepository(dao);
+noteRepo.createTable();
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

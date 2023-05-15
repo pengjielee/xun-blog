@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/css/</link>
+    <description>Recent content in CSS on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 26 Feb 2021 15:41:57 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何为网站添加暗黑模式</title>
+      <link>https://www.pengjielee.cn/post/how-do-i-add-dark-mode-to-my-website/</link>
+      <pubDate>Fri, 26 Feb 2021 15:41:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-do-i-add-dark-mode-to-my-website/</guid>
+      <description>方法1：prefers-color-scheme 用于检测用户是否有将系统的主题色设置为亮色或者暗色。
+@media (prefers-color-scheme: dark) { /* all your styles for dark mode here */ body { background: #000; } } @media (prefers-color-scheme: light) { /* all your styles for light mode here */ body { background: #fff; } } 方法2：使用CSS滤镜 1、css文件
+html[theme=&amp;#34;dark-mode&amp;#34;] { filter: invert(1) hue-rotate(180deg); } html[theme=&amp;#34;dark-mode&amp;#34;] img { filter: invert(1) hue-rotate(180deg); } html { transition: color 300ms; background-color 300ms; } 2、js文件
+document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, () =&amp;gt; { var html = document.</description>
+    </item>
+    
+  </channel>
+</rss>

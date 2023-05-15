@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">190.颠倒二进制位</h1><div class="post-meta">
+    <div class="date">2021-07-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>颠倒给定的 32 位无符号整数的二进制位。</p>
+<p>提示：</p>
+<p>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。
+在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在上面的 示例 2 中，输入表示有符号整数 -3，输出表示有符号整数 -1073741825。</p>
+<p>进阶:
+如果多次调用这个函数，你将如何优化你的算法？</p>
+<pre tabindex="0"><code>示例 1：
+输入: 00000010100101000001111010011100
+输出: 00111001011110000010100101000000
+解释: 输入的二进制串 00000010100101000001111010011100 表示无符号整数 43261596，
+     因此返回 964176192，其二进制表示形式为 00111001011110000010100101000000。
+
+示例 2：
+输入：11111111111111111111111111111101
+输出：10111111111111111111111111111111
+解释：输入的二进制串 11111111111111111111111111111101 表示无符号整数 4294967293，
+     因此返回 3221225471 其二进制表示形式为 10111111111111111111111111111111 。
+
+示例 1：
+输入：n = 00000010100101000001111010011100
+输出：964176192 (00111001011110000010100101000000)
+解释：输入的二进制串 00000010100101000001111010011100 表示无符号整数 43261596，
+     因此返回 964176192，其二进制表示形式为 00111001011110000010100101000000。
+
+示例 2：
+输入：n = 11111111111111111111111111111101
+输出：3221225471 (10111111111111111111111111111111)
+解释：输入的二进制串 11111111111111111111111111111101 表示无符号整数 4294967293，
+     因此返回 3221225471 其二进制表示形式为 10111111111111111111111111111111 。
+</code></pre><p>提示：</p>
+<p>输入是一个长度为 32 的二进制字符串</p>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/reverse-bits
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} n - a positive integer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number} - a positive integer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverseBits</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/go/</link>
+    <description>Recent content in Go on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 20 Mar 2023 17:46:59 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go合并数组和链表</title>
+      <link>https://www.pengjielee.cn/post/golang/go%E5%90%88%E5%B9%B6%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Mon, 20 Mar 2023 17:46:59 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/go%E5%90%88%E5%B9%B6%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8/</guid>
+      <description>合并两个有序数组 /* nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 */ func mergeArr(nums1 []int, m int, nums2 []int, n int) { p := m - 1 q := n - 1 k := len(nums1) - 1 for p &amp;gt;= 0 &amp;amp;&amp;amp; q &amp;gt;= 0 { if nums1[p] &amp;gt; nums2[q] { nums1[k] = nums1[p] p -= 1 } else { nums1[k] = nums2[q] q -= 1 } k -= 1 } for q &amp;gt;= 0 { nums1[k] = nums2[q] q -= 1 k -= 1 } } 合并两个有序链表 type Node struct { data interface{} next *Node } func mergeList(l1 *Node, l2 *Node) *Node { if l1 == nil { return l2 } if l2 == nil { return l1 } var l3 = &amp;amp;Node{} var current = l3 for l1 !</description>
+    </item>
+    
+    <item>
+      <title>Go递归遍历二叉树</title>
+      <link>https://www.pengjielee.cn/post/golang/go%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Mon, 20 Mar 2023 17:31:02 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/go%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>type TreeNode struct { Val int Left *TreeNode Right *TreeNode } 前序遍历 func preorderTraversal(root *TreeNode) []int { var result []int preorder(root, &amp;amp;result) return result } func preorder(root *TreeNode, output *[]int) { if root != nil { *output = append(*output, root.Val) preorder(root.Left, output) preorder(root.Right, output) } } 中序遍历 func inorderTraversal(root *TreeNode) []int { var result []int inorder(root, &amp;amp;result) return result } func inorder(root *TreeNode, output *[]int) { if root != nil { inorder(root.</description>
+    </item>
+    
+    <item>
+      <title>Go判断回文数</title>
+      <link>https://www.pengjielee.cn/post/golang/go%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E6%95%B0/</link>
+      <pubDate>Mon, 20 Mar 2023 17:07:14 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/go%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E6%95%B0/</guid>
+      <description>解法一
+func isPalindrome(x int) bool { //负数不是回文数 if x &amp;lt; 0 { return false } if x%10 == 0 &amp;amp;&amp;amp; x != 0 { return false } arr := make([]int, 0, 32) for x &amp;gt; 0 { arr = append(arr, x%10) x = x / 10 } for i, j := 0, len(arr)-1; i &amp;lt;= j; i, j = i+1, j-1 { if arr[i] != arr[j] { return false } } return true } 解法二</description>
+    </item>
+    
+    <item>
+      <title>Go实现二分查找</title>
+      <link>https://www.pengjielee.cn/post/golang/go%E5%AE%9E%E7%8E%B0%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
+      <pubDate>Mon, 20 Mar 2023 13:15:55 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/go%E5%AE%9E%E7%8E%B0%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
+      <description>二分查找 需要注意的三点：
+循环退出条件，注意是 low &amp;lt;= high，而不是 low &amp;lt; high。 mid 的取值，mid := low + (high-low)/2 low 和 high 的更新。low = mid + 1，high = mid - 1。 package main import ( &amp;#34;fmt&amp;#34; ) func main() { s1 := []int{1, 3, 4, 6, 9} fmt.Println(binarySearch(s1, 6)) //3 } func binarySearch(nums []int, target int) int { low, high := 0, len(nums)-1 for low &amp;lt;= high { mid := low + (high-low)/2 if nums[mid] == target { return mid } else if nums[mid] &amp;gt; target { high = mid - 1 } else { low = mid + 1 } } return -1 } 查找第一个与 target 相等的元素 package main import ( &amp;#34;fmt&amp;#34; ) func main() { s1 := []int{1, 3, 4, 4, 6, 9} fmt.</description>
+    </item>
+    
+    <item>
+      <title>008.Go语言switch语句</title>
+      <link>https://www.pengjielee.cn/post/golang/008.go%E8%AF%AD%E8%A8%80switch%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Sun, 04 Dec 2022 14:12:38 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/008.go%E8%AF%AD%E8%A8%80switch%E8%AF%AD%E5%8F%A5/</guid>
+      <description>问好 package main import ( &amp;#34;fmt&amp;#34; ) func main() { var name string fmt.Printf(&amp;#34;请输入姓名：&amp;#34;) fmt.Scanln(&amp;amp;name) switch name { case &amp;#34;jim&amp;#34;: fmt.Println(&amp;#34;你好 &amp;#34; + name) case &amp;#34;tom&amp;#34;: fmt.Println(&amp;#34;hello &amp;#34; + name) case &amp;#34;mike&amp;#34;: fmt.Println(&amp;#34;hi &amp;#34; + name) case &amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;: fmt.Println(&amp;#34;输入错误&amp;#34;) default: fmt.Println(&amp;#34;您好 &amp;#34; + name) } } </description>
+    </item>
+    
+    <item>
+      <title>007.Go语言循环语句</title>
+      <link>https://www.pengjielee.cn/post/golang/007.go%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Sun, 04 Dec 2022 13:43:21 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/007.go%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</guid>
+      <description>计算 1 到 10 的数字之和 package main import ( &amp;#34;fmt&amp;#34; ) func main() { var sum = 0 for i := 0; i &amp;lt;= 10; i++ { sum += i } fmt.Println(sum) } sum 小于 10 的时候计算 sum 自相加后的值 package main import &amp;#34;fmt&amp;#34; func main() { //sum 小于 10 的时候计算 sum 自相加后的值 sum := 1 for sum &amp;lt;= 10 { sum += sum } fmt.Println(sum) // 这样写也可以，更像 While 语句形式 for sum &amp;lt;= 10 { sum += sum } fmt.</description>
+    </item>
+    
+    <item>
+      <title>006.Go语言条件语句</title>
+      <link>https://www.pengjielee.cn/post/golang/006.go%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/</link>
+      <pubDate>Sun, 04 Dec 2022 13:39:05 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/006.go%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/</guid>
+      <description>判断用户年龄 package main import ( &amp;#34;fmt&amp;#34; ) func main() { var age int fmt.Printf(&amp;#34;请输入年龄：&amp;#34;) fmt.Scanln(&amp;amp;age) if age &amp;gt;= 18 { fmt.Println(&amp;#34;您已成年，可以上网。&amp;#34;) } else { fmt.Println(&amp;#34;未成人不能上网！&amp;#34;) } } </description>
+    </item>
+    
+    <item>
+      <title>005.Go获取用户输入</title>
+      <link>https://www.pengjielee.cn/post/golang/005.go%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/</link>
+      <pubDate>Sun, 04 Dec 2022 13:01:12 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/005.go%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/</guid>
+      <description>从控制台读取输入 方式1：
+package main import ( &amp;#34;fmt&amp;#34; ) func main() { var name string var age int fmt.Printf(&amp;#34;请输入姓名：&amp;#34;) fmt.Scanln(&amp;amp;name) fmt.Printf(&amp;#34;请输入年龄：&amp;#34;) fmt.Scanln(&amp;amp;age) fmt.Printf(&amp;#34;输入的姓名：%v, 年龄:%v \n&amp;#34;, name, age) } 方式2：
+package main import ( &amp;#34;fmt&amp;#34; ) func main() { var name string var age int fmt.Scanf(&amp;#34;%s %d&amp;#34;, &amp;amp;name, &amp;amp;age) fmt.Printf(&amp;#34;姓名:%v,年龄:%v&amp;#34;, name, age) } 从缓冲读取输入 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;bufio&amp;#34; ) func main() { //创建一个读取器，并将其与标准输入绑定。 reader := bufio.NewReader(os.Stdin) //读取器对象提供一个方法 ReadString(delim byte) ，该方法从输入中读取内容，直到碰到 delim 指定的字符，然后将读取到的内容连同 delim 字符一起放到缓冲区。 input, err := reader.</description>
+    </item>
+    
+    <item>
+      <title>004.Go语言变量声明</title>
+      <link>https://www.pengjielee.cn/post/golang/004.go%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</link>
+      <pubDate>Sun, 04 Dec 2022 12:22:52 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/004.go%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/</guid>
+      <description>使用var关键字，后跟所需的名称以及变量将保存的值的类型。 var 变量名称 变量类型 //声明字符串变量 var message string //声明int变量 var number int //声明bool变量 var flag bool 声明变量并赋值 var message string = &amp;#34;hello world&amp;#34; 同一语句中为多个变量赋值 var width, height, name = 10, 20, &amp;#34;jack&amp;#34; 如果在声明变量的同时为其赋值，通常可以在声明中省略变量类型。 var width = 10 var height = 30 var name = &amp;#34;Jack&amp;#34; 短变量声明 你不必很明确地声明变量的类型并在之后使用=为其赋值，而是同时使用:=
+package main import &amp;#34;fmt&amp;#34; func main() { customerName := &amp;#34;Jack&amp;#34; number := 4 width,height := 3, 4 fmt.Println(customerName) fmt.Println(&amp;#34;has ordered&amp;#34;, number) fmt.Println(width*height, &amp;#34;square meters&amp;#34;) } </description>
+    </item>
+    
+    <item>
+      <title>003.Go语言数据类型</title>
+      <link>https://www.pengjielee.cn/post/golang/003.go%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sun, 04 Dec 2022 11:32:14 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/003.go%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>字符串 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; ) func main() { //定义字符串变量 var message string //打印变量类型 fmt.Println(reflect.TypeOf(message)) //string //打印变量 fmt.Println(message) //&amp;#34;&amp;#34;，默认为空字符串 message = &amp;#34;Hello World&amp;#34; fmt.Println(message) //Hello World } int类型 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; ) func main() { //定义变量 var age int //打印变量类型 fmt.Println(reflect.TypeOf(age)) //int //打印变量 fmt.Println(age) //0，未赋值时默认为0 age = 20 fmt.Println(age) //20 age = &amp;#39;hello&amp;#39; //报错: 20:8: more than one character in rune literal } float类型 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;reflect&amp;#34; ) func main() { var price float32 //打印变量类型 fmt.</description>
+    </item>
+    
+    <item>
+      <title>002.第一个Go程序.md</title>
+      <link>https://www.pengjielee.cn/post/golang/002.%E7%AC%AC%E4%B8%80%E4%B8%AAgo%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Sun, 04 Dec 2022 10:55:51 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/002.%E7%AC%AC%E4%B8%80%E4%B8%AAgo%E7%A8%8B%E5%BA%8F/</guid>
+      <description>第一个Go程序，打印Hello World 创建文件hello.go，内容如下：
+// package main表示一个可独立执行的程序，每个 Go 应用程序都包含一个名为 main 的包。 package main //导入 fmt 包 import &amp;#34;fmt&amp;#34; // 这是单行注释 /* 这是多行注释 这是多行注释 */ //程序开始执行的函数 func main() { /* 打印Hello World， 并换行 */ fmt.Println(&amp;#34;Hello World&amp;#34;) } 格式化代码 $ go fmt hello.go 执行Go程序 $ go run hello.go Hello World 生成二进制文件 $ go build hello.go $ ls hello	hello.go $ ./hello Hello World </description>
+    </item>
+    
+    <item>
+      <title>001.安装Go</title>
+      <link>https://www.pengjielee.cn/post/golang/001.%E5%AE%89%E8%A3%85go/</link>
+      <pubDate>Sun, 04 Dec 2022 10:34:54 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/golang/001.%E5%AE%89%E8%A3%85go/</guid>
+      <description>下载Go https://golang.org/dl/
+如打不开，使用下面这个地址：
+https://golang.google.cn/dl/
+查看是否安装成功 $ go version go version go1.19.3 darwin/amd64 查看Go的环境变量 $ go env Go Playground https://go.dev/play/
+or
+https://goplay.tools/
+Go语言教程 https://www.runoob.com/go/go-tutorial.html
+http://c.biancheng.net/golang/
+https://golang.google.cn/
+https://www.w3cschool.cn/yqbmht/7rcvwcqm.html</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：字典</h1><div class="post-meta">
+    <div class="date">2020-11-06</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="创建字典">创建字典</h2>
+<p>1、使用{}字面量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;address&#39;</span>: <span style="color:#e6db74">&#39;Beijing&#39;</span> }
+</span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;}</span>
+</span></span></code></pre></div><p>2、使用内置函数dict</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> dict(id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;peng&#39;</span>, age<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, address<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Beijing&#39;</span>)
+</span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;}</span>
+</span></span></code></pre></div><p>3、用字典生成式语法创建字典</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>items3 <span style="color:#f92672">=</span> {x: x <span style="color:#f92672">**</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">6</span>)}
+</span></span><span style="display:flex;"><span>print(items3)     <span style="color:#75715e"># {1: 1, 2: 8, 3: 27, 4: 64, 5: 125}</span>
+</span></span></code></pre></div><h2 id="访问字典的值">访问字典的值</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;address&#39;</span>: <span style="color:#e6db74">&#39;Beijing&#39;</span> }
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#39;id&#39;</span>]) <span style="color:#75715e"># Prints out: 1</span>
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#39;hobby&#39;</span>]) <span style="color:#75715e"># KeyError: &#39;hobby&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用get方法</span>
+</span></span><span style="display:flex;"><span>print(person<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;id&#39;</span>)) <span style="color:#75715e"># Prints out: 1</span>
+</span></span><span style="display:flex;"><span>print(person<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;hobby&#39;</span>)) <span style="color:#75715e"># Prints out: None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有键</span>
+</span></span><span style="display:flex;"><span>print(person<span style="color:#f92672">.</span>keys()) <span style="color:#75715e"># Prints out: dict_keys([&#39;id&#39;, &#39;name&#39;, &#39;age&#39;, &#39;address&#39;])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有值 </span>
+</span></span><span style="display:flex;"><span>print(person<span style="color:#f92672">.</span>values()) <span style="color:#75715e"># Prints out: dict_values([1, &#39;peng&#39;, 20, &#39;Beijing&#39;])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有键值对</span>
+</span></span><span style="display:flex;"><span>print(person<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># Prints out: dict_items([(&#39;id&#39;, 1), (&#39;name&#39;, &#39;peng&#39;), (&#39;age&#39;, 20), (&#39;address&#39;, &#39;Beijing&#39;)])</span>
+</span></span></code></pre></div><h2 id="修改字典">修改字典</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;address&#39;</span>: <span style="color:#e6db74">&#39;Beijing&#39;</span> }
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#39;id&#39;</span>]) <span style="color:#75715e"># Prints out: 1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>person[<span style="color:#e6db74">&#39;id&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#39;id&#39;</span>]) <span style="color:#75715e"># Prints out: 2</span>
+</span></span></code></pre></div><h2 id="删除字典元素">删除字典元素</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;address&#39;</span>: <span style="color:#e6db74">&#39;Beijing&#39;</span> }
+</span></span><span style="display:flex;"><span>print(person[<span style="color:#e6db74">&#39;id&#39;</span>]) <span style="color:#75715e"># Prints out: 1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除字典元素</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> person[<span style="color:#e6db74">&#39;id&#39;</span>]
+</span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># Pritns out: {&#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 清空字典</span>
+</span></span><span style="display:flex;"><span>person<span style="color:#f92672">.</span>clear()
+</span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># Prints out: {}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除字典</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> person
+</span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># NameError: name &#39;person&#39; is not defined</span>
+</span></span></code></pre></div><h2 id="字典健的特性">字典健的特性</h2>
+<p>1、不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会覆盖前一个。<br>
+2、键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行。</p>
+<h2 id="字典应用">字典应用</h2>
+<p>输入一段话，统计每个英文字母出现的次数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>sentence <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;请输入一段话: &#39;</span>)
+</span></span><span style="display:flex;"><span>counter <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ch <span style="color:#f92672">in</span> sentence:
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;A&#39;</span> <span style="color:#f92672">&lt;=</span> ch <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;Z&#39;</span> <span style="color:#f92672">or</span> <span style="color:#e6db74">&#39;a&#39;</span> <span style="color:#f92672">&lt;=</span> ch <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;z&#39;</span>:
+</span></span><span style="display:flex;"><span>    counter[ch] <span style="color:#f92672">=</span> counter<span style="color:#f92672">.</span>get(ch, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> counter<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;字母</span><span style="color:#e6db74">{</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">出现了</span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">次.&#39;</span>)
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">020.有效的括号</h1><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/stack/" rel="tag">stack</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<ul>
+<li>左括号必须用相同类型的右括号闭合。</li>
+<li>左括号必须以正确的顺序闭合。</li>
+</ul>
+<pre tabindex="0"><code>示例 1：
+输入：s = &#34;()&#34;
+输出：true
+
+示例 2：
+输入：s = &#34;()[]{}&#34;
+输出：true
+
+示例 3：
+输入：s = &#34;(]&#34;
+输出：false
+
+示例 4：
+输入：s = &#34;([)]&#34;
+输出：false
+
+示例 5：
+输入：s = &#34;{[]}&#34;
+输出：true
+</code></pre><p>提示：</p>
+<ul>
+<li>1 &lt;= s.length &lt;= 10^4；</li>
+<li>s 仅由括号 &lsquo;()[]{}&rsquo; 组成；</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/valid-parentheses
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路">思路</h2>
+<p>我们遍历字符串中的所有字符：</p>
+<p>1、如果遇到了左括号，就把对应的右括号压栈（比如遇到了字符&rsquo;(&rsquo;，就把字符&rsquo;)&lsquo;压栈）。</p>
+<p>2、如果遇到了右括号</p>
+<ul>
+<li>查看栈是否为空，如果为空，说明不能构成有效的括号，直接返回false。</li>
+<li>如果栈不为空，栈顶元素出栈，然后判断出栈的这个元素是否等于这个右括号，如果不等于，说明不匹配，直接返回false。如果匹配，就继续判断字符串的下一个字符。</li>
+</ul>
+<p>3、最后如果栈为空，说明是完全匹配，是有效的括号，否则如果栈不为空，说明不完全匹配，不是有效的括号。</p>
+<p>作者：数据结构和算法
+链接：https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnbcaj/?discussion=rj6XSA
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<p>参考1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {boolean}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isValid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stack</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;(&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;)&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;[&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;]&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;{&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;}&#34;</span>,
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//遍历字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#66d9ef">char</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//如果map结构中存在左括号，把左括号入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">char</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">map</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">char</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//不存在，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//1. 如果栈为空，直接返回false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//2. 如果当前字符 与 map[栈中左括号]存储的右括号不匹配，返回false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">map</span>[<span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">pop</span>()]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 如果最后 stack 里没有元素了， 就一定是匹配的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>参考2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isValid</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">s</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">stack</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//遍历所有的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//如果是左括号，就把他们对应的右括号压栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;(&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;)&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;{&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;}&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;[&#34;</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#34;]&#34;</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//1. 如果栈为空，说明括号无法匹配。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">pop</span>() <span style="color:#f92672">!=</span> <span style="color:#a6e22e">c</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//2. 如果栈不为空，栈顶元素就要出栈，和这个右括号比较。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//如果栈顶元素不等于这个右括号，说明无法匹配，直接返回false。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//最后如果栈为空，说明完全匹配，是有效的括号。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//否则不完全匹配，就不是有效的括号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stack</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="go实现">Go实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Stack</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">top</span>  <span style="color:#66d9ef">int</span>           <span style="color:#75715e">//栈顶指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">data</span> []<span style="color:#66d9ef">interface</span>{} <span style="color:#75715e">//数据元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Stack</span>) <span style="color:#a6e22e">InitList</span>(<span style="color:#a6e22e">maxSize</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">data</span> = make([]<span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">maxSize</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span> = <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Stack</span>) <span style="color:#a6e22e">isNull</span>() <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Stack</span>) <span style="color:#a6e22e">isFull</span>() <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span> &lt; cap(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">data</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Stack</span>) <span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">element</span> <span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">isFull</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span>] = <span style="color:#a6e22e">element</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Stack</span>) <span style="color:#a6e22e">Pop</span>() (<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">bool</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">isNull</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">top</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>, <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">str</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Stack</span>{}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">InitList</span>(<span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;(&#34;</span>] = <span style="color:#e6db74">&#34;)&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;{&#34;</span>] = <span style="color:#e6db74">&#34;}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">m</span>[<span style="color:#e6db74">&#34;[&#34;</span>] = <span style="color:#e6db74">&#34;]&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">str</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">char</span> <span style="color:#f92672">:=</span> string(<span style="color:#a6e22e">str</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//如果是左括号, 入栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">m</span>[<span style="color:#a6e22e">char</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">&amp;&amp;</span> !<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">isFull</span>() {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">char</span>)
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//如果是右括号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">//判断是否栈空, 栈空匹配失败
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">isNull</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//出栈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">e</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Pop</span>(); <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">char</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">m</span>[<span style="color:#a6e22e">e</span>.(<span style="color:#66d9ef">string</span>)] {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">isNull</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;()&#34;</span>))   <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;()&#34;</span>))   <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;)(&#34;</span>))   <span style="color:#75715e">//false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;(()&#34;</span>))  <span style="color:#75715e">//false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">test</span>(<span style="color:#e6db74">&#34;(())&#34;</span>)) <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

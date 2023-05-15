@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">002.两数相加</h1><div class="post-meta">
+    <div class="date">2021-04-22</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<pre tabindex="0"><code>示例 1：
+  2 -&gt; 4 -&gt; 3
++ 5 -&gt; 6 -&gt; 4
+-------------
+= 7 -&gt; 0 -&gt; 8
+
+输入：l1 = [2,4,3], l2 = [5,6,4]
+输出：[7,0,8]
+解释：342 + 465 = 807.
+
+示例 2：
+输入：l1 = [0], l2 = [0]
+输出：[0]
+
+示例 3：
+输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+输出：[8,9,9,9,0,0,0,1]
+</code></pre><p>提示：</p>
+<ul>
+<li>每个链表中的节点数在范围 [1, 100] 内</li>
+<li>0 &lt;= Node.val &lt;= 9</li>
+<li>题目数据保证列表表示的数字不含前导零</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/add-two-numbers
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路">思路</h2>
+<pre tabindex="0"><code>举例1：无进位
+1-&gt;2-&gt;3
+2-&gt;4
+
+正常加法：
+ 321
++ 42
+=363
+
+ 123
++240
+=363
+
+举例2：有进位
+9-&gt;8-&gt;7
+2-&gt;3
+
+正常加法：
+ 789
++ 32
+=821 
+
+ 987
++230
+=128
+
+举例3：
+9-&gt;9-&gt;9
+9-&gt;9
+
+正常加法：
+  999
++  99
+=1098 
+
+ 999
++990
+=8901
+</code></pre><h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Definition for singly-linked list.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * function ListNode(val, next) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.val = (val===undefined ? 0 : val)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.next = (next===undefined ? null : next)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {ListNode} l1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {ListNode} l2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {ListNode}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">addTwoNumbers</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">l1</span>, <span style="color:#a6e22e">l2</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//存放结果的链表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//进位的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">carry</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">l1</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">l2</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">v1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l1</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">l1</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//链表1节点的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">v2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l2</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">l2</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//链表2节点的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">v1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">v2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">carry</span>; <span style="color:#75715e">//两个节点的和
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//取余则为新链表的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#a6e22e">sum</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//求进位的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">carry</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(<span style="color:#a6e22e">sum</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//carry = sum &gt;= 10 ? 1 : 0; //这样也可以
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">l1</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">l1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l1</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">l2</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">l2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l2</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">carry</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#a6e22e">carry</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>简洁写法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">addTwoNumbers</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">l1</span>, <span style="color:#a6e22e">l2</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//存放结果的链表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">head</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>; <span style="color:#75715e">//移动指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">l2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">carry</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">//进位值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">q</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> (<span style="color:#a6e22e">q</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">carry</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#a6e22e">sum</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>); <span style="color:#75715e">//取余则为新链表的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">carry</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">p</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">p</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">q</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">carry</span> <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#a6e22e">curr</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ListNode</span>(<span style="color:#a6e22e">carry</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

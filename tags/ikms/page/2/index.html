@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">ikms</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/project/ikms-27/">27.使用request获取网页内容.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">install $ npm install request $ npm install request-promise usage const request = require(&#39;request&#39;); request(&#39;https://www.baidu.com&#39;, function (error, response, body) { console.error(&#39;error:&#39;, error); // Print the error if one occurred console.log(&#39;statusCode:&#39;, response &amp;&amp; response.statusCode); // Print the response status code if a response was received console.log(&#39;body:&#39;, body); // Print the HTML for the baidu homepage. }); 使用rp const rp = require(&#39;request-promise&#39;); rp(&#39;https://www.baidu.com&#39;) .then(function (htmlString) { // Process html... }) .catch(function (err) { // Crawling failed.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-26/">26.使用cheerio获取文章标题.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">install $ npm install cheerio usage const cheerio = require(&#34;cheerio&#34;); const $ = cheerio.load(html); const title = $(&#34;head title&#34;).text(); More cheerio https://github.com/cheeriojs/cheerio</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-26/">26.Electron隐藏显示开发者工具.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">if (process.platform === &#34;darwin&#34;) { const template = [ { label: &#34;我的知识库&#34;, submenu: [ { label: &#34;退出&#34;, accelerator: &#34;Command+Q&#34;, click: function () { app.quit(); }, }, ], }, { label: &#34;编辑&#34;, submenu: [ { label: &#34;复制&#34;, accelerator: &#34;CmdOrCtrl+C&#34;, selector: &#34;copy:&#34; }, { label: &#34;粘贴&#34;, accelerator: &#34;CmdOrCtrl+V&#34;, selector: &#34;paste:&#34; }, ], }, { label: &#34;开发&#34;, submenu: [ { label: &#34;DevTools&#34;, accelerator: &#34;CmdOrCtrl+Shift+I&#34;, click(item, focusedWindow) { if (focusedWindow) focusedWindow.webContents.toggleDevTools(); }, }, ], }, ]; Menu.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-25/">25.Electron备份还原sqlite数据库.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const backupDb = () =&gt; { const options = { title: &#34;请选择要备份的文件名&#34;, buttonLabel: &#34;保存&#34;, defaultPath: &#34;my.db&#34;, filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#34;db&#34;] }], }; dialog.showSaveDialog(options).then(async (result) =&gt; { if (!result.canceled) { const fileReadStream = fs.createReadStream(path.join(__dirname, &#34;my.db&#34;)); const fileWriteStream = fs.createWriteStream(result.filePath); fileReadStream.pipe(fileWriteStream); fileWriteStream.on(&#34;close&#34;, function () { showMessage(&#34;备份成功&#34;); }); } }); }; const restoreDb = () =&gt; { const options = { title: &#34;请选择要还原的文件&#34;, buttonLabel: &#34;还原&#34;, defaultPath: &#34;my.db&#34;, filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#34;db&#34;] }], properties: [&#34;openFile&#34;], }; dialog.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-24/">24.Electron消息提示框.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const options = { type: &#34;info&#34;, title: &#34;Information&#34;, message: &#39;hello world&#39;, buttons: [&#34;Yes&#34;,&#34;No&#34;], }; dialog.showMessageBox(options); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-23/">23.使用prettier格式化代码.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">install $ npm install prettier usage const prettier = require(&#34;prettier&#34;); const code = ` const now = dayjs() const date = now.format(&#34;YYYY-MM-DD&#34;) const time = now.format(&#34;HH:mm:ss&#34;) const timestamp = now.valueOf() `; const content = prettier.format(code, { parser: &#34;babel&#34;, semi: false }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-22/">22.使用codemirror编辑器.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">include &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34; /&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;assets/codemirror/codemirror.css&#34; /&gt; &lt;/head&gt; &lt;script type=&#34;text/javascript&#34; src=&#34;assets/codemirror/codemirror.js&#34;&gt;&lt;/script&gt; usage const Edit = { template: ` &lt;div class=&#34;pure-form pure-form-stacked&#34;&gt; &lt;textarea ref=&#34;code&#34;&gt;&lt;/textarea&gt; &lt;el-button type=&#34;primary&#34; size=&#34;medium&#34; @click=&#34;handleSave&#34;&gt;保存&lt;/el-button&gt; &lt;/div&gt; `, mounted: async function () { const editor = CodeMirror.fromTextArea(this.$refs.code, { lineNumbers: true, }); // editor.on(&#39;change&#39;, (codeMirror) =&gt; {}); this.editor = editor; editor.doc.setValue(&#39;hello world&#39;); }, methods: { handleSave() { const content = this.editor.doc.getValue(); console.log(content); }, } }; More https://github.com/codemirror/CodeMirror</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-21/">21.使用hightlight.js输出代码.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">install $ npm install highlight.js include &lt;script type=&#34;text/javascript&#34;&gt; const hljs = require(&#34;highlight.js&#34;); Vue.use(hljs.vuePlugin); &lt;/script&gt; usage &lt;highlightjs autodetect :code=&#34;content&#34; /&gt; More https://github.com/highlightjs/highlight.js</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-20/">20.Electron中使用Vue.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">index.html &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;p class=&#34;message&#34;&gt;{{ message }}&lt;/p&gt; &lt;/div&gt; &lt;/body&gt; &lt;script src=&#34;https://unpkg.com/vue@2.6.12/dist/vue.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;https://unpkg.com/vue-router@3.4.3/dist/vue-router.min.js&#34;&gt;&lt;/script&gt; &lt;script src=&#34;https://unpkg.com/element-ui/lib/index.js&#34;&gt;&lt;/script&gt; &lt;script type=&#34;text/javascript&#34; src=&#34;renderer.js&#34;&gt;&lt;/script&gt; /pages/home/index.js const Index = { template: ` &lt;div class=&#34;page-home&#34;&gt; Hello World! &lt;/div&gt; `, }; module.exports = Index; renderer.js const Home = require(&#34;./pages/home/index.js&#34;); const About = require(&#34;./pages/about/index.js&#34;); const Setting = require(&#34;./pages/setting/index.js&#34;); const routes = [ { path: &#34;/&#34;, component: Home }, { path: &#34;/about&#34;, component: About }, { path: &#34;/setting&#34;, component: Setting }, ]; const router = new VueRouter({ routes, }); var app = new Vue({ el: &#34;#app&#34;, router, created: function () {}, data: { message: &#34;Hello Vue!</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-19/">19.Electron在浏览器中打开新链接.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const { shell } = require(&#34;electron&#34;); shell.openExternal(&#34;https://www.baidu.com&#34;); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-18/">18.编码解码.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const encode = (str) =&gt; { var s = &#34;&#34;; if (str.length == 0) return &#34;&#34;; s = str.replace(/&amp;/g, &#34;&amp;amp;&#34;); s = s.replace(/&lt;/g, &#34;&amp;lt;&#34;); s = s.replace(/&gt;/g, &#34;&amp;gt;&#34;); s = s.replace(/\s/g, &#34;&amp;nbsp;&#34;); s = s.replace(/\&#39;/g, &#34;&amp;#39;&#34;); s = s.replace(/\&#34;/g, &#34;&amp;quot;&#34;); return s; }; const decode = (str) =&gt; { var s = &#34;&#34;; if (str.length == 0) return &#34;&#34;; s = str.replace(/&amp;amp;/g, &#34;&amp;&#34;); s = s.replace(/&amp;lt;/g, &#34;&lt;&#34;); s = s.replace(/&amp;gt;/g, &#34;&gt;&#34;); s = s.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-17/">17.Electron发送通知.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">渲染进程（H5 Notification） const notifyMe = () =&gt; { const message = &#39;您有新的内容保存到粘贴板&#39;; // Let&#39;s check if the browser supports notifications if (!(&#34;Notification&#34; in window)) { alert(&#34;This browser does not support desktop notification&#34;); } // Let&#39;s check whether notification permissions have already been granted else if (Notification.permission === &#34;granted&#34;) { // If it&#39;s okay let&#39;s create a notification var notification = new Notification(message); } // Otherwise, we need to ask the user for permission else if (Notification.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-16/">16.使用dayjs格式化日期.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">安装 $ npm install dayjs 使用 const dayjs = require(&#34;dayjs&#34;); const now = dayjs(); const date = now.format(&#34;YYYY-MM-DD&#34;); const time = now.format(&#34;HH:mm:ss&#34;); const timestamp = now.valueOf(); More https://github.com/iamkun/dayjs</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-15/">15.Electron使用sqlite3.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">安装 $ npm install sqlite3 $ npm install bluebird App Dao const sqlite3 = require(&#34;sqlite3&#34;); const Promise = require(&#34;bluebird&#34;); class AppDAO { constructor(dbFilePath) { this.db = new sqlite3.Database(dbFilePath, (err) =&gt; { if (err) { console.log(&#34;Could not connect to database&#34;, err); } else { console.log(&#34;Connected to database&#34;); } }); } run(sql, params = []) { return new Promise((resolve, reject) =&gt; { this.db.run(sql, params, function (err) { if (err) { console.log(&#34;Error running sql &#34; + sql); console.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-14/">14.使用Nodejs保存文件.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const fs = require(&#34;fs&#34;); const filePath = &#39;&#39;; const content = &#39;hello world&#39;; fs.writeFileSync(filePath, content); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-13/">13.Electron使用粘贴板.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">clipboard 模块在主进程和渲染进程中都可使用。
+主进程中使用 const { clipboard } = require(&#34;electron&#34;); clipboard.readText(); 渲染进程中使用 const { clipboard } = require(&#34;electron&#34;); clipboard.writeText(&#39;hello world&#39;); clipboard.readText(); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-12/">12.Electron设置程序菜单.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const { app, Menu } = require(&#34;electron&#34;); const setAppMenu = () =&gt; { if (process.platform === &#34;darwin&#34;) { const template = [ { label: &#34;Application&#34;, submenu: [ { label: &#34;Quit&#34;, accelerator: &#34;Command+Q&#34;, click: function () { app.quit(); }, }, ], }, { label: &#34;Edit&#34;, submenu: [ { label: &#34;Copy&#34;, accelerator: &#34;CmdOrCtrl+C&#34;, selector: &#34;copy:&#34; }, { label: &#34;Paste&#34;, accelerator: &#34;CmdOrCtrl+V&#34;, selector: &#34;paste:&#34; }, ], }, ]; Menu.setApplicationMenu(Menu.buildFromTemplate(template)); } else { Menu.setApplicationMenu(null); } }; </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-11/">11.Electron设置Dock信息.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const { app } = require(&#34;electron&#34;); const path = require(&#34;path&#34;); app.dock.setIcon(path.join(__dirname, &#34;../assets/IconTemplate@2x.png&#34;)); const dockMenu = Menu.buildFromTemplate([ { label: &#34;New Window&#34;, click() { console.log(&#34;New Window&#34;); }, }, { label: &#34;New Window with Settings&#34;, submenu: [{ label: &#34;Basic&#34; }, { label: &#34;Pro&#34; }], }, { label: &#34;New Command...&#34; }, ]); app.dock.setMenu(dockMenu); app.dock.hide(); app.dock.isVisible(); app.setName(&#34;我的粘贴板&#34;); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-10/">10.Electron设置系统托盘图标.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const trayIcon = new Tray(path.join(__dirname, &#34;../assets/IconTemplate.png&#34;)); trayIcon.on(&#34;click&#34;, function () { if (mainWindow === null) { return; } if (mainWindow.isVisible()) { mainWindow.hide(); } else { mainWindow.show(); } }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-09/">09.Electron保存文件对话框.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const { dialog } = require(&#34;electron&#34;); const options = { title: &#34;请选择要保存的文件名&#34;, buttonLabel: &#34;保存&#34;, defaultPath: &#39;test.txt&#39;, filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#39;txt&#39;] }], }; dialog.showSaveDialog(options).then((result) =&gt; { if (!result.canceled) { console.log(result.filePath); } }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-08/">08.Electron渲染进程向主进程发消息.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">渲染进程：renderer.js const ipcRenderer = require(&#34;electron&#34;).ipcRenderer; ipcRenderer.send(&#34;save-dialog&#34;, { filename: filename, type: type }); 主进程：main.js const { ipcMain } = require(&#34;electron&#34;); ipcMain.on(&#34;save-dialog&#34;, (event, data) =&gt; { }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-07/">07.Electron主进程向渲染进程发消息.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">主进程：main.js mainWindow.webContents.send(&#34;refresh-notes&#34;, { message: &#39;reload&#39; }); 渲染进程：renderer.js const ipcRenderer = require(&#34;electron&#34;).ipcRenderer; ipcRenderer.on(&#34;refresh-notes&#34;, (event, data) =&gt; { //getNotes(); }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-06/">06.Electron注册全局快捷键.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">const { app, BrowserWindow, globalShortcut } = require(&#39;electron&#39;); const registerGlobalKey = () =&gt; { const key = &#39;CommandOrControl+Option+S&#39;; const ret = globalShortcut.register(key, function () { console.log(`hello world from ${key}`) }); if(!ret){ console.log(`${key} registert failed`); } } const createWindow = () =&gt; { mainWindow = new BrowserWindow({ minWidth: 300, backgroundColor: &#34;#fff&#34;, webPreferences: { nodeIntegration: true, }, }); registerGlobalKey(); }; </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-05/">05.Electron渲染进程报错.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">报错信息 Uncaught ReferenceError: require is not defined at index.html:93 解决方法：设置 nodeIntegration: true mainWindow = new BrowserWindow({ minWidth: 300, backgroundColor: &#34;#fff&#34;, webPreferences: { nodeIntegration: true, }, }); </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-04/">04.Electron使用jQuery.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">安装jQuery $ npm install jquery index.html &lt;script&gt; const $ = require(&#34;jquery&#34;); window.jQuery = $; &lt;/script&gt; </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-03/">03.Electron注入环境变量.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">package.json &#34;scripts&#34;: { &#34;dev&#34;: &#34;export NODE_ENV=development &amp;&amp; electron-forge start&#34;, &#34;start&#34;: &#34;electron-forge start&#34;, &#34;package&#34;: &#34;electron-forge package&#34;, &#34;make&#34;: &#34;electron-forge make&#34;, &#34;publish&#34;: &#34;electron-forge publish&#34; }, main.js // Open the DevTools. if (process.env.NODE_ENV === &#34;development&#34;) { mainWindow.webContents.openDevTools(); } </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-02/">02.Electron主进程代码.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">main.js const { app, BrowserWindow } = require(&#39;electron&#39;); const path = require(&#39;path&#39;); // Handle creating/removing shortcuts on Windows when installing/uninstalling. if (require(&#39;electron-squirrel-startup&#39;)) { // eslint-disable-line global-require app.quit(); } // Keep a global reference of the window object, if you don&#39;t, the window will // be closed automatically when the JavaScript object is garbage collected. let mainWindow; const createWindow = () =&gt; { // Create the browser window. mainWindow = new BrowserWindow({ width: 800, height: 600, }); // and load the index.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/project/ikms-01/">01.Electron应用创建.md</a>
+    </div><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+
+        <p class="summary">创建Electron APP npx create-electron-app my-new-app # or yarn create electron-app my-new-app # then cd my-new-app npm start More electron-forge https://github.com/electron-userland/electron-forge</p>
+    
+</div>
+
+        </section>
+    </div>
+    
+    <div class="pagination">
+            <a class="pagination__item pagination__item--prev btn" href="/tags/ikms/">Prev</a>
+        <span class="pagination__item pagination__item--current">2/3</span>
+            <a class="pagination__item pagination__item--next btn" href="/tags/ikms/page/3/">Next</a>
+    </div>
+
+
+        </div></body>
+</html>

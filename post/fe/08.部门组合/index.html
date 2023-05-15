@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">08.部门组合</h1><div class="post-meta">
+    <div class="date">2021-04-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>求部门安排所有组合。</p>
+<p>示例1：</p>
+<pre tabindex="0"><code>部门：{&#39;frontend&#39;: [1, 2], &#39;backend&#39;: [3, 4], &#39;devops&#39;: [5]}
+人数：{&#39;frontend&#39;: 2, &#39;backend&#39;: 1}
+组合：[[1, 2, 3], [1, 2, 4]]
+</code></pre><p>要求：按员工ID升序排序</p>
+<h2 id="实现">实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  * 部门安排所有组合
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  * @param departments: dict, key是部门名, value是每个部门对应所有员工ID数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  *   例 {&#39;frontend&#39;: [1, 2], &#39;backend&#39;: [3, 4], &#39;devops&#39;: [5]}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  * @param required_department: dict, 该任务需要参与的部门和需要的人数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  *   例 {&#39;frontend&#39;: 2, &#39;backend&#39;: 1}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  * @return 所有可能的员工组合, 例 [[1, 2, 3], [1, 2, 4]]. 按员工ID升序排序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">staffCombinations</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">department_staff_dict</span>, <span style="color:#a6e22e">required_staff</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">combine</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">k</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">generate</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">c</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">k</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">push</span>([].<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">c</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">generate</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">c</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">generate</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#ae81ff">0</span>, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">combine</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">department_staff_dict</span>[<span style="color:#e6db74">&#34;frontend&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required_staff</span>[<span style="color:#e6db74">&#34;frontend&#34;</span>] <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ba</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">combine</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">department_staff_dict</span>[<span style="color:#e6db74">&#34;backend&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required_staff</span>[<span style="color:#e6db74">&#34;backend&#34;</span>] <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">de</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">combine</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">department_staff_dict</span>[<span style="color:#e6db74">&#34;devops&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required_staff</span>[<span style="color:#e6db74">&#34;devops&#34;</span>] <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">fr</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">ba</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">d</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">de</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>([...<span style="color:#a6e22e">f</span>, ...<span style="color:#a6e22e">b</span>, ...<span style="color:#a6e22e">d</span>]);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><h2 id="python实现">Python实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> itertools <span style="color:#f92672">import</span> combinations
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> itertools <span style="color:#f92672">import</span> product
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>frontend <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>backend <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>devops <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">department</span>(require):
+</span></span><span style="display:flex;"><span>  fr <span style="color:#f92672">=</span> list(combinations(frontend, require<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;frontend&#34;</span>, <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>  ba <span style="color:#f92672">=</span> list(combinations(backend, require<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;backend&#34;</span>, <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>  de <span style="color:#f92672">=</span> list(combinations(devops, require<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;devops&#34;</span>, <span style="color:#ae81ff">0</span>)))
+</span></span><span style="display:flex;"><span>  ret <span style="color:#f92672">=</span> list(product(fr, ba, de))
+</span></span><span style="display:flex;"><span>  result <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> ret:
+</span></span><span style="display:flex;"><span>      result<span style="color:#f92672">.</span>append(list(r[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">+</span> list(r[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">+</span> list(r[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> result
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;部门任务出席所有组合&#39;</span>, department({<span style="color:#e6db74">&#34;frontend&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;backend&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;devops&#34;</span>: <span style="color:#ae81ff">0</span>}))
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>算法之排列组合问题<br>
+<a href="https://zhuanlan.zhihu.com/p/66930500">https://zhuanlan.zhihu.com/p/66930500</a></p>
+<p>部门组合<br>
+<a href="https://www.yuque.com/gaoqingrui/zbb9bi/zgf15y">https://www.yuque.com/gaoqingrui/zbb9bi/zgf15y</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

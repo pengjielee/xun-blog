@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">二叉树</h1><div class="post-meta">
+    <div class="date">2021-03-09</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="树的概念">树的概念</h2>
+<p>节点分类：</p>
+<ul>
+<li>根节点</li>
+<li>子节点</li>
+<li>叶子节点</li>
+<li>兄弟节点</li>
+</ul>
+<p>其他：</p>
+<ul>
+<li>树的深度：从根节点到最底层节点的层数。</li>
+<li>树的深度：树中节点的最大层次称为树的深度（或树的高度）。</li>
+<li>节点的度：节点拥有的子树数称为节点的度。</li>
+<li>叶子节点：度为0的节点称为叶节点（或终端节点）。</li>
+<li>分支节点：度不为0的节点称为分支节点（或非终端节点）。</li>
+<li>树的度：树内各节点的度的最大值。</li>
+<li>节点层次：从根开始，根为第一层，根的孩子为第二层。</li>
+</ul>
+<h2 id="二叉树">二叉树</h2>
+<p>二叉树：每个节点最多有两个子节点。</p>
+<pre tabindex="0"><code>      10
+    /    \
+    9    20
+        /   \
+       15   35
+</code></pre><p>二叉树的操作：</p>
+<p>1、创建二叉树； <br>
+2、遍历二叉树；</p>
+<ul>
+<li>先序遍历：先访问根节点，然后访问左节点，最后访问右节点（根-&gt;左-&gt;右）10-&gt;9-&gt;20-&gt;15-&gt;35</li>
+<li>中序遍历：先访问左节点，然后访问根节点，最后访问右节点（左-&gt;根-&gt;右）9-&gt;10-&gt;15-&gt;20-&gt;35</li>
+<li>后序遍历：先访问左节点，然后访问右节点，最后访问根节点（左-&gt;右-&gt;根）9-&gt;15-&gt;35-&gt;20-&gt;10</li>
+</ul>
+<p>3、查询树的深度；<br>
+4、查询树的最大值；</p>
+<p>通过先序和中序/中序和后序我们可以还原出原始的二叉树，但是通过先序和后序是无法还原出原始的二叉树的。（？）</p>
+<p>二叉树的特点：</p>
+<ol>
+<li>每个节点最多有两个子树，节点的度最大为2；</li>
+<li>左子树和右子树是有顺序的，次序不能颠倒；</li>
+<li>即使某节点只有一个子树，也要区分左右子树；</li>
+</ol>
+<h2 id="特殊的二叉树">特殊的二叉树</h2>
+<p>1、斜树</p>
+<p>所有的节点都只有左子树（左斜树），或者只有右子树（右斜树）。</p>
+<p>2、满二叉树</p>
+<p>所有的分支节点都存在左子树和右子树，并且所有的叶子结点都在同一层上。</p>
+<p>满二叉树的特点：</p>
+<ul>
+<li>叶子只能出现在最下一层；</li>
+<li>非叶子节点度一定是2；</li>
+<li>在同样深度的二叉树中，满二叉树的节点个数最多，叶子树最多；</li>
+</ul>
+<p>3、完全二叉树</p>
+<p>对一棵具有n个结点的二叉树按层序排号，如果编号为i的结点与同样深度的满二叉树编号为i结点在二叉树中位置完全相同，就是完全二叉树。</p>
+<p>满二叉树必须是完全二叉树，反过来不一定成立。</p>
+<p>对一棵具有n个节点的二叉树按层序编号，如果编号为i（1&lt;=i&lt;=n）的节点与同样深度的满二叉树中编号为i的节点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。</p>
+<p>完全二叉树特点：</p>
+<ul>
+<li>叶子节点只能出现在最下一层（满二叉树继承而来）；</li>
+<li>最下层叶子节点一定集中在左 部连续位置；</li>
+<li>倒数第二层，如有叶子节点，一定出现在右部连续位置；</li>
+<li>同样节点树的二叉树，完全二叉树的深度最小（满二叉树也是对的）；</li>
+</ul>
+</div>
+    </div>
+
+        </div></body>
+</html>

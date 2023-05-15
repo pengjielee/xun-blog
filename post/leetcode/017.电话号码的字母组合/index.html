@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">017.电话号码的字母组合</h1><div class="post-meta">
+    <div class="date">2021-04-23</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="tags_link" href="/tags/backtracking/" rel="tag">backtracking</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。</p>
+<p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
+<pre tabindex="0"><code>1(!@#)  2(abc)  3(def)
+4(ghi)  5(jkl)  6(mno)
+7(pqrs) 8(tuv)  9(wxyz)
+*(+)    0(-)      #
+</code></pre><pre tabindex="0"><code>示例 1：
+输入：digits = &#34;23&#34;
+输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;]
+
+示例 2：
+输入：digits = &#34;&#34;
+输出：[]
+
+示例 3：
+输入：digits = &#34;2&#34;
+输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;]
+</code></pre><p>提示：</p>
+<ul>
+<li>0 &lt;= digits.length &lt;= 4</li>
+<li>digits[i] 是范围 [&lsquo;2&rsquo;, &lsquo;9&rsquo;] 的一个数字。</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="补充">补充</h2>
+<p>String.prototype.slice()</p>
+<p>slice() 方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。</p>
+<pre tabindex="0"><code>str.slice(beginIndex[, endIndex])
+</code></pre><p>beginIndex
+从该索引（以 0 为基数）处开始提取原字符串中的字符。如果值为负数，会被当做 strLength + beginIndex 看待，这里的strLength 是字符串的长度（例如， 如果 beginIndex 是 -3 则看作是：strLength - 3）</p>
+<p>endIndex
+可选。在该索引（以 0 为基数）处结束提取字符串。如果省略该参数，slice() 会一直提取到字符串末尾。如果该参数为负数，则被看作是 strLength + endIndex，这里的 strLength 就是字符串的长度(例如，如果 endIndex 是 -3，则是, strLength - 3)。</p>
+<h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} digits
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {string[]}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">letterCombinations</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">digits</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">digits</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//路径数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//电话本的HashMap
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">phoneMap</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;abc&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;def&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;4&#34;</span>, <span style="color:#e6db74">&#34;ghi&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;5&#34;</span>, <span style="color:#e6db74">&#34;jkl&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;6&#34;</span>, <span style="color:#e6db74">&#34;mno&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;7&#34;</span>, <span style="color:#e6db74">&#34;pqrs&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;8&#34;</span>, <span style="color:#e6db74">&#34;tuv&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;9&#34;</span>, <span style="color:#e6db74">&#34;wxyz&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 深度优先遍历
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">path</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 递归的终止条件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">digits</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//charAt() 方法可返回指定位置的字符。第一个字符位置为 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">digit</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">digits</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#a6e22e">index</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据数字获取其对应的字母
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">letters</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">phoneMap</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">digit</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">letter</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">letters</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 添加到路径数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">letter</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 考查下标+1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">path</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 回溯
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//下标为0开始考查
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">dfs</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">path</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

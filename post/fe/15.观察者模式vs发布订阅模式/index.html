@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">15.观察者模式vs发布订阅模式</h1><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="联系--意图--区别--适用场景">联系 / 意图 / 区别 / 适用场景</h2>
+<p>1、联系</p>
+<p>发布-订阅模式是观察者模式的一种变体。发布-订阅只是把一部分功能抽象成一个独立的ChangeManager。</p>
+<p>2、意图</p>
+<p>都是某个对象(subject, publisher)改变，使依赖于它的多个对象(observers, subscribers)得到通知。</p>
+<p>3、区别与适用场景</p>
+<p>总的来说，发布-订阅模式适合更复杂的场景。</p>
+<p>在「一对多」的场景下，发布者的某次更新只想通知它的部分订阅者？</p>
+<p>在「多对一」或者「多对多」场景下。一个订阅者依赖于多个发布者，某个发布者更新后是否需要通知订阅者？还是等所有发布者都更新完毕再通知订阅者？</p>
+<p>这些逻辑都可以放到ChangeManager里。</p>
+<p>4、简单理解</p>
+<p>观察者模式没有中介，发布者和订阅者必须知道对方的存在</p>
+<p>发布订阅模式有中介，发布者和订阅者不需要知道对方是谁，只要通过中介进行信息的传递和过滤就可以了</p>
+<h2 id="代码理解">代码理解</h2>
+<p>观察者模式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 被观察者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subject</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">observers</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">notify</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">observer</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">observer</span>.<span style="color:#a6e22e">update</span>();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">attach</span>(<span style="color:#a6e22e">observer</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">observer</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 观察者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">observer</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">update</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;updated&#34;</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 绑定观察者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">subject</span>.<span style="color:#a6e22e">attach</span>(<span style="color:#a6e22e">observer</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 通知观察者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">subject</span>.<span style="color:#a6e22e">notify</span>();
+</span></span></code></pre></div><p>发布订阅模式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//发布订阅对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pubsub</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">subscribes</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">publish</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">subscribes</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">subscribe</span>) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">subscribe</span>.<span style="color:#a6e22e">update</span>();
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">sub</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">subscribes</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">sub</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 发布者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">publisher</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">publish</span>(<span style="color:#a6e22e">pubsub</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">publish</span>();
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 订阅者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">update</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;update&#34;</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">pubsub</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">pubsub</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">publisher</span>.<span style="color:#a6e22e">publish</span>(<span style="color:#a6e22e">pubsub</span>);
+</span></span></code></pre></div><h2 id="观察者模式">观察者模式</h2>
+<p>介绍：</p>
+<ul>
+<li>当对象存在一对多的关系时，则使用观察者模式（Observer Pattern）,例如当一个对象被修改时候，则会自动通知它的依赖对象。观察者模式属于行为型模式。</li>
+<li>与发布/订阅模式不同的是，观察模式没有调度中心，由目标直接调度观察者，观察者模式的观察者跟目标之间是存在依赖的，</li>
+</ul>
+<p>详细：</p>
+<ul>
+<li>意图：定义对象的一种一对多的依赖关系，当一个对象的状态发生改变时候，所有依赖它的对象都被通知并且更新状态。</li>
+<li>主要解决：一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。</li>
+<li>何时使用：一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。</li>
+<li>如何解决：使用面向对象技术，可以将依赖关系弱化。</li>
+<li>关键代码：在抽象类里有一个ArrayList存在观察者们。</li>
+<li>应用实例：拍卖时候，拍卖师观察最高价，通知其他竞价者竞价。</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>观察者和被观察者是抽象耦合的；</li>
+<li>建立一套触发机制；</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>一个被观察者对象如果有太多间接或者直接的观察者，将花费时间通知观察者；</li>
+<li>如果存在循环依赖，可能导致系统崩溃；</li>
+<li>观察者仅仅知道别观察者发生了变化，而不知道如何发生了变化；</li>
+</ul>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//观察者模式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ObserverList</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ObserverList</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">obj</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ObserverList</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ObserverList</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">get</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">index</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>[<span style="color:#a6e22e">index</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ObserverList</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">indexOf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">startIndex</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startIndex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ObserverList</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">removeAt</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">index</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observerList</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Subject</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ObserverList</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Subject</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">addObserver</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">observer</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">observer</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Subject</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">removeObserver</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">observer</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observer</span>.<span style="color:#a6e22e">removeAt</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">observer</span>, <span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Subject</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">notify</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">context</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">observerCount</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">count</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">observerCount</span>; <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">observers</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">index</span>).<span style="color:#a6e22e">update</span>(<span style="color:#a6e22e">context</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Observer</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">update</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">context</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">context</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observer</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">subject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subject</span>.<span style="color:#a6e22e">addObserver</span>(<span style="color:#a6e22e">o</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">subject</span>.<span style="color:#a6e22e">notify</span>(<span style="color:#ae81ff">55</span>);
+</span></span></code></pre></div><h2 id="发布订阅模式">发布订阅模式</h2>
+<p>发布订阅模式，它定义了一种一对多的关系，可以使多个观察者对象对一个主题对象进行监听，当这个主题对象发生改变时，依赖的所有对象都会被通知到。 发布订阅模式跟观察者模式的区别在于，订阅发布模式，有统一调度中心。</p>
+<p>PubSub 模式，是 Publish/Subscribe 的缩写，意为“发布/订阅”模式。</p>
+<p>在实际使用中，我们应该也会接触到 PubSub 模式，例如 Nodejs 中的 EventEmitter、Backbone 中的事件模型、以及 jQuery 中的事件。 以 EventEmitter 为例子，它提供了 addListener(event, listener)，removeListener(event, listener)，emit(event, [arg1], [arg2], [&hellip;]) 方法。</p>
+<p>代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pubsub</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">myObject</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Storage for topics that can be broadcast
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// or listened to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">topics</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// An topic identifier
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subUid</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Publish or broadcast events of interest
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// with a specific topic name and arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// such as the data to pass along
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">myObject</span>.<span style="color:#a6e22e">publish</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">topic</span>, <span style="color:#a6e22e">args</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">topic</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subscribers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">topic</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">len</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">subscribers</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">subscribers</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">len</span><span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">subscribers</span>[<span style="color:#a6e22e">len</span>].<span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">topic</span>, <span style="color:#a6e22e">args</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Subscribe to events of interest
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// with a specific topic name and a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// callback function, to be executed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// when the topic/event is observed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">myObject</span>.<span style="color:#a6e22e">subscribe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">topic</span>, <span style="color:#a6e22e">func</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">topic</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">topic</span>] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">subUid</span>).<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">topic</span>].<span style="color:#a6e22e">push</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">token</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">token</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">func</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">func</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">token</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Unsubscribe from a specific
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// topic, based on a tokenized reference
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// to the subscription
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">myObject</span>.<span style="color:#a6e22e">unsubscribe</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">token</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">m</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">topics</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">m</span>]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">m</span>].<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">m</span>][<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">token</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">token</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">topics</span>[<span style="color:#a6e22e">m</span>].<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">i</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">token</span>;
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>})(<span style="color:#a6e22e">pubsub</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//订阅者1订阅了test
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#e6db74">&#34;test&#34;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//订阅者2订阅了test
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#e6db74">&#34;test&#34;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//订阅者3订阅了test
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#e6db74">&#34;test&#34;</span>, <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//发布者发布事件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">publish</span>(<span style="color:#e6db74">&#34;test&#34;</span>, <span style="color:#ae81ff">666</span>);
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>观察者模式和订阅-发布模式的区别<br>
+<a href="https://muyiy.cn/question/design/23.html">https://muyiy.cn/question/design/23.html</a></p>
+<p>观察者模式（Observer Pattern）<br>
+<a href="https://note.youdao.com/ynoteshare1/index.html?id=c2f89f7d0076a5aeb9f55e5d8c107eb8&amp;type=note">https://note.youdao.com/ynoteshare1/index.html?id=c2f89f7d0076a5aeb9f55e5d8c107eb8&amp;type=note</a></p>
+<p>发布/订阅模式<br>
+<a href="https://note.youdao.com/ynoteshare1/index.html?id=223c881cd073f84e571a5298767fd45a&amp;type=note">https://note.youdao.com/ynoteshare1/index.html?id=223c881cd073f84e571a5298767fd45a&amp;type=note</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">Python</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/python-learning-book-recommendations/">Python学习书籍推荐</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-26</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">=== Python编程：从入门到实践
+image::https://i.loli.net/2021/02/26/TCJnDdrj97OQ3BR.png[Python编程：从入门到实践,170,200]
+可从微信读书观看。
+=== Python核心编程（第3版）
+image::https://i.loli.net/2021/02/26/yb1ncvwMjeEhNVl.png[Python核心编程（第3版),200,200]
+网盘: https://pan.baidu.com/s/1tpNel6LNDmG2CkxAaL7D_w['', role=&ldquo;external&rdquo;, window=&quot;_blank&quot;] 提取码: pgwx</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-redirect-abort-notfound/">Flask Web开发：重定向,终止响应,错误页</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) def page_not_found(error): return render_template(&#39;404.html&#39;, 404) </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-session-implements-simple-login/">Flask Web开发：Session实现简单登录</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">设置密钥 app.secret_key = b&#39;_5#y2L&#34;F4Q8z\n\xec]/&#39; 生成随机密钥：
+$ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &#39;nimei&#39; @app.route(&#39;/&#39;) def index(): return &#39;&lt;h1&gt;Welcome&lt;/h1&gt;&lt;br /&gt;&lt;a href=&#34;/login&#34;&gt;登录&lt;/a&gt;&#39; 登录 storage = {&#39;username&#39;: &#39;lipengjie&#39;, &#39;password&#39;: &#39;123456&#39;} @app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;]) def login(): if request.method == &#39;POST&#39;: username = request.form[&#39;username&#39;] password = request.form[&#39;password&#39;] # 判断与服务器存储的用户密码是否一致，此处用一个对象模拟数据库 if storage[&#39;username&#39;] == username and storage[&#39;password&#39;] == password: # 登录成功以后，把用户名存入session，并跳转后台 session[&#39;username&#39;] = username return redirect(url_for(&#39;admin&#39;)) else: return &#39;用户名或密码错误！&#39; else: return render_template(&#39;newlogin.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-render-templates/">Flask Web开发：渲染模板</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">渲染模板 1、创建模板目录 templates，及模板文件
+$ mkdir templates &amp;&amp; cd templates $ touch hello.html $ touch login.html 2、目录结构
+/flask_web /templates /hello.html /login.html /app.py 3、模板文件
+hello.html
+&lt;!doctype html&gt; &lt;title&gt;Hello from Flask&lt;/title&gt; {% if name %} &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt; {% else %} &lt;h1&gt;Hello, World!&lt;/h1&gt; {% endif %} login.html
+&lt;!doctype html&gt; &lt;h1&gt;{{ title }}&lt;/h1&gt; &lt;form action=&#34;/login&#34; method=&#34;post&#34;&gt; &lt;div&gt; &lt;label&gt;用户名&lt;/label&gt; &lt;input type=&#34;text&#34; name=&#34;name&#34;/&gt; &lt;/div&gt; &lt;div&gt; &lt;label&gt;密码&lt;/label&gt; &lt;input type=&#34;password&#34; name=&#34;password&#34;/&gt; &lt;/div&gt; &lt;button&gt;login&lt;/button&gt; &lt;/form&gt; 4、指定模板
+from flask import render_template @app.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-http-methods/">Flask Web开发：HTTP方法</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">定义 GET 方法（默认） from flask import request from flask import render_template @app.route(&#39;/register&#39;, methods=[&#39;GET&#39;]) def register(): return render_template(&#39;register.html&#39;, title=&#39;Register Form&#39;) 定义 POST 方法 from flask import request from markupsafe import escape @app.route(&#39;/register&#39;, methods=[&#39;POST&#39;]) def register_submit(): name = request.form[&#39;name&#39;] email = request.form[&#39;email&#39;] return &#39;Username: &#39; + escape(name) + &#39;, Email: &#39; + escape(email) 合在一起 @app.route(&#39;/register&#39;, methods=[&#39;POST&#39;]) def register(): if request.method == &#39;POST&#39;: name = request.form[&#39;name&#39;] email = request.form[&#39;email&#39;] return &#39;Username: &#39; + escape(name) + &#39;, Email: &#39; + escape(email) else: return render_template(&#39;register.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-define-routes-and-variable-constraint/">Flask Web开发：定义路由及变量约束</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">创建 app.py （flask默认会运行app.py文件) from flask import Flask from markupsafe import escape app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Index Page&#39; 定义多个路由 @app.route(&#39;/hello&#39;) def hello(): return &#39;Hello, World&#39; @app.route(&#39;/about&#39;) def about(): return &#39;About Page&#39; 路由变量约束 接受变量类型：
+string，默认类型，接受任何字符串（斜杠除外） int，接受整数； float，接受浮点数； path，类似字符串（包括斜杠）； uuid，接受UUID； @app.route(&#39;/post/&lt;int:post_id&gt;&#39;) def show_post(post_id): return &#39;Post: %d&#39; % post_id @app.route(&#39;/user/&lt;username&gt;&#39;) def show_user(username): return &#39;User: %s&#39; % escape(username) @app.route(&#39;/path/&lt;path:subpath&gt;&#39;) def show_path(subpath): return &#39;Subpath: %s&#39; % escape(subpath) @app.route(&#39;/product/&lt;float:price&gt;&#39;) def show_price(price): return &#39;Price: %f&#39; % price 请求响应：</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-helloworld/">Flask Web开发：HelloWorld</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <p class="summary">安装 flask $ pip install flask 查看flask版本
+$ flask --version 终端输出：
+Flask 1.0.2 Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31) [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] 创建项目目录 $ mkdir flask_web &amp;&amp; cd flask_web 创建 hello.py from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; 运行 $ export FLASK_APP=hello.py $ flask run 终端输出：
+peng@localhost flask_web % export FLASK_APP=hello.py peng@localhost flask_web % flask run * Serving Flask app &#34;hello.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-virtual-environment/">Python虚拟环境</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">虚拟环境 虚拟环境是系统的一个位置，可以在其中安装包，并将其与其他Python包隔离。这样能够针对不同项目创建一个独立的环境，便于后期的移植。
+虚拟环境管理工具 主要有三种：
+virtualenv（历史更悠久）； pipenv（功能更强大）； venv（Python3.3以上原生支持）； 使用 virtualenv 创建虚拟环境 1、安装virtualenv
+$ pip install virtualenv 2、查看安装版本
+$ python3 -m virtualenv --version 4、创建虚拟环境
+$ python3 -m virtualenv dev_env 这时终端显示：
+peng@localhost myblog % python3 -m virtualenv dev_env created virtual environment CPython3.6.5.final.0-64 in 568ms creator CPython3Posix(dest=/Users/peng/python_work/myblog/dev_env, clear=False, no_vcs_ignore=False, global=False) seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/Users/peng/Library/Application Support/virtualenv) added seed packages: pip==21.0.1, setuptools==52.0.0, wheel==0.36.2 activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator peng@localhost myblog % ls dev_env 5、激活虚拟环境
+$ source dev_env/bin/activate 6、安装flask</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/run-the-python-program-in-sublimetext/">SublimeText中运行Python程序</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-24</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/sublime/" rel="tag">Sublime</a>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">环境 操作系统：MacOS Big Sur（版本11.2） SublimeText：Version 3.1.1 使用系统自带版本，直接运行 创建 hello_world.py 文件，内容如下：
+print(&#39;Hello World.&#39;) 选择菜单 Tools -&gt; Build (或 command + B)。
+配置Python3运行 1、查看Python3安装路径
+$ type -a python3 or $ which python3 2、配置Sublime Text
+选择菜单 Tools -&gt; Build -&gt; New Build System，会打开一个新的配置文件。
+编辑内容如下：
+{ &#34;cmd&#34;: [&#34;/usr/local/bin/python3&#34;, &#34;-u&#34;, &#34;$file&#34;], } 将文件重命名为 Python3.sublime-build，保存至默认目录。
+选择菜单 Tools -&gt; Build System -&gt; Python3，再选择菜单Tools -&gt; Build (或 command + B)。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-operating-the-mongodb/">Python基础：操作Mongodb</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-17</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">查看python版本/更新pip $ python3 --version $ pip install --upgrade pip 安装 pip install pymongo 连接mongodb from pymongo import MongoClient # 格式化输出 from pprint import pprint client = MongoClient(&#39;mongodb://localhost:27017/&#39;) # 指定数据库 db = client.wangyi # 指定集合 collection = db.playlist 插入 # 插入单条 result = collection.insert_one({&#39;title&#39;:&#39;test&#39;}) pprint(result) # 插入多条 result = collection.insert_many([{&#39;title&#39;:&#39;test1&#39;},{&#39;title&#39;:&#39;test2&#39;}]) pprint(result) 查询 # 查询一条 result = collection.find_one({}) pprint(result) # 查询多条 results = collection.find({}) pprint(results) for item in results: print(item) # 条件查询 results = collection.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-operating-the-mysql/">Python基础：操作Mysql</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-16</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">导入pymysql import pymysql.cursors 连接数据库 import pymysql.cursors def connect(): return pymysql.connect(host=&#39;localhost&#39;, port=3306, user=&#39;root&#39;, password=&#39;386mysql.&#39;, database=&#39;test&#39;, charset=&#39;utf8mb4&#39;, cursorclass=pymysql.cursors.DictCursor) 插入数据 def insert(): conn = connect() cursor = conn.cursor() try: sql = &#34;INSERT INTO `users` (`email`) VALUES (%s)&#34; cursor.execute(sql, (&#39;386276251@qq.com&#39;)) conn.commit() except Exception as e: print(e) conn.rollback() finally: cursor.close() conn.close() 插入多条数据 def insertMany(): conn = connect() cursor = conn.cursor() try: emails = [&#39;386276252@qq.com&#39;, &#39;386276253@qq.com&#39;, &#39;386276254@qq.com&#39;] sql = &#34;INSERT INTO `users` (`email`) VALUES (%s)&#34; cursor.executemany(sql, emails) conn.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-reading-and-writing-csv/">Python基础：读写CSV</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">CSV (Comma Separated Values)，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号。
+引入python csv import csv 使用csv reader读取 contacts.csv
+10,jim,18614023231 11,tom,18614023232 12,mike,18614023233 with open(contacts.csv,newline=&#39;&#39;) as csvfile: reader=csv.reader(csvfile,delimiter=&#39;,&#39;) for row in reader: print(row) #print(&#39;, &#39;.join(row)) #print(row[0]+&#39;,&#39;+row[1]+&#39;,&#39;+row[2]) &#34;&#34;&#34; output: [&#39;10&#39;, &#39;jim&#39;, &#39;18614023231&#39;] [&#39;11&#39;, &#39;tom&#39;, &#39;18614023232&#39;] [&#39;12&#39;, &#39;mike&#39;, &#39;18614023233&#39;] &#34;&#34;&#34; 使用csv reader读取其他分隔符 contacts.csv
+10|jim|18614023231 11|tom|18614023232 12|mike|18614023233 with open(contacts.csv,newline=&#39;&#39;) as csvfile: reader=csv.reader(csvfile,delimiter=&#39;|&#39;) for row in reader: print(row) &#34;&#34;&#34; output: [&#39;10&#39;, &#39;jim&#39;, &#39;18614023231&#39;] [&#39;11&#39;, &#39;tom&#39;, &#39;18614023232&#39;] [&#39;12&#39;, &#39;mike&#39;, &#39;18614023233&#39;] &#34;&#34;&#34; 使用csv dictreader读取 contacts.csv</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-sending-a-network-request/">Python基础：发送网络请求</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-14</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">安装 pip install requests 导入 import requests 发送get请求 r = requests.get(&#39;http://www.baidu.com&#39;) r.status_code #200 r.text r.encoding r.cookies r.headers r.headers[&#39;content-type&#39;] 发送post请求（自定义头部） headers = { &#39;Authorization&#39;: &#39;bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI1YzA3MzdmZTExNGZhZDExMmM5NDg4YmMiLCJpYXQiOjE1NDc3OTQyNDEsImV4cCI6MTU0Nzk2NzA0MX0.BVBqJizBOqlnVa0xQvWsoAAAY9loBpjs7En0WapEA2Q&#39; } r = requests.post(&#39;http://api.xxx.cn/notes&#39;, headers=headers, data = {&#39;title&#39;:&#39;hello1&#39;,&#39;content&#39;:&#39;hello&#39;,&#39;tags&#39;:&#39;hello&#39;}) r.status_code #200 发送delete请求（自定义头部） r = requests.delete(&#39;http://api.xxx.cn/notes/5c417a9d9bc6b3248bac3cba&#39; ,headers=headers ) r.status_code #200 r.json() 发送put请求（自定义头部） r = requests.put(&#39;http://api.xxx.cn/notes&#39;, headers=headers, data = {&#39;id&#39;:&#39;5c417d339bc6b3248bac3cbb&#39;,&#39;title&#39;:&#39;hello1&#39;,&#39;content&#39;:&#39;hello1&#39;,&#39;tags&#39;:&#39;hello1&#39;}) r.status_code #200 发送get请求（带参数） r = requests.get(&#39;http://api.xxx.cn/notes&#39;, params={&#39;id&#39;:&#39;5c088665cc0e141e46580592&#39;}) r.status_code #200 r.text r.json() More http://cn.python-requests.org/zh_CN/latest/</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-exception-handling/">Python基础：异常处理</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">触发异常 创建 division.py 文件
+result = 2 / 0 print(result) 程序报错：
+Traceback (most recent call last): File &#34;division.py&#34;, line 1, in &lt;module&gt; result = 2 / 0 ZeroDivisionError: division by zero 捕获异常 try: result = 2 / 0 print(result) except ZeroDivisionError: print(&#39;除数不能为0&#39;) # output: 除数不能为0 try-except-else 出错时捕获异常，成功时执行else代码块。
+print(&#39;给两个数字，计算商：(按q退出)&#39;) while True: first_number = input(&#39;被除数：&#39;) if first_number == &#39;q&#39;: break second_number = input(&#39;除数：&#39;) try: answer = int(first_number) / int(second_number) except ZeroDivisionError: print(&#39;警告：除数不能为0&#39;) else: print(answer) 异常类型 1、ZeroDivisionError 除数为 0 引发此异常</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-reading-and-writing-file/">Python基础：文件读写</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-10</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">准备工作 1、文件结构
+python_work（目录） -- hello.txt -- read_all.py -- read_by_line.py -- write_file.py -- append_file.py 2、创建hello.txt，内容如下：
+hello world hello tomorrow hello time hello myself 读取整个文件 创建read_all.py，内容如下：
+with open(&#39;hello.txt&#39;) as file_reader: content = file_reader.read() print(content) 逐行读取文件 创建read_by_line.py，内容如下：
+with open(&#39;hello.txt&#39;) as file_reader: for line in file_reader: print(line.strip()) 写入空文件 创建write_file.py，内容如下：
+# newfile.txt不存在，会创建；如果存在，会重新写入内容（覆盖原来内容） with open(&#39;newfile.txt&#39;, &#39;w&#39;) as file_writer: file_writer.write(&#39;Hello World.&#39;) 追加写入文件 创建append_file.py，内容如下：
+# appendfile.txt不存在，会创建；如果存在，会追加写入内容（不会覆盖原来内容） with open(&#39;appendfile.txt&#39;, &#39;a&#39;) as file_writer: file_writer.write(&#39;Hello World.&#39;) </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-class/">Python基础：类</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-09</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建类 创建 animal.py 文件，定义动物类。
+class Animal: &#34;&#34;&#34;初始化方法&#34;&#34;&#34; def __init__(self, name, age): self.name = name self.age = age &#34;&#34;&#34;方法eat&#34;&#34;&#34; def eat(self): print(self.name.title() + &#39; &#39; + &#39;is eating.&#39;) &#34;&#34;&#34;方法run&#34;&#34;&#34; def run(self): print(self.name.title() + &#39; &#39; + &#39;is running.&#39;) 创建实例 创建动物类的实例。
+dog = Animal(&#39;xiaohua&#39;, 6) print(dog.name) # 访问属性name print(dog.age) # 访问属性age dog.eat() # 调用方法eat() dog.run() # 调用方法run() # output: &#34;&#34;&#34; xiaohua 6 Xiaohua is eating. Xiaohua is running. &#34;&#34;&#34; 继承 创建 dog.py 文件，定义 Dog 类，Dog 类 继承 Animal类。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-function/">Python基础：函数</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">定义函数 # 定义函数 def hello(): print(&#39;hello world!&#39;) # 调用函数 hello() # Prints out: hello world! 参数传递 1、设置参数
+def hello(name): print(&#39;hello %s&#39; % name) temp = hello(&#39;jack&#39;) # Prints out: hello jack print(temp) # Prints out: None def sum(a, b): return a + b sum(1, 2) # Prints out: 3 2、参数默认值
+def hello(name=&#39;jack&#39;): print(&#39;hello %s&#39; % name) hello() # Prints out: hello jack hello(&#39;jim&#39;) # Prints out: hello jim def sum(a,b=2): return a + b sum(1) # Prints out: 3 sum(2) # Prints out: 4 # 注意：带默认值的参数必须放在不带默认值的参数之后 def sum(a=1,b): # SyntaxError: non-default argument follows default argument return a + b 2、可变参数</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-baisc-tuple/">Python基础：元组</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-07</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建元组 # 定义空元组 t1 = () print(t1) # Prints out: () print(type(t1)) # Prints out: &lt;class &#39;tuple&#39;&gt; # 定义一元组 t2 = (2,) print(t2) # Prints out: (2,) print(type(t2)) # Prints out: &lt;class &#39;tuple&#39;&gt; # 定义三元组 t3 = (30, 10, 55) print(t3) # Prints out: (30, 10, 55) print(type(t3)) # Prints out: &lt;class &#39;tuple&#39;&gt; 访问元组 t1 = (1,3,5,7,9) print(t1[0]) # Prints out: 1 print(t1[5]) # IndexError: tuple index out of range print(t1[1:3]) # Prints out: (3, 5) print(t1[-2]) # Prints out: 7 修改元组 t1 = (1,3,5,7,9) t1[0] = 2 # TypeError: &#39;tuple&#39; object does not support item assignment t2 = (2,4) t3 = t1 + t2 print(t3) # Prints out: (1, 3, 5, 7, 9, 2, 4) 删除元组 t1 = (1,3,5,7,9) print(t1) # Prints out: (1, 3, 5, 7, 9) del t1 print(t1) # NameError: name &#39;t1&#39; is not defined 元组运算 # 计算元素个数 t1 = (1,3,5,7,9) print(len(t1)) # Prints out: 5 # 连接 t1 = (1,3,5,7,9) t2 = (2,4) print(t1 + t2) # Prints out: (1, 3, 5, 7, 9, 2, 4) # 复制 t1 = (2,4) print(t1 * 3) # Prints out: (2, 4, 2, 4, 2, 4) # 元素是否存在 t1 = (2,4) print(2 in t1) # Prints out: True # 遍历 t1 = (2,4) for x in t1: print(x) # 截取元素 t1 = (1,3,5,7,9) print(t1[1:]) # Prints out: (3, 5, 7, 9) 元组与列表 Python的元组与列表类似，不同之处在于元组的元素不能修改。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-dict/">Python基础：字典</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-06</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建字典 1、使用{}字面量
+person = { &#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39; } print(person) # Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;} 2、使用内置函数dict
+person = dict(id=1, name=&#39;peng&#39;, age=20, address=&#39;Beijing&#39;) print(person) # Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;} 3、用字典生成式语法创建字典
+items3 = {x: x ** 3 for x in range(1, 6)} print(items3) # {1: 1, 2: 8, 3: 27, 4: 64, 5: 125} 访问字典的值 person = { &#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39; } print(person[&#39;id&#39;]) # Prints out: 1 print(person[&#39;hobby&#39;]) # KeyError: &#39;hobby&#39; # 使用get方法 print(person.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-set/">Python基础：集合</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-05</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">集合特性 集合（set）是一个无序的不重复元素序列。
+确定性。 互异性。 无序性。 创建集合 1、使用大括号 {} 创建
+colors = { &#39;red&#39;, &#39;green&#39;, &#39;blue&#39; } print(colors) # Prints out: {&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;} numbers = { 1, 2, 3, 3, 4 } print(numbers) # Prints out: {1, 2, 3, 4} 2、使用 set() 函数创建
+colors = set((&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;)) print(colors) # Prints out: {&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;} numbers = set([1,2,3,3,4]) print(numbers) # Prints out: {1, 2, 3, 4} words = set(&#39;python&#39;) print(words) # Prints out: {&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;n&#39;, &#39;o&#39;} 注意：创建一个空集合必须用 set() 而不是 {}，因为 {} 是用来创建一个空字典。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-statement/">Python基础：语句</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-04</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">if语句 1、if
+print(&#39;请输入用户名：&#39;) name = input() if name == &#39;peng&#39;: print(&#39;登录成功&#39;) 2、if&hellip;else
+print(&#39;请输入登录用户名：&#39;) name = input() print(&#39;请输入登录密码：&#39;) password = input() if name == &#39;admin&#39; and password == &#39;123456&#39;: print(&#39;登录成功!&#39;) else: print(&#39;用户名或密码错误!!!&#39;) 3、if&hellip;elif&hellip;else
+print(&#39;请输入登录用户名：&#39;) name = input() print(&#39;请输入登录密码：&#39;) password = input() if name == &#39;admin&#39; and password == &#39;123456&#39;: print(&#39;admin登录成功!&#39;) elif name == &#39;peng&#39; and password == &#39;654321&#39;: print(&#39;peng登录成功!&#39;) else: print(&#39;用户名或密码错误!!!&#39;) for-in语句 # Prints out: P,y,t,h,o,n for letter in &#39;Python&#39;: print(letter) # Prints out: red,green,blue for color in [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]: print(color) # Prints out: 0:red,1:green,2:blue colors = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;] for index in range(len(colors)): print(&#39;%s:%s&#39; % (index, colors[index])) # Prints out: 1,2,3,4 for number in range(1,5): print(number) # Prints out: 1,2,3,4 and then it prints &#34;number value reached 4&#34; for number in range(1,5): print(number) else: print(&#34;number value reached %d&#34; %(number)) while语句 # Prints out: 0,1,2,3,4,5,6,7,8 count = 0 while (count &lt; 9): print(count) count = count + 1 break语句 # Prints out: P,y,t for letter in &#39;Python&#39;: if letter == &#39;h&#39;: break print(letter) # Prints out: 0,1,2,3,4 count = 0 while (count &lt; 9): print(count) count = count + 1 if(count == 5): break continue语句 # Prints out: P,y,t,o,n for letter in &#39;Python&#39;: if letter == &#39;h&#39;: continue print(letter) # Prints out: 1,2,3,4,6,7,8,9 count = 0 while (count &lt; 9): count = count + 1 if(count == 5): continue print(count) pass语句 pass 是空语句，是为了保持程序结构的完整性。pass 不做任何事情，一般用做占位语句。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-list/">Python基础：列表</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建列表 1、使用[]字面量
+numbers = [1,3,5,7,9,10] print(numbers) # Prints out: [1, 3, 5, 7, 9, 10] 2、使用list()函数创建
+numbrers = list((1,3,5,7,9,10)) print(numbers) # Prints out: [1, 3, 5, 7, 9, 10] str = list(&#39;python&#39;) print(str) # Prints out: [&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;o&#39;, &#39;n&#39;] 访问列表 list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;] list2 = [1,3,5,7,9] print(list1[0]) # Prints out: red print(list2[1:5]) # Prints out: [3, 5, 7, 9] 更新列表 list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;] print(list1[0]) # Prints out: red list1[0] = &#39;black&#39; print(list1[0]) # Prints out: black 遍历列表 list1 = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;] # Prints out: red green blue for item in list1: print(item) # Prints out: red green blue for index in range(len(list1)): print(list1[index]) 列表方法 list1 = [1,2,3,4] # 在尾部添加元素 list1.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-string/">Python基础：字符串</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建字符串 使用单引号&rsquo; &rsquo; 或 双引号 &quot; &quot; 来创建字符串
+str1 = &#34;Jack&#34; str2 = &#39;Jim&#39; 字符串操作 1、 字符串索引访问
+message = &#39;hello&#39; print(message[0]) # Prints out: h print(message[1]) # Prints out: e print(message[-1]) # Prints out: o print(message[-2]) # Prints out: l print(message[5]) # IndexError: string index out of range 2、字符串拼接
+last_name = &#39;lee&#39; first_name = &#39;pengjie&#39; full_name = first_name + &#34; &#34; + last_name print(full_name) # Prints out: pengjie lee 3、重复输出字符串</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-user-input/">Python基础：用户输入</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-02</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">接受用户名问好 name = input(&#39;Please enter your name: &#39;) print(&#39;Hello,&#39; + name + &#39;!&#39;) 接受一个数值 age = input(&#39;How old are you? &#39;) if (age.isdigit()): if (int(age) &gt; 18): print(&#34;You&#39;re not a kid anymore.&#34;) else: print(&#34;You&#39;re just a kid.&#34;) else: print(&#39;Please enter a number.&#39;) </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/python-basic-hello-world/">Python基础：输出Hello World</a>
+    </div><div class="post-meta">
+    <div class="date">2020-11-02</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">创建hello_world.py文件 print(&#34;Hello World&#34;) 运行 python3 hello_world.py # output: Hello World </p>
+    
+</div>
+
+        </section>
+    </div>
+    
+    <div class="pagination">
+            <a class="pagination__item pagination__item--prev btn" href="/tags/python/">Prev</a>
+        <span class="pagination__item pagination__item--current">2/3</span>
+            <a class="pagination__item pagination__item--next btn" href="/tags/python/page/3/">Next</a>
+    </div>
+
+
+        </div></body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">排列组合</h1><div class="post-meta">
+    <div class="date">2021-04-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="排列">排列</h2>
+<p>一般地，从n个不同元素中取出m（m≤n）个元素，按照一定的顺序排成一列，叫做从n个元素中取出m个元素的一个排列(permutation)。特别地，当m=n时，这个排列被称作全排列(all permutation)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">permute</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">k</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * 生成排列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * index表示向当前排列添加第index个元素。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   * p表示当前的排列，其中拥有index-1个元素。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">generatePermutation</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">p</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">index</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">k</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>([].<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">p</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">num</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">nums</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">indexOf</span>(<span style="color:#a6e22e">num</span>) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">num</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">generatePermutation</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">p</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">generatePermutation</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#ae81ff">0</span>, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="组合">组合</h2>
+<p>一般地，从n个不同的元素中，任取m（m≤n）个元素为一组，叫作从n个不同元素中取出m个元素的一个组合。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">combine</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">k</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    * 生成组合
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    * start表示需要从数组的start位置开始搜索元素加入当前组合c中。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    * c表示当前的组合。 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    * 当前组合的长度等于k时，组合构造完成。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  */</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">generateCombinations</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">c</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//当前组合的长度等于k时，保存当前组合
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">k</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">push</span>([].<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">c</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//当前组合添加元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//从下一个位置搜索元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">generateCombinations</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">c</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">//当前组合移除元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//首次调用，从位置0搜索元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">generateCombinations</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#ae81ff">0</span>, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>算法之排列组合问题<br>
+<a href="https://zhuanlan.zhihu.com/p/66930500">https://zhuanlan.zhihu.com/p/66930500</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

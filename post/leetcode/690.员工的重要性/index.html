@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">690.员工的重要性</h1><div class="post-meta">
+    <div class="date">2021-05-12</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个保存员工信息的数据结构，它包含了员工 唯一的 id ，重要度 和 直系下属的 id 。</p>
+<p>比如，员工 1 是员工 2 的领导，员工 2 是员工 3 的领导。他们相应的重要度为 15 , 10 , 5 。那么员工 1 的数据结构是 [1, 15, [2]] ，员工 2的 数据结构是 [2, 10, [3]] ，员工 3 的数据结构是 [3, 5, []] 。注意虽然员工 3 也是员工 1 的一个下属，但是由于 并不是直系 下属，因此没有体现在员工 1 的数据结构中。</p>
+<p>现在输入一个公司的所有员工信息，以及单个员工 id ，返回这个员工和他所有下属的重要度之和。</p>
+<p>示例：</p>
+<pre tabindex="0"><code>输入：[[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
+输出：11
+解释：
+员工 1 自身的重要度是 5 ，他有两个直系下属 2 和 3 ，而且 2 和 3 的重要度均为 3 。因此员工 1 的总重要度是 5 + 3 + 3 = 11 。
+</code></pre><p>提示：</p>
+<ul>
+<li>一个员工最多有一个 直系 领导，但是可以有多个 直系 下属</li>
+<li>员工数量不超过 2000 。</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/employee-importance
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<p>1、DFS</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Definition for Employee.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * function Employee(id, importance, subordinates) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.id = id;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.importance = importance;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.subordinates = subordinates;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {Employee[]} employees
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} id
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">GetImportance</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">employees</span>, <span style="color:#a6e22e">id</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//创建hashmap，可以根据员工id，快速获取员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">employee</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employees</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">employee</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">id</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获取当前员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">id</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获取当前员工的重要性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">importance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">importance</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//遍历当前员工的下属
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">subId</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">subordinates</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">importance</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">subId</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">importance</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">id</span>);;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>参考代码2：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">GetImportance</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">employees</span>, <span style="color:#a6e22e">id</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//创建hashmap，可以根据员工id，快速获取员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">employee</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employees</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">employee</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">id</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//获取当前员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">id</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//累加当前员工的重要性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">result</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">importance</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//遍历当前员工的下属
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">subId</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">subordinates</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">subId</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">id</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>2、BFS</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">GetImportance</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">employees</span>, <span style="color:#a6e22e">id</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//创建hashmap，可以根据员工id，快速获取员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">employee</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employees</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">employee</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">id</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">curId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">shift</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">employee</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">curId</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">importance</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">subId</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">subordinates</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">subId</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

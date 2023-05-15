@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublime on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/sublime/</link>
+    <description>Recent content in Sublime on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Mar 2021 15:21:17 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/sublime/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SublimeText插件MarkdownEditing</title>
+      <link>https://www.pengjielee.cn/post/sublimetext-plugin-markdownediting/</link>
+      <pubDate>Mon, 01 Mar 2021 15:21:17 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/sublimetext-plugin-markdownediting/</guid>
+      <description>问题 使用SublimeText默认打开 .md 后缀的文件，页面显示一片白，阅读起来很不爽。
+MarkdownEditing MarkdownEditing是一款SublimeText插件，可以高亮显示语法，还可以快速插入 Markdown 标记。
+1、安装（MacOS为例）
+a. 打开 Sublime Text，按组合键 Command + Shift + P，然后输入install，选择 Package Control:Install Package。
+b. 插件安装面板输入 MarkdownEditing，然后回车。
+2、 配置
+Sublime Test -&amp;gt; Preferences -&amp;gt; Package Settings -&amp;gt; Markdown Editing -&amp;gt; Markdown GFM Setting - User
+编辑内容如下：
+{ &amp;#34;color_scheme&amp;#34;: &amp;#34;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&amp;#34;, &amp;#34;wrap_width&amp;#34;: &amp;#34;auto&amp;#34;, &amp;#34;draw_centered&amp;#34;: false, } 3、快捷键
+a. 复制链接 (https://www.baidu.com/) 到剪切板，然后按 Command + shift + K，会快速插入链接
+![](https://www.baidu.com/) b. 输入&amp;quot;mdi + tab&amp;quot;会自动插入下面图片标记
+![Alt text](/path/to/img.jpg &amp;#34;Optional title&amp;#34;) c.</description>
+    </item>
+    
+    <item>
+      <title>SublimeText中运行Python程序</title>
+      <link>https://www.pengjielee.cn/post/run-the-python-program-in-sublimetext/</link>
+      <pubDate>Wed, 24 Feb 2021 11:36:26 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/run-the-python-program-in-sublimetext/</guid>
+      <description>环境 操作系统：MacOS Big Sur（版本11.2） SublimeText：Version 3.1.1 使用系统自带版本，直接运行 创建 hello_world.py 文件，内容如下：
+print(&amp;#39;Hello World.&amp;#39;) 选择菜单 Tools -&amp;gt; Build (或 command + B)。
+配置Python3运行 1、查看Python3安装路径
+$ type -a python3 or $ which python3 2、配置Sublime Text
+选择菜单 Tools -&amp;gt; Build -&amp;gt; New Build System，会打开一个新的配置文件。
+编辑内容如下：
+{ &amp;#34;cmd&amp;#34;: [&amp;#34;/usr/local/bin/python3&amp;#34;, &amp;#34;-u&amp;#34;, &amp;#34;$file&amp;#34;], } 将文件重命名为 Python3.sublime-build，保存至默认目录。
+选择菜单 Tools -&amp;gt; Build System -&amp;gt; Python3，再选择菜单Tools -&amp;gt; Build (或 command + B)。</description>
+    </item>
+    
+  </channel>
+</rss>

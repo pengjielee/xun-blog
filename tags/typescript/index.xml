@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TypeScript on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/typescript/</link>
+    <description>Recent content in TypeScript on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 Nov 2020 10:34:27 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React中使用TypeScript</title>
+      <link>https://www.pengjielee.cn/post/use-typescript-in-react/</link>
+      <pubDate>Wed, 11 Nov 2020 10:34:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/use-typescript-in-react/</guid>
+      <description>初始化 $ mkdir react-ts-app $ cd react-ts-app $ npm init -y $ npm install react react-dom $ mkdir src $ cd src $ touch index.html $ touch App.tsx src/index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;React + TypeScript&amp;lt;/title&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;main&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;./App.tsx&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 安装Parcel $ npm i parcel-bundler -D $ npm i typescript -D $ npm i -D @types/react @types/react-dom package.</description>
+    </item>
+    
+  </channel>
+</rss>

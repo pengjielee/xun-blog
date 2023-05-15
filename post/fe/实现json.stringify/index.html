@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">实现JSON.stringify()</h1><div class="post-meta">
+    <div class="date">2021-03-31</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+        </div>
+</div>
+</header>
+        <div class="content"><p>写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//输入 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">object</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, { <span style="color:#a6e22e">g</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span> }]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出 参考 JSON.stringify(object, null, &#39;  &#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;</span><span style="color:#a6e22e">a</span><span style="color:#e6db74">&#34;: 1,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;</span><span style="color:#a6e22e">b</span><span style="color:#e6db74">&#34;: 2,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;</span><span style="color:#a6e22e">c</span><span style="color:#e6db74">&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;</span><span style="color:#a6e22e">d</span><span style="color:#e6db74">&#34;: 3
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  },
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;</span><span style="color:#a6e22e">e</span><span style="color:#e6db74">&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    4,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    5,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;</span><span style="color:#a6e22e">g</span><span style="color:#e6db74">&#34;: 6
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  ]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h2 id="参考1不符题目要求未格式化输出">参考1（不符题目要求，未格式化输出）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">jsonStringify</span>(<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">type</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;object&#34;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/string|undefined|function/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">type</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> String(<span style="color:#a6e22e">obj</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">json</span> <span style="color:#f92672">=</span> [],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">constructor</span> <span style="color:#f92672">===</span> Array;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">k</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">v</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/string|undefined|function/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">type</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;&#39;</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;object&#34;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jsonStringify</span>(<span style="color:#a6e22e">v</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">push</span>((<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;:&#39;</span>) <span style="color:#f92672">+</span> String(<span style="color:#a6e22e">v</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;[&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;{&#34;</span>) <span style="color:#f92672">+</span> String(<span style="color:#a6e22e">json</span>) <span style="color:#f92672">+</span> (<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;]&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;}&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">object</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">e</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, { <span style="color:#a6e22e">g</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span> }],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jsonStringify</span>(<span style="color:#a6e22e">object</span>); <span style="color:#75715e">// &#34;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:{&#34;d&#34;:3},&#34;e&#34;:[4,5,{&#34;g&#34;:6}]}&#34;
+</span></span></span></code></pre></div><h2 id="参考2不符题目要求未格式化输出">参考2（不符题目要求，未格式化输出）</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">jsonstringify</span>(<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">type</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;object&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/string|undefined|function/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">type</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> String(<span style="color:#a6e22e">obj</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">obj</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">json</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">k</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">k</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">v</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/string|undefined|function/</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">type</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;&#39;</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;object&#34;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">v</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jsonstringify</span>(<span style="color:#a6e22e">v</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">push</span>((<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;:&#39;</span>) <span style="color:#f92672">+</span> String(<span style="color:#a6e22e">v</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;[&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;{&#34;</span>) <span style="color:#f92672">+</span> String(<span style="color:#a6e22e">json</span>) <span style="color:#f92672">+</span> (<span style="color:#a6e22e">arr</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;]&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;}&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">object</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">d</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">e</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, { <span style="color:#a6e22e">g</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span> }],
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">jsonstringify</span>(<span style="color:#a6e22e">object</span>); <span style="color:#75715e">// &#34;{&#34;a&#34;:1,&#34;b&#34;:2,&#34;c&#34;:{&#34;d&#34;:3},&#34;e&#34;:[4,5,{&#34;g&#34;:6}]}&#34;
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>如何实现一个JSON.stringify()<br>
+<a href="https://blog.csdn.net/qq_40028324/article/details/103135034">https://blog.csdn.net/qq_40028324/article/details/103135034</a></p>
+<p>JSON.stringify 和 JSON.parse 的实现<br>
+<a href="https://www.jianshu.com/p/f1c8bcd16f71">https://www.jianshu.com/p/f1c8bcd16f71</a></p>
+<p>JSON.parse和JSON.stringify在IE6、7中的兼容性<br>
+<a href="https://www.jianshu.com/p/a884662cd990">https://www.jianshu.com/p/a884662cd990</a></p>
+<p>json2.js
+<a href="https://github.com/douglascrockford/JSON-js">https://github.com/douglascrockford/JSON-js</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

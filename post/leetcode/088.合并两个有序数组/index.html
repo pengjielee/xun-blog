@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">088.合并两个有序数组</h1><div class="post-meta">
+    <div class="date">2021-03-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="tags_link" href="/tags/merge/" rel="tag">merge</a>
+                <a class="tags_link" href="/tags/array/" rel="tag">array</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给你两个有序整数数组 nums1 和 nums2，请你将 nums2 合并到 nums1 中，使 nums1 成为一个有序数组。</p>
+<p>初始化 nums1 和 nums2 的元素数量分别为 m 和 n 。你可以假设 nums1 的空间大小等于 m + n，这样它就有足够的空间保存来自 nums2 的元素。</p>
+<pre tabindex="0"><code>示例 1：  
+输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3  
+输出：[1,2,2,3,5,6]  
+
+示例 2：    
+输入：nums1 = [1], m = 1, nums2 = [], n = 0  
+输出：[1]  
+</code></pre><p>提示：</p>
+<ul>
+<li>nums1.length == m + n</li>
+<li>nums2.length == n</li>
+<li>0 &lt;= m, n &lt;= 200</li>
+<li>1 &lt;= m + n &lt;= 200</li>
+<li>-10^9 &lt;= nums1[i], nums2[i] &lt;= 10^9</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/merge-sorted-array
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number[]} nums1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} m
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number[]} nums2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} n
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {void} Do not return anything, modify nums1 in-place instead.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">merge</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">nums1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">nums2</span>, <span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sorted</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Array(<span style="color:#a6e22e">m</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n</span>).<span style="color:#a6e22e">fill</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">p2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">curr</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">p1</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">p1</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">m</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">p2</span><span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">p2</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">n</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p1</span><span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p1</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">p2</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p1</span><span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">curr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">p2</span><span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sorted</span>[<span style="color:#a6e22e">p1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">curr</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">sorted</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="go实现">Go实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nums1</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nums2</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mergeArr</span>(<span style="color:#a6e22e">nums1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">nums2</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">nums1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nums1</span> = []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nums2</span> = []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">mergeArr2</span>(<span style="color:#a6e22e">nums1</span>, <span style="color:#a6e22e">m</span>, <span style="color:#a6e22e">nums2</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">nums1</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">nums1 := []int{1, 2, 3, 0, 0, 0}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">m := 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">nums2 := []int{0, 1, 2}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">n := 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeArr</span>(<span style="color:#a6e22e">nums1</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">m</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">nums2</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">k</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">nums1</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p</span>] &gt; <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">q</span>] {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">p</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">q</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">q</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">k</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">k</span>] = <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">q</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">q</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">k</span> <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeArr2</span>(<span style="color:#a6e22e">nums1</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">m</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">nums2</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">m</span> &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">n</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">p</span><span style="color:#f92672">--</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">m</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">n</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">p</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">m</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">m</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> ; <span style="color:#a6e22e">n</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">n</span><span style="color:#f92672">--</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

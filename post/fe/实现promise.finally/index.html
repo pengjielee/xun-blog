@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">实现Promise.finally()</h1><div class="post-meta">
+    <div class="date">2021-03-31</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+        </div>
+</div>
+</header>
+        <div class="content"><p>finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。<br>
+这避免了同样的语句需要在then()和catch()中各写一次的情况。</p>
+<h2 id="语法">语法</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">p</span>.<span style="color:#66d9ef">finally</span>(<span style="color:#a6e22e">onFinally</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">p</span>.<span style="color:#66d9ef">finally</span>(<span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e">// 返回状态为(resolved 或 rejected)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
+</span></span></code></pre></div><h2 id="实现">实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Promise.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">_finally</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">P</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">constructor</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">then</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span>  =&gt; <span style="color:#a6e22e">P</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">callback</span>()).<span style="color:#a6e22e">then</span>(() =&gt; <span style="color:#a6e22e">value</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">reason</span> =&gt; <span style="color:#a6e22e">P</span>.<span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">callback</span>()).<span style="color:#a6e22e">then</span>(() =&gt; { <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">reason</span> })
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>Promise.prototype.finally()<br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally</a></p>
+<p>Promise.prototype.finally()<br>
+<a href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally">https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

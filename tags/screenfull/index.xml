@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>screenfull on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/screenfull/</link>
+    <description>Recent content in screenfull on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 04 Feb 2021 15:12:18 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/screenfull/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在React中全屏化页面</title>
+      <link>https://www.pengjielee.cn/post/how-to-make-a-full-screen-page-in-react/</link>
+      <pubDate>Thu, 04 Feb 2021 15:12:18 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-to-make-a-full-screen-page-in-react/</guid>
+      <description>安装 $ npm install screenfull React中使用screenfull 1、引入
+import screenfull from &amp;#39;screenfull&amp;#39;; 2、全屏
+const handleClick = () =&amp;gt; { if (screenfull.isEnabled) { //全屏整个页面 //screenfull.request(); //全屏某个元素 screenfull.request(element); } }; 3、切换
+const handleToggle = () =&amp;gt; { if (screenfull.isEnabled) { screenfull.toggle(); } }; 4、监听change事件
+import React, { useEffect, useRef } from &amp;#34;react&amp;#34;; import screenfull from &amp;#34;screenfull&amp;#34;; const Component = () =&amp;gt; { useEffect(() =&amp;gt; { if (screenfull.isEnabled) { screenfull.on(&amp;#34;change&amp;#34;, () =&amp;gt; { console.log(&amp;#34;Am I fullscreen?</description>
+    </item>
+    
+  </channel>
+</rss>

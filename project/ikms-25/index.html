@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">25.Electron备份还原sqlite数据库.md</h1><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+</header>
+        <div class="content"><pre tabindex="0"><code>const backupDb = () =&gt; {
+  const options = {
+    title: &#34;请选择要备份的文件名&#34;,
+    buttonLabel: &#34;保存&#34;,
+    defaultPath: &#34;my.db&#34;,
+    filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#34;db&#34;] }],
+  };
+  dialog.showSaveDialog(options).then(async (result) =&gt; {
+    if (!result.canceled) {
+      const fileReadStream = fs.createReadStream(path.join(__dirname, &#34;my.db&#34;));
+      const fileWriteStream = fs.createWriteStream(result.filePath);
+      fileReadStream.pipe(fileWriteStream);
+      fileWriteStream.on(&#34;close&#34;, function () {
+        showMessage(&#34;备份成功&#34;);
+      });
+    }
+  });
+};
+
+const restoreDb = () =&gt; {
+  const options = {
+    title: &#34;请选择要还原的文件&#34;,
+    buttonLabel: &#34;还原&#34;,
+    defaultPath: &#34;my.db&#34;,
+    filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#34;db&#34;] }],
+    properties: [&#34;openFile&#34;],
+  };
+  dialog.showOpenDialog(options).then(async (result) =&gt; {
+    console.log(result);
+    if (!result.canceled) {
+      const fileReadStream = fs.createReadStream(result.filePaths[0]);
+      const fileWriteStream = fs.createWriteStream(
+        path.join(__dirname, &#34;my.db&#34;)
+      );
+      fileReadStream.pipe(fileWriteStream);
+      fileWriteStream.on(&#34;close&#34;, function () {
+        showMessage(&#34;还原成功&#34;);
+      });
+    }
+  });
+};
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

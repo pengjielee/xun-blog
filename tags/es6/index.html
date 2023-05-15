@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">es6</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/fe/es6%E4%B9%8Bnumber/">ES6之Number</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/es6/" rel="tag">es6</a>
+        </div>
+</div>
+
+        <p class="summary">Number.MAX_SAFE_INTEGER Number.MAX_SAFE_INTEGER 常量表示在 JavaScript 中最大的安全整数（maxinum safe integer)（2^53 - 1）
+console.log(Number.MAX_SAFE_INTEGER); //9007199254740991 console.log(Math.pow(2,53) - 1); //9007199254740991 Number.MIN_SAFE_INTEGER Number.MIN_SAFE_INTEGER 代表在 JavaScript 中最小的安全的integer型数字 (-(2^53 - 1)).
+console.log(Number.MIN_SAFE_INTEGER); //-9007199254740991 console.log(-(Math.pow(2,53) - 1)); //-9007199254740991 2^53 是 js 内置的最大的整数值（不安全），2^53 + 1 会被舍入成 2^53：
+Math.pow(2, 53) === Math.pow(2, 53) + 1; // true Math.pow(2, 53) === Math.pow(2, 53) + 2; // false Number.isSafeInteger() Number.isSafeInteger() 方法用来判断传入的参数值是否是一个“安全整数”（safe integer）。
+一个安全整数是一个符合下面条件的整数：
+可以准确地表示为一个IEEE-754双精度数字, 其IEEE-754表示不能是舍入任何其他整数以适应IEEE-754表示的结果。 安全整数范围为 -(2^53 - 1)到 2^53 - 1 之间的整数，包含 -(2^53 - 1)和 2^53 - 1。</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/es6%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/">ES6解构赋值</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/es6/" rel="tag">es6</a>
+        </div>
+</div>
+
+        <p class="summary">ES6数组解构赋值 1、基本
+let [a, b, c] = [1, 2, 3]; // a = 1, b = 2, c = 3 2、嵌套
+let [a, [[b], c]] = [1, [[2], 3]]; // a = 1, b = 2, c = 3 3、可忽略
+let [a, , b] = [1, 2, 3]; // a = 1, b = 2 4、不完全解构
+let [a = 1, b] = []; // a = 1, b = undefined 5、剩余运算符</p>
+    
+</div>
+
+        </section>
+    </div>
+    
+
+
+        </div></body>
+</html>

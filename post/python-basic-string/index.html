@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：字符串</h1><div class="post-meta">
+    <div class="date">2020-11-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="创建字符串">创建字符串</h2>
+<p>使用单引号&rsquo; &rsquo; 或 双引号 &quot; &quot; 来创建字符串</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jack&#34;</span>
+</span></span><span style="display:flex;"><span>str2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jim&#39;</span>
+</span></span></code></pre></div><h2 id="字符串操作">字符串操作</h2>
+<p>1、 字符串索引访问</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">0</span>])  <span style="color:#75715e"># Prints out: h</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">1</span>])  <span style="color:#75715e"># Prints out: e</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># Prints out: o</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># Prints out: l</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">5</span>]) <span style="color:#75715e"># IndexError: string index out of range</span>
+</span></span></code></pre></div><p>2、字符串拼接</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>last_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;lee&#39;</span>
+</span></span><span style="display:flex;"><span>first_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;pengjie&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>full_name <span style="color:#f92672">=</span> first_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> last_name
+</span></span><span style="display:flex;"><span>print(full_name) <span style="color:#75715e"># Prints out: pengjie lee</span>
+</span></span></code></pre></div><p>3、重复输出字符串</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>message <span style="color:#f92672">=</span> message <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>print(message) <span style="color:#75715e"># Prints out: hellohellohello</span>
+</span></span></code></pre></div><p>4、字符串截取（左闭右开，正序：从0开始索引，倒序：从-1开始索引）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">5</span>]) <span style="color:#75715e"># Prints out: lo</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">100</span>]) <span style="color:#75715e"># Prints out: lo world</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># Prints out: lo worl</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># Prints out: lo wor</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># Prints out: rl</span>
+</span></span></code></pre></div><p>5、成员运算</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello world&#39;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;h&#39;</span> <span style="color:#f92672">in</span> message) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;z&#39;</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> message) <span style="color:#75715e"># Prints out: True</span>
+</span></span></code></pre></div><h2 id="字符串方法">字符串方法</h2>
+<p>1、返回字符串长度</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>
+</span></span><span style="display:flex;"><span>print(len(message)) <span style="color:#75715e"># Prints out: 5</span>
+</span></span></code></pre></div><p>2、首字母大写</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;li peng jie&#39;</span>
+</span></span><span style="display:flex;"><span>print(name<span style="color:#f92672">.</span>capitalize()) <span style="color:#75715e"># Prints out: Li peng jie</span>
+</span></span></code></pre></div><p>3、返回原字符串的标题版本，其中每个单词第一个字母为大写，其余字母为小写。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;li peng jie&#39;</span>
+</span></span><span style="display:flex;"><span>print(name<span style="color:#f92672">.</span>title()) <span style="color:#75715e"># Prints out: Li Peng Jie</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#该算法使用一种简单的与语言无关的定义，将连续的字母组合视为单词。 该定义在多数情况下都很有效，但它也意味着代表缩写形式与所有格的撇号也会成为单词边界，这可能导致不希望的结果:</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;they&#39;re bill&#39;s friends from the UK&#34;</span><span style="color:#f92672">.</span>title()) <span style="color:#75715e"># Prints out: They&#39;Re Bill&#39;S Friends From The Uk</span>
+</span></span></code></pre></div><p>4、均转换为大写</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;li peng jie&#39;</span>
+</span></span><span style="display:flex;"><span>print(name<span style="color:#f92672">.</span>upper()) <span style="color:#75715e"># Prints out: LI PENG JIE</span>
+</span></span></code></pre></div><p>5、均转换为小写</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;LI PENG JIE&#39;</span>
+</span></span><span style="display:flex;"><span>print(name<span style="color:#f92672">.</span>lower()) <span style="color:#75715e"># Prints out: li peng jie</span>
+</span></span></code></pre></div><p>6、分隔字符串</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;li peng jie&#39;</span>
+</span></span><span style="display:flex;"><span>print(name<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39; &#39;</span>)) <span style="color:#75715e"># Prints out: [&#39;li&#39;, &#39;peng&#39;, &#39;jie&#39;]</span>
+</span></span></code></pre></div><p>7、对字符串进行切片，运算符是[i:j:k]，其中i是开始索引，索引对应的字符可以取到；j是结束索引，索引对应的字符不能取到；k是步长，默认值为1，表示从前向后获取相邻字符的连续切片，所以:k部分可以省略。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#34;o&#34;</span>)) <span style="color:#75715e"># Prints out: 4</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>count(<span style="color:#e6db74">&#34;l&#34;</span>)) <span style="color:#75715e"># Prints out: 3</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">7</span>]) <span style="color:#75715e"># Prints out: lo W</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">7</span>:<span style="color:#ae81ff">2</span>]) <span style="color:#75715e"># Prints out: l</span>
+</span></span><span style="display:flex;"><span>print(message[<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">7</span>:<span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># Prints out: lo W</span>
+</span></span><span style="display:flex;"><span>print(message[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])  <span style="color:#75715e"># Prints out: dlroW olleH</span>
+</span></span></code></pre></div><p>8、查找</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>startswith(<span style="color:#e6db74">&#34;Hello&#34;</span>)) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>endswith(<span style="color:#e6db74">&#34;asdfasdfasdf&#34;</span>)) <span style="color:#75715e"># Prints out: False</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;lo&#39;</span>)) <span style="color:#75715e"># Prints out: 3</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;li&#39;</span>)) <span style="color:#75715e"># Prints out: -1</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#39;lo&#39;</span>)) <span style="color:#75715e"># Prints out: 3</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>index(<span style="color:#e6db74">&#39;li&#39;</span>)) <span style="color:#75715e"># ValueError: substring not found</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 从索引为4的位置开始查找</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#39;lo&#39;</span>,<span style="color:#ae81ff">4</span>)) <span style="color:#75715e"># Prints out: -1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 逆向查找</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>rfind(<span style="color:#e6db74">&#39;r&#39;</span>)) <span style="color:#75715e"># Prints out: 8</span>
+</span></span><span style="display:flex;"><span>print(message<span style="color:#f92672">.</span>rindex(<span style="color:#e6db74">&#39;r&#39;</span>)) <span style="color:#75715e"># Prints out: 8</span>
+</span></span></code></pre></div><p>9、判断字符串是否是数字</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123&#39;</span>
+</span></span><span style="display:flex;"><span>str2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;abc&#39;</span>
+</span></span><span style="display:flex;"><span>str3 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> str2
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>isdigit()) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>isdigit()) <span style="color:#75715e"># Prints out: False</span>
+</span></span><span style="display:flex;"><span>print(str3<span style="color:#f92672">.</span>isdigit()) <span style="color:#75715e"># Prints out: False</span>
+</span></span></code></pre></div><p>10、判断字符串是否是字母</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123&#39;</span>
+</span></span><span style="display:flex;"><span>str2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;abc&#39;</span>
+</span></span><span style="display:flex;"><span>str3 <span style="color:#f92672">=</span> str1 <span style="color:#f92672">+</span> str2
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>isalpha()) <span style="color:#75715e"># Prints out: False</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>isalpha()) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(str3<span style="color:#f92672">.</span>isalpha()) <span style="color:#75715e"># Prints out: False</span>
+</span></span></code></pre></div><p>11、判断字符串是否是数字或字母（汉字也是True）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123&#39;</span>
+</span></span><span style="display:flex;"><span>str2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;abc&#39;</span>
+</span></span><span style="display:flex;"><span>str3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;我&#39;</span>
+</span></span><span style="display:flex;"><span>str4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123_&#39;</span>
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>isalnum()) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>isalnum()) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(str3<span style="color:#f92672">.</span>isalnum()) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(str4<span style="color:#f92672">.</span>isalnum()) <span style="color:#75715e"># Prints out: False</span>
+</span></span></code></pre></div><p>12、去除字符串空白（包括换行符\n和制表符\t）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>str1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; hello world &#39;</span>
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>lstrip()) <span style="color:#75715e"># Prints out: &#39;hello world &#39;</span>
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>rstrip())  <span style="color:#75715e"># Prints out: &#39; hello world&#39;</span>
+</span></span><span style="display:flex;"><span>print(str1<span style="color:#f92672">.</span>strip()) <span style="color:#75715e"># Prints out: &#39;hello world&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>str2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> hello world </span><span style="color:#ae81ff">\t\n</span><span style="color:#e6db74">&#39;</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>lstrip()) <span style="color:#75715e"># Prints out: &#39;hello world \t\n&#39;</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>rstrip())  <span style="color:#75715e"># Prints out: &#39;\t hello world&#39;</span>
+</span></span><span style="display:flex;"><span>print(str2<span style="color:#f92672">.</span>strip()) <span style="color:#75715e"># Prints out: &#39;hello world&#39;</span>
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">question</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/fe/15.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8Fvs%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/">15.观察者模式vs发布订阅模式</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">联系 / 意图 / 区别 / 适用场景 1、联系
+发布-订阅模式是观察者模式的一种变体。发布-订阅只是把一部分功能抽象成一个独立的ChangeManager。
+2、意图
+都是某个对象(subject, publisher)改变，使依赖于它的多个对象(observers, subscribers)得到通知。
+3、区别与适用场景
+总的来说，发布-订阅模式适合更复杂的场景。
+在「一对多」的场景下，发布者的某次更新只想通知它的部分订阅者？
+在「多对一」或者「多对多」场景下。一个订阅者依赖于多个发布者，某个发布者更新后是否需要通知订阅者？还是等所有发布者都更新完毕再通知订阅者？
+这些逻辑都可以放到ChangeManager里。
+4、简单理解
+观察者模式没有中介，发布者和订阅者必须知道对方的存在
+发布订阅模式有中介，发布者和订阅者不需要知道对方是谁，只要通过中介进行信息的传递和过滤就可以了
+代码理解 观察者模式：
+// 被观察者 var subject = { observers: [], notify() { this.observers.forEach((observer) =&gt; { observer.update(); }); }, attach(observer) { this.observers.push(observer); }, }; // 观察者 var observer = { update() { alert(&#34;updated&#34;); }, }; // 绑定观察者 subject.attach(observer); // 通知观察者 subject.notify(); 发布订阅模式：
+//发布订阅对象 var pubsub = { subscribes: [], publish() { this.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/14.%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%90%88%E9%9B%86/">14.实现数组方法合集</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">实现数组方法flat // 实现1 var flat1 = (arr, number = 10) =&gt; { let result = [],count = 0; var helper = (arr) =&gt; { let res = []; count++; for (let item of arr) { if (Array.isArray(item)) { if (count === number) { break; } res = res.concat(helper(item)); } else { res.push(item); } } return res; }; result = result.concat(helper(arr)); return result; }; // 实现2 var flat2 = (arr) =&gt; { return arr.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/12.css%E4%BC%98%E5%85%88%E7%BA%A7/">12.CSS优先级</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">一道题目 &lt;style&gt; .classA { color: blue; } .classB { color: red; } p { color: black; } &lt;/style&gt; &lt;p class=&#34;classB classA&#34;&gt;hello&lt;/p&gt; &lt;!-- 元素p内的文字最终什么颜色：red --&gt; 解释：“类选择器” 的优先级要高于 “类型选择器”；后面声明的类选择器 &gt; 先声明的类选择器，所以颜色为red（css）。
+更多实例 1、
+&lt;style&gt; div { width: 100px; height: 100px; background-color: blue; } .div1 { background-color: green; } &lt;/style&gt; &lt;div class=&#34;div1&#34; id=&#34;div1&#34;&gt;&lt;/div&gt; &lt;!-- div最终什么颜色：green --&gt; 解释：类选择器 &gt; 类型选择器；
+2、
+&lt;style&gt; div { width: 100px; height: 100px; background-color: blue; } .div1 { background-color: green; } #div1 { background-color: red; } &lt;/style&gt; &lt;div class=&#34;div1&#34; id=&#34;div1&#34;&gt;&lt;/div&gt; &lt;!</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/11.typeof%E6%93%8D%E4%BD%9C%E7%AC%A6/">11.typeof操作符</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">一道题目 typeof typeof typeof null; //&#39;string&#39; typeof操作符 typeof 操作符返回一个字符串，表示未经计算的操作数的类型。
+语法：
+typeof operand typeof(operand) 1、数值
+console.log(typeof 42); //&#39;number&#39; console.log(typeof 3.14); //&#39;number&#39; console.log(typeof(42)); //&#39;number&#39; console.log(typeof Math.LN2); //&#39;number&#39; console.log(typeof Infinity); //&#39;number&#39; console.log(typeof NaN); //&#39;number&#39; console.log(typeof Number(1)); //&#39;number&#39; console.log(typeof 42n); //&#39;bigint&#39; 2、字符串
+console.log(typeof &#39;&#39;); //&#39;string&#39; console.log(typeof &#39;hello&#39;); //&#39;string&#39; console.log(typeof `hello`); //&#39;string&#39; console.log(typeof &#39;1&#39;); //&#39;string&#39; console.log(typeof (typeof 1)); //&#39;string&#39; console.log(typeof String(1)); //&#39;string&#39; 3、布尔值
+console.log(typeof true); //&#39;boolean&#39; console.log(typeof false); //&#39;boolean&#39; //Boolean() 会基于参数是真值还是虚值进行转换 console.log(typeof Boolean(1)); //&#39;boolean&#39; //两次调用 !</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/10.function.prototype-object.prototype/">10.Function.prototype &amp; Object.prototype.md</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">一道题目 Function.prototype.a = () =&gt; alert(1); Object.prototype.b = () =&gt; alert(2); function Foo() {} var bar = new Foo(); bar.a(); //Uncaught TypeError: bar.a is not a function bar.b(); //2 表达式结果 以下为chrome 88.0.4324.96
+function F(){}; var o = {}; // 这是一个构造函数 typeof F; //&#39;function&#39; // 这是一个对象 typeof o; //&#39;object&#39; // 构造函数的原型对象 typeof F.prototype; //&#39;object&#39; // 不太理解？实例对象没有原型对象？ typeof o.prototype; //&#39;undefined&#39; // 这是一个实例对象 typeof new F; //&#39;object&#39; // 不太理解？实例对象没有原型对象？ typeof (new F).prototype; //&#39;undefined&#39; // 实例对象的属性__proto__，指向原型对象 typeof (new F).</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/09.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">09.代码输出结果</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-12</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">1、 实现一个工具方法，将下划线命名格式的字符串转化为驼峰命名格式
+//实现1 var convert1 = (name) =&gt; { let result = name.split(&#34;_&#34;); const [first, ...rest] = result; return ( first + rest .map((item) =&gt; item.substring(0, 1).toUpperCase() + item.substring(1)) .join(&#34;&#34;) ); }; //实现2 var convert2 = (name) =&gt; { return name.replace(/(\_\w)/g, function (word) { return word.slice(1, 2).toUpperCase() + word.slice(2); }); }; 2、 实现 Array 的 flat 方法的polyfill
+我的（未实现）：
+var flat = (arr, number) =&gt; { let result = [], count = 0; count++; for (let item of arr) { if (Array.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/08.%E9%83%A8%E9%97%A8%E7%BB%84%E5%90%88/">08.部门组合</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">题目 求部门安排所有组合。
+示例1：
+部门：{&#39;frontend&#39;: [1, 2], &#39;backend&#39;: [3, 4], &#39;devops&#39;: [5]} 人数：{&#39;frontend&#39;: 2, &#39;backend&#39;: 1} 组合：[[1, 2, 3], [1, 2, 4]] 要求：按员工ID升序排序
+实现 /** * 部门安排所有组合 * @param departments: dict, key是部门名, value是每个部门对应所有员工ID数组 * 例 {&#39;frontend&#39;: [1, 2], &#39;backend&#39;: [3, 4], &#39;devops&#39;: [5]} * @param required_department: dict, 该任务需要参与的部门和需要的人数 * 例 {&#39;frontend&#39;: 2, &#39;backend&#39;: 1} * @return 所有可能的员工组合, 例 [[1, 2, 3], [1, 2, 4]]. 按员工ID升序排序 */ var staffCombinations = (department_staff_dict, required_staff) =&gt; { const result = []; var combine = (nums, k) =&gt; { let res = []; var generate = (nums, start, c) =&gt; { if (c.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">07.字符串处理</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">统计数组中每个字符串出现次数 /** * 统计数组中每个字符串出现次数 * @param string[] strs: 字符串数组, 例如 [&#39;aa&#39;, &#39;ab&#39;, &#39;ab&#39;, &#39;cc&#39;, &#39;cba&#39;] * @return {[key: string]: number} 出现次数对象, 例如 { aa: 1, ab: 2, cc: 1, cba: 1 } */ var frequencyMap = (strs) =&gt; { const map = {}; for (let i = 0; i &lt; strs.length; i++) { const ch = strs[i]; map[ch] = (map[ch] || 0) + 1; } return map; } 处理给定字符串 /** * 请处理给定字符串: * - 去掉无用字符和乱码, 只保留大小写英文字母, 单引号, 和空格 * - 把一个或多个连续无用字符和乱码换成一个空格.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/06.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">06.代码输出结果</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">1. function fn2(){ for(var i=0;i&lt;4;i++){ var timer=setInterval(function(i,timer){ console.log(i); clearInterval(timer) },10,i,timer); } } fn2(); 输出：0 1 2 3 3 3 3 重复
+2. function fn1(){ for(var i=0;i&lt;4;i++){ var timer=setTimeout(function(i){ console.log(i); clearTimeout(timer) },10,i); } } fn1(); 输出：0 1 2
+3. const a = []; for (var i = 0; i &lt; 10; i++) { a.push(function () { return console.log(i); }); } a[0](); a[1](); 输出：10 10
+4. var m = true; setTimeout(function() { m = false; },3000); while(m) { } console.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/05.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">05.代码输出结果</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-02</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">1. 输出是什么？ function sayHi() { console.log(name) console.log(age) var name = &#39;Lydia&#39; let age = 21 } sayHi() A: Lydia 和 undefined B: Lydia 和 ReferenceError C: ReferenceError 和 21 D: undefined 和 ReferenceError 我的：D（ok）
+2. 输出是什么？ for (var i = 0; i &lt; 3; i++) { setTimeout(() =&gt; console.log(i), 1) } for (let i = 0; i &lt; 3; i++) { setTimeout(() =&gt; console.log(i), 1) } A: 0 1 2 和 0 1 2 B: 0 1 2 和 3 3 3 C: 3 3 3 和 0 1 2 我的：C（ok）</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/04.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">04.代码输出结果</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-30</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">33. 下面的代码打印什么内容，为什么？ var b = 10; (function b(){ b = 20; console.log(b); })(); 我的：20
+正确：[Function b]
+解析：
+声明提前：一个声明在函数体内都是可见的，函数声明优先于变量声明； 在非匿名自执行函数中，函数变量为只读状态无法修改；
+var b = 10; (function b() { // 内部作用域，会先去查找是有已有变量b的声明，有就直接赋值20，确实有了呀。发现了具名函数 function b(){}，拿此b做赋值； // IIFE的函数无法进行赋值（内部机制，类似const定义的常量），所以无效。 // （这里说的“内部机制”，想搞清楚，需要去查阅一些资料，弄明白IIFE在JS引擎的工作方式，堆栈存储IIFE的方式等） b = 20; console.log(b); // [Function b] console.log(window.b); // 10，不是20 })(); 严格模式下会报错误：
+var b = 10; (function b() { &#39;use strict&#39; b = 20; console.log(b); })() // &#34;Uncaught TypeError: Assignment to constant variable.&#34; 使用var声明：
+var b = 10; (function b() { var b = 20; // IIFE内部变量 console.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/03.parseint%E4%B8%8Emap/">03.parseInt与map</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-29</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">[&lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;].map(parseInt) what &amp; why ? 1、parseInt
+parseInt() 函数解析一个字符串参数，并返回一个指定基数的整数 (数学系统的基础)。
+const intValue = parseInt(string[, radix]); string 要被解析的值。如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)。字符串开头的空白符将会被忽略。
+radix 一个介于2和36之间的整数(数学系统的基础)，表示上述字符串的基数。默认为10。 返回值 返回一个整数或NaN
+demo:
+parseInt(100); // 100 parseInt(100, 10); // 100 parseInt(100, 2); // 4 -&gt; converts 100 in base 2 to base 10 注意： 在radix为 undefined，或者radix为 0 或者没有指定的情况下，JavaScript 作如下处理：
+如果字符串 string 以&quot;0x&quot;或者&quot;0X&quot;开头, 则基数是16 (16进制). 如果字符串 string 以&quot;0&quot;开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，永远都要明确给出radix参数的值。 如果字符串 string 以其它任何值开头，则基数是10 (十进制)。 以下例子均返回15:
+console.log(parseInt(&#34;0xF&#34;, 16)); console.log(parseInt(&#34;F&#34;, 16)); console.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/02.%E5%AE%9E%E7%8E%B0%E4%BF%A1%E5%8F%B7%E7%81%AF/">02.实现信号灯</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">版本1：实现一个简单的信号灯切换 (function () { const start = () =&gt; { setTimeout(() =&gt; { console.log(&#34;红灯亮.&#34;); setTimeout(() =&gt; { console.log(&#34;绿灯亮.&#34;); setTimeout(() =&gt; { console.log(&#34;黄灯亮.&#34;); start(); }, 1 * 1000); }, 2 * 1000); }, 3 * 1000); }; start(); })(); 版本2：将信号灯分离出来 (function () { const LIGHTS = [&#34;红灯&#34;, &#34;绿灯&#34;, &#34;黄灯&#34;]; const start = (lights = [], count = 0) =&gt; { let length = lights.length; return setTimeout(() =&gt; { console.log(`${lights[count % length]}亮`); count++; start(lights, count); }, 1000); }; start(LIGHTS); })(); 版本3：将信号灯持续时间分离出来 (function () { const LIGHTS = [ [&#34;红灯&#34;, 3000], [&#34;绿灯&#34;, 2000], [&#34;黄灯&#34;, 1000], ]; const start = (lights = [], count = 0) =&gt; { let length = lights.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fe/01.%E4%BF%A1%E5%8F%B7%E7%81%AF%E6%8E%A7%E5%88%B6%E5%99%A8/">01.信号灯控制器</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-02</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">题目 信号灯控制器
+用 React 实现一个信号灯（交通灯）控制器，要求：
+默认情况下，
+1.1. 红灯亮20秒，并且最后5秒闪烁；
+1.2. 绿灯亮20秒，并且最后5秒闪烁；
+1.3. 黄灯亮10秒；
+1.4. 次序为 红-绿-黄-红-绿-黄； 灯的个数、颜色、持续时间、闪烁时间、灯光次序都可配置，如：
+lights=[{color: &lsquo;#fff&rsquo;, duration: 10000, twinkleDuration: 5000}, &hellip; ] 参考 import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; let lights = [ { color: &#39;red&#39;, duration: 20000, twinkleDuration: 5000, on: false, flash: false, countdown: 0, }, { color: &#39;green&#39;, duration: 20000, twinkleDuration: 5000, on: false, flash: false, countdown: 0, }, { color: &#39;yellow&#39;, duration: 10000, twinkleDuration: 0, on: false, flash: false, countdown: 0, }, ]; const sleep = time =&gt; { return new Promise(resolve =&gt; { setTimeout(resolve, time); }); }; class TrafficLight extends React.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/tags/question/index/">00.前端面试题合集</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-01</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+
+        <p class="summary">&lsquo;##&rsquo; 1、node-interview
+https://github.com/ElemeFE/node-interview/tree/master/sections/zh-cn
+&lsquo;##&rsquo; 2、Front-end Developer Interview Questions
+https://github.com/h5bp/Front-end-Developer-Interview-Questions
+&lsquo;##&rsquo; 3、fe-interview
+https://github.com/haizlin/fe-interview
+前端面试每日3+1
+&lsquo;##&rsquo; 4、Front End Interview Handbook
+https://github.com/yangshun/front-end-interview-handbook
+&lsquo;##&rsquo; 5、Daily-Interview-Question
+https://github.com/Advanced-Frontend/Daily-Interview-Question
+每天搞定一道前端大厂面试题
+&lsquo;##&rsquo; 6、Reverse interview
+https://github.com/viraptor/reverse-interview
+Questions to ask the company during your interview
+&lsquo;##&rsquo; 7、FE-interview（6.3k）
+https://github.com/qiu-deqing/FE-interview
+&lsquo;##&rsquo; 8、React Interview Questions &amp; Answers
+https://github.com/sudheerj/reactjs-interview-questions
+&lsquo;##&rsquo; 9、30 Seconds of Interviews
+https://github.com/30-seconds/30-seconds-of-interviews
+&lsquo;##&rsquo; 10、JavaScript Interview Questions &amp; Answers
+https://github.com/sudheerj/javascript-interview-questions
+&lsquo;##&rsquo; 11、FE-Interview
+https://github.com/lgwebdream/FE-Interview</p>
+    
+</div>
+
+        </section>
+    </div>
+    
+    <div class="pagination">
+        <span class="pagination__item pagination__item--current">1/2</span>
+            <a class="pagination__item pagination__item--next btn" href="/tags/question/page/2/">Next</a>
+    </div>
+
+
+        </div></body>
+</html>

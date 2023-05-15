@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">142.环形链表II</h1><div class="post-meta">
+    <div class="date">2021-04-22</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。</p>
+<p>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。</p>
+<p>说明：不允许修改给定的链表。</p>
+<p>进阶：</p>
+<ul>
+<li>你是否可以使用 O(1) 空间解决此题？</li>
+</ul>
+<p>示例：</p>
+<pre tabindex="0"><code>示例 1：
+3 -&gt; 2 -&gt; 0 -&gt; -4 -&gt; 2
+
+输入：head = [3,2,0,-4], pos = 1
+输出：返回索引为 1 的链表节点
+解释：链表中有一个环，其尾部连接到第二个节点。
+
+示例 2：
+1 -&gt; 2 -&gt; 1
+
+输入：head = [1,2], pos = 0
+输出：返回索引为 0 的链表节点
+解释：链表中有一个环，其尾部连接到第一个节点。
+
+示例 3：
+1 -&gt; null
+输入：head = [1], pos = -1
+输出：返回 null
+解释：链表中没有环。
+</code></pre><p>提示：</p>
+<ul>
+<li>链表中节点的数目范围在范围 [0, 10^4] 内</li>
+<li>-10^5 &lt;= Node.val &lt;= 10^5</li>
+<li>pos 的值为 -1 或者链表中的一个有效索引</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/linked-list-cycle-ii
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路">思路</h2>
+<p>假设链表环前有 a 个节点，环内有 b 个节点。</p>
+<p>本题核心思路：走 a+nb 步一定处于环的入口位置</p>
+<ul>
+<li>
+<ol>
+<li>利用快慢指针 fast 和 slow，fast 一次走两步，slow 一次走一步；</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>当两个指针第一次相遇时，假设 slow 走了 s 步，下面计算 fast 走过的步数；</li>
+</ol>
+<ul>
+<li>i. fast 比 slow 多走了 n 个环：f = s + nb；</li>
+<li>ii. fast 比 slow 多走一倍的步数：f = 2s &ndash;&gt; 跟上式联立（2s = s + nb）可得 s = nb；</li>
+<li>iii. 综上计算得，f = 2nb，s = nb；</li>
+<li>也就是两个指针第一次相遇时，都走过了环的倍数，那么再走 a 步就可以到达环的入口；（为什么再走a步就到环的入口？）</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li>让 fast 从头再走，slow 留在原地，fast 和 slow 均一次走一步，当两个指针第二次相遇时，fast 走了 a 步，slow 走了 a+nb 步；</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>此时 slow 就在环的入口处，返回 slow；</li>
+</ol>
+</li>
+</ul>
+<p>作者：edelweisskoko
+链接：https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/142-huan-xing-lian-biao-iishuang-zhi-zhe-k8ju/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>为什么再走a步就到环的入口？</p>
+<ul>
+<li>
+<ol>
+<li>如果让指针从链表头部一直向前走并统计步数k，那么所有 走到链表入口节点时的步数 是：k=a+nb（先走 a 步到入口节点，之后每绕 1 圈环（ b 步）都会再次到入口节点）。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>而目前，slow 指针走过的步数为 nb 步。因此，我们只要想办法让 slow 再走 a 步停下来，就可以到环的入口。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>但是我们不知道 a 的值，该怎么办？依然是使用双指针法。我们构建一个指针，此指针需要有以下性质：此指针和slow 一起向前走 a 步后，两者在入口节点重合。那么从哪里走到入口节点需要 a 步？答案是链表头部head。</li>
+</ol>
+</li>
+</ul>
+<p>作者：jyd
+链接：https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<p>1、哈希表</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Definition for singly-linked list.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * function ListNode(val) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.val = val;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.next = null;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {ListNode} head
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {ListNode}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">detectCycle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">head</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">has</span>(<span style="color:#a6e22e">node</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">node</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>2、快慢指针</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">detectCycle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">head</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 定义快慢指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">fast</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">slow</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//如果快指针一直走到链表末端，说明链表无环，返回null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fast</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">next</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 慢指针走一步
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">slow</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 快指针走两步
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fast</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">next</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 第一次相遇，退出循环
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">slow</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">fast</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 快指针回到链表头
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">fast</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">head</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 快慢指针一起走
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">slow</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">fast</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fast</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">slow</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">slow</span>.<span style="color:#a6e22e">next</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">slow</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

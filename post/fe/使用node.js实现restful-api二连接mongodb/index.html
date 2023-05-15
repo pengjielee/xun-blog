@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title"></h1><div class="post-meta">
+    <div class="date">0001-01-01</div>
+</div>
+</header>
+        <div class="content"><p>1、操作mongodb</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">创建数据库</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">testdb</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">switched</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">db</span> <span style="color:#a6e22e">testdb</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">查看数据库</span><span style="color:#960050;background-color:#1e0010">，</span><span style="color:#a6e22e">刚刚创建的并未显示</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">show</span> <span style="color:#a6e22e">dbs</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin</span>     <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">config</span>    <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">local</span>     <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">插入一条记录</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">testdb</span>.<span style="color:#a6e22e">insert</span>({<span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;testdb&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WriteResult</span>({ <span style="color:#e6db74">&#34;nInserted&#34;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">再次查看数据库</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">show</span> <span style="color:#a6e22e">dbs</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin</span>     <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">config</span>    <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">local</span>     <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">testdb</span>    <span style="color:#ae81ff">0.000</span><span style="color:#a6e22e">GB</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">创建集合</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">createCollection</span>(<span style="color:#e6db74">&#34;users&#34;</span>)
+</span></span><span style="display:flex;"><span>{ <span style="color:#e6db74">&#34;ok&#34;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">往集合中插入一条记录</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">insert</span>({<span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;admin&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WriteResult</span>({ <span style="color:#e6db74">&#34;nInserted&#34;</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">查看集合</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">show</span> <span style="color:#a6e22e">tables</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//or show collections;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">查看集合中的数据</span>	
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">find</span>()
+</span></span><span style="display:flex;"><span>{ <span style="color:#e6db74">&#34;_id&#34;</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">ObjectId</span>(<span style="color:#e6db74">&#34;611a0fcdd0d4bcd817972903&#34;</span>), <span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;admin&#34;</span> }
+</span></span></code></pre></div><p>2、创建配置文件</p>
+<p>src/config.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3000</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mongodb</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mongodb://localhost:27017/testdb&#39;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">config</span>;
+</span></span></code></pre></div><p>3、安装mongoose</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">mongoose</span>
+</span></span></code></pre></div><p>4、连接mongodb</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;express&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mongoose</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mongoose&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Schema</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoose</span>.<span style="color:#a6e22e">Schema</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">mongodb</span>, <span style="color:#a6e22e">port</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./config&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建mongodb数据库连接，并暴露在全局global
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">global</span>.<span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoose</span>.<span style="color:#a6e22e">createConnection</span>(<span style="color:#a6e22e">mongodb</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useNewUrlParser</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useUnifiedTopology</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义User模型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">model</span>(<span style="color:#e6db74">&#39;User&#39;</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Schema</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> String,
+</span></span><span style="display:flex;"><span>}))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/&#34;</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Hello World!&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 定义路由
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 查看所有用户
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">find</span>({});
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">list</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">port</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`My app listening at http://localhost:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">port</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>5、运行项目</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">dev</span>
+</span></span></code></pre></div><p>访问 <a href="http://localhost:3000/users">http://localhost:3000/users</a>，输出：[{&quot;_id&quot;:&ldquo;611a0fcdd0d4bcd817972903&rdquo;,&ldquo;name&rdquo;:&ldquo;admin&rdquo;}]</p>
+</div>
+    </div>
+
+        </div></body>
+</html>

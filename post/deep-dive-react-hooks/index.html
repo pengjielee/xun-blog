@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">React Hooks原理</h1><div class="post-meta">
+    <div class="date">2021-03-29</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="usestate实现">useState实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialValue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">state</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_val</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newVal</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newVal</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">setState</span>];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> [<span style="color:#a6e22e">foo</span>, <span style="color:#a6e22e">setFoo</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>) <span style="color:#75715e">// 数组解构
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>()); <span style="color:#75715e">//output: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setFoo</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>()); <span style="color:#75715e">//output: 1
+</span></span></span></code></pre></div><h2 id="在函数组件中使用">在函数组件中使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>) <span style="color:#75715e">// 和上文实现的一样
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;render:&#39;</span>, { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">count</span>() })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">C</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Counter</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">render</span>() <span style="color:#75715e">// render: { count: 0 }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">click</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">C</span>.<span style="color:#a6e22e">render</span>() <span style="color:#75715e">// render: { count: 1 }
+</span></span></span></code></pre></div><h2 id="react中的state需要设计为一个变量而不是一个函数">React中的state需要设计为一个变量而不是一个函数</h2>
+<p>1、有bug版</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialValue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newVal</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newVal</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">_val</span>, <span style="color:#a6e22e">setState</span>];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> [<span style="color:#a6e22e">foo</span>, <span style="color:#a6e22e">setFoo</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>); <span style="color:#75715e">//output: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setFoo</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>); <span style="color:#75715e">//output: 0
+</span></span></span></code></pre></div><p>2、模块内部的闭包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">MyReact</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_val</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Component</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Comp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Component</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Comp</span>.<span style="color:#a6e22e">render</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Comp</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_val</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">initialValue</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newVal</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newVal</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">_val</span>, <span style="color:#a6e22e">setState</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>) <span style="color:#75715e">// 和上文实现的一样
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;render:&#39;</span>, { <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">count</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">App</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>); <span style="color:#75715e">// render: { count: 0 }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">click</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>); <span style="color:#75715e">// render: { count: 1 }
+</span></span></span></code></pre></div><h2 id="实现useeffect">实现useEffect</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">MyReact</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_val</span>, <span style="color:#a6e22e">_deps</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Component</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Comp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Component</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Comp</span>.<span style="color:#a6e22e">render</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Comp</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useEffect</span>(<span style="color:#a6e22e">callback</span>, <span style="color:#a6e22e">depArray</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasNoDeps</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">depArray</span>; <span style="color:#75715e">//没有依赖项目
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasChangedDeps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_deps</span> <span style="color:#f92672">?</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">depArray</span>.<span style="color:#a6e22e">every</span>((<span style="color:#a6e22e">el</span>,<span style="color:#a6e22e">i</span>) =&gt; <span style="color:#a6e22e">el</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">_deps</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>; <span style="color:#75715e">//是否有改变的依赖项目
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">hasNoDeps</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">hasChangedDeps</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_deps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">depArray</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_val</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">initialValue</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setState</span>(<span style="color:#a6e22e">newVal</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newVal</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">_val</span>, <span style="color:#a6e22e">setState</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;effect&#39;</span>, <span style="color:#a6e22e">count</span>)
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">count</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">noop</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;render&#39;</span>, { <span style="color:#a6e22e">count</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">App</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 0}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">click</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 1}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">noop</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 1}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">click</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 2}
+</span></span></span></code></pre></div><h2 id="接收任意数量的state和effect">接收任意数量的state和effect</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">MyReact</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">hooks</span> <span style="color:#f92672">=</span> [],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">currentHook</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// hooks数组 和 当前hook的索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Component</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Comp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Component</span>(); <span style="color:#75715e">// 执行 effects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">Comp</span>.<span style="color:#a6e22e">render</span>();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">currentHook</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// 为下一次render重置hook索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Comp</span>;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useEffect</span>(<span style="color:#a6e22e">callback</span>, <span style="color:#a6e22e">depArray</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasNoDeps</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">depArray</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">deps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">currentHook</span>]; <span style="color:#75715e">// type: array | undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasChangedDeps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">deps</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">?</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">depArray</span>.<span style="color:#a6e22e">every</span>((<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">i</span>) =&gt; <span style="color:#a6e22e">el</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">deps</span>[<span style="color:#a6e22e">i</span>])
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">hasNoDeps</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">hasChangedDeps</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">currentHook</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">depArray</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">currentHook</span><span style="color:#f92672">++</span>; <span style="color:#75715e">// 当前hook处理完毕
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">initialValue</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">currentHook</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">currentHook</span>] <span style="color:#f92672">||</span> <span style="color:#a6e22e">initialValue</span>; <span style="color:#75715e">// type: any
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">setStateHookIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">currentHook</span>; <span style="color:#75715e">// 为了setState引用正确的闭包
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">setState</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">newState</span>) =&gt; (<span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">setStateHookIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">newState</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">hooks</span>[<span style="color:#a6e22e">currentHook</span><span style="color:#f92672">++</span>], <span style="color:#a6e22e">setState</span>];
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>使用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Counter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">setCount</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">setText</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;foo&#39;</span>) <span style="color:#75715e">// 第二个 state hook!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;effect&#39;</span>, <span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">text</span>)
+</span></span><span style="display:flex;"><span>  }, [<span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">text</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">txt</span> =&gt; <span style="color:#a6e22e">setText</span>(<span style="color:#a6e22e">txt</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">noop</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">setCount</span>(<span style="color:#a6e22e">count</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;render&#39;</span>, { <span style="color:#a6e22e">count</span>, <span style="color:#a6e22e">text</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">App</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 0 foo
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 0, text: &#39;foo&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">click</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 1 foo
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 1, text: &#39;foo&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;bar&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 1 bar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 1, text: &#39;bar&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">noop</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// // 没有effect执行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 1, text: &#39;bar&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">click</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Counter</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// effect 2 bar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// render {count: 2, text: &#39;bar&#39;}
+</span></span></span></code></pre></div><h2 id="自定义hook">自定义hook</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">useSplitURL</span>(<span style="color:#a6e22e">str</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">setText</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">useState</span>(<span style="color:#a6e22e">str</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">masked</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">text</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;.&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">masked</span>, <span style="color:#a6e22e">setText</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Component</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">setText</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSplitURL</span>(<span style="color:#e6db74">&#39;www.netlify.com&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">txt</span> =&gt; <span style="color:#a6e22e">setText</span>(<span style="color:#a6e22e">txt</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>({ <span style="color:#a6e22e">text</span> })
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">App</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Component</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// { text: [ &#39;www&#39;, &#39;netlify&#39;, &#39;com&#39; ] }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;www.reactjs.org&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">Component</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// { text: [ &#39;www&#39;, &#39;reactjs&#39;, &#39;org&#39; ] }}
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>29行代码深入React Hooks原理<br>
+<a href="https://juejin.cn/post/6844904128326434823">https://juejin.cn/post/6844904128326434823</a></p>
+<p>Deep dive: How do React hooks really work?<br>
+<a href="https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/">https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/</a></p>
+<p>ReactHooks原理及简单实现<br>
+<a href="https://www.shymean.com/article/ReactHooks%E5%8E%9F%E7%90%86%E5%8F%8A%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0">https://www.shymean.com/article/ReactHooks%E5%8E%9F%E7%90%86%E5%8F%8A%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

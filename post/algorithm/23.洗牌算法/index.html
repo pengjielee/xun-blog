@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">洗牌算法</h1><div class="post-meta">
+    <div class="date">2021-05-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="fisheryates-shuffle">Fisher–Yates shuffle</h2>
+<p>核心思想是从1到n之间随机取出一个数和最后一个数(n)交换，然后从1到n-1之间随机取出一个数和倒数第二个数(n-1)交换&hellip;</p>
+<p>步骤：</p>
+<ul>
+<li>
+<ol>
+<li>写下从 1 到 N 的数字</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>取一个从 1 到剩下的数字（包括这个数字）的随机数 k</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>从低位开始，得到第 k 个数字（这个数字还没有被取出），把它写在独立的一个列表的最后一位</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>重复第 2 步，直到所有的数字都被取出</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>第 3 步写出的这个序列，现在就是原始数字的随机排列</li>
+</ol>
+</li>
+</ul>
+<h2 id="经典实现">经典实现</h2>
+<p>步骤：</p>
+<ul>
+<li>
+<ol>
+<li>给定一组待混排的有限序列P</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>新初始化一个空的序列Q</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>从P中随机选取一个元素</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>将该元素放到序列Q的最后面，并从序列P中移除该元素</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>重复3-4的步骤，直到序列P中元素全部选取到了序列Q中，得到的序列Q即为一组P的混排序列</li>
+</ol>
+</li>
+</ul>
+<p>参考代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">shuffle</span>(<span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 初始化序列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//随机生成索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">idx</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//将该元素加入序列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">idx</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//从数组中移除该元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">idx</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="流行实现">流行实现</h2>
+<p>步骤：</p>
+<ul>
+<li>
+<ol>
+<li>给定一组待混排的有限序列P</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>从P中随机选取一个未混排的元素</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>将该元素与序列P的最后一个未混排的元素交换</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>重复2-3的步骤,直到序列P中元素全部混排过</li>
+</ol>
+</li>
+</ul>
+<p>参考代码1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">shuffle</span>(<span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//随机生成索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">idx</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//将随机生成的元素与数组中最后一个元素交换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">idx</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">idx</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">idx</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>参考代码2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Fisher–Yates shuffle
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">shuffle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//随机生成索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">randomIndex</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//将该元素与最后一个元素交换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">randomIndex</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">randomIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>参考代码3:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">shuffle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">len</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//随机生成索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">randomIndex</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#a6e22e">len</span><span style="color:#f92672">--</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//将该元素与最后一个元素交换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">len</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">len</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">randomIndex</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">randomIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="lodash实现">Lodash实现</h2>
+<p>shuffle.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">copyArray</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./.internal/copyArray.js&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Creates an array of shuffled values, using a version of the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @since 0.1.0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @category Array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {Array} array The array to shuffle.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @returns {Array} Returns the new shuffled array.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @example
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * shuffle([1, 2, 3, 4])
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * // =&gt; [4, 1, 3, 2]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">shuffle</span>(<span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> []
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">copyArray</span>(<span style="color:#a6e22e">array</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rand</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> (<span style="color:#a6e22e">lastIndex</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">rand</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">rand</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">index</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">shuffle</span>
+</span></span></code></pre></div><p>.internal/copyArray.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copies the values of `source` to `array`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @private
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {Array} source The array to copy values from.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {Array} [array=[]] The array to copy values to.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @returns {Array} Returns `array`.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">copyArray</span>(<span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">array</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">length</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">array</span> <span style="color:#f92672">||</span> (<span style="color:#a6e22e">array</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Array(<span style="color:#a6e22e">length</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">index</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">copyArray</span>
+</span></span></code></pre></div><h2 id="mathrandom">Math.random()</h2>
+<p>Math.random() 函数返回一个浮点数,  伪随机数在范围从0到小于1，也就是说，从0（包括0）往上，但是不包括1（排除1）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getRandomInt</span>(<span style="color:#a6e22e">max</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#a6e22e">max</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">getRandomInt</span>(<span style="color:#ae81ff">3</span>));
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// expected output: 0, 1 or 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">getRandomInt</span>(<span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// expected output: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Math.<span style="color:#a6e22e">random</span>());
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// expected output: a number from 0 to &lt;1
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>如何将一个 JavaScript 数组打乱顺序？<br>
+<a href="https://www.zhihu.com/question/68330851">https://www.zhihu.com/question/68330851</a></p>
+<p>Fisher–Yates shuffle 洗牌算法  <br>
+<a href="https://gaohaoyang.github.io/2016/10/16/shuffle-algorithm/">https://gaohaoyang.github.io/2016/10/16/shuffle-algorithm/</a></p>
+<p>Fisher–Yates shuffle 洗牌算法<br>
+<a href="https://www.cnblogs.com/star91/p/FisherYates-shuffle-xi-pai-suan-fa.html">https://www.cnblogs.com/star91/p/FisherYates-shuffle-xi-pai-suan-fa.html</a></p>
+<p>Fisher–Yates shuffle<br>
+<a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/flask/</link>
+    <description>Recent content in Flask on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 25 Feb 2021 14:34:40 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Flask Web开发：Session实现简单登录</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-session-implements-simple-login/</link>
+      <pubDate>Thu, 25 Feb 2021 14:34:40 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-session-implements-simple-login/</guid>
+      <description>设置密钥 app.secret_key = b&amp;#39;_5#y2L&amp;#34;F4Q8z\n\xec]/&amp;#39; 生成随机密钥：
+$ python -c &amp;#39;import os; print(os.urandom(16))&amp;#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &amp;#39;nimei&amp;#39; @app.route(&amp;#39;/&amp;#39;) def index(): return &amp;#39;&amp;lt;h1&amp;gt;Welcome&amp;lt;/h1&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a href=&amp;#34;/login&amp;#34;&amp;gt;登录&amp;lt;/a&amp;gt;&amp;#39; 登录 storage = {&amp;#39;username&amp;#39;: &amp;#39;lipengjie&amp;#39;, &amp;#39;password&amp;#39;: &amp;#39;123456&amp;#39;} @app.route(&amp;#39;/login&amp;#39;, methods=[&amp;#39;GET&amp;#39;, &amp;#39;POST&amp;#39;]) def login(): if request.method == &amp;#39;POST&amp;#39;: username = request.form[&amp;#39;username&amp;#39;] password = request.form[&amp;#39;password&amp;#39;] # 判断与服务器存储的用户密码是否一致，此处用一个对象模拟数据库 if storage[&amp;#39;username&amp;#39;] == username and storage[&amp;#39;password&amp;#39;] == password: # 登录成功以后，把用户名存入session，并跳转后台 session[&amp;#39;username&amp;#39;] = username return redirect(url_for(&amp;#39;admin&amp;#39;)) else: return &amp;#39;用户名或密码错误！&amp;#39; else: return render_template(&amp;#39;newlogin.</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发：重定向,终止响应,错误页</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-redirect-abort-notfound/</link>
+      <pubDate>Thu, 25 Feb 2021 14:34:40 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-redirect-abort-notfound/</guid>
+      <description>重定向 from flask import abort, redirect, url_for @app.route(&amp;#39;/welcome&amp;#39;) def welcome(): return redirect(url_for(&amp;#39;login&amp;#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&amp;#39;/login&amp;#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) def page_not_found(error): return render_template(&amp;#39;404.html&amp;#39;, 404) </description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发：渲染模板</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-render-templates/</link>
+      <pubDate>Thu, 25 Feb 2021 14:13:53 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-render-templates/</guid>
+      <description>渲染模板 1、创建模板目录 templates，及模板文件
+$ mkdir templates &amp;amp;&amp;amp; cd templates $ touch hello.html $ touch login.html 2、目录结构
+/flask_web /templates /hello.html /login.html /app.py 3、模板文件
+hello.html
+&amp;lt;!doctype html&amp;gt; &amp;lt;title&amp;gt;Hello from Flask&amp;lt;/title&amp;gt; {% if name %} &amp;lt;h1&amp;gt;Hello {{ name }}!&amp;lt;/h1&amp;gt; {% else %} &amp;lt;h1&amp;gt;Hello, World!&amp;lt;/h1&amp;gt; {% endif %} login.html
+&amp;lt;!doctype html&amp;gt; &amp;lt;h1&amp;gt;{{ title }}&amp;lt;/h1&amp;gt; &amp;lt;form action=&amp;#34;/login&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label&amp;gt;用户名&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label&amp;gt;密码&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;password&amp;#34; name=&amp;#34;password&amp;#34;/&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;button&amp;gt;login&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 4、指定模板
+from flask import render_template @app.</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发：HTTP方法</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-http-methods/</link>
+      <pubDate>Thu, 25 Feb 2021 13:18:40 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-http-methods/</guid>
+      <description>定义 GET 方法（默认） from flask import request from flask import render_template @app.route(&amp;#39;/register&amp;#39;, methods=[&amp;#39;GET&amp;#39;]) def register(): return render_template(&amp;#39;register.html&amp;#39;, title=&amp;#39;Register Form&amp;#39;) 定义 POST 方法 from flask import request from markupsafe import escape @app.route(&amp;#39;/register&amp;#39;, methods=[&amp;#39;POST&amp;#39;]) def register_submit(): name = request.form[&amp;#39;name&amp;#39;] email = request.form[&amp;#39;email&amp;#39;] return &amp;#39;Username: &amp;#39; + escape(name) + &amp;#39;, Email: &amp;#39; + escape(email) 合在一起 @app.route(&amp;#39;/register&amp;#39;, methods=[&amp;#39;POST&amp;#39;]) def register(): if request.method == &amp;#39;POST&amp;#39;: name = request.form[&amp;#39;name&amp;#39;] email = request.form[&amp;#39;email&amp;#39;] return &amp;#39;Username: &amp;#39; + escape(name) + &amp;#39;, Email: &amp;#39; + escape(email) else: return render_template(&amp;#39;register.</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发：定义路由及变量约束</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-define-routes-and-variable-constraint/</link>
+      <pubDate>Thu, 25 Feb 2021 11:37:03 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-define-routes-and-variable-constraint/</guid>
+      <description>创建 app.py （flask默认会运行app.py文件) from flask import Flask from markupsafe import escape app = Flask(__name__) @app.route(&amp;#39;/&amp;#39;) def index(): return &amp;#39;Index Page&amp;#39; 定义多个路由 @app.route(&amp;#39;/hello&amp;#39;) def hello(): return &amp;#39;Hello, World&amp;#39; @app.route(&amp;#39;/about&amp;#39;) def about(): return &amp;#39;About Page&amp;#39; 路由变量约束 接受变量类型：
+string，默认类型，接受任何字符串（斜杠除外） int，接受整数； float，接受浮点数； path，类似字符串（包括斜杠）； uuid，接受UUID； @app.route(&amp;#39;/post/&amp;lt;int:post_id&amp;gt;&amp;#39;) def show_post(post_id): return &amp;#39;Post: %d&amp;#39; % post_id @app.route(&amp;#39;/user/&amp;lt;username&amp;gt;&amp;#39;) def show_user(username): return &amp;#39;User: %s&amp;#39; % escape(username) @app.route(&amp;#39;/path/&amp;lt;path:subpath&amp;gt;&amp;#39;) def show_path(subpath): return &amp;#39;Subpath: %s&amp;#39; % escape(subpath) @app.route(&amp;#39;/product/&amp;lt;float:price&amp;gt;&amp;#39;) def show_price(price): return &amp;#39;Price: %f&amp;#39; % price 请求响应：</description>
+    </item>
+    
+    <item>
+      <title>Flask Web开发：HelloWorld</title>
+      <link>https://www.pengjielee.cn/post/flask-web-development-helloworld/</link>
+      <pubDate>Thu, 25 Feb 2021 10:41:37 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/flask-web-development-helloworld/</guid>
+      <description>安装 flask $ pip install flask 查看flask版本
+$ flask --version 终端输出：
+Flask 1.0.2 Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31) [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] 创建项目目录 $ mkdir flask_web &amp;amp;&amp;amp; cd flask_web 创建 hello.py from flask import Flask app = Flask(__name__) @app.route(&amp;#39;/&amp;#39;) def hello(): return &amp;#39;Hello, World!&amp;#39; 运行 $ export FLASK_APP=hello.py $ flask run 终端输出：
+peng@localhost flask_web % export FLASK_APP=hello.py peng@localhost flask_web % flask run * Serving Flask app &amp;#34;hello.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">130.被围绕的区域</h1><div class="post-meta">
+    <div class="date">2021-07-21</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给你一个 m x n 的矩阵 board ，由若干字符 &lsquo;X&rsquo; 和 &lsquo;O&rsquo; ，找到所有被 &lsquo;X&rsquo; 围绕的区域，并将这些区域里所有的 &lsquo;O&rsquo; 用 &lsquo;X&rsquo; 填充。
+ </p>
+<pre tabindex="0"><code>示例 1：
+
+&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;O&#34;,&#34;O&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;X&#34;,&#34;O&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;
+
+||
+
+&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;
+&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;
+
+
+输入：board = [[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;O&#34;,&#34;O&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;X&#34;,&#34;O&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;]]
+输出：[[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;X&#34;,&#34;X&#34;,&#34;X&#34;],[&#34;X&#34;,&#34;O&#34;,&#34;X&#34;,&#34;X&#34;]]
+解释：被围绕的区间不会存在于边界上，换句话说，任何边界上的 &#39;O&#39; 都不会被填充为 &#39;X&#39;。 任何不在边界上，或不与边界上的 &#39;O&#39; 相连的 &#39;O&#39; 最终都会被填充为 &#39;X&#39;。如果两个元素在水平或垂直方向相邻，则称它们是“相连”的。
+
+示例 2：
+输入：board = [[&#34;X&#34;]]
+输出：[[&#34;X&#34;]]
+</code></pre><p>提示：</p>
+<ul>
+<li>m == board.length</li>
+<li>n == board[i].length</li>
+<li>1 &lt;= m, n &lt;= 200</li>
+<li>board[i][j] 为 &lsquo;X&rsquo; 或 &lsquo;O&rsquo;</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/surrounded-regions
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {character[][]} board
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {void} Do not return anything, modify board in-place instead.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">solve</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">board</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

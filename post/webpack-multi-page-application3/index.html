@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Webpack多页面应用3：快速创建页面</h1><div class="post-meta">
+    <div class="date">2021-03-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="安装依赖">安装依赖</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ npm install chalk inquirer fs-extra -D 
+</span></span></code></pre></div><ul>
+<li>chalk，终端美化；</li>
+<li>inquirer，命令行交互工具；</li>
+<li>fs-extra，fs模块的增加版；</li>
+</ul>
+<h2 id="创建页面的脚本">创建页面的脚本</h2>
+<p>newPage.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;path&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chalk</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;chalk&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">inquirer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;inquirer&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs-extra&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 获取传递的参数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">argv</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建html文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">createHtml</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#a6e22e">dirName</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;!DOCTYPE html&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;html&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;meta charset=&#34;UTF-8&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, shrink-to-fit=no&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;meta name=&#34;keywords&#34; content=&#34;&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;meta name=&#34;description&#34; content=&#34;&#34;/&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;/head&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div id=&#34;root&#34;&gt;&lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &lt;/body&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;/html&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chalk</span>.<span style="color:#a6e22e">green</span>(<span style="color:#e6db74">`src/pages/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dirName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/index.html created.`</span>));
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建script文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">createScript</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#a6e22e">dirName</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`import React from &#39;react&#39;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">import ReactDOM from &#39;react-dom&#39;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">import &#39;./style.scss&#39;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">function App() {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  return &lt;h1&gt;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dirName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> page&lt;/h1&gt;;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;));
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#a6e22e">content</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chalk</span>.<span style="color:#a6e22e">green</span>(<span style="color:#e6db74">`src/pages/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dirName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/index.js created.`</span>));
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 创建style文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">createStyle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#a6e22e">dirName</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">writeFileSync</span>(<span style="color:#a6e22e">desFilePath</span>, <span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chalk</span>.<span style="color:#a6e22e">green</span>(<span style="color:#e6db74">`src/pages/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dirName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/index.scss created.`</span>));
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dirName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toLowerCase</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dirName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dirName</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;.&#39;</span>).<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;/&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">desDir</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">__dirname</span>, <span style="color:#e6db74">&#39;../src/pages/&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 判断目录是否存在，不存在则创建
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">existsSync</span>(<span style="color:#a6e22e">desDir</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">mkdirpSync</span>(<span style="color:#a6e22e">desDir</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">createHtml</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;index.html&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">createScript</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;index.js&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">createStyle</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;style.scss&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果存在，询问是否覆盖
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">chalk</span>.<span style="color:#a6e22e">red</span>(<span style="color:#a6e22e">dirName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; existed!&#39;</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">inquirer</span>
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">prompt</span>([
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;yes&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;confirm&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Is covered?&#39;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      ])
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">answers</span> =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">answers</span>.<span style="color:#a6e22e">yes</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">createHtml</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;index.html&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">createScript</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;index.js&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">createStyle</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">desDir</span>, <span style="color:#e6db74">&#39;style.scss&#39;</span>), <span style="color:#a6e22e">dirName</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">chalk</span>.<span style="color:#a6e22e">red</span>(<span style="color:#e6db74">&#39;No name provided, try `npm run newPage [name]` instead.&#39;</span>),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="定义-npm-scripts">定义 npm scripts</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">scripts:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;newPage&#34;</span>: <span style="color:#e6db74">&#34;node scripts/newPage.js&#34;</span>,
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><h2 id="使用">使用</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建博客页面</span>
+</span></span><span style="display:flex;"><span>$ npm run newPage blog
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建博客列表页面（.用于多级目录创建）</span>
+</span></span><span style="display:flex;"><span>$ npm run newPage blog.list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建博客详情页（.用于多级目录创建）</span>
+</span></span><span style="display:flex;"><span>$ npm run newPage blog.detail
+</span></span></code></pre></div><p>项目源码见（切换 tag 至 multi-page-app3）<code>git checkout multi-page-app3</code>：
+<a href="https://github.com/pengjielee/reactapp/tree/main/multi-pages">https://github.com/pengjielee/reactapp/tree/main/multi-pages</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Git tag操作</h1><div class="post-meta">
+    <div class="date">2020-12-04</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/git/" rel="tag">Git</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="1-显示所有tag">1. 显示所有tag</h2>
+<pre tabindex="0"><code>git tag
+</code></pre><h2 id="2-查看某个版本的tag">2. 查看某个版本的tag</h2>
+<pre tabindex="0"><code>git tag -l &#39;v1.0.*&#39;
+</code></pre><h2 id="3-创建标签">3. 创建标签</h2>
+<pre tabindex="0"><code>git tag -a v1.0.0 -m &#39;版本1.0&#39;
+</code></pre><h2 id="4-查看标签的详情可以看到你commit的内容">4. 查看标签的详情，可以看到你commit的内容</h2>
+<pre tabindex="0"><code>git show v1.0.0
+</code></pre><h2 id="5-推送标签">5. 推送标签</h2>
+<pre tabindex="0"><code>git push origin v1.0.0
+</code></pre><h2 id="6-删除本地标签">6. 删除本地标签</h2>
+<pre tabindex="0"><code>git tag -d v1.0.0
+</code></pre><h2 id="7-删除远程标签">7. 删除远程标签</h2>
+<pre tabindex="0"><code>git push origin :refs/tags/v1.0.0
+</code></pre><h2 id="more">More</h2>
+<p>Git tag用法<br>
+<a href="https://www.jianshu.com/p/50c1b2433774">https://www.jianshu.com/p/50c1b2433774</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

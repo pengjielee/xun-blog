@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">创建你自己的React</h1><div class="post-meta">
+    <div class="date">2021-03-29</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/build/" rel="tag">build</a>
+                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="version1-jsx">version1: jsx</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Hello</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>);
+</span></span></code></pre></div><h2 id="version2-reactcreateelement">version2: React.createElement</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;h1&#34;</span>,
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span>},
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Hello&#34;</span>
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>);
+</span></span></code></pre></div><h2 id="version3-convert-jsx-to-js">version3: convert jsx to js</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;h1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>);
+</span></span></code></pre></div><h2 id="version4">version4:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;h1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;root&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node</span>[<span style="color:#e6db74">&#34;title&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">title</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createTextNode</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">text</span>[<span style="color:#e6db74">&#34;nodeValue&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">text</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">node</span>);
+</span></span></code></pre></div><h2 id="version5">version5:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">a</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">bar</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/a&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;div&#34;</span>,
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#34;bar&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;b&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>)
+</span></span></code></pre></div><h2 id="version6">version6:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">props</span>, ...<span style="color:#a6e22e">children</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      ...<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>demo:</p>
+<pre tabindex="0"><code>createElement(&#34;div&#34;);
+//Output: {&#34;type&#34;:&#34;div&#34;,&#34;props&#34;:{&#34;children&#34;:[]}}
+
+createElement(&#34;div&#34;, null, &#34;a&#34;)
+//Output: {&#34;type&#34;:&#34;div&#34;,&#34;props&#34;:{&#34;children&#34;:[&#34;a&#34;]}}
+
+createElement(&#34;div&#34;, null, &#34;a&#34;, &#34;b&#34;) 
+//Output: {&#34;type&#34;:&#34;div&#34;,&#34;props&#34;:{&#34;children&#34;:[&#34;a&#34;,&#34;b&#34;]}}
+</code></pre><h2 id="step1-实现createelement">Step1: 实现createElement</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">type</span>, <span style="color:#a6e22e">props</span>, ...<span style="color:#a6e22e">children</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      ...<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">children</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">child</span> =&gt; <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;object&#34;</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">createTextElement</span>(<span style="color:#a6e22e">child</span>)), 
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createTextElement</span>(<span style="color:#a6e22e">text</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;TEXT_ELEMENT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nodeValue</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">text</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [],
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>实现MyReact</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MyReact</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">createElement</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">createElement</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;div&#34;</span>,
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#34;bar&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">MyReact</span>.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#34;b&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;root&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>)
+</span></span></code></pre></div><h2 id="step2-实现render">Step2: 实现render</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;TEXT_ELEMENT&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">?</span> document.<span style="color:#a6e22e">createTextNode</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isProperty</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> =&gt; <span style="color:#a6e22e">key</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;children&#34;</span>;
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isProperty</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>[<span style="color:#a6e22e">name</span>]
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">child</span> =&gt; 
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">child</span>, <span style="color:#a6e22e">dom</span>)
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">dom</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="step3-concurrent-mode">Step3: Concurrent Mode</h2>
+<p>DOM树太大时，会阻塞浏览器主进程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">workLoop</span>(<span style="color:#a6e22e">deadline</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">shouldYield</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">nextUnitOfWork</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">deadline</span>.<span style="color:#a6e22e">timeRemaining</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">nextUnitOfWork</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//TODO
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><h2 id="step4-fibers">Step4: Fibers</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createDom</span>(<span style="color:#a6e22e">fiber</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;TEXT_ELEMENT&#34;</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">?</span> document.<span style="color:#a6e22e">createTextNode</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">type</span>);
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isProperty</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> =&gt; <span style="color:#a6e22e">key</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;children&#34;</span>;
+</span></span><span style="display:flex;"><span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isProperty</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>[<span style="color:#a6e22e">name</span>]
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dom</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">container</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">element</span>],
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">workLoop</span>(<span style="color:#a6e22e">deadline</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">shouldYield</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">nextUnitOfWork</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">deadline</span>.<span style="color:#a6e22e">timeRemaining</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">fiber</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createDom</span>(<span style="color:#a6e22e">fiber</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">parent</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">dom</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prevSibling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">elements</span>.<span style="color:#a6e22e">length</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">index</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newFiber</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">parent</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fiber</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">prevSibling</span>.<span style="color:#a6e22e">sibling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prevSibling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextFiber</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">parent</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="step5-render-and-commit-phases">Step5: Render and Commit Phases</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">commitRoot</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// TODO add nodes to dom
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">wipRoot</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">container</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">element</span>],
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wipRoot</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">wipRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">workLoop</span>(<span style="color:#a6e22e">deadline</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">shouldYield</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">nextUnitOfWork</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">shouldYield</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">deadline</span>.<span style="color:#a6e22e">timeRemaining</span>() <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">wipRoot</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">commitRoot</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">requestIdleCallback</span>(<span style="color:#a6e22e">workLoop</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">fiber</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createDom</span>(<span style="color:#a6e22e">fiber</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// if(fiber.parent) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//   fiber.parent.dom.appendChild(fiber.dom);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prevSibling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">elements</span>.<span style="color:#a6e22e">length</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">index</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newFiber</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">parent</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fiber</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">prevSibling</span>.<span style="color:#a6e22e">sibling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prevSibling</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newFiber</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextFiber</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">parent</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="step6-reconciliation">Step6: Reconciliation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isEvent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> =&gt; <span style="color:#a6e22e">key</span>.<span style="color:#a6e22e">startsWith</span>(<span style="color:#e6db74">&#34;on&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isProperty</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> =&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">key</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;children&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">isEvent</span>(<span style="color:#a6e22e">key</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// const isProperty = key =&gt; key !== &#34;children&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">prev</span>, <span style="color:#a6e22e">next</span>) =&gt; <span style="color:#a6e22e">key</span> =&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">prev</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">!==</span> <span style="color:#a6e22e">next</span>[<span style="color:#a6e22e">key</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isGone</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">prev</span>, <span style="color:#a6e22e">next</span>) =&gt; <span style="color:#a6e22e">key</span> =&gt; <span style="color:#f92672">!</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">next</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateDom</span>(<span style="color:#a6e22e">dom</span>, <span style="color:#a6e22e">prevProps</span>, <span style="color:#a6e22e">nextProps</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//Remove old or changed event listeners
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">prevProps</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isEvent</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">key</span> =&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">!</span>(<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">nextProps</span>) <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">isNew</span>(<span style="color:#a6e22e">prevProps</span>, <span style="color:#a6e22e">nextProps</span>)(<span style="color:#a6e22e">key</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">toLowerCase</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>.<span style="color:#a6e22e">removeEventListener</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">eventType</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prevProps</span>[<span style="color:#a6e22e">name</span>]
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Remove old properties
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">prevProps</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isProperty</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isGone</span>(<span style="color:#a6e22e">prevProps</span>, <span style="color:#a6e22e">nextProps</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Set new or changed properties
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">nextProps</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isProperty</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isNew</span>(<span style="color:#a6e22e">prevProps</span>, <span style="color:#a6e22e">nextProps</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>[<span style="color:#a6e22e">name</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">nextProps</span>[<span style="color:#a6e22e">name</span>]
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Add event listeners
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">nextProps</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isEvent</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">isNew</span>(<span style="color:#a6e22e">prevProps</span>, <span style="color:#a6e22e">nextProps</span>))
+</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">name</span> =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">toLowerCase</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">dom</span>.<span style="color:#a6e22e">addEventListener</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">eventType</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">nextProps</span>[<span style="color:#a6e22e">name</span>]
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">commitRoot</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deletions</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">commitWork</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">commitWork</span>(<span style="color:#a6e22e">wipRoot</span>.<span style="color:#a6e22e">child</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">currentRoot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wipRoot</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">wipRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">commitWork</span>(<span style="color:#a6e22e">fiber</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">fiber</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">domParent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">parent</span>.<span style="color:#a6e22e">dom</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">effectTag</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;PLACEMENT&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">domParent</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">effectTag</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;UPDATE&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">updateDom</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>, <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">alternate</span>.<span style="color:#a6e22e">props</span>, <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">effectTag</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;DELETION&#34;</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">domParent</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">commitWork</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">commitWork</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">sibling</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">render</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">container</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">wipRoot</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">container</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">element</span>],
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alternate</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">currentRoot</span>,
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">deletions</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wipRoot</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextUnitOfWork</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">currentRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">wipRoot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">deletions</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">performUnitOfWork</span>(<span style="color:#a6e22e">fiber</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">dom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createDom</span>(<span style="color:#a6e22e">fiber</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">elements</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">children</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">reconcileChildren</span>(<span style="color:#a6e22e">fiber</span>, <span style="color:#a6e22e">elements</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fiber</span>.<span style="color:#a6e22e">child</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fiber</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">nextFiber</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>){
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">sibling</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">nextFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nextFiber</span>.<span style="color:#a6e22e">parent</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reconcileChildren</span>(<span style="color:#a6e22e">wipFiber</span>, <span style="color:#a6e22e">elements</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">oldFiber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wipFiber</span>.<span style="color:#a6e22e">alternate</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">wipFiber</span>.<span style="color:#a6e22e">alternate</span>.<span style="color:#a6e22e">child</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prevSibling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span>(<span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">elements</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">oldFiber</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">elements</span>[<span style="color:#a6e22e">index</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">newFiber</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sameType</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">oldFiber</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">element</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">oldFiber</span>.<span style="color:#a6e22e">type</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">sameType</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// TODO update the node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">newFiber</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oldFiber</span>.<span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oldFiber</span>.<span style="color:#a6e22e">dom</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">parent</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wipFiber</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alternate</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">oldFiber</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">effectTag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;UPDATE&#34;</span>,
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">element</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">sameType</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// TODO add this node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">newFiber</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">type</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">props</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">dom</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">parent</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wipFiber</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">alternate</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">effectTag</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;PLACEMENT&#34;</span>,
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">oldFiber</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">sameType</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// TODO delete the oldFiber&#39;s node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">oldFiber</span>.<span style="color:#a6e22e">effectTag</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DELETION&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">deletions</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">oldFiber</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// const newFiber = {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   type: element.type,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   props: element.props,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   parent: wipFiber,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   dom: null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if(index === 0){
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   wipFiber.child = newFiber;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// } else {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//   prevSibling.sibling = newFiber;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// prevSibling = newFiber;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>build-your-own-react<br>
+<a href="https://pomb.us/build-your-own-react/">https://pomb.us/build-your-own-react/</a></p>
+<p>didact<br>
+<a href="https://github.com/pomber/didact">https://github.com/pomber/didact</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

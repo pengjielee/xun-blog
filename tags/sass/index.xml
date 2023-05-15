@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sass on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/sass/</link>
+    <description>Recent content in Sass on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 09 Oct 2020 11:25:27 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/sass/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微信小程序中使用Sass</title>
+      <link>https://www.pengjielee.cn/post/wechat-miniprogram-use-sass/</link>
+      <pubDate>Fri, 09 Oct 2020 11:25:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/wechat-miniprogram-use-sass/</guid>
+      <description>实现思路 使用脚本监听某个目录文件变化，把sass文件内容编译成wxss后缀的文件。
+目录结构 --assets（存放静态资源目录） ----scss（存放scss源文件目录） ----wxss（存放编译后的wxss文件目录） scss源文件结构 1、变量文件_var.scss
+$primary-color: #31373F; $secondary-color: #99A0AA; $third-color: #989FA9; $primary-font: 38rpx; 2、混合器文件_mixin.scss
+@mixin center { display: flex; align-items: center; justify-content: center; } @mixin between { display: flex; align-items: center; justify-content: space-between; } 3、全局文件global.scss
+@import &amp;#34;var&amp;#34;; @import &amp;#34;mixin&amp;#34;; .page { background: red; } 4、首页home.scss
+@import &amp;#34;var&amp;#34;; @import &amp;#34;mixin&amp;#34;; .page-home { background: blue; } Nodejs监听sass文件 1、安装依赖
+npm install -save-dev chokidar node-sass 2、watcher.js
+const chokidar = require(&amp;#39;chokidar&amp;#39;); const sass = require(&amp;#39;node-sass&amp;#39;); const path = require(&amp;#39;path&amp;#39;); const fs = require(&amp;#39;fs&amp;#39;); //监听的文件 const watchFile = path.</description>
+    </item>
+    
+  </channel>
+</rss>

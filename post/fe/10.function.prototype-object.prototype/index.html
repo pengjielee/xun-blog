@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">10.Function.prototype &amp; Object.prototype.md</h1><div class="post-meta">
+    <div class="date">2021-04-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="一道题目">一道题目</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Function.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">alert</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">alert</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">a</span>(); <span style="color:#75715e">//Uncaught TypeError: bar.a is not a function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">b</span>(); <span style="color:#75715e">//2
+</span></span></span></code></pre></div><h2 id="表达式结果">表达式结果</h2>
+<p>以下为chrome 88.0.4324.96</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">F</span>(){};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这是一个构造函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">F</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 这是一个对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">o</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 构造函数的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">F</span>.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 不太理解？实例对象没有原型对象？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;undefined&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这是一个实例对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">F</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 不太理解？实例对象没有原型对象？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">F</span>).<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;undefined&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 实例对象的属性__proto__，指向原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">F</span>).<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 构造函数的属性__proto__，指向Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">F</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 实例对象的属性__proto__，指责o的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Object是一个函数创建的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object;  <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Function是一个函数创建的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 函数实例对象的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> Function).<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 函数实例对象的属性__proto__，指向Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> Function).<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 实例对象的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> Object).<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;undefined&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 实例对象的属性__proto__，指向Object的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> (<span style="color:#66d9ef">new</span> Object).<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Object的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Object的属性__proto__，指向Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Function的属性__proto__，指向Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span></code></pre></div><h2 id="prototype-vs-__proto__">prototype vs <code>__proto__</code></h2>
+<p>前提：</p>
+<p>1、在JS里，万物皆对象。</p>
+<p>方法（Function）是对象，方法的原型(Function.prototype)是对象。因此，它们都会具有对象共有的特点。</p>
+<p>即：对象具有属性<code>__proto__</code>，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">typeof</span> <span style="color:#66d9ef">new</span> Function(); <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#66d9ef">new</span> Function().<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//&#39;object&#39;
+</span></span></span></code></pre></div><p>2、方法(Function)</p>
+<p>方法是个特殊的对象，除了和其他对象一样有上述<code>__proto__</code>属性之外，还有自己特有的属性——原型属性（prototype），这个属性是一个指针，指向一个对象，这个对象的用途就是包含所有实例共享的属性和方法（我们把这个对象叫做原型对象）。原型对象也有一个属性，叫做constructor，这个属性包含了一个指针，指回原构造函数。</p>
+<p>看代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//构造函数Foo
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>(<span style="color:#a6e22e">name</span>){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//构造函数的原型对象，添加方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">sayHi</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//实例1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>(<span style="color:#e6db74">&#39;f1&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//实例2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>(<span style="color:#e6db74">&#39;f2&#39;</span>);
+</span></span></code></pre></div><p>1、构造函数Foo()</p>
+<p>构造函数的原型属性Foo.prototype指向了原型对象，在原型对象里有共有的方法，所有构造函数声明的实例（这里是f1，f2）都可以共享这个方法。</p>
+<p>2、原型对象Foo.prototype</p>
+<p>Foo.prototype保存着实例共享的方法，有一个指针constructor指回构造函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//{constructor: ƒ}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">constructor</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">Foo</span>; <span style="color:#75715e">//true
+</span></span></span></code></pre></div><p>3、实例</p>
+<p>f1和f2是Foo这个对象的两个实例，这两个对象也有属性<code>__proto__</code>，指向构造函数的原型对象，这样子就可以像上面1所说的访问原型对象的所有方法啦。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// f1的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//{sayHi: ƒ, constructor: ƒ}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// f2的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f2</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//{sayHi: ƒ, constructor: ƒ}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// f1/f2的原型对象 与 F的原型对象 不相等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">F</span>.<span style="color:#a6e22e">prototype</span>;  <span style="color:#75715e">//false ?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f2</span>.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">F</span>.<span style="color:#a6e22e">prototype</span>;  <span style="color:#75715e">//false ?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// f1/f2的原型对象 相等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">f2</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// f1的原型对象指向的构造函数 与 Foo 相等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">__proto__</span>.<span style="color:#a6e22e">constructor</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">Foo</span>; <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// f1的原型对象指向的构造函数 与 Foo原型对象指向的构造函数 相等
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">f1</span>.<span style="color:#a6e22e">__proto__</span>.<span style="color:#a6e22e">constructor</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">constructor</span>; <span style="color:#75715e">//true
+</span></span></span></code></pre></div><p>另外：</p>
+<p>构造函数Foo()除了是方法，也是对象啊，它也有<code>__proto__</code>属性，指向谁呢？
+指向它的构造函数的原型对象呗。函数的构造函数不就是Function嘛，因此这里的<code>__proto__</code>指向了Function.prototype。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 构造函数的类型是&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">Foo</span>; <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Foo的__proto__属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//ƒ () { [native code] }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Foo的__proto__属性指向的原型对象 等于 Function的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> Function.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Foo的__proto__属性指向的构造函数 等于 Function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">__proto__</span>.<span style="color:#a6e22e">constructor</span> <span style="color:#f92672">===</span> Function; <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Foo的原型对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//{sayHi: ƒ, constructor: ƒ}
+</span></span></span></code></pre></div><p>其实除了Foo()，Function(), Object()也是一样的道理。原型对象也是对象啊，它的<code>__proto__</code>属性，又指向谁呢？同理，指向它的构造函数的原型对象呗。这里是Object.prototype.最后，Object.prototype的<code>__proto__</code>属性指向null。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Function的原型对象的__proto__属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Function.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">__proto__</span>;
+</span></span><span style="display:flex;"><span>Function.<span style="color:#a6e22e">__proto__</span>;  <span style="color:#75715e">//ƒ () { [native code] }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Function.<span style="color:#a6e22e">__proto__</span> <span style="color:#f92672">===</span> Function.<span style="color:#a6e22e">prototype</span>;  <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Function.<span style="color:#a6e22e">__proto__</span>  <span style="color:#f92672">===</span> Object.<span style="color:#a6e22e">__proto__</span>;  <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typeof</span> Function;                      <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function.<span style="color:#a6e22e">prototype</span>;            <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function.<span style="color:#a6e22e">__proto__</span>;            <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Function.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">__proto__</span>;  <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Object的原型对象的__proto__属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">__proto__</span>; <span style="color:#75715e">//null
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">__proto__</span>;  <span style="color:#75715e">//ƒ () { [native code] }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">__proto__</span>  <span style="color:#f92672">===</span> Object.<span style="color:#a6e22e">prototype</span>;   <span style="color:#75715e">//false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Object.<span style="color:#a6e22e">__proto__</span>  <span style="color:#f92672">===</span> Function.<span style="color:#a6e22e">prototype</span>; <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typeof</span> Object;                      <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object.<span style="color:#a6e22e">prototype</span>;            <span style="color:#75715e">//&#39;object&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object.<span style="color:#a6e22e">__proto__</span>;            <span style="color:#75715e">//&#39;function&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">__proto__</span>;  <span style="color:#75715e">//&#39;object&#39;
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨<br>
+<a href="https://segmentfault.com/a/1190000005754797">https://segmentfault.com/a/1190000005754797</a></p>
+<p>写给自己的Object和Function的3个灵魂拷问<br>
+<a href="https://juejin.cn/post/6854573208109056007">https://juejin.cn/post/6854573208109056007</a></p>
+<p>js中__proto__和prototype的区别和关系？<br>
+<a href="https://www.zhihu.com/question/34183746">https://www.zhihu.com/question/34183746</a></p>
+<p>帮你彻底搞懂JS中的prototype、__proto__与constructor（图解）<br>
+<a href="https://blog.csdn.net/cc18868876837/article/details/81211729">https://blog.csdn.net/cc18868876837/article/details/81211729</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

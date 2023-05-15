@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/shell/</link>
+    <description>Recent content in Shell on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 26 Feb 2021 11:17:08 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何编写一个shell脚本</title>
+      <link>https://www.pengjielee.cn/post/how-do-i-write-a-shell-script/</link>
+      <pubDate>Fri, 26 Feb 2021 11:17:08 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-do-i-write-a-shell-script/</guid>
+      <description>输出 Hello World test.sh
+#!/bin/bash echo &amp;#34;Hello World !&amp;#34; #! 告诉系统解释此脚本文件的 Shell 程序。
+输出变量 test.sh
+#!/bin/bash message=&amp;#39;Hello World&amp;#39; echo $message # output: Hello World 拼接变量 test.sh
+#!/bin/bash name=&amp;#39;Peng&amp;#39; echo &amp;#34;Hello, $name&amp;#34; # output: Hello, Peng 运行Shell脚本 $ chmod +x ./test.sh #使脚本具有执行权限 $ ./test.sh #执行脚本 or $ sh test.sh #执行脚本 创建一个提交 git 记录的 shell 脚本 deploy.sh
+#!/bin/bash deploy_time=$(date +%Y-%m-%d\ %H:%M:%S) # 发布时间，格式如：2021-02-26 11:32:54 git pull # 拉取最新代码 git add . # 添加所有代码到代码库 git commit -m &amp;#34;deploy on $deploy_time&amp;#34; # 提交代码 git push # 推送代码到服务器 </description>
+    </item>
+    
+    <item>
+      <title>使用shell脚本创建文件</title>
+      <link>https://www.pengjielee.cn/post/use-shell-scripts-to-create-files/</link>
+      <pubDate>Fri, 15 Jan 2021 16:24:14 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/use-shell-scripts-to-create-files/</guid>
+      <description>文件名使用每日日期 newfile.sh
+#!/bin/bash file_name=$(date +%Y.%m.%d) touch &amp;#34;${file_name}.md&amp;#34; 写入内容并创建文件 newfile.sh
+#!/bin/bash file_name=$(date +%Y.%m.%d) echo &amp;#34;hello world&amp;#34; &amp;gt; &amp;#34;${file_name}.md&amp;#34; 批量创建文件 newfiles.sh
+#!/bin/bash filenames=() filenames[0]=&amp;#39;CSS实现弹幕效果.md&amp;#39; filenames[1]=&amp;#39;CSS实现动画.md&amp;#39; filenames[1]=&amp;#39;CSS盒子模型.md&amp;#39; for filename in ${filenames[@]} do touch ${filename} done </description>
+    </item>
+    
+  </channel>
+</rss>

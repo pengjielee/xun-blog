@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">Fibonacci</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/the-rectangle-cover/">10.矩形覆盖</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+        </div>
+        <div class="category">
+            <label class="label">Category：</label>
+            <a class="tags_link" href="/categories//" rel="tag">[swordoffer]</a>
+        </div>
+</div>
+
+        <p class="summary">题目 我们可以用2 * 1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2 * 1的小矩形无重叠地覆盖一个2 * n的大矩形，总共有多少种方法？
+比如n=3时，2 * 3的矩形块有3种覆盖方法： ()[../images/offer10.png]
+详解 每次使用两个变量a，b来计算下一个数的值sum，然后a，b，sum分别是斐波那契数列中的三个数，那么就令a=b，b=sum，这样a和b就往下移动了一个位置，再计算sum就是第4个数了，重复这个过程即可。
+target = 1时，1种
+target = 2时，2种
+target = 3时，3种
+target = 4时，5种
+target = n时，分两步考虑：
+第一次摆放2* 1的小矩形，则摆放方法总共为f(target-1); 第一次摆放1* 2的小矩形，则摆放方法总共为f(target-2); 这就是斐波那契数列啊。
+JS实现 function rectCover(number) { // write code here if (number === 1) { return 1; } if (number === 2) { return 2; } let a = 1, b = 2, sum = 0; for (let i = 3; i &lt;= number; i++) { sum = a + b; a = b; b = sum; } return sum; } </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/jump-the-floor2/">09.变态跳台阶</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+        </div>
+        <div class="category">
+            <label class="label">Category：</label>
+            <a class="tags_link" href="/categories//" rel="tag">[swordoffer]</a>
+        </div>
+</div>
+
+        <p class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+详解 关于本题，前提是n个台阶会有一次n阶的跳法。分析如下：
+f(1) = 1
+f(2) = f(2-1) + f(2-2) //f(2-2)表示2阶一次跳2阶的次数。
+f(3) = f(3-1) + f(3-2) + f(3-3)
+&hellip;
+f(n) = f(n-1) + f(n-2) + f(n-3) + &hellip; + f(n-(n-1)) + f(n-n)
+说明：
+这里的f(n)代表的是n个台阶有一次1,2,&hellip;,n阶的跳法数。
+n=1时，只有1种跳法，f(1)=1
+n=2时，会有两种跳的方式，一次1阶或者2阶，这回归到了问题(1)，f(2)=f(2-1)+f(2-2)
+n=3时，会有三种跳的方式，1阶、2阶、3阶，那么就是第一次跳出1阶后面剩下：f(3-1)；第一次跳出2阶，剩下f(3-2)；第一次3阶，那么剩下f(3-3)。因此结论是f(3)=f(3-1)+f(3-2)+f(3-3)
+n=n时，会有n种跳的方式，1阶、2阶&hellip;n阶，得出结论： f(n)=f(n-1)+f(n-2)+f(n-3)+&hellip;+f(n-(n-1))+f(n-n) =&gt; f(0)+f(1)+f(2)+&hellip;+f(n-1) //[式1]
+由以上已经是一种结论，我们可以继续简化： f(n-1)=f(0)+f(1)+f(2)+f(3)+&hellip;+f((n-1)-1) = f(0)+f(1)+f(2)+&hellip;+f(n-2) //[式2]
+[式1]-[式2]
+f(n) = f(0)+f(1)+f(2)+&hellip;+f(n-1) f(n-1) = f(0)+f(1)+f(2)+&hellip;+f(n-2)
+f(n)-f(n-1)= f(n-1)
+可以得出：
+f(n) = 2 * f(n-1)
+得出最终结论，在n阶台阶，一次有1、2、&hellip;n阶的跳的方式时，总的跳法为： | 1, (n=0) f(n) =| 1, (n=1) | 2 * f(n-1),(n&gt;=2) 来源：https://www.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/jump-the-floor/">08.跳台阶</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+        </div>
+        <div class="category">
+            <label class="label">Category：</label>
+            <a class="tags_link" href="/categories//" rel="tag">[swordoffer]</a>
+        </div>
+</div>
+
+        <p class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+详解 一次1阶或者2阶的跳法： a. 如果两种跳法，1阶或者2阶，那么假定第一次跳的是一阶，那么剩下的是n-1个台阶，跳法是f(n-1); b. 假定第一次跳的是2阶，那么剩下的是n-2个台阶，跳法是f(n-2) c. 由a\b假设可以得出总跳法为: f(n) = f(n-1) + f(n-2) d. 然后通过实际的情况可以得出：只有一阶的时候 f(1) = 1 ,只有两阶的时候可以有 f(2) = 2 e. 可以发现最终得出的是一个斐波那契数列： | 1, (n=1) f(n) = | 2, (n=2) | f(n-1)+f(n-2) ,(n&gt;2,n为整数)
+链接：https://www.nowcoder.com/questionTerminal/8c82a5b80378478f9484d87d1c5f12a4?f=discussion 来源：牛客网
+JS实现 //递归实现 const jumpFloor = (target) =&gt; { if (target &lt;= 0) { return -1; } if (target === 1) { return 1; } if (target === 2) { return 2; } return jumpFloor(target - 1) + jumpFloor(target - 2); }; //迭代实现 const jumpFloor = (target) =&gt; { if (target &lt;= 0) { return -1; } if (target === 1) { return 1; } if (target === 2) { return 2; } let a = 1, b = 2, sum = a + b; for (let i = 3; i &lt;= target; i++) { sum = a + b; a = b; b = sum; } return sum; }; </p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/fibonacci-sequence/">07.斐波那契数列</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-03</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+        </div>
+        <div class="category">
+            <label class="label">Category：</label>
+            <a class="tags_link" href="/categories//" rel="tag">[swordoffer]</a>
+        </div>
+</div>
+
+        <p class="summary">题目 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。 n&lt;=39
+斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144&hellip; , 这个数列从第3项开始，每一项都等于前两项之和。
+JS实现 //递归实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0; } if (n === 1) { return 1; } return Fibonacci(n - 1) + Fibonacci(n - 2); }; //迭代实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0; } if (n === 1) { return 1; } let a = 0, b = 1, sum = 0; for (let i = 2; i &lt;= n; i++) { sum = a + b; a = b; b = sum; } return sum; }; </p>
+    
+</div>
+
+        </section>
+    </div>
+    
+
+
+        </div></body>
+</html>

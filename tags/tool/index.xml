@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tool on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/tool/</link>
+    <description>Recent content in Tool on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 21 May 2021 11:48:53 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用curl发送请求</title>
+      <link>https://www.pengjielee.cn/post/other/%E4%BD%BF%E7%94%A8curl%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</link>
+      <pubDate>Fri, 21 May 2021 11:48:53 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/other/%E4%BD%BF%E7%94%A8curl%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/</guid>
+      <description>get请求 curl https://cnodejs.org/api/v1/topics post请求 1、application/x-www-form-urlencoded
+curl -d&amp;#39;username=admin&amp;amp;password=123456&amp;#39; -X POST http://localhost:8080/api/user/login 2、application/json
+curl http://localhost:8080/api/user/login -X POST -d &amp;#39;{&amp;#34;username&amp;#34;: &amp;#34;100&amp;#34;,&amp;#34;password&amp;#34;:&amp;#34;123456&amp;#34;}&amp;#39; --header &amp;#34;Content-Type: application/json&amp;#34; 设置header curl -H &amp;#39;Authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9&amp;#39; http://localhost:8080/api/user/list 参数 -d 参数用于发送 POST 请求的数据体。 -H 参数添加 HTTP 请求的标头。 -X 参数指定 HTTP 请求的方法。 More Curl Cookbook
+https://catonmat.net/cookbooks/curl</description>
+    </item>
+    
+    <item>
+      <title>我的prettier配置</title>
+      <link>https://www.pengjielee.cn/post/my-prettier-config/</link>
+      <pubDate>Tue, 08 Dec 2020 11:57:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/my-prettier-config/</guid>
+      <description>创建文件 touch .prettierrc.js 内容 .prettier.js
+module.exports = { arrowParens: &amp;#34;avoid&amp;#34;, bracketSpacing: true, printWidth: 120, semi: true, singleQuote: true, tabWidth: 4, trailingComma: &amp;#34;all&amp;#34;, jsxSingleQuote: false, jsxBracketSameLine: false, useTabs: false, overrides: [ { files: &amp;#34;*.html&amp;#34;, options: { parser: &amp;#34;angular&amp;#34;, htmlWhitespaceSensitivity: &amp;#34;ignore&amp;#34;, printWidth: 120, tabWidth: 4, }, }, { files: &amp;#34;*.wxss&amp;#34;, options: { parser: &amp;#34;css&amp;#34;, }, }, ], }; 说明 arrowParens: &amp;lsquo;avoid&amp;rsquo;,
+在箭头函数参数周围包含圆括号，默认&amp;quot;always&amp;quot;；avoid:x =&amp;gt; x，always:(x) =&amp;gt; x
+bracketSpacing: true,
+是否在括号之间打印空格，默认true；true:{ foo: bar }，false:{foo:bar}</description>
+    </item>
+    
+    <item>
+      <title>我的bash配置</title>
+      <link>https://www.pengjielee.cn/post/my-bash-config/</link>
+      <pubDate>Tue, 08 Dec 2020 11:42:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/my-bash-config/</guid>
+      <description>打开bash_profile $ cd ~ $ vi .bash_profile 内容 1、快速切换到常用目录
+alias cd.pw=&amp;#34;cd /Users/pengjie/work/panda-wechat&amp;#34; alias cd.p5=&amp;#34;cd /Users/pengjie/work/panda-h5&amp;#34; alias cd.doc=&amp;#34;cd /Users/pengjie/www/doc.pengjielee.cn&amp;#34; alias cd.www=&amp;#34;cd /Users/pengjie/www&amp;#34; alias cd.try=&amp;#34;cd /Users/pengjie/try&amp;#34; alias cd.nginx=&amp;#34;cd /usr/local/etc/nginx/&amp;#34; 2、bash编辑更新
+BASH_PROFILE_PATH=&amp;#34;$HOME/.bash_profile&amp;#34; alias bash.open=&amp;#34;open ${BASH_PROFILE_PATH}&amp;#34; alias bash.src=&amp;#34;source ${BASH_PROFILE_PATH}&amp;#34; 3、git操作快捷键
+alias gs=&amp;#34;git status &amp;#34; alias ga=&amp;#34;git add &amp;#34; alias gaa=&amp;#34;git add -A &amp;#34; alias gb=&amp;#34;git branch &amp;#34; alias gc=&amp;#34;git commit &amp;#34; alias gcm=&amp;#34;git commit -m &amp;#34; alias gck=&amp;#34;git checkout &amp;#34; alias gp=&amp;#34;git push &amp;#34; 4、登录服务器</description>
+    </item>
+    
+    <item>
+      <title>如何创建一个Node CLI工具</title>
+      <link>https://www.pengjielee.cn/post/how-do-create-a-node-cli-tool/</link>
+      <pubDate>Thu, 15 Oct 2020 17:08:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-do-create-a-node-cli-tool/</guid>
+      <description>开始 我们的命令行工具起名xun-cli，实现功能有：
+显示当前时间； 查询天气； 查看本地IP； 创建目录 $ mkdir xun-cli $ cd xun-cli $ npm init -y $ mkdir src $ cd src $ touch index.js 问好 1、index.js
+#!/usr/bin/env node console.log(&amp;#34;hello xun-cli&amp;#34;) 2、执行
+$ node src/index.js //output: hello xun-cli 输出一个漂亮的LOGO 1、安装依赖
+$ npm install chalk #在命令行输出各种颜色的文字 $ npm install figlet #在命令行输出艺术字 2、index.js
+#!/usr/bin/env node const chalk = require(&amp;#34;chalk&amp;#34;); const figlet = require(&amp;#34;figlet&amp;#34;); // 输出一个漂亮的LOGO console.log(chalk.yellow(figlet.textSync(&amp;#34;xun-CLI&amp;#34;, { horizontalLayout: &amp;#34;full&amp;#34; }))); 3、执行
+$ node src/index.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Flask Web开发：HelloWorld</h1><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="安装-flask">安装 flask</h2>
+<pre tabindex="0"><code>$ pip install flask 
+</code></pre><p>查看flask版本</p>
+<pre tabindex="0"><code>$ flask --version
+</code></pre><p>终端输出：</p>
+<pre tabindex="0"><code>Flask 1.0.2
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31)
+[GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)]
+</code></pre><h2 id="创建项目目录">创建项目目录</h2>
+<pre tabindex="0"><code>$ mkdir flask_web &amp;&amp; cd flask_web
+</code></pre><h2 id="创建-hellopy">创建 hello.py</h2>
+<pre tabindex="0"><code>from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route(&#39;/&#39;)
+def hello():
+  return &#39;Hello, World!&#39;
+</code></pre><h2 id="运行">运行</h2>
+<pre tabindex="0"><code>$ export FLASK_APP=hello.py
+$ flask run
+</code></pre><p>终端输出：</p>
+<pre tabindex="0"><code>peng@localhost flask_web % export FLASK_APP=hello.py
+peng@localhost flask_web % flask run
+ * Serving Flask app &#34;hello.py&#34;
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+</code></pre><p>浏览器打开 <code>http://127.0.0.1:5000/</code>，页面输出：</p>
+<pre tabindex="0"><code>Hello, World!
+</code></pre><h2 id="设置外部访问网络中其他电脑可访问">设置外部访问（网络中其他电脑可访问）</h2>
+<pre tabindex="0"><code>$ flask run --host=0.0.0.0
+</code></pre><h2 id="开启调试模式">开启调试模式</h2>
+<pre tabindex="0"><code>$ export FLASK_ENV=development
+$ flask run 
+</code></pre><p>终端输出 ：</p>
+<pre tabindex="0"><code>peng@localhost flask_web % export FLASK_ENV=development
+peng@localhost flask_web % flask run
+ * Serving Flask app &#34;hello.py&#34; (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 186-277-807
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">195.第十行</h1><div class="post-meta">
+    <div class="date">2021-07-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个文本文件 file.txt，请只打印这个文件中的第十行。</p>
+<p>示例:</p>
+<p>假设 file.txt 有如下内容：</p>
+<pre tabindex="0"><code>Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+</code></pre><p>你的脚本应当显示第十行：</p>
+<pre tabindex="0"><code>Line 10
+</code></pre><p>说明:</p>
+<ol>
+<li>如果文件少于十行，你应当输出什么？</li>
+<li>至少有三种不同的解法，请尝试尽可能多的方法来解题。</li>
+</ol>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/tenth-line
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="实现">实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed -n <span style="color:#e6db74">&#34;10p&#34;</span> file.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;{if(NR==10){print $0}}&#39;</span> file.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>grep -n <span style="color:#e6db74">&#34;&#34;</span> file.txt | grep -w <span style="color:#e6db74">&#39;10&#39;</span> | cut -d: -f2
+</span></span></code></pre></div><p>不足10行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>row_num<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>cat file.txt | wc -l<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo $row_num
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $row_num -lt <span style="color:#ae81ff">10</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;The number of row is less than 10&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>  awk <span style="color:#e6db74">&#39;{if(NR==10){print $0}}&#39;</span> file.txt
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

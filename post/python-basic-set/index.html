@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：集合</h1><div class="post-meta">
+    <div class="date">2020-11-05</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="集合特性">集合特性</h2>
+<p>集合（set）是一个无序的不重复元素序列。</p>
+<ol>
+<li>确定性。</li>
+<li>互异性。</li>
+<li>无序性。</li>
+</ol>
+<h2 id="创建集合">创建集合</h2>
+<p>1、使用大括号 {} 创建</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#e6db74">&#39;green&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span> }
+</span></span><span style="display:flex;"><span>print(colors) <span style="color:#75715e"># Prints out: {&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;} </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span> }
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {1, 2, 3, 4}</span>
+</span></span></code></pre></div><p>2、使用 set() 函数创建</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> set((<span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#e6db74">&#39;green&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>))
+</span></span><span style="display:flex;"><span>print(colors) <span style="color:#75715e"># Prints out: {&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>])
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {1, 2, 3, 4}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>words <span style="color:#f92672">=</span> set(<span style="color:#e6db74">&#39;python&#39;</span>)
+</span></span><span style="display:flex;"><span>print(words) <span style="color:#75715e"># Prints out: {&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, &#39;n&#39;, &#39;o&#39;}</span>
+</span></span></code></pre></div><p>注意：创建一个空集合必须用 set() 而不是 {}，因为 {} 是用来创建一个空字典。</p>
+<h2 id="集合方法">集合方法</h2>
+<p>1、添加元素</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set()
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: set()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加元素3</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>add(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {3}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 添加元素4</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>add(<span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {3, 4}</span>
+</span></span></code></pre></div><p>2、删除元素</p>
+<ul>
+<li>discard()方法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># discard方法删除指定元素</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>discard(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {4}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># discard方法删除不存在元素</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>discard(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {4}</span>
+</span></span></code></pre></div><ul>
+<li>remove()方法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove方法删除指定元素</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {4}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove方法删除不存在的元素，报错KeyError</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: {4}</span>
+</span></span></code></pre></div><ul>
+<li>pop()方法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 随机移除元素</span>
+</span></span><span style="display:flex;"><span>number <span style="color:#f92672">=</span> numbers<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>print(number)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>number <span style="color:#f92672">=</span> numbers<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>print(number)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>number <span style="color:#f92672">=</span> numbers<span style="color:#f92672">.</span>pop()
+</span></span><span style="display:flex;"><span>print(number) <span style="color:#75715e"># KeyError: &#39;pop from an empty set&#39;</span>
+</span></span></code></pre></div><p>3、集合元素个数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(len(numbres)) <span style="color:#75715e"># Prints out: 2</span>
+</span></span></code></pre></div><p>4、清空集合</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 清空集合</span>
+</span></span><span style="display:flex;"><span>numbers<span style="color:#f92672">.</span>clear()
+</span></span><span style="display:flex;"><span>print(numbers) <span style="color:#75715e"># Prints out: set()</span>
+</span></span></code></pre></div><p>5、判断元素是否在集合中存在</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">3</span> <span style="color:#f92672">in</span> numbers) <span style="color:#75715e"># Prints out: True</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#ae81ff">5</span> <span style="color:#f92672">in</span> numbers) <span style="color:#75715e"># Prints out: False</span>
+</span></span></code></pre></div><p>6、返回集合交集</p>
+<ul>
+<li>intersection() 方法是返回一个新的集合</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set3 <span style="color:#f92672">=</span> set1<span style="color:#f92672">.</span>intersection(set2)
+</span></span><span style="display:flex;"><span>print(set1) <span style="color:#75715e"># Prints out: {1, 2, 3}</span>
+</span></span><span style="display:flex;"><span>print(set3) <span style="color:#75715e"># Prints out: {2}</span>
+</span></span></code></pre></div><ul>
+<li>intersection_update() 方法是在原始的集合上移除不重叠的元素。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set1<span style="color:#f92672">.</span>intersection_update(set2)
+</span></span><span style="display:flex;"><span>print(set1) <span style="color:#75715e"># Prints out: {2}</span>
+</span></span></code></pre></div><p>7、返回集合并集</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set3 <span style="color:#f92672">=</span> set1<span style="color:#f92672">.</span>union(set2)
+</span></span><span style="display:flex;"><span>print(set3) <span style="color:#75715e"># Prints out: {1, 2, 3, 4, 6}</span>
+</span></span></code></pre></div><p>8、返回集合差集</p>
+<ul>
+<li>difference() 方法返回一个移除相同元素的新集合</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set3 <span style="color:#f92672">=</span> set1<span style="color:#f92672">.</span>difference(set2)
+</span></span><span style="display:flex;"><span>print(set3) <span style="color:#75715e"># Prints out: {1, 3}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set4 <span style="color:#f92672">=</span> set2<span style="color:#f92672">.</span>difference(set1)
+</span></span><span style="display:flex;"><span>print(set4) <span style="color:#75715e"># Prints out: {4, 6}</span>
+</span></span></code></pre></div><ul>
+<li>difference_update() 方法是直接在原来的集合中移除元素，没有返回值。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set1<span style="color:#f92672">.</span>difference_update(set2)
+</span></span><span style="display:flex;"><span>print(set1) <span style="color:#75715e"># Prints out: {1, 3}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set2<span style="color:#f92672">.</span>difference_update(set1)
+</span></span><span style="display:flex;"><span>print(set2) <span style="color:#75715e"># Prints out: {4, 6}</span>
+</span></span></code></pre></div><p>9、对称差</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># symmetric_difference() 方法返回两个集合中不重复的元素集合，即会移除两个集合中都存在的元素。</span>
+</span></span><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set3 <span style="color:#f92672">=</span> set1<span style="color:#f92672">.</span>symmetric_difference(set2)
+</span></span><span style="display:flex;"><span>print(set3) <span style="color:#75715e"># Prints out: {1, 3, 4, 6}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># symmetric_difference_update() 方法移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。</span>
+</span></span><span style="display:flex;"><span>set1 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>set2 <span style="color:#f92672">=</span> set((<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set1<span style="color:#f92672">.</span>symmetric_difference_update(set2)
+</span></span><span style="display:flex;"><span>print(set1) <span style="color:#75715e"># Prints out: {1, 3, 4, 6}</span>
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p><a href="https://www.runoob.com/python3/python3-set.html">https://www.runoob.com/python3/python3-set.html</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

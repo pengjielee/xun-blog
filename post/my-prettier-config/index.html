@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">我的prettier配置</h1><div class="post-meta">
+    <div class="date">2020-12-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/tool/" rel="tag">Tool</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="创建文件">创建文件</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>touch .prettierrc.js
+</span></span></code></pre></div><h2 id="内容">内容</h2>
+<p>.prettier.js</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">arrowParens</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;avoid&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">bracketSpacing</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">120</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">semi</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">singleQuote</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tabWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">trailingComma</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;all&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">jsxSingleQuote</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">jsxBracketSameLine</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useTabs</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">overrides</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">files</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;*.html&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">parser</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;angular&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">htmlWhitespaceSensitivity</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ignore&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">120</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">tabWidth</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">files</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;*.wxss&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">parser</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;css&#34;</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="说明">说明</h2>
+<ul>
+<li>
+<p>arrowParens: &lsquo;avoid&rsquo;,<br>
+在箭头函数参数周围包含圆括号，默认&quot;always&quot;；avoid:x =&gt; x，always:(x) =&gt; x</p>
+</li>
+<li>
+<p>bracketSpacing: true,<br>
+是否在括号之间打印空格，默认true；true:{ foo: bar }，false:{foo:bar}</p>
+</li>
+<li>
+<p>printWidth: 120,<br>
+每行的长度，默认80；</p>
+</li>
+<li>
+<p>semi: true,<br>
+是否在语句的末尾打印分号，默认true；</p>
+</li>
+<li>
+<p>singleQuote: true,<br>
+使用单引号而不是双引号，默认false；</p>
+</li>
+<li>
+<p>tabWidth: 4,<br>
+指定Tab的空格数，默认2；</p>
+</li>
+<li>
+<p>trailingComma: &lsquo;all&rsquo;,<br>
+多行时，尽可能在后面打印逗号，默认&quot;es5&quot;；</p>
+</li>
+<li>
+<p>jsxSingleQuote: false,<br>
+在JSX中使用单引号而不是双引号，默认false；</p>
+</li>
+<li>
+<p>jsxBracketSameLine: false,<br>
+将多行JSX元素的&gt;放在最后一行的末尾，而不是单独放在下一行(不应用于自闭元素)，默认false</p>
+</li>
+<li>
+<p>useTabs: false,<br>
+是否使用Tab，默认false</p>
+</li>
+<li>
+<p>overrides<br>
+重定义配置</p>
+</li>
+</ul>
+<h2 id="npm-scripts">npm scripts</h2>
+<p>1、安装</p>
+<pre tabindex="0"><code>npm install prettier
+npm install onchange
+</code></pre><p>2、package.json</p>
+<pre tabindex="0"><code>{
+  ...
+  &#34;scripts&#34;: {
+    &#34;prettier&#34;: &#34;prettier --write src/**/*.{js,css}&#34;,
+    &#34;prettier:check&#34;: &#34;prettier --check src/**/*.{js,css}&#34;,
+    &#34;prettier:watch&#34;: &#34;onchange &#39;src/**/*.{js,css}&#39; -- prettier --write {{changed}}&#34;,
+    &#34;prettier:html&#34;: &#34;prettier --write src/pages/**/*.html&#34;
+  },
+  ...
+}
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

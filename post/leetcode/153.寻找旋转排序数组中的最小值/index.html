@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">153.寻找旋转排序数组中的最小值</h1><div class="post-meta">
+    <div class="date">2021-05-07</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/binary-search/" rel="tag">binary-search</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>已知一个长度为 n 的数组，预先按照升序排列，经由 1 到 n 次 旋转 后，得到输入数组。</p>
+<p>例如，原数组 nums = [0,1,2,4,5,6,7] 在变化后可能得到：  <br>
+若旋转 4 次，则可以得到 [4,5,6,7,0,1,2]<br>
+若旋转 7 次，则可以得到 [0,1,2,4,5,6,7]</p>
+<p>注意，数组 [a[0], a[1], a[2], &hellip;, a[n-1]] 旋转一次 的结果为数组 [a[n-1], a[0], a[1], a[2], &hellip;, a[n-2]] 。</p>
+<p>给你一个元素值 互不相同 的数组 nums ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 最小元素 。</p>
+<pre tabindex="0"><code>示例 1：
+输入：nums = [3,4,5,1,2]
+输出：1
+解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。
+
+示例 2：
+输入：nums = [4,5,6,7,0,1,2]
+输出：0
+解释：原数组为 [0,1,2,4,5,6,7] ，旋转 4 次得到输入数组。
+
+示例 3：
+输入：nums = [11,13,15,17]
+输出：11
+解释：原数组为 [11,13,15,17] ，旋转 4 次得到输入数组。
+</code></pre><p>提示：</p>
+<ul>
+<li>n == nums.length</li>
+<li>1 &lt;= n &lt;= 5000</li>
+<li>-5000 &lt;= nums[i] &lt;= 5000</li>
+<li>nums 中的所有整数 互不相同</li>
+<li>nums 原来是一个升序排序的数组，并进行了 1 至 n 次旋转</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路">思路</h2>
+<p>我们考虑数组中的最后一个元素 x：<br>
+在最小值右侧的元素（不包括最后一个元素本身），它们的值一定都严格小于 x；<br>
+而在最小值左侧的元素，它们的值一定都严格大于 x。<br>
+因此，我们可以根据这一条性质，通过二分查找的方法找出最小值。</p>
+<p>作者：LeetCode-Solution
+链接：https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number[]} nums
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">findMin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">nums</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">low</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">high</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 为什么是严格小于？
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">low</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">high</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 获取中间元素的下标
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">low</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">floor</span>((<span style="color:#a6e22e">high</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">low</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//1. nums[pivot] &lt; nums[high]，说明nums[pivot]是最小值右侧的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//2. nums[pivot] &gt; nums[high]，说明nums[pivot]是最小值左侧的元素 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">pivot</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">high</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">high</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pivot</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">low</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">low</span>];
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

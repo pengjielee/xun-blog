@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">使用shell脚本创建文件</h1><div class="post-meta">
+    <div class="date">2021-01-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/shell/" rel="tag">Shell</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="文件名使用每日日期">文件名使用每日日期</h2>
+<p>newfile.sh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>file_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%Y.%m.%d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>touch <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">.md&#34;</span>
+</span></span></code></pre></div><h2 id="写入内容并创建文件">写入内容并创建文件</h2>
+<p>newfile.sh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>file_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date +%Y.%m.%d<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;hello world&#34;</span> &gt; <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>file_name<span style="color:#e6db74">}</span><span style="color:#e6db74">.md&#34;</span>
+</span></span></code></pre></div><h2 id="批量创建文件">批量创建文件</h2>
+<p>newfiles.sh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>filenames<span style="color:#f92672">=()</span>
+</span></span><span style="display:flex;"><span>filenames<span style="color:#f92672">[</span>0<span style="color:#f92672">]=</span><span style="color:#e6db74">&#39;CSS实现弹幕效果.md&#39;</span>
+</span></span><span style="display:flex;"><span>filenames<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#39;CSS实现动画.md&#39;</span>
+</span></span><span style="display:flex;"><span>filenames<span style="color:#f92672">[</span>1<span style="color:#f92672">]=</span><span style="color:#e6db74">&#39;CSS盒子模型.md&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> filename in <span style="color:#e6db74">${</span>filenames[@]<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> 
+</span></span><span style="display:flex;"><span>  touch <span style="color:#e6db74">${</span>filename<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

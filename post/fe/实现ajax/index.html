@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">实现Ajax</h1><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="简单实现">简单实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Old compatibility code, no longer needed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">XMLHttpRequest</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Mozilla, Safari, IE7+ ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">ActiveXObject</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// IE 6 and older
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ActiveXObject</span>(<span style="color:#e6db74">&#34;Microsoft.XMLHTTP&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Process the server response here.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">XMLHttpRequest</span>.<span style="color:#a6e22e">DONE</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Everything is good, the response was received.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">200</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// Perfect!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">response</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// There was a problem with the request.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// For example, the response may have a 404 (Not Found)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#75715e">// or 500 (Internal Server Error) response code.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Not ready yet.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#e6db74">&#34;http://www.example.org/some.file&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Set the MIME type of the request
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#34;Content-Type&#34;</span>, <span style="color:#e6db74">&#34;application/x-www-form-urlencoded&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>();
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;UNSENT&#34;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span>); <span style="color:#75715e">// readyState will be 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#e6db74">&#34;/api&#34;</span>, <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;OPENED&#34;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span>); <span style="color:#75715e">// readyState will be 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onprogress</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;LOADING&#34;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span>); <span style="color:#75715e">// readyState will be 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;DONE&#34;</span>, <span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">readyState</span>); <span style="color:#75715e">// readyState will be 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>(<span style="color:#66d9ef">null</span>);
+</span></span></code></pre></div><h2 id="封装函数">封装函数</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Asynchronous Javascript And XML
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ajax</span>(<span style="color:#a6e22e">options</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 选项
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">method</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">method</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">params</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">data</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">url</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">params</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>          Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">params</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">key</span>) =&gt; <span style="color:#a6e22e">key</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">params</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>            .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;&amp;&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#66d9ef">async</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">false</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">success</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">success</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">headers</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">headers</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">request</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (window.<span style="color:#a6e22e">XMLHttpRequest</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ActiveXObject</span>(<span style="color:#e6db74">&#34;Microsoft.XMLHTTP&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      readyState:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        0: 请求未初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        1: 服务器连接已建立
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        2: 请求已接收
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        3: 请求处理中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">        4: 请求已完成，且响应已就绪
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      status: HTTP 状态码
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    **/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">readyState</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">200</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">success</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">success</span>(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">responseText</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">open</span>(<span style="color:#a6e22e">method</span>, <span style="color:#a6e22e">url</span>, <span style="color:#66d9ef">async</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">headers</span>) {
+</span></span><span style="display:flex;"><span>    Object.<span style="color:#a6e22e">keys</span>(<span style="color:#a6e22e">headers</span>).<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">key</span>) =&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">headers</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">method</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;GET&#34;</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">send</span>() <span style="color:#f92672">:</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">ajax</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GET&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;https://cnodejs.org/api/v1/topics&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">res</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;success&#34;</span>, <span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">async</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">p</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">t</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">666</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

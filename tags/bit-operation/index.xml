@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bit-operation on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/bit-operation/</link>
+    <description>Recent content in bit-operation on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 25 Aug 2021 15:03:25 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/bit-operation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>65.不用加减乘除做加法</title>
+      <link>https://www.pengjielee.cn/draft/sword2/_65.%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</link>
+      <pubDate>Wed, 25 Aug 2021 15:03:25 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/draft/sword2/_65.%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</guid>
+      <description>题目 写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
+示例: 输入: a = 1, b = 1 输出: 2 提示：
+a, b 均可能是负数或 0 结果不会溢出 32 位整数
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * @param {number} a * @param {number} b * @return {number} */ var add = function(a, b) { }; </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">194.转置文件</h1><div class="post-meta">
+    <div class="date">2021-07-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个文件 file.txt，转置它的内容。</p>
+<p>你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。</p>
+<p>示例：</p>
+<p>假设 file.txt 文件内容如下：</p>
+<pre tabindex="0"><code>name age
+alice 21
+ryan 30
+</code></pre><p>应当输出：</p>
+<pre tabindex="0"><code>name alice ryan
+age 21 30
+</code></pre><p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/transpose-file
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="实现">实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>COUNT<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>head -1 file.txt | wc -w<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span> i <span style="color:#f92672">=</span> 1; i &lt;<span style="color:#f92672">=</span> $COUNT; i++ <span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    awk -v arg<span style="color:#f92672">=</span>$i <span style="color:#e6db74">&#39;{print $arg}&#39;</span> file.txt | xargs
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

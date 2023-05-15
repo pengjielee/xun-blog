@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">JavaScript位运算</h1><div class="post-meta">
+    <div class="date">2021-04-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/javascript/" rel="tag">javascript</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="什么是位运算">什么是位运算</h2>
+<p>现代计算机中所有的数据都以二进制的形式存储在设备中。即 0、1 两种状态，计算机对二进制数据进行的运算(+、-、*、/)都叫位运算，即将符号位共同参与运算的运算。</p>
+<h2 id="位运算-and">位运算 AND</h2>
+<p>当对一对数位执行位运算 AND 时，如果数位均为 1 则返回 1。</p>
+<p>1、单位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 &amp; 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0 &amp; 1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 &amp; 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 &amp; 1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>2、四位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1111 &amp; 0000</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1111 &amp; 0001</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>1111 &amp; 0010</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>1111 &amp; 0100</td>
+<td>0100</td>
+</tr>
+</tbody>
+</table>
+<h2 id="位运算-or">位运算 OR</h2>
+<p>当对一对数位执行位运算 OR 时，如果其中一位是 1 则返回 1：</p>
+<p>1、单位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>2、四位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1111</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>0100</td>
+</tr>
+</tbody>
+</table>
+<h2 id="位运算-xor">位运算 XOR</h2>
+<p>当对一对数位进行位运算 XOR 时，如果数位是不同的则返回 1：</p>
+<p>1、单位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 ^ 0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0 ^ 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1 ^ 0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1 ^ 1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>2、四位示例：</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1111 ^ 0000</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>1111 ^ 0001</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>1111 ^ 0010</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>1111 ^ 0100</td>
+<td>1011</td>
+</tr>
+</tbody>
+</table>
+<h2 id="javascript-位运算-and-">JavaScript 位运算 AND (&amp;)</h2>
+<p>如果位数都是1，则位运算 AND 返回 1：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>1</td>
+<td>00000000000000000000000000000001</td>
+</tr>
+<tr>
+<td>5 &amp; 1</td>
+<td>00000000000000000000000000000001 (=1)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">//binary: &#39;1&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">num2</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>); <span style="color:#75715e">//1
+</span></span></span></code></pre></div><h2 id="javascript-位运算-or-">JavaScript 位运算 OR (|)</h2>
+<p>如果数位之一是 1，则位运算 OR 返回 1：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>1</td>
+<td>00000000000000000000000000000001</td>
+</tr>
+<tr>
+<td>5 | 1</td>
+<td>00000000000000000000000000000101 (=5)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">//binary: &#39;1&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">num2</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>); <span style="color:#75715e">//5
+</span></span></span></code></pre></div><h2 id="javascript-位运算-xor-">JavaScript 位运算 XOR (^)</h2>
+<p>如果数位是不同的，则 XOR 返回 1：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>1</td>
+<td>00000000000000000000000000000001</td>
+</tr>
+<tr>
+<td>5 ^ 1</td>
+<td>00000000000000000000000000000100 (=4)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#75715e">//binary: &#39;1&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">^</span> <span style="color:#a6e22e">num2</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>); <span style="color:#75715e">//4
+</span></span></span></code></pre></div><h2 id="javascript-位运算-not-">JavaScript 位运算 NOT (~)</h2>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>~5</td>
+<td>11111111111111111111111111111010 (=-6)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#f92672">~</span><span style="color:#a6e22e">num1</span>); <span style="color:#75715e">//-6
+</span></span></span></code></pre></div><h2 id="javascript零填充位运算左移">JavaScript（零填充）位运算左移（&laquo;）</h2>
+<p>这是零填充的左移。一个或多个零数位从右被推入，最左侧的数位被移除：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>5 &laquo; 1</td>
+<td>00000000000000000000000000001010 (=10)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">//10
+</span></span></span></code></pre></div><h2 id="javascript有符号位运算右移">JavaScript（有符号）位运算右移（&raquo;）</h2>
+<p>这是保留符号的右移。最左侧的数位被从左侧推入，最右侧的数位被移出：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-5</td>
+<td>11111111111111111111111111111011</td>
+</tr>
+<tr>
+<td>-5 &raquo; 1</td>
+<td>11111111111111111111111111111101 (=-3)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;11111111111111111111111111111011&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num1</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">//-3
+</span></span></span></code></pre></div><h2 id="javascript零填充右移">JavaScript（零填充）右移（&raquo;&gt;）</h2>
+<p>这是零填充的右移。一个或多个零数位从左侧被推入，最右侧的数位被移出：</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>00000000000000000000000000000101</td>
+</tr>
+<tr>
+<td>5 &raquo;&gt; 1</td>
+<td>00000000000000000000000000000010 (=2)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;  <span style="color:#75715e">//binary: &#39;101&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num1</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">//2
+</span></span></span></code></pre></div><h2 id="把十进制转换为二进制">把十进制转换为二进制</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dec2bin</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">dec</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">dec</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>测试：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">35</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">47</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1_bin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dec2bin</span>(<span style="color:#a6e22e">num1</span>); <span style="color:#75715e">//&#39;100011&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2_bin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dec2bin</span>(<span style="color:#a6e22e">num2</span>); <span style="color:#75715e">//&#39;101111&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num2</span>; <span style="color:#75715e">// 82;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum_bin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dec2bin</span>(<span style="color:#a6e22e">sum</span>); <span style="color:#75715e">//&#39;1010010&#39;
+</span></span></span></code></pre></div><h2 id="把二进制转换为十进制">把二进制转换为十进制</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bin2dec</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">bin</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> parseInt(<span style="color:#a6e22e">bin</span>, <span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>测试：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1_bin</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;100011&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2_bin</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;101111&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum_bin</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1010010&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bin2dec</span>(<span style="color:#a6e22e">num1_bin</span>); <span style="color:#75715e">//&#39;35&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bin2dec</span>(<span style="color:#a6e22e">num2_bin</span>); <span style="color:#75715e">//&#39;47&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">bin2dec</span>(<span style="color:#a6e22e">sum_bin</span>);   <span style="color:#75715e">//&#39;82&#39;
+</span></span></span></code></pre></div><h2 id="more">More</h2>
+<p>位运算 <br>
+<a href="https://www.runoob.com/w3cnote/bit-operation.html">https://www.runoob.com/w3cnote/bit-operation.html</a></p>
+<p>JavaScript位运算<br>
+<a href="https://www.w3school.com.cn/js/js_bitwise.asp">https://www.w3school.com.cn/js/js_bitwise.asp</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

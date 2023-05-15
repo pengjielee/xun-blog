@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/javascript/</link>
+    <description>Recent content in javascript on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 15 Apr 2021 16:45:35 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript位运算</title>
+      <link>https://www.pengjielee.cn/post/fe/javascript%E4%BD%8D%E8%BF%90%E7%AE%97/</link>
+      <pubDate>Thu, 15 Apr 2021 16:45:35 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/javascript%E4%BD%8D%E8%BF%90%E7%AE%97/</guid>
+      <description>什么是位运算 现代计算机中所有的数据都以二进制的形式存储在设备中。即 0、1 两种状态，计算机对二进制数据进行的运算(+、-、*、/)都叫位运算，即将符号位共同参与运算的运算。
+位运算 AND 当对一对数位执行位运算 AND 时，如果数位均为 1 则返回 1。
+1、单位示例：
+运算 结果 0 &amp;amp; 0 0 0 &amp;amp; 1 0 1 &amp;amp; 0 0 1 &amp;amp; 1 1 2、四位示例：
+运算 结果 1111 &amp;amp; 0000 0000 1111 &amp;amp; 0001 0001 1111 &amp;amp; 0010 0010 1111 &amp;amp; 0100 0100 位运算 OR 当对一对数位执行位运算 OR 时，如果其中一位是 1 则返回 1：
+1、单位示例：
+运算 结果 0 0 0 1 1 0 1 1 2、四位示例：</description>
+    </item>
+    
+    <item>
+      <title>JavaScript发布订阅模式</title>
+      <link>https://www.pengjielee.cn/post/fe/javascript%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 06 Apr 2021 10:03:32 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/javascript%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>发布订阅模式，定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JS中，我们一般用事件模型来替代传统的发布-订阅模式。
+1. 现实中的发布-订阅模式 购房者与售楼处；
+购房者：订阅者； 售楼处：发布者；
+2. 发布-订阅模式的作用 发布-订阅模式优点：
+a. 发布-订阅模式可以广泛应用于异步编程中，这是一种替代传递回调函数的方案。在异步编程中，使用发布-订阅模式，我们就无需过多关注对象在异步运行期间的内部状态，而只需要订阅感兴趣的事件发生点。
+b. 发布-订阅模式可以取代对象之间硬编码的通知机制，一个对象不用再显式地调用另外一个对象的某个接口。让两个对象松耦合地联系在一起，虽然不太清楚彼此的细节，但这不影响它们之间相互通信。
+3. DOM事件 //订阅body的click事件 document.body.addEventListener(&amp;#39;click&amp;#39;,function(){ console.log(2) }, false); document.body.addEventListener(&amp;#39;click&amp;#39;,function(){ console.log(3) }, false); document.body.addEventListener(&amp;#39;click&amp;#39;,function(){ console.log(4) }, false); document.body.click(); //模拟用户点击 注意，手动触发事件更好的做法是 IE 下用 fireEvent，标准浏览器下用 dispatchEvent 实现。
+4. 自定义事件 var salesOffices = {}; // 定义售楼处 salesOffices.clientList = []; // 缓存列表，存放订阅者的回调函数 salesOffices.listen = function (fn) { // 增加订阅者 this.clientList.push(fn); // 订阅的消息添加进缓存列表 }; salesOffices.trigger = function () { // 发布消息 for (var i = 0, fn; (fn = this.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript单例模式</title>
+      <link>https://www.pengjielee.cn/post/fe/javascript%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 06 Apr 2021 10:03:24 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/javascript%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>代码 var getSingle = function (fn) { var result; return function () { return result || (result = fn.apply(this, arguments)); }; }; // 创建登录框 var createLoginDialog = function () { var div = document.createElement(&amp;#34;div&amp;#34;); div.innerHTML = &amp;#34;Login Dialog&amp;#34;; div.style.display = &amp;#34;none&amp;#34;; document.body.appendChild(div); return div; }; // 创建唯一登录框 var createSingleLoginDialog = getSingle(createLoginDialog); document.getElementById(&amp;#34;login&amp;#34;).onclick = function () { var loginDialog = createSingleLoginDialog(); loginDialog.style.display = &amp;#34;block&amp;#34;; }; </description>
+    </item>
+    
+    <item>
+      <title>JavaScript函数声明提升</title>
+      <link>https://www.pengjielee.cn/post/fe/javascript%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/</link>
+      <pubDate>Fri, 02 Apr 2021 11:38:47 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/javascript%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/</guid>
+      <description>1、Function declaration foo(); // &amp;#34;bar&amp;#34; function foo() { console.log(&amp;#39;bar&amp;#39;); } 解释：
+function foo() { console.log(&amp;#39;bar&amp;#39;); } foo(); // &amp;#34;bar&amp;#34; 2、Function expression baz(); // TypeError: baz is not a function var baz = function() { console.log(&amp;#39;bar2&amp;#39;); }; 解释：
+var baz; baz(); baz = function() { console.log(&amp;#39;bar2&amp;#39;); }; 3、 var foo = function(){ console.log(123); } function foo(){ console.log(456); } foo(); //123 解释：
+var foo; // 变量声明提升 function foo(){ // 函数声明提升 console.log(456); } foo = function(){ // 变量赋值依然保留在原来位置 console.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript变量声明提升</title>
+      <link>https://www.pengjielee.cn/post/fe/javascript%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/</link>
+      <pubDate>Fri, 02 Apr 2021 11:38:41 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/javascript%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/</guid>
+      <description>1、 console.log(x === undefined); // true var x = 3; 解释：
+var x; console.log(x === undefined); // true x = 3; 2、 // will return a value of undefined var myvar = &amp;#39;my value&amp;#39;; (function() { console.log(myvar); // undefined var myvar = &amp;#39;local value&amp;#39;; })(); 解释：
+var myvar = &amp;#39;my value&amp;#39;; (function() { var myvar; console.log(myvar); // undefined myvar = &amp;#39;local value&amp;#39;; })(); 3、 function foo() { console.log(x); // undefined var x = 12; console.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript将对象转换为Url拼接参数</title>
+      <link>https://www.pengjielee.cn/post/javascript-converts-the-object-into-a-url-concatenation-parameter/</link>
+      <pubDate>Sat, 20 Feb 2021 16:22:28 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/javascript-converts-the-object-into-a-url-concatenation-parameter/</guid>
+      <description>将对象转换为Url拼接参数 const obj2str = obj =&amp;gt; { let arr = Object.entries(obj); arr.forEach((value, index) =&amp;gt; { arr[index] = value.join(&amp;#39;=&amp;#39;); }); return arr.join(&amp;#39;&amp;amp;&amp;#39;); }; 实例：
+var data = { &amp;#34;name&amp;#34;: &amp;#34;jie&amp;#34;, &amp;#34;age&amp;#34; : 20 }; console.log(obj2str(data)); //output: name=jie&amp;amp;age=20 扩展 1、 Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组。
+var data = { &amp;#34;name&amp;#34;: &amp;#34;jie&amp;#34;, &amp;#34;age&amp;#34; : 20 }; console.log(Object.entries(data)); //output: [[&amp;#39;name&amp;#39;,&amp;#39;jie&amp;#39;], [&amp;#39;age&amp;#39;, 20]] for (const [key, value] of Object.entries(data)) { console.log(`${key}: ${value}`); } // output: // name: jie // age: 20 Object.</description>
+    </item>
+    
+    <item>
+      <title>使用FileReader读取文件</title>
+      <link>https://www.pengjielee.cn/post/use-filereader-to-read-the-file/</link>
+      <pubDate>Fri, 19 Feb 2021 17:44:54 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/use-filereader-to-read-the-file/</guid>
+      <description>HTML结构 &amp;lt;section class=&amp;#34;card&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;file&amp;#34; class=&amp;#34;input&amp;#34; accept=&amp;#34;text/*&amp;#34; id=&amp;#34;fileInput&amp;#34;/&amp;gt; &amp;lt;div class=&amp;#34;preview&amp;#34; id=&amp;#34;filePreview&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; 读取为文本内容 const fileInput = document.getElementById(&amp;#34;fileInput&amp;#34;); const filePreview = document.getElementById(&amp;#34;filePreview&amp;#34;); fileInput.addEventListener( &amp;#34;change&amp;#34;, function () { const file = this.files[0]; const reader = new FileReader(); reader.onload = function (evt) { const content = evt.target.result; filePreview.innerHTML = content; }; reader.readAsText(file); }, false ); 读取为Base64字符串 const file = fileInput.files[0]; const reader = new FileReader(); reader.onload = function (evt) { const content = evt.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript保护手机号隐私(中间4位用 * 号替换)</title>
+      <link>https://www.pengjielee.cn/post/javascript-protects-the-privacy-of-the-phone-number/</link>
+      <pubDate>Mon, 08 Feb 2021 10:34:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/javascript-protects-the-privacy-of-the-phone-number/</guid>
+      <description>需求：将手机号码中间4位用 * 号替换，保护隐私。
+使用正则 const encryptPhoneNumber = (str) =&amp;gt; { if (str) { str = str.trim(); const reg = /(\d{3})\d{4}(\d{3})/; str = str.replace(reg, &amp;#34;$1****$2&amp;#34;); } return str; }; encryptPhoneNumber(&amp;#34;18614023235&amp;#34;); //output: 186****3235 使用substring const encryptPhoneNumber = (str) =&amp;gt; { if (str) { str = str.trim(); str = str.substring(0,3) + &amp;#39;*&amp;#39;.repeat(4) + str.substring(str.length - 4); } return str; }; encryptPhoneNumber(&amp;#39;18614023235&amp;#39;); //output: 186****3235 加密身份证号 const encryptIDNumber = (str) =&amp;gt; { if (str) { str = str.</description>
+    </item>
+    
+  </channel>
+</rss>

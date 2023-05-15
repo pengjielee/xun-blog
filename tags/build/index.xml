@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>build on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/build/</link>
+    <description>Recent content in build on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 Mar 2021 09:40:58 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/build/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>创建你自己的React</title>
+      <link>https://www.pengjielee.cn/post/build-your-react/</link>
+      <pubDate>Mon, 29 Mar 2021 09:40:58 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/build-your-react/</guid>
+      <description>version1: jsx const element = &amp;lt;h1 title=&amp;#34;foo&amp;#34;&amp;gt;Hello&amp;lt;/h1&amp;gt;; const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &amp;#34;h1&amp;#34;, { title: &amp;#34;foo&amp;#34;}, &amp;#34;Hello&amp;#34; ); const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version3: convert jsx to js const element = { type: &amp;#34;h1&amp;#34;, props: { title: &amp;#34;foo&amp;#34;, children: &amp;#34;Hello&amp;#34; } } const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version4: const element = { type: &amp;#34;h1&amp;#34;, props: { title: &amp;#34;foo&amp;#34;, children: &amp;#34;Hello&amp;#34; } } const container = document.</description>
+    </item>
+    
+  </channel>
+</rss>

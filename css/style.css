@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Ubuntu", "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #315efb;
+}
+
+pre,
+code {
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+}
+
+code {
+    padding: 0 5px;
+    color: #c33;
+}
+
+pre {
+    display: block;
+    padding: 0;
+    padding: 1.25rem;
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+    overflow: auto;
+    color: #000;
+}
+
+pre code {
+    padding: 0;
+    color: inherit;
+    white-space: inherit;
+    background: inherit;
+    border: 0;
+}
+
+#main {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post-meta > div {
+    margin-right: 10px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.nav a {
+    font-size: 18px;
+}
+.nav .divide {
+    margin: 0 10px;
+}
+
+.pagination {
+    margin: 30px 0;
+}
+
+.pagination__item {
+    padding: 0 10px;
+}
+
+.pagination__item:hover,
+.pagination__item--current {
+    color: blue;
+}
+
+dd.archive-post {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.archive-post-title {
+    margin-left: 15px;
+}
+
+.list {
+}
+.list .item {
+    margin-bottom: 20px;
+}
+.list .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.list .summary {
+    line-height: 25px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.page-home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.page-home .header {
+    text-align: center;
+    flex: 0 1 100px;
+    margin: 30px 0;
+}
+.page-home .header h1 {
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+.page-home .main {
+    flex: 0 1 100%;
+}
+.page-home .list .item {
+    margin-bottom: 30px;
+}
+.page-home .footer {
+    text-align: center;
+    flex: 0 1 80px;
+    padding: 20px 0;
+}
+.page-home .more {
+    text-align: right;
+}
+
+.page-single {
+    margin: 30px 0;
+}
+.page-single .header {
+    text-align: center;
+}
+.page-single .title {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+.page-single .content {
+    line-height: 28px;
+    font-size: 15px;
+}
+.page-single .post-meta {
+    justify-content: center;
+    margin: 20px 0;
+}
+.page-single .content p {
+    text-indent: 30px;
+    margin: 10px 0;
+}
+
+.page-list {
+    margin: 30px 0;
+}
+.page-title {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.page-tags .list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.page-tags .list .title {
+    font-size: 16px;
+}
+.page-tags .list .item {
+    flex: 0 1 20%;
+}
+
+.page-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 600px;
+}
+
+@media screen and (max-width: 800px) {
+    #main {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+    .post-meta {
+        flex-wrap: wrap;
+    }
+    .post-meta .date {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+    }
+}

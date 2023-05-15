@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：读写CSV</h1><div class="post-meta">
+    <div class="date">2020-11-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><p>CSV (Comma Separated Values)，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号。</p>
+<h2 id="引入python-csv">引入python csv</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> csv
+</span></span></code></pre></div><h2 id="使用csv-reader读取">使用csv reader读取</h2>
+<p>contacts.csv</p>
+<pre tabindex="0"><code>10,jim,18614023231
+11,tom,18614023232
+12,mike,18614023233
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv,newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	reader<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>reader(csvfile,delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>		print(row)
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#print(&#39;, &#39;.join(row))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#print(row[0]+&#39;,&#39;+row[1]+&#39;,&#39;+row[2])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">output:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;10&#39;, &#39;jim&#39;, &#39;18614023231&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;11&#39;, &#39;tom&#39;, &#39;18614023232&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;12&#39;, &#39;mike&#39;, &#39;18614023233&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="使用csv-reader读取其他分隔符">使用csv reader读取其他分隔符</h2>
+<p>contacts.csv</p>
+<pre tabindex="0"><code>10|jim|18614023231
+11|tom|18614023232
+12|mike|18614023233
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv,newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	reader<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>reader(csvfile,delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>		print(row)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">output:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;10&#39;, &#39;jim&#39;, &#39;18614023231&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;11&#39;, &#39;tom&#39;, &#39;18614023232&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[&#39;12&#39;, &#39;mike&#39;, &#39;18614023233&#39;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="使用csv-dictreader读取">使用csv dictreader读取</h2>
+<p>contacts.csv</p>
+<pre tabindex="0"><code>id,name,phone
+10,jim,18614023231
+11,tom,18614023232
+12,mike,18614023233
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv, newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	reader<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>DictReader(csvfile,delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>		print(row)
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#print(row[&#39;id&#39;], row[&#39;name&#39;],row[&#39;phone&#39;])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">output:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;10&#39;), (&#39;name&#39;, &#39;jim&#39;), (&#39;phone&#39;, &#39;18614023231&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;11&#39;), (&#39;name&#39;, &#39;tom&#39;), (&#39;phone&#39;, &#39;18614023232&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;12&#39;), (&#39;name&#39;, &#39;mike&#39;), (&#39;phone&#39;, &#39;18614023233&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="使用csv-dictreader自定义filednames读取">使用csv dictreader自定义filednames读取</h2>
+<p>contacts.csv</p>
+<pre tabindex="0"><code>10,jim,18614023231
+11,tom,18614023232
+12,mike,18614023233 
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv, newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	fieldnames<span style="color:#f92672">=</span>[ <span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;phone&#39;</span> ]
+</span></span><span style="display:flex;"><span>	reader<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>DictReader(csvfile,fieldnames<span style="color:#f92672">=</span>fieldnames)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> reader:
+</span></span><span style="display:flex;"><span>		print(row)
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">#print(row[&#39;id&#39;], row[&#39;name&#39;],row[&#39;phone&#39;])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">output:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;10&#39;), (&#39;name&#39;, &#39;jim&#39;), (&#39;phone&#39;, &#39;18614023231&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;11&#39;), (&#39;name&#39;, &#39;tom&#39;), (&#39;phone&#39;, &#39;18614023232&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">OrderedDict([(&#39;id&#39;, &#39;12&#39;), (&#39;name&#39;, &#39;mike&#39;), (&#39;phone&#39;, &#39;18614023233&#39;)])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="使用csv-writer写入">使用csv writer写入</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># contacts.csv，内容为空 </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv, <span style="color:#e6db74">&#39;w&#39;</span>, newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	writer <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>writer(csvfile, delimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>,
+</span></span><span style="display:flex;"><span>	quotechar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;|&#39;</span>, quoting<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>QUOTE_MINIMAL)
+</span></span><span style="display:flex;"><span>		writer<span style="color:#f92672">.</span>writerow([<span style="color:#e6db74">&#39;20&#39;</span>, <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;18614023235&#39;</span>])
+</span></span><span style="display:flex;"><span>		writer<span style="color:#f92672">.</span>writerow([<span style="color:#e6db74">&#39;21&#39;</span>, <span style="color:#e6db74">&#39;jie&#39;</span>, <span style="color:#e6db74">&#39;18614023236&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">result:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># contacts.csv
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">20,peng,18614023235
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">21,jie,18614023236
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="使用csv-dicrwriter写入">使用csv dicrwriter写入</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># contacts.csv，内容为空 </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(contacts<span style="color:#f92672">.</span>csv, <span style="color:#e6db74">&#39;w&#39;</span>, newline<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">as</span> csvfile:
+</span></span><span style="display:flex;"><span>	fieldnames<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;phone&#39;</span>]
+</span></span><span style="display:flex;"><span>	writer<span style="color:#f92672">=</span>csv<span style="color:#f92672">.</span>DictWriter(csvfile, fieldnames<span style="color:#f92672">=</span>fieldnames)
+</span></span><span style="display:flex;"><span>	writer<span style="color:#f92672">.</span>writeheader()
+</span></span><span style="display:flex;"><span>	writer<span style="color:#f92672">.</span>writerow({<span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#e6db74">&#39;22&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;jie&#39;</span>, <span style="color:#e6db74">&#39;phone&#39;</span>: <span style="color:#e6db74">&#39;18614023235&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">result:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># contacts.csv
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">id,name,phone
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">22,jie,18614023235
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>Python CSV文件读取和写入<br>
+<a href="https://docs.python.org/3/library/csv.html#csv.QUOTE_MINIMAL">https://docs.python.org/3/library/csv.html#csv.QUOTE_MINIMAL</a></p>
+<p>Python CSV tutorial<br>
+<a href="http://zetcode.com/python/csv/">http://zetcode.com/python/csv/</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

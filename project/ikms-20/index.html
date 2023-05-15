@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">20.Electron中使用Vue.md</h1><div class="post-meta">
+    <div class="date">2020-12-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/ikms/" rel="tag">ikms</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="indexhtml">index.html</h2>
+<pre tabindex="0"><code>&lt;body&gt;
+	&lt;div id=&#34;app&#34;&gt;
+			&lt;p class=&#34;message&#34;&gt;{{ message }}&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script src=&#34;https://unpkg.com/vue@2.6.12/dist/vue.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://unpkg.com/vue-router@3.4.3/dist/vue-router.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://unpkg.com/element-ui/lib/index.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;renderer.js&#34;&gt;&lt;/script&gt;
+</code></pre><h2 id="pageshomeindexjs">/pages/home/index.js</h2>
+<pre tabindex="0"><code>const Index = {
+  template: `
+    &lt;div class=&#34;page-home&#34;&gt;
+    	Hello World!
+  	&lt;/div&gt;
+  `,
+};
+
+module.exports = Index;
+</code></pre><h2 id="rendererjs">renderer.js</h2>
+<pre tabindex="0"><code>const Home = require(&#34;./pages/home/index.js&#34;);
+const About = require(&#34;./pages/about/index.js&#34;);
+const Setting = require(&#34;./pages/setting/index.js&#34;);
+
+const routes = [
+  { path: &#34;/&#34;, component: Home },
+  { path: &#34;/about&#34;, component: About },
+  { path: &#34;/setting&#34;, component: Setting },
+];
+
+const router = new VueRouter({
+  routes,
+});
+
+var app = new Vue({
+  el: &#34;#app&#34;,
+  router,
+  created: function () {},
+  data: {
+    message: &#34;Hello Vue!&#34;,
+  },
+});
+</code></pre></div>
+    </div>
+
+        </div></body>
+</html>

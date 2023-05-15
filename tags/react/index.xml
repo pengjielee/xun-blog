@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/react/</link>
+    <description>Recent content in React on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 Mar 2021 14:14:15 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>React Hooks原理</title>
+      <link>https://www.pengjielee.cn/post/deep-dive-react-hooks/</link>
+      <pubDate>Mon, 29 Mar 2021 14:14:15 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/deep-dive-react-hooks/</guid>
+      <description>useState实现 function useState(initialValue) { var _val = initialValue; function state(){ return _val; } function setState(newVal){ _val = newVal; } return [state, setState]; } 使用
+var [foo, setFoo] = useState(0) // 数组解构 console.log(foo()); //output: 0 setFoo(1); console.log(foo()); //output: 1 在函数组件中使用 function Counter() { const [count, setCount] = useState(0) // 和上文实现的一样 return { click: () =&amp;gt; setCount(count() + 1), render: () =&amp;gt; console.log(&amp;#39;render:&amp;#39;, { count: count() }) } } const C = Counter() C.</description>
+    </item>
+    
+    <item>
+      <title>创建你自己的React</title>
+      <link>https://www.pengjielee.cn/post/build-your-react/</link>
+      <pubDate>Mon, 29 Mar 2021 09:40:58 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/build-your-react/</guid>
+      <description>version1: jsx const element = &amp;lt;h1 title=&amp;#34;foo&amp;#34;&amp;gt;Hello&amp;lt;/h1&amp;gt;; const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &amp;#34;h1&amp;#34;, { title: &amp;#34;foo&amp;#34;}, &amp;#34;Hello&amp;#34; ); const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version3: convert jsx to js const element = { type: &amp;#34;h1&amp;#34;, props: { title: &amp;#34;foo&amp;#34;, children: &amp;#34;Hello&amp;#34; } } const container = document.getElementById(&amp;#39;root&amp;#39;); ReactDOM.render(element, container); version4: const element = { type: &amp;#34;h1&amp;#34;, props: { title: &amp;#34;foo&amp;#34;, children: &amp;#34;Hello&amp;#34; } } const container = document.</description>
+    </item>
+    
+    <item>
+      <title>React高级：性能优化</title>
+      <link>https://www.pengjielee.cn/post/fe/react%E9%AB%98%E7%BA%A7%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sat, 13 Mar 2021 17:27:11 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/react%E9%AB%98%E7%BA%A7%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <description>创建项目 $ npx create-react-app react-try 情景一：shouldComponentUpdate Child.js
+import React from &amp;#39;react&amp;#39;; class Child extends React.Component { constructor(props) { super(props); } componentDidMount() { console.log(&amp;#39;child did mount&amp;#39;); } componentWillUnmount() { console.log(&amp;#39;child will mount&amp;#39;); } render() { console.log(&amp;#39;child render&amp;#39;); return ( &amp;lt;div&amp;gt; &amp;lt;h1&amp;gt;This is Child&amp;lt;/h1&amp;gt; &amp;lt;/div&amp;gt; ); } } export default Child; Parent.js
+import React from &amp;#39;react&amp;#39;; import Child from &amp;#39;./Child&amp;#39;; class Parent extends React.Component { constructor(props) { super(props); this.state = {date: new Date()}; this.</description>
+    </item>
+    
+    <item>
+      <title>React高级：事件机制</title>
+      <link>https://www.pengjielee.cn/post/fe/react%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Sat, 13 Mar 2021 17:24:53 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/fe/react%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</guid>
+      <description>1、 import React from &amp;#34;react&amp;#34;; export default class App extends React.Component { innerClick = () =&amp;gt; { console.log(&amp;#34;A: react inner click.&amp;#34;); }; outerClick = () =&amp;gt; { console.log(&amp;#34;B: react outer click.&amp;#34;); }; componentDidMount() { document.getElementById(&amp;#34;outer&amp;#34;).addEventListener(&amp;#34;click&amp;#34;, () =&amp;gt; { console.log(&amp;#34;C: native outer click&amp;#34;); }); document.getElementById(&amp;#34;inner&amp;#34;).addEventListener(&amp;#34;click&amp;#34;, () =&amp;gt; { console.log(&amp;#34;D: native inner click&amp;#34;); }); } render() { return ( &amp;lt;div id=&amp;#34;outer&amp;#34; onClick={this.outerClick}&amp;gt; &amp;lt;button id=&amp;#34;inner&amp;#34; onClick={this.innerClick}&amp;gt; BUTTON &amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } } 输出：</description>
+    </item>
+    
+    <item>
+      <title>React教程：绑定事件</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-bind-events/</link>
+      <pubDate>Tue, 09 Mar 2021 11:08:26 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-bind-events/</guid>
+      <description>1、在构造函数中绑定事件
+class Item extends React.Component { constructor(props) { super(props); this.state = { number: 0, }; this.handleClick = this.handleClick.bind(this); } handleClick() { console.log(&amp;#39;click&amp;#39;); this.setState({ number: this.state.number + 1, }); } render() { return ( &amp;lt;div&amp;gt; &amp;lt;span style={{ marginRight: &amp;#39;5px&amp;#39; }}&amp;gt;number: {this.state.number}&amp;lt;/span&amp;gt; &amp;lt;button onClick={this.handleClick}&amp;gt;click&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } } 2、在render中绑定 this
+class Item extends React.Component { constructor(props) { super(props); this.state = { number: 0, }; } handleClick() { console.log(&amp;#39;click&amp;#39;); this.setState({ number: this.state.number + 1, }); } render() { return ( &amp;lt;div&amp;gt; &amp;lt;span style={{ marginRight: &amp;#39;5px&amp;#39; }}&amp;gt;number: {this.</description>
+    </item>
+    
+    <item>
+      <title>React教程：useMemo用法</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-usememo-usage/</link>
+      <pubDate>Tue, 09 Mar 2021 09:11:48 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-usememo-usage/</guid>
+      <description>看代码 import React, { useState } from &amp;#39;react&amp;#39;; // 计算斐波那契数 const fibc = n =&amp;gt; { console.log(&amp;#39;calculate...&amp;#39;); if (n &amp;lt;= 2) { return 1; } return fibc(n - 1) + fibc(n - 2); }; const Fibc = props =&amp;gt; { let [number, setNumber] = useState(1); let [count, setCount] = useState(0); // 优化前 const result = fibc(number); return ( &amp;lt;div&amp;gt; &amp;lt;p&amp;gt;number: {number}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;count: {count}&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;fibc result: {result}&amp;lt;/p&amp;gt; &amp;lt;button onClick={() =&amp;gt; setNumber(number + 1)}&amp;gt;add number&amp;lt;/button&amp;gt; &amp;lt;button onClick={() =&amp;gt; setCount(count + 1)}&amp;gt;add count&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); }; export default Fibc; 问题:</description>
+    </item>
+    
+    <item>
+      <title>React教程：设置样式</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-set-the-style/</link>
+      <pubDate>Tue, 09 Mar 2021 09:11:36 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-set-the-style/</guid>
+      <description>设置行内样式 1、使用行内 style 样式
+import React from &amp;#39;react&amp;#39;; const Home = props =&amp;gt; { const name = &amp;#39;Home Page&amp;#39;; return ( &amp;lt;div style={{ backgroundColor: &amp;#39;#ddd&amp;#39;, color: &amp;#39;red&amp;#39;, fontSize: &amp;#39;30px&amp;#39;, paddingLeft: &amp;#39;20px&amp;#39;, }}&amp;gt; { name } &amp;lt;/div&amp;gt; ); }; export default Home; 注意：
+行内样式的属性名需使用驼峰命名。 行内样式需要使用双大括号{{ }}，变量用单个大括号{ } 2、使用分离的 style 对象
+import React from &amp;#39;react&amp;#39;; const Home = props =&amp;gt; { const name = &amp;#39;Home Page&amp;#39;; const nameStyle = { backgroundColor: &amp;#39;#333&amp;#39;, color: &amp;#39;#fff&amp;#39;, fontSize: &amp;#39;30px&amp;#39;, paddingLeft: &amp;#39;20px&amp;#39;, marginTop: &amp;#39;10px&amp;#39;, }; return ( &amp;lt;div&amp;gt; &amp;lt;div style={nameStyle}&amp;gt;{name}&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; ); }; export default Home; 设置多个class 1、使用join拼接</description>
+    </item>
+    
+    <item>
+      <title>React教程：使用React Router</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-using-the-react-router/</link>
+      <pubDate>Thu, 04 Mar 2021 12:39:57 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-using-the-react-router/</guid>
+      <description>代码 1、安装
+$ npm install react-router-dom 2、创建多页面
+文件结构：
+/src /views /blog detail.js list.js about.js home.js app.js index.js home.js
+import React from &amp;#39;react&amp;#39;; const Home = props =&amp;gt; { return &amp;lt;div&amp;gt;Home Page&amp;lt;/div&amp;gt;; }; export default Home; about.js
+import React from &amp;#39;react&amp;#39;; const About = props =&amp;gt; { return &amp;lt;div&amp;gt;About Page&amp;lt;/div&amp;gt;; }; export default About; blog/list.js
+import React from &amp;#39;react&amp;#39;; import { Link } from &amp;#39;react-router-dom&amp;#39;; const BlogList = props =&amp;gt; { const blogs = [ { id: 1, title: &amp;#39;将React应用部署到GitHub Pages&amp;#39;, url: &amp;#39;https://cnodejs.</description>
+    </item>
+    
+    <item>
+      <title>React教程：添加样式文件</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-add-style-files/</link>
+      <pubDate>Thu, 04 Mar 2021 10:10:22 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-add-style-files/</guid>
+      <description>添加 .css 文件 1、安装 css-loader/style-loader
+$ npm install --save-dev css-loader style-loader 2、更新 webpack.config.js
+module.exports = { module: { rules: [ { test: /\.css$/i, use: [&amp;#39;style-loader&amp;#39;, &amp;#39;css-loader&amp;#39;], }, ], }, }; 3、创建 base.css 文件
+/src /assets /styles base.css base.css
+body { background: red; color: #fff; } 4、引入 base.css 文件
+src/index.js
+import React from &amp;#39;react&amp;#39;; import ReactDOM from &amp;#39;react-dom&amp;#39;; // 引入样式文件 import &amp;#39;./assets/styles/base.css&amp;#39;; ReactDOM.render(&amp;lt;h1&amp;gt;Hello, World!&amp;lt;/h1&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;)); 此时打开浏览器： http://localhost:9000/
+项目源码见（切换 tag 至 css-loader）git checkout css-loader： https://github.</description>
+    </item>
+    
+    <item>
+      <title>React教程：使用prettier格式化代码</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-formatting-code-with-prettier/</link>
+      <pubDate>Thu, 04 Mar 2021 08:58:07 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-formatting-code-with-prettier/</guid>
+      <description>安装 $ npm install --save-dev --save-exact prettier 创建一个空的配置文件 $ echo {}&amp;gt; .prettierrc.js 配置.prettierrc.js module.exports = { arrowParens: &amp;#34;avoid&amp;#34;, bracketSpacing: true, printWidth: 100, semi: true, singleQuote: true, tabWidth: 2, trailingComma: &amp;#34;all&amp;#34;, jsxSingleQuote: false, jsxBracketSameLine: false, useTabs: false, overrides: [ { files: &amp;#34;*.html&amp;#34;, options: { parser: &amp;#34;angular&amp;#34;, htmlWhitespaceSensitivity: &amp;#34;ignore&amp;#34;, printWidth: 120, tabWidth: 2, }, } ], }; 我的prettier配置
+创建忽略文件 .prettierignore 文件用来设置哪些文件不需要格式化。
+.prettierignore
+build coverage dist/*.js 使用 npm scripts 格式化 package.json
+{ scripts: { &amp;#34;prettier&amp;#34;: &amp;#34;prettier --write src/*.</description>
+    </item>
+    
+    <item>
+      <title>React教程：设置环境变量</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-setting-environment-variables/</link>
+      <pubDate>Wed, 03 Mar 2021 17:22:55 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-setting-environment-variables/</guid>
+      <description>Mac系统下环境变量 1、注入环境变量，export NODE_ENV=development
+package.json
+{ &amp;#34;scripts&amp;#34;: { &amp;#34;dev&amp;#34;: &amp;#34;export NODE_ENV=development &amp;amp;&amp;amp; webpack serve&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;export NODE_ENV=production &amp;amp;&amp;amp; webpack&amp;#34; }, } 2、使用环境变量 process.env.NODE_ENV
+webpack.config.js
+const path = require(&amp;#39;path&amp;#39;); const devMode = process.env.NODE_ENV !== &amp;#39;production&amp;#39;; console.log(&amp;#39;devMode:&amp;#39;, devMode); module.exports = { entry: &amp;#39;./src/index.js&amp;#39;, mode: devMode ? &amp;#39;development&amp;#39; : &amp;#39;production&amp;#39;, output: { path: path.resolve(__dirname, &amp;#39;dist&amp;#39;), filename: &amp;#39;[name].bundle.js&amp;#39;, }, }; cross-env，跨平台设置环境变量 1、安装
+$ npm install --save-dev cross-env 2、注入
+{ &amp;#34;scripts&amp;#34;: { &amp;#34;cross:dev&amp;#34;: &amp;#34;cross-env NODE_ENV=development webpack serve&amp;#34;, &amp;#34;cross:build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack&amp;#34; }, } 项目源码见（切换 tag 至 node_env）git checkout node_env： https://github.</description>
+    </item>
+    
+    <item>
+      <title>React教程：Hello World</title>
+      <link>https://www.pengjielee.cn/post/react-tutorial-helloworld/</link>
+      <pubDate>Wed, 03 Mar 2021 15:11:41 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/react-tutorial-helloworld/</guid>
+      <description>创建项目 # 创建项目目录 $ mkdir hello-world # 进入项目目录 $ cd hello-world # 初始化 package.json 文件 $ npm init -y # 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js $ mkdir src &amp;amp;&amp;amp; touch index.js # 安装react和react-dom $ npm install react react-dom # 安装babel-loader，用于处理js文件 # 安装@babel/preset-react，用于处理jsx $ npm install -D babel-loader @babel/preset-react # 安装webpack相关库 $ npm install -D webpack webpack-cli webpack-dev-serve 项目结构 hello-world /dist index.html /src index.js package.json webpack.config.js 项目代码 1、src/index.js
+import React from &amp;#39;react&amp;#39;; import ReactDOM from &amp;#39;react-dom&amp;#39;; ReactDOM.</description>
+    </item>
+    
+    <item>
+      <title>如何在React中全屏化页面</title>
+      <link>https://www.pengjielee.cn/post/how-to-make-a-full-screen-page-in-react/</link>
+      <pubDate>Thu, 04 Feb 2021 15:12:18 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-to-make-a-full-screen-page-in-react/</guid>
+      <description>安装 $ npm install screenfull React中使用screenfull 1、引入
+import screenfull from &amp;#39;screenfull&amp;#39;; 2、全屏
+const handleClick = () =&amp;gt; { if (screenfull.isEnabled) { //全屏整个页面 //screenfull.request(); //全屏某个元素 screenfull.request(element); } }; 3、切换
+const handleToggle = () =&amp;gt; { if (screenfull.isEnabled) { screenfull.toggle(); } }; 4、监听change事件
+import React, { useEffect, useRef } from &amp;#34;react&amp;#34;; import screenfull from &amp;#34;screenfull&amp;#34;; const Component = () =&amp;gt; { useEffect(() =&amp;gt; { if (screenfull.isEnabled) { screenfull.on(&amp;#34;change&amp;#34;, () =&amp;gt; { console.log(&amp;#34;Am I fullscreen?</description>
+    </item>
+    
+    <item>
+      <title>React Hook使用</title>
+      <link>https://www.pengjielee.cn/post/the-react-hook-use/</link>
+      <pubDate>Wed, 11 Nov 2020 10:34:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/the-react-hook-use/</guid>
+      <description>useState import React, { useState } from &amp;#39;react&amp;#39;; function Counter() { const [count, setCount] = useState(0); return ( &amp;lt;div&amp;gt; &amp;lt;p className=&amp;#39;title&amp;#39;&amp;gt;You clicked {count} times&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;button onClick={() =&amp;gt; setCount(count + 1)}&amp;gt;Click me&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } export default Counter; useEffect：设置标题 import React, { useState, useEffect } from &amp;#39;react&amp;#39;; function Counter() { const [count, setCount] = useState(0); useEffect(() =&amp;gt; { document.title = `You clicked ${count} times`; }); return ( &amp;lt;div&amp;gt; &amp;lt;p className=&amp;#39;title&amp;#39;&amp;gt;You clicked {count} times&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;button onClick={() =&amp;gt; setCount(count + 1)}&amp;gt;Click me&amp;lt;/button&amp;gt; &amp;lt;/div&amp;gt; ); } export default Counter; useEffect：监听滚动/移除滚动 import React, { useState, useEffect } from &amp;#39;react&amp;#39;; function Counter() { const [count, setCount] = useState(0); useEffect(() =&amp;gt; { document.</description>
+    </item>
+    
+    <item>
+      <title>React高阶组件</title>
+      <link>https://www.pengjielee.cn/post/the-react-higher-order-component/</link>
+      <pubDate>Wed, 11 Nov 2020 10:34:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/the-react-higher-order-component/</guid>
+      <description>高阶组件（HOC），High Order Component。 高阶组件（HOC）是 React 中用于复用组件逻辑的一种高级技巧。HOC 自身不是 React API 的一部分，它是一种基于 React 的组合特性而形成的设计模式。
+高阶组件是参数为组件，返回值为新组件的函数。
+class NoteList extends React.Component { constructor(props) { super(props); } render() { return ( &amp;lt;div className=&amp;#34;list&amp;#34;&amp;gt; { this.props.list.map(function(item, index) { return ( &amp;lt;div className=&amp;#34;list-item&amp;#34;&amp;gt; &amp;lt;a className=&amp;#34;title&amp;#34;&amp;gt;{item.title}&amp;lt;/a&amp;gt; &amp;lt;div className=&amp;#34;content&amp;#34; dangerouslySetInnerHTML={{__html: item.content}}&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; ); }) } &amp;lt;/div&amp;gt; ); } } class BlogList extends React.Component { constructor(props) { super(props); this.handleRemove = this.handleRemove.bind(this); } handleRemove(id,e){ this.props.handleRemove(id,e); } renderList(){ const self = this; return this.</description>
+    </item>
+    
+    <item>
+      <title>React中使用TypeScript</title>
+      <link>https://www.pengjielee.cn/post/use-typescript-in-react/</link>
+      <pubDate>Wed, 11 Nov 2020 10:34:27 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/use-typescript-in-react/</guid>
+      <description>初始化 $ mkdir react-ts-app $ cd react-ts-app $ npm init -y $ npm install react react-dom $ mkdir src $ cd src $ touch index.html $ touch App.tsx src/index.html &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;IE=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;React + TypeScript&amp;lt;/title&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;#34;main&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;./App.tsx&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 安装Parcel $ npm i parcel-bundler -D $ npm i typescript -D $ npm i -D @types/react @types/react-dom package.</description>
+    </item>
+    
+  </channel>
+</rss>

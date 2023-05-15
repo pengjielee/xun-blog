@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">125.验证回文串</h1><div class="post-meta">
+    <div class="date">2021-05-08</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<pre tabindex="0"><code>示例 1:
+输入: &#34;A man, a plan, a canal: Panama&#34;
+输出: true
+
+示例 2:
+输入: &#34;race a car&#34;
+输出: false
+</code></pre><p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/valid-palindrome
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="知识点">知识点</h2>
+<p>charCodeAt()<br>
+charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。</p>
+<p>charAt()<br>
+方法 charCodeAt() 与 charAt() 方法执行的操作相似，只不过前者返回的是位于指定位置的字符的编码，而后者返回的是字符子串。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#e6db74">&#39;a&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//97
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;b&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//98
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>...
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;z&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//122 (97+26-1=122)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;A&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//65
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;B&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//66
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>...
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Z&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//90 (65+26-1=90)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;0&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//48
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;1&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//49
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#39;9&#39;</span>.<span style="color:#a6e22e">charCodeAt</span>(); <span style="color:#75715e">//57 (48+10-1=57)
+</span></span></span></code></pre></div><h2 id="js实现">JS实现</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {string} s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {boolean}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isPalindrome</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">str</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 字符串转为小写
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">str</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">toLowerCase</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 遍历字符串，过滤其他字符，只保留字母和数字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">str</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>() <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">48</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>() <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">57</span>) <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>() <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">97</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">charCodeAt</span>() <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>    ) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">temp</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">c</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//定义两个指针
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">left</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">right</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">temp</span>[<span style="color:#a6e22e">left</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">temp</span>[<span style="color:#a6e22e">right</span>]) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">left</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">right</span><span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

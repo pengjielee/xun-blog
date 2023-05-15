@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">Python基础：异常处理</h1><div class="post-meta">
+    <div class="date">2020-11-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="触发异常">触发异常</h2>
+<p>创建 division.py 文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>result <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>print(result)
+</span></span></code></pre></div><p>程序报错：</p>
+<pre tabindex="0"><code>Traceback (most recent call last):
+  File &#34;division.py&#34;, line 1, in &lt;module&gt;
+    result = 2 / 0
+ZeroDivisionError: division by zero
+</code></pre><h2 id="捕获异常">捕获异常</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>  result <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  print(result)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span>:
+</span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">&#39;除数不能为0&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># output: 除数不能为0</span>
+</span></span></code></pre></div><h2 id="try-except-else">try-except-else</h2>
+<p>出错时捕获异常，成功时执行else代码块。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;给两个数字，计算商：(按q退出)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>  first_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;被除数：&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> first_number <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>  second_number <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;除数：&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    answer <span style="color:#f92672">=</span> int(first_number) <span style="color:#f92672">/</span> int(second_number)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;警告：除数不能为0&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(answer)
+</span></span></code></pre></div><h2 id="异常类型">异常类型</h2>
+<p>1、ZeroDivisionError
+除数为 0 引发此异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>print(<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ZeroDivisionError: division by zero</span>
+</span></span></code></pre></div><p>2、FileNotFoundError
+文件不存在引发此异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;nimei.txt&#39;</span>) <span style="color:#66d9ef">as</span> file_reader:
+</span></span><span style="display:flex;"><span>  print(file_reader<span style="color:#f92672">.</span>read())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># FileNotFoundError: [Errno 2] No such file or directory: &#39;nimei.txt&#39;</span>
+</span></span></code></pre></div><p>3、NameError
+访问未声明的变量引发此异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>print(message)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># NameError: name &#39;message&#39; is not defined</span>
+</span></span></code></pre></div><p>4、KeyError
+字典中查找不存在的关键字引发此异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>people <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;jim&#39;</span>}
+</span></span><span style="display:flex;"><span>print(people[<span style="color:#e6db74">&#39;name&#39;</span>])
+</span></span><span style="display:flex;"><span>print(people[<span style="color:#e6db74">&#39;age&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># KeyError: &#39;age&#39;</span>
+</span></span></code></pre></div><p>5、AttributeError
+访问的对象属性不存在时抛出的异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>people <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;jim&#39;</span>}
+</span></span><span style="display:flex;"><span>print(people<span style="color:#f92672">.</span>len)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># AttributeError: &#39;dict&#39; object has no attribute &#39;len&#39;</span>
+</span></span></code></pre></div><p>6、IndexError
+列表超出索引范围引发此异常</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>colors <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#e6db74">&#39;green&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>]
+</span></span><span style="display:flex;"><span>print(colors[<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># IndexError: list index out of range</span>
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

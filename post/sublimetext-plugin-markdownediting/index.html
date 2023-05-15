@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">SublimeText插件MarkdownEditing</h1><div class="post-meta">
+    <div class="date">2021-03-01</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/sublime/" rel="tag">Sublime</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="问题">问题</h2>
+<p>使用SublimeText默认打开 .md 后缀的文件，页面显示一片白，阅读起来很不爽。</p>
+<h2 id="markdownediting">MarkdownEditing</h2>
+<p>MarkdownEditing是一款SublimeText插件，可以高亮显示语法，还可以快速插入 Markdown 标记。</p>
+<p>1、安装（MacOS为例）</p>
+<p>a. 打开 Sublime Text，按组合键 Command + Shift + P，然后输入install，选择 Package Control:Install Package。</p>
+<p>b. 插件安装面板输入 MarkdownEditing，然后回车。</p>
+<p>2、 配置</p>
+<p>Sublime Test -&gt; Preferences -&gt; Package Settings -&gt; Markdown Editing -&gt; Markdown GFM Setting - User</p>
+<p>编辑内容如下：</p>
+<pre tabindex="0"><code>{
+  &#34;color_scheme&#34;: &#34;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&#34;,
+  &#34;wrap_width&#34;: &#34;auto&#34;,
+  &#34;draw_centered&#34;: false,
+}
+</code></pre><p>3、快捷键</p>
+<p>a. 复制链接 (<a href="https://www.baidu.com/">https://www.baidu.com/</a>) 到剪切板，然后按 Command + shift + K，会快速插入链接</p>
+<pre tabindex="0"><code>![](https://www.baidu.com/)
+</code></pre><p>b. 输入&quot;mdi + tab&quot;会自动插入下面图片标记</p>
+<pre tabindex="0"><code>![Alt text](/path/to/img.jpg &#34;Optional title&#34;)
+</code></pre><p>c. 输入&quot;mdi + tab&quot;会生成下面链接标记</p>
+<pre tabindex="0"><code>[](link)
+</code></pre><h2 id="more">More</h2>
+<p>MarkdownEditing<br>
+<a href="https://github.com/SublimeText-Markdown/MarkdownEditing">https://github.com/SublimeText-Markdown/MarkdownEditing</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

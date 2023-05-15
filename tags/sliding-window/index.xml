@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sliding-window on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/sliding-window/</link>
+    <description>Recent content in sliding-window on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 May 2021 11:03:45 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/sliding-window/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>076.最小覆盖子串</title>
+      <link>https://www.pengjielee.cn/draft/leetcode/_076.%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Thu, 06 May 2021 11:03:45 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/draft/leetcode/_076.%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2/</guid>
+      <description>题目 给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 &amp;quot;&amp;quot; 。
+注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。
+示例 1： 输入：s = &amp;#34;ADOBECODEBANC&amp;#34;, t = &amp;#34;ABC&amp;#34; 输出：&amp;#34;BANC&amp;#34; 示例 2： 输入：s = &amp;#34;a&amp;#34;, t = &amp;#34;a&amp;#34; 输出：&amp;#34;a&amp;#34; 提示：
+1 &amp;lt;= s.length, t.length &amp;lt;= 10^5 s 和 t 由英文字母组成 进阶：你能设计一个在 o(n) 时间内解决此问题的算法吗？
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/minimum-window-substring 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * @param {string} s * @param {string} t * @return {string} */ var minWindow = function(s, t) { }; </description>
+    </item>
+    
+  </channel>
+</rss>

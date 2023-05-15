@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">03.parseInt与map</h1><div class="post-meta">
+    <div class="date">2021-03-29</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="1-2-3mapparseint-what--why-">[&lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;].map(parseInt) what &amp; why ?</h2>
+<p>1、parseInt</p>
+<p>parseInt() 函数解析一个字符串参数，并返回一个指定基数的整数 (数学系统的基础)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">intValue</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">string</span>[, <span style="color:#a6e22e">radix</span>]);
+</span></span></code></pre></div><ul>
+<li>
+<p>string 要被解析的值。如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)。字符串开头的空白符将会被忽略。</p>
+</li>
+<li>
+<p>radix 一个介于2和36之间的整数(数学系统的基础)，表示上述字符串的基数。默认为10。 返回值 返回一个整数或NaN</p>
+</li>
+</ul>
+<p>demo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>parseInt(<span style="color:#ae81ff">100</span>); <span style="color:#75715e">// 100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10</span>); <span style="color:#75715e">// 100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">2</span>); <span style="color:#75715e">// 4 -&gt; converts 100 in base 2 to base 10
+</span></span></span></code></pre></div><p>注意： 在radix为 undefined，或者radix为 0 或者没有指定的情况下，JavaScript 作如下处理：</p>
+<ul>
+<li>如果字符串 string 以&quot;0x&quot;或者&quot;0X&quot;开头, 则基数是16 (16进制).</li>
+<li>如果字符串 string 以&quot;0&quot;开头, 基数是8（八进制）或者10（十进制），那么具体是哪个基数由实现环境决定。ECMAScript 5 规定使用10，但是并不是所有的浏览器都遵循这个规定。因此，永远都要明确给出radix参数的值。</li>
+<li>如果字符串 string 以其它任何值开头，则基数是10 (十进制)。</li>
+</ul>
+<p>以下例子均返回15:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;0xF&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;F&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;17&#34;</span>, <span style="color:#ae81ff">8</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#ae81ff">021</span>, <span style="color:#ae81ff">8</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;015&#34;</span>, <span style="color:#ae81ff">10</span>));   <span style="color:#75715e">// parseInt(015, 8); 返回 13
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#ae81ff">15.99</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;15,123&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;FXX123&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;1111&#34;</span>, <span style="color:#ae81ff">2</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;15 * 3&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;15e2&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;15px&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;12&#34;</span>, <span style="color:#ae81ff">13</span>));
+</span></span></code></pre></div><p>以下例子均返回 NaN:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// 根本就不是数值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;546&#34;</span>, <span style="color:#ae81ff">2</span>));   <span style="color:#75715e">// 除了“0、1”外，其它数字都不是有效二进制数字
+</span></span></span></code></pre></div><p>以下例子均返回 -15：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-F&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-0F&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-0XF&#34;</span>, <span style="color:#ae81ff">16</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#f92672">-</span><span style="color:#ae81ff">15.1</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34; -17&#34;</span>, <span style="color:#ae81ff">8</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34; -15&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-1111&#34;</span>, <span style="color:#ae81ff">2</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-15e1&#34;</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#e6db74">&#34;-12&#34;</span>, <span style="color:#ae81ff">13</span>));
+</span></span></code></pre></div><p>以下例子均返回 4:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#ae81ff">4.7</span>, <span style="color:#ae81ff">10</span>));
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#ae81ff">4.7</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1e22</span>, <span style="color:#ae81ff">10</span>)); <span style="color:#75715e">// 非常大的数值变成 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(parseInt(<span style="color:#ae81ff">0.00000000000434</span>, <span style="color:#ae81ff">10</span>)); <span style="color:#75715e">// 非常小的数值变成 4
+</span></span></span></code></pre></div><p>2、map</p>
+<p>map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">new_array</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">currentValue</span>[,<span style="color:#a6e22e">index</span>[, <span style="color:#a6e22e">array</span>]]) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Return element for new_array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}[, <span style="color:#a6e22e">thisArg</span>]);
+</span></span></code></pre></div><p>可以看到callback回调函数需要三个参数, 我们通常只使用第一个参数 (其他两个参数是可选的)。</p>
+<ul>
+<li>currentValue 是callback 数组中正在处理的当前元素。</li>
+<li>index可选, 是callback 数组中正在处理的当前元素的索引。</li>
+<li>array可选, 是callback map 方法被调用的数组。</li>
+<li>另外还有thisArg可选, 执行 callback 函数时使用的this 值。</li>
+</ul>
+<p>demo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">num</span>) =&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>); <span style="color:#75715e">// [2, 3, 4]
+</span></span></span></code></pre></div><p>3、[&lsquo;1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;].map(parseInt); // output: [1, NaN, NaN]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;3&#39;</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">index</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> parseInt(<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">index</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parseInt(<span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#ae81ff">0</span>) <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e">// NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e">// NaN, 3 不是二进制
+</span></span></span></code></pre></div><p>4、[&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;].map(parseInt);  // output: [10, NaN, 2, 3, 4]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>,<span style="color:#a6e22e">index</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> parseInt(<span style="color:#a6e22e">item</span>,<span style="color:#a6e22e">index</span>)
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parseInt(<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#ae81ff">0</span>) <span style="color:#75715e">// 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#ae81ff">1</span>) <span style="color:#75715e">// NaN
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#ae81ff">2</span>) <span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#ae81ff">3</span>) <span style="color:#75715e">// 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>parseInt(<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#ae81ff">4</span>) <span style="color:#75715e">// 4
+</span></span></span></code></pre></div><p>5、[&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;,&lsquo;10&rsquo;].map(Number); //output: [10, 10, 10, 10, 10]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>].<span style="color:#a6e22e">map</span>(Number); <span style="color:#75715e">//output: [10, 10, 10, 10, 10]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>].<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">n</span> =&gt; parseInt(<span style="color:#a6e22e">n</span>,<span style="color:#ae81ff">10</span>)); <span style="color:#75715e">//output: [10, 10, 10, 10, 10]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>,<span style="color:#e6db74">&#39;10&#39;</span>].<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">n</span> =&gt; parseInt(<span style="color:#a6e22e">n</span>)); <span style="color:#75715e">//output: [10, 10, 10, 10, 10]
+</span></span></span></code></pre></div><p>6、30-seconds-of-code</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">unary</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span> =&gt; <span style="color:#a6e22e">val</span> =&gt; <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">val</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">parse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">unary</span>(parseInt)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([<span style="color:#e6db74">&#39;1.1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;0.3&#39;</span>].<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">parse</span>)); <span style="color:#75715e">//output: [1,2,0]
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">unary</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span> =&gt; <span style="color:#a6e22e">val</span> =&gt; <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">val</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">parse</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">unary</span>(parseInt)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">parse</span>);  <span style="color:#75715e">// val =&gt; fn(val)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;1.1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;0.3&#39;</span>].<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">parse</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#39;1.1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;0.3&#39;</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>,<span style="color:#a6e22e">index</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> parseInt(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-list">
+        <h1 class="page-title">Sublime</h1>
+        <section class="list">
+            <div class="item">
+    <div class="title">
+        <a href="/post/sublimetext-plugin-markdownediting/">SublimeText插件MarkdownEditing</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-01</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/sublime/" rel="tag">Sublime</a>
+        </div>
+</div>
+
+        <p class="summary">问题 使用SublimeText默认打开 .md 后缀的文件，页面显示一片白，阅读起来很不爽。
+MarkdownEditing MarkdownEditing是一款SublimeText插件，可以高亮显示语法，还可以快速插入 Markdown 标记。
+1、安装（MacOS为例）
+a. 打开 Sublime Text，按组合键 Command + Shift + P，然后输入install，选择 Package Control:Install Package。
+b. 插件安装面板输入 MarkdownEditing，然后回车。
+2、 配置
+Sublime Test -&gt; Preferences -&gt; Package Settings -&gt; Markdown Editing -&gt; Markdown GFM Setting - User
+编辑内容如下：
+{ &#34;color_scheme&#34;: &#34;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&#34;, &#34;wrap_width&#34;: &#34;auto&#34;, &#34;draw_centered&#34;: false, } 3、快捷键
+a. 复制链接 (https://www.baidu.com/) 到剪切板，然后按 Command + shift + K，会快速插入链接
+![](https://www.baidu.com/) b. 输入&quot;mdi + tab&quot;会自动插入下面图片标记
+![Alt text](/path/to/img.jpg &#34;Optional title&#34;) c.</p>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/run-the-python-program-in-sublimetext/">SublimeText中运行Python程序</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-24</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/sublime/" rel="tag">Sublime</a>
+                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
+        </div>
+</div>
+
+        <p class="summary">环境 操作系统：MacOS Big Sur（版本11.2） SublimeText：Version 3.1.1 使用系统自带版本，直接运行 创建 hello_world.py 文件，内容如下：
+print(&#39;Hello World.&#39;) 选择菜单 Tools -&gt; Build (或 command + B)。
+配置Python3运行 1、查看Python3安装路径
+$ type -a python3 or $ which python3 2、配置Sublime Text
+选择菜单 Tools -&gt; Build -&gt; New Build System，会打开一个新的配置文件。
+编辑内容如下：
+{ &#34;cmd&#34;: [&#34;/usr/local/bin/python3&#34;, &#34;-u&#34;, &#34;$file&#34;], } 将文件重命名为 Python3.sublime-build，保存至默认目录。
+选择菜单 Tools -&gt; Build System -&gt; Python3，再选择菜单Tools -&gt; Build (或 command + B)。</p>
+    
+</div>
+
+        </section>
+    </div>
+    
+
+
+        </div></body>
+</html>

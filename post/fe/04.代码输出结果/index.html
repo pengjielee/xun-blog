@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">04.代码输出结果</h1><div class="post-meta">
+    <div class="date">2021-03-30</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/question/" rel="tag">question</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="33-下面的代码打印什么内容为什么">33. 下面的代码打印什么内容，为什么？</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); 
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>我的：20<br>
+正确：[Function b]</p>
+<p>解析：<br>
+声明提前：一个声明在函数体内都是可见的，函数声明优先于变量声明； 在非匿名自执行函数中，函数变量为只读状态无法修改；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 内部作用域，会先去查找是有已有变量b的声明，有就直接赋值20，确实有了呀。发现了具名函数 function b(){}，拿此b做赋值；
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// IIFE的函数无法进行赋值（内部机制，类似const定义的常量），所以无效。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// （这里说的“内部机制”，想搞清楚，需要去查阅一些资料，弄明白IIFE在JS引擎的工作方式，堆栈存储IIFE的方式等）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// [Function b]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// 10，不是20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><p>严格模式下会报错误：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;use strict&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>);
+</span></span><span style="display:flex;"><span>})() <span style="color:#75715e">// &#34;Uncaught TypeError: Assignment to constant variable.&#34;
+</span></span></span></code></pre></div><p>使用var声明：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>; <span style="color:#75715e">// IIFE内部变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// 20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// 10 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><p>移除自执行函数名：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>; <span style="color:#75715e">// 更新全局变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// 20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">b</span>); <span style="color:#75715e">// 20 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><p>在JavaScript的立即执行的具名函数A内修改A的值时到底发生了什么？<br>
+<a href="https://segmentfault.com/q/1010000002810093">https://segmentfault.com/q/1010000002810093</a></p>
+<h2 id="34-简单改造下面的代码使之分别打印-10-和-20">34. 简单改造下面的代码，使之分别打印 10 和 20。</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//[Function b]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><p>改造1：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>);  <span style="color:#75715e">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><p>改造2：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">b</span>(){
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>); <span style="color:#75715e">//20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})();
+</span></span></code></pre></div><h2 id="41">41.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">a</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>);
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>正确：undefined, 10, 20</p>
+<p>解析：
+在立即执行函数中，<code>var a = 20</code>; 语句定义了一个局部变量 <code>a</code>，由于js的变量声明提升机制，局部变量<code>a</code>的声明会被提升至立即执行函数的函数体最上方，且由于这样的提升并不包括赋值，因此第一条打印语句会打印<code>undefined</code>，最后一条语句会打印<code>20</code>。</p>
+<p>由于变量声明提升，<code>a = 5</code>; 这条语句执行时，局部的变量<code>a</code>已经声明，因此它产生的效果是对局部的变量<code>a</code>赋值，此时<code>window.a</code> 依旧是最开始赋值的<code>10</code>，</p>
+<h2 id="43-使用-sort-对数组-3-15-8-29-102-22-进行排序输出结果">43. 使用 sort() 对数组 [3, 15, 8, 29, 102, 22] 进行排序，输出结果</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">102</span>, <span style="color:#ae81ff">22</span>].<span style="color:#a6e22e">sort</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">102</span>, <span style="color:#ae81ff">22</span>].<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) =&gt; {<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>});
+</span></span></code></pre></div><p>正确：
+// [102, 15, 22, 29, 3, 8]  <br>
+// [3, 8, 15, 22, 29, 102]</p>
+<p>解析：
+sort 函数，可以接收一个函数，返回值是比较两个数的相对顺序的值</p>
+<p>1、默认没有函数 是按照 UTF-16 排序的，对于字母数字 你可以利用 ASCII 进行记忆</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">102</span>, <span style="color:#ae81ff">22</span>].<span style="color:#a6e22e">sort</span>(); <span style="color:#75715e">// [102, 15, 22, 29, 3, 8]
+</span></span></span></code></pre></div><p>2、带函数的比较</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">102</span>, <span style="color:#ae81ff">22</span>].<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) =&gt; {<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>}); <span style="color:#75715e">// [3, 8, 15, 22, 29, 102]
+</span></span></span></code></pre></div><ul>
+<li>返回值大于0 即 a-b &gt; 0 ， a 和 b 交换位置；</li>
+<li>返回值大于0 即 a-b &lt; 0 ， a 和 b 位置不变；</li>
+<li>返回值等于0 即 a-b = 0 ， a 和 b 位置不变；</li>
+</ul>
+<h2 id="46">46.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">splice</span><span style="color:#f92672">:</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">splice</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">push</span><span style="color:#f92672">:</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">push</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>); <span style="color:#75715e">//Object(4) [empty × 2, 1, 2, splice: ƒ, push: ƒ]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">obj</span>)); <span style="color:#75715e">//{&#34;2&#34;:1,&#34;3&#34;:2,&#34;length&#34;:4}
+</span></span></span></code></pre></div><p>答案：[,,1,2]，length为4，伪数组（ArrayLike）</p>
+<p>解析：</p>
+<p>1、push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">push</span><span style="color:#f92672">:</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">push</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>); <span style="color:#75715e">//{2: 1, 3: 2, length: 4, push: ƒ}
+</span></span></span></code></pre></div><p>2、在对象中加入splice属性方法，和length属性后。这个对象变成一个类数组。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">splice</span><span style="color:#f92672">:</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">splice</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">push</span><span style="color:#f92672">:</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">push</span>,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">obj</span>); <span style="color:#75715e">//Object(4) [empty × 2, 1, 2, splice: ƒ, push: ƒ]
+</span></span></span></code></pre></div><p>3、解释</p>
+<ul>
+<li>使用第一次push，obj对象的push方法设置 obj[2]=1; obj.length+=1；</li>
+<li>使用第二次push，obj对象的push方法设置 obj[3]=2; obj.length+=1；</li>
+<li>使用console.log输出的时候，因为obj具有 length 属性和 splice 方法，故将其作为数组进行打印；</li>
+<li>打印时因为数组未设置下标为 0 1 处的值，故打印为empty，主动 obj[0] 获取为 undefined；</li>
+</ul>
+<h2 id="53">53.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">x</span>); <span style="color:#75715e">//undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">x</span>); <span style="color:#75715e">//{n:2}
+</span></span></span></code></pre></div><p>以下面这段代码分析：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> };
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">n</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span> };
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">x</span>); 
+</span></span></code></pre></div><p>1、a</p>
+<ul>
+<li>注释：计算单值表达式 a，得到 a 的引用；</li>
+<li>补充：这里的 a 是初始 a；</li>
+</ul>
+<p>2、a.x</p>
+<ul>
+<li>
+<p>注释：将 x 这个标识符作为. 运算符的右操作数，计算表达式 a.x，得到结果值（Result），它是一个 a.x 的“引用”</p>
+</li>
+<li>
+<p>补充：这个“引用”当作一个数据结构，通常有 base、name、strict 三个成员。无论x 属性是否存在（这里暂时不存在），a.x 都会被表达为 {&ldquo;base&rdquo;: a, &ldquo;name&rdquo;: &ldquo;x&rdquo;, &hellip;}。而这里的 a 仍然指向旧对象。</p>
+</li>
+</ul>
+<p>3、a</p>
+<ul>
+<li>注释：计算单值表达式 a，得到 a 的引用</li>
+<li>补充：这里的 a 是初始 a</li>
+</ul>
+<p>4、a = {n:2}</p>
+<ul>
+<li>注释：赋值操作使得左操作数 a 作为一个引用被覆盖，同时操作完成后返回右操作数 {n:2}</li>
+<li>补充：这里的这个 a 的的确确被覆盖了，这意味着往后通过 a 访问到的只能是新对象。但是，有一个 a 是不会变的，那就是被 a.x 的 Result 保存下来的引用 a，它作为一个当时既存的、不会再改变的结果，仍然指向旧对象。</li>
+</ul>
+<p>5、a.x = {n:2}</p>
+<ul>
+<li>注释：指向旧对象的 a 新建了 x 属性，这个属性关联对象 {n:2}</li>
+<li>补充：注意，这里对 a.x 进行了写操作（赋值），直到这次赋值发生的那一刻，才有了为旧对象动态创建 x 属性这个过程。</li>
+</ul>
+<p>所以，旧对象（丧失了引用的最初对象）和新对象（往后通过 a 可以访问到的那个对象）分别变成：</p>
+<pre tabindex="0"><code>// 旧对象
+a:{
+    n:1,
+    x:{n:2}
+}
+// 新对象
+a:{
+    n:2
+}
+</code></pre><p>现在，执行 console.log(a.x)，这里 a.x 被作为 rhs（右手端） 读取，引擎会开始检索是否真的有 a[&ldquo;x&rdquo;] 这个东西，因为此时通过 a 能访问到的只能是新对象，它自然是没有 x 属性的，所以打印 undefined。而且 —— 直到这次读取发生的那一刻，才有了为新对象动态创建 x 属性这个过程。</p>
+<p>Note：也就是说，在引擎从左到右计算表达式的过程中，尽管可能遇见类似 a.x 这样本不存在的属性，但无论如何，都会存在 {&ldquo;base&rdquo;: a, &ldquo;name&rdquo;: &ldquo;x&rdquo;, &hellip;} 这样的数据结构，而在后续真正对 x 进行 读写 的时候，这个 x 才会得到创建。</p>
+<p>这个代码块所做的事情，实际上是向旧有对象添加一个指向新对象的属性，并且如果我们想要在后续仍然持有对旧对象的访问，可以在赋值覆盖之前新建一个指向旧对象的变量。</p>
+<h2 id="76">76.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// example 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;123&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]); <span style="color:#75715e">//Output: c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// example 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;123&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;123&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]);  <span style="color:#75715e">//Output: b
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// example 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;123&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;456&#34;</span> };
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]); <span style="color:#75715e">//Output: c
+</span></span></span></code></pre></div><p>解析：</p>
+<ul>
+<li>对象的键名只能是字符串和 Symbol 类型。</li>
+<li>其他类型的键名会被转换成字符串类型。</li>
+<li>对象转字符串默认会调用 toString 方法。</li>
+</ul>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// example 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;123&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// c 的键名会被转换成字符串&#39;123&#39;，这里会把 b 覆盖掉。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]); <span style="color:#75715e">// 输出 c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// example 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;123&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#34;123&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// b 是 Symbol 类型，不需要转换。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// c 是 Symbol 类型，不需要转换。任何一个 Symbol 类型的值都是不相等的，所以不会覆盖掉 b。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]); <span style="color:#75715e">// 输出 b
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// example 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;123&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;456&#34;</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// b 不是字符串也不是 Symbol 类型，需要转换成字符串。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 对象类型会调用 toString 方法转换成字符串 [object Object]。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;b&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// c 不是字符串也不是 Symbol 类型，需要转换成字符串。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 对象类型会调用 toString 方法转换成字符串 [object Object]。这里会把 b 覆盖掉。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">c</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;c&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>[<span style="color:#a6e22e">b</span>]); <span style="color:#75715e">// 输出 c
+</span></span></span></code></pre></div><h2 id="98">98.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">changeObjProperty</span>(<span style="color:#a6e22e">o</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">siteUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">o</span>.<span style="color:#a6e22e">siteUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.google.com&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">webSite</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">changeObjProperty</span>(<span style="color:#a6e22e">webSite</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">webSite</span>.<span style="color:#a6e22e">siteUrl</span>);
+</span></span></code></pre></div><p>正确：http://www.baidu.com</p>
+<p>解析：
+对象作为参数，传递进去的是这个对象的引用地址，o.siteUrl是给这个对象赋值，
+o = new Object；把o指向另一个对象，o.siteUrl是给这个新对象赋值，不影响webSite这个变量指向的那个对象，两个o指向的对象的引用地址不同；</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 这里把o改成a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// webSite引用地址的值copy给a了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">changeObjProperty</span>(<span style="color:#a6e22e">a</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 改变对应地址内的对象属性值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">siteUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 变量a指向新的地址 以后的变动和旧地址无关
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">siteUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://www.google.com&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">456</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">webSite</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">webSite</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;123&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">changeObjProperty</span>(<span style="color:#a6e22e">webSite</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">webSite</span>); <span style="color:#75715e">// {name: 123, siteUrl: &#39;http://www.baidu.com&#39;}
+</span></span></span></code></pre></div><h2 id="100">100.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span>(); <span style="color:#75715e">//Output: 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">a</span>(); <span style="color:#75715e">//Output: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span>(); <span style="color:#75715e">//Output: 1
+</span></span></span></code></pre></div><p>解析：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 以上只是 Foo 的构建方法，没有产生实例，此刻也没有执行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 现在在 Foo 上挂载了原型方法 a ，方法输出值为 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 现在在 Foo 上挂载了直接方法 a ，输出值为 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 立刻执行了 Foo 上的 a 方法，也就是刚刚定义的，所以
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// # 输出 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* 这里调用了 Foo 的构建方法。Foo 的构建方法主要做了两件事：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">1. 将全局的 Foo 上的直接方法 a 替换为一个输出 1 的方法。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">2. 在新对象上挂载直接方法 a ，输出值为 2。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">a</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 因为有直接方法 a ，不需要去访问原型链，所以使用的是构建方法里所定义的 this.a，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// # 输出 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">a</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 构建方法里已经替换了全局 Foo 上的 a 方法，所以
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// # 输出 1
+</span></span></span></code></pre></div><h2 id="106">106.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>String(<span style="color:#e6db74">&#39;11&#39;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#39;11&#39;</span>);  <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>String(<span style="color:#e6db74">&#39;11&#39;</span>) <span style="color:#f92672">===</span> <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#39;11&#39;</span>); <span style="color:#75715e">//false
+</span></span></span></code></pre></div><p>解析：</p>
+<p>== 的时候，实际运行的是 String(&lsquo;11&rsquo;) == new String(&lsquo;11&rsquo;).toString();</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str1</span> <span style="color:#f92672">=</span> String(<span style="color:#e6db74">&#39;11&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">str2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#39;11&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">str1</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">str2</span> <span style="color:#75715e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">str1</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">str2</span> <span style="color:#75715e">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">str1</span>  <span style="color:#75715e">// &#34;string&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">str2</span> <span style="color:#75715e">// &#34;object&#34;
+</span></span></span></code></pre></div><h2 id="108">108.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tom&#34;</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jack&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Goodbye &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>正确：Goodbye Jack</p>
+<p>解析：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tom&#34;</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jack&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Goodbye &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><h2 id="109">109.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tom&#34;</span>;
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;undefined&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jack&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Goodbye &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})();
+</span></span></code></pre></div><p>我的：Hello Tom</p>
+<p>解析：<br>
+1、首先在进入函数作用域当中，获取name属性；<br>
+2、在当前作用域没有找到name；<br>
+3、通过作用域链找到最外层，得到name属性；<br>
+4、执行else的内容，得到Hello Tom；</p>
+<h2 id="116">116.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;1&#34;</span>  <span style="color:#75715e">//11
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#75715e">//4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>] <span style="color:#75715e">//?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;a&#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;b&#34;</span>   <span style="color:#75715e">//?
+</span></span></span></code></pre></div><p>解析：</p>
+<p>1 + &ldquo;1&rdquo;</p>
+<p>加性操作符：如果只有一个操作数是字符串，则将另一个操作数转换为字符串，然后再将两个字符串拼接起来
+所以值为：“11”</p>
+<p>2 * &ldquo;2&rdquo;</p>
+<p>乘性操作符：如果有一个操作数不是数值，则在后台调用 Number()将其转换为数值</p>
+<p>[1, 2] + [2, 1]</p>
+<p>Javascript中所有对象基本都是先调用valueOf方法，如果不是数值，再调用toString方法。
+所以两个数组对象的toString方法相加，值为：&ldquo;1,22,1&rdquo;</p>
+<p>&ldquo;a&rdquo; + + &ldquo;b&rdquo;</p>
+<p>后边的“+”将作为一元操作符，如果操作数是字符串，将调用Number方法将该操作数转为数值，如果操作数无法转为数值，则为NaN。
+所以值为：&ldquo;aNaN&rdquo;</p>
+<h2 id="129-输出以下代码执行结果">129. 输出以下代码执行结果</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">wait</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">resolve</span> =&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">resolve</span>, <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">time</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">x</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">y</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">z</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">timeEnd</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>();
+</span></span></code></pre></div><p>答案：10s多一点。</p>
+<p>解析：
+这个的运行时间是10s多一点，这是因为：a，b，c的异步请求会按顺序发起。而这个过程是不需要互相依赖等待的。等到wait的时候，其实是比较那个异步耗时最多。就会等待最长。最长的耗时就是整体的耗时。</p>
+<p>如果在业务中，两个异步没有依赖关系。应该是后面这种写法。</p>
+<h2 id="130-输出以下代码执行结果大致时间就好">130. 输出以下代码执行结果，大致时间就好</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">wait</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise(<span style="color:#a6e22e">resolve</span> =&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">resolve</span>, <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">time</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">wait</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">timeEnd</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>();
+</span></span></code></pre></div><p>答案：大概30秒多点，30秒是因为每个等待10秒，同步执行。</p>
+<h2 id="more">More</h2>
+<p>木易杨前端进阶-JS基础<br>
+<a href="https://muyiy.cn/question/js/2.html">https://muyiy.cn/question/js/2.html</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>

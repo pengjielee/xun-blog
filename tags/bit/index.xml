@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bit on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/bit/</link>
+    <description>Recent content in bit on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 08 May 2021 13:47:22 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/bit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>137.只出现一次的数字II</title>
+      <link>https://www.pengjielee.cn/draft/leetcode/_137.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97ii/</link>
+      <pubDate>Sat, 08 May 2021 13:47:22 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/draft/leetcode/_137.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97ii/</guid>
+      <description>题目 给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
+示例 1： 输入：nums = [2,2,3,2] 输出：3 示例 2： 输入：nums = [0,1,0,1,0,1,99] 输出：99 提示：
+1 &amp;lt;= nums.length &amp;lt;= 3 * 10^4 -2^31 &amp;lt;= nums[i] &amp;lt;= 2^31 - 1 nums 中，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 进阶：你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/single-number-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * @param {number[]} nums * @return {number} */ var singleNumber = function(nums) { }; </description>
+    </item>
+    
+    <item>
+      <title>136.只出现一次的数字</title>
+      <link>https://www.pengjielee.cn/post/leetcode/136.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Wed, 17 Mar 2021 16:44:50 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/leetcode/136.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>题目 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+说明：
+你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+示例 1: 输入: [2,2,1] 输出: 1 示例 2: 输入: [4,1,2,1,2] 输出: 4 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/single-number 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+位运算 异或运算：
+任何数和 0 做异或运算，结果仍是原来的数； 任何数和其自身做异或运算，结果是0； 异或运算满足交换律和结合律； 位运算 XOR：当对一对数位进行位运算 XOR 时，如果数位是不同的则返回 1。
+示例：
+console.log(0 ^ 0); //0，规则1，规则2 console.log(0 ^ 1); //1，规则1 console.log(1 ^ 0); //1，规则1 console.log(1 ^ 1); //0，规则2 console.log(0 ^ 1); //1，规则1 console.log(0 ^ 10); //10，规则1 console.log(1 ^ 1); //0，规则2 console.log(2 ^ 2); //0，规则2 console.log(1 ^ 1 ^ 2); //2，规则1，2，3 console.</description>
+    </item>
+    
+  </channel>
+</rss>

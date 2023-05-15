@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webpack on Pengjielee&#39;s blog</title>
+    <link>https://www.pengjielee.cn/tags/webpack/</link>
+    <description>Recent content in Webpack on Pengjielee&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 08 Mar 2021 16:26:18 +0800</lastBuildDate><atom:link href="https://www.pengjielee.cn/tags/webpack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Webpack多页面应用4：动态获取入口</title>
+      <link>https://www.pengjielee.cn/post/webpack-multi-page-application4/</link>
+      <pubDate>Mon, 08 Mar 2021 16:26:18 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/webpack-multi-page-application4/</guid>
+      <description>问题 每次创建新的页面时，如果都要去更改webpack的入口 配置文件，那样太不爽了，我们改造我们的代码来动态获取入口文件。
+改造 1、安装glob
+$ npm install glob -D 2、动态获取目录中的文件
+const glob = require(&amp;#39;glob&amp;#39;); /* * 1. 我们以文件夹里是否有html文件为准，来判断是否需要生成多页面 * 2. 我们的多页应用目录最多支持三级 */ const pages = glob.sync(&amp;#39;./src/pages/**?/**/index.html&amp;#39;).map(item =&amp;gt; { /* * pathArr * = [ &amp;#39;.&amp;#39;, &amp;#39;src&amp;#39;, &amp;#39;pages&amp;#39;, &amp;#39;home&amp;#39;, &amp;#39;index.html&amp;#39; ] * = [ &amp;#39;.&amp;#39;, &amp;#39;src&amp;#39;, &amp;#39;pages&amp;#39;, &amp;#39;blog&amp;#39;, &amp;#39;list&amp;#39;, &amp;#39;index.html&amp;#39; ] * = [ &amp;#39;.&amp;#39;, &amp;#39;src&amp;#39;, &amp;#39;pages&amp;#39;, &amp;#39;blog&amp;#39;, &amp;#39;list&amp;#39;, &amp;#39;detail&amp;#39;, &amp;#39;index.html&amp;#39; ] */ const pathArr = item.split(&amp;#39;/&amp;#39;); // 从第3个截取至倒数第一个，为我们的文件名 return pathArr.</description>
+    </item>
+    
+    <item>
+      <title>Webpack多页面应用3：快速创建页面</title>
+      <link>https://www.pengjielee.cn/post/webpack-multi-page-application3/</link>
+      <pubDate>Mon, 08 Mar 2021 15:55:42 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/webpack-multi-page-application3/</guid>
+      <description>安装依赖 $ npm install chalk inquirer fs-extra -D chalk，终端美化； inquirer，命令行交互工具； fs-extra，fs模块的增加版； 创建页面的脚本 newPage.js
+const path = require(&amp;#39;path&amp;#39;); const chalk = require(&amp;#39;chalk&amp;#39;); const inquirer = require(&amp;#39;inquirer&amp;#39;); const fs = require(&amp;#39;fs-extra&amp;#39;); // 获取传递的参数 const options = process.argv.slice(2); const name = options[0]; // 创建html文件 const createHtml = function(desFilePath, dirName) { const content = `&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1, shrink-to-fit=no&amp;#34; /&amp;gt; &amp;lt;meta name=&amp;#34;keywords&amp;#34; content=&amp;#34;&amp;#34; /&amp;gt; &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;&amp;#34;/&amp;gt; &amp;lt;title&amp;gt;&amp;lt;%= htmlWebpackPlugin.</description>
+    </item>
+    
+    <item>
+      <title>Webpack多页面应用2：添加React</title>
+      <link>https://www.pengjielee.cn/post/webpack-multi-page-application2/</link>
+      <pubDate>Mon, 08 Mar 2021 15:36:08 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/webpack-multi-page-application2/</guid>
+      <description>添加 React $ npm install react react-com home/index.js
+import React from &amp;#39;react&amp;#39;; import ReactDOM from &amp;#39;react-dom&amp;#39;; function App() { return &amp;lt;h1&amp;gt;About page - Rendered by React&amp;lt;/h1&amp;gt;; } ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;)); about/index.js
+import React from &amp;#39;react&amp;#39;; import ReactDOM from &amp;#39;react-dom&amp;#39;; function App() { return &amp;lt;h1&amp;gt;Home page - Rendered by React&amp;lt;/h1&amp;gt;; } ReactDOM.render(&amp;lt;App /&amp;gt;, document.getElementById(&amp;#39;root&amp;#39;)); 更新webpack 1、安装依赖
+$ npm install -D babel-loader @babel/preset-react -D 2、更新webpack.config.js，添加处理js后缀的loader
+module.exports = { //... module: { rules: [ { test: /\.</description>
+    </item>
+    
+    <item>
+      <title>Webpack多页面应用1：创建项目</title>
+      <link>https://www.pengjielee.cn/post/webpack-multi-page-application1/</link>
+      <pubDate>Mon, 08 Mar 2021 13:10:51 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/webpack-multi-page-application1/</guid>
+      <description>准备工作 1、创建项目
+$ mkdir multi-pages &amp;amp; cd multi-pages $ npm init -y 2、项目结构
+src/ pages/ home/ index.js about/ index.js webpack.config.js home/index.js
+export default function index() { return &amp;#39;Home Page&amp;#39;; } document.getElementById(&amp;#39;root&amp;#39;).innerHTML = index(); about/index.js
+export default function index() { return &amp;#39;About Page&amp;#39;; } document.getElementById(&amp;#39;root&amp;#39;).innerHTML = index(); webpack配置 1、安装依赖
+$ npm install webpack webpack-cli webpack-dev-server -D $ npm install html-webpack-plugin -D 2、webpack.config.js
+const path = require(&amp;#39;path&amp;#39;); const HtmlWebpackPlugin = require(&amp;#39;html-webpack-plugin&amp;#39;); module.exports = { entry: { home: &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>如何分析webpack构建时间</title>
+      <link>https://www.pengjielee.cn/post/how-do-analyze-webpack-builds-time/</link>
+      <pubDate>Thu, 14 Jan 2021 15:14:03 +0800</pubDate>
+      
+      <guid>https://www.pengjielee.cn/post/how-do-analyze-webpack-builds-time/</guid>
+      <description>统计shell脚本执行时间 #!/bin/bash #记录开始时间 start_time=$(date +%s) #安装及构建 npm install npm run build #记录结束时间 end_time=$(date +%s) #计算执行时间 cost_time=$[ $end_time-$start_time ] #输出执行时间 echo $cost_time echo &amp;#34;cost time is $(($cost_time/60))min $(($cost_time%60))s&amp;#34; 分析webpack编译时间 1、安装speed-measure-webpack-plugin
+$ npm install --save-dev speed-measure-webpack-plugin 2、更新webpack配置
+Change your webpack config from
+const webpackConfig = { plugins: [ new MyPlugin(), new MyOtherPlugin() ] } to
+const SpeedMeasurePlugin = require(&amp;#34;speed-measure-webpack-plugin&amp;#34;); const smp = new SpeedMeasurePlugin(); const webpackConfig = smp.wrap({ plugins: [ new MyPlugin(), new MyOtherPlugin() ], }); </description>
+    </item>
+    
+  </channel>
+</rss>

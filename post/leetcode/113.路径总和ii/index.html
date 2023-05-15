@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">113.路径总和II</h1><div class="post-meta">
+    <div class="date">2021-04-20</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="题目">题目</h2>
+<p>给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。</p>
+<p>叶子节点 是指没有子节点的节点。</p>
+<pre tabindex="0"><code>示例 1：
+           5
+          / \
+         4    8
+        /     / \
+       11    13  4
+      /  \       / \
+     7    2     5  1
+输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22 （5 - 4 - 11 - 2）
+输出：[[5,4,11,2],[5,8,4,5]]
+
+示例 2：
+   1
+  / \
+ 2   3
+输入：root = [1,2,3], targetSum = 5
+输出：[]
+
+示例 3：
+输入：root = [1,2], targetSum = 0
+输出：[]
+</code></pre><p>提示：</p>
+<ul>
+<li>树中节点的数目在范围 [0, 5000] 内</li>
+<li>-1000 &lt;= Node.val &lt;= 1000</li>
+<li>-1000 &lt;= targetSum &lt;= 1000</li>
+</ul>
+<p>来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/path-sum-ii
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="js实现">JS实现</h2>
+<p>1、深度优先搜索</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Definition for a binary tree node.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * function TreeNode(val, left, right) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.val = (val===undefined ? 0 : val)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.left = (left===undefined ? null : left)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *     this.right = (right===undefined ? null : right)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {TreeNode} root
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} targetSum
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return {number[][]}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pathSum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">root</span>, <span style="color:#a6e22e">targetSum</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dfs</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">root</span>, <span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">targetSum</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">root</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">val</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">targetSum</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">targetSum</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">slice</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">targetSum</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">targetSum</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">pop</span>();
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">root</span>, [], <span style="color:#a6e22e">targetSum</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>2、广度优先搜索</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pathSum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">root</span>, <span style="color:#a6e22e">targetSum</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">root</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">queue_node</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">queue_sum</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">queue_node</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">root</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">queue_sum</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getPath</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">node</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">node</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">temp</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">val</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">node</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span>.<span style="color:#a6e22e">reverse</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">temp</span>.<span style="color:#a6e22e">slice</span>());
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">queue_node</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">queue_node</span>.<span style="color:#a6e22e">shift</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">queue_sum</span>.<span style="color:#a6e22e">shift</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">targetSum</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">getPath</span>(<span style="color:#a6e22e">node</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">node</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">queue_node</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">queue_sum</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">map</span>.<span style="color:#a6e22e">set</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>, <span style="color:#a6e22e">node</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">queue_node</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">queue_sum</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">res</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>测试数据：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>           <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">/</span> <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ae81ff">4</span>    <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">/</span>     <span style="color:#960050;background-color:#1e0010">/ \</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#ae81ff">11</span>    <span style="color:#ae81ff">13</span>  <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">/</span>  <span style="color:#960050;background-color:#1e0010">\</span>       <span style="color:#f92672">/</span> <span style="color:#f92672">\</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#a6e22e">val</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">root</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node2_4</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node2_8</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node3_11</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">11</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node3_13</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">13</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node3_4</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node4_7</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node4_2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node4_5</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">node4_1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TreeNode</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node2_4</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node2_8</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node2_4</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node3_11</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node2_8</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node3_13</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node2_8</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node3_4</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node3_11</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node4_7</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node3_11</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node4_2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node3_4</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node4_5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">node3_4</span>.<span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node4_1</span>;
+</span></span></code></pre></div></div>
+    </div>
+
+        </div></body>
+</html>

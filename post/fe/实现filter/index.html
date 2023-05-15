@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="pengjielee,个人博客" />
+    <meta name="description" content="Pengjielee的个人博客" />
+    <title>Pengjielee&#39;s blog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body><div id="main">
+            <nav class="nav">
+    <a href="/">首页</a> <span class="divide">|</span>
+    <a href="/categories">分类</a>
+    <span class="divide">|</span> <a href="/tags">标签</a>
+    <span class="divide">|</span>
+    <a href="/post">归档</a>
+</nav>
+
+    <div class="page-single">
+        <header class="header">
+            <h1 class="title">实现filter</h1><div class="post-meta">
+    <div class="date">2021-03-16</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+        </div>
+</div>
+</header>
+        <div class="content"><h2 id="实现myfilter">实现myfilter</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">_filter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">fn</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fn</span>(<span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">this</span>)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="test">Test</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">el</span>) =&gt; <span style="color:#a6e22e">el</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result1</span>); <span style="color:#75715e">//[6,7,9,10]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">_filter</span>((<span style="color:#a6e22e">el</span>) =&gt; <span style="color:#a6e22e">el</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result2</span>); <span style="color:#75715e">//[6,7,9,10]
+</span></span></span></code></pre></div><h2 id="polyfill">Polyfill</h2>
+<p>filter 被添加到 ECMA-262 标准第 5 版中，因此在某些实现环境中不被支持。可以把下面的代码插入到脚本的开头来解决此问题，该代码允许在那些没有原生支持 filter 的实现环境中使用它。该算法是 ECMA-262 第 5 版中指定的算法，假定 fn.call 等价于 Function.prototype.call 的初始值，且 Array.prototype.push 拥有它的初始值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">filter</span>) {
+</span></span><span style="display:flex;"><span>  Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">filter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">thisArg</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;use strict&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>((<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">func</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;Function&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">func</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;function&#39;</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">this</span>))
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TypeError</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Array(<span style="color:#a6e22e">len</span>), <span style="color:#75715e">// preallocate array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">t</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">thisArg</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">i</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">len</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// checks to see if the key was set
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">this</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">t</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">t</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">c</span><span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">t</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> (<span style="color:#f92672">++</span><span style="color:#a6e22e">i</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">len</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// checks to see if the key was set
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">this</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">thisArg</span>, <span style="color:#a6e22e">t</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">t</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">c</span><span style="color:#f92672">++</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">t</span>[<span style="color:#a6e22e">i</span>];
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>; <span style="color:#75715e">// shrink down array to proper size
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="more">More</h2>
+<p>MDN
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter</a></p>
+</div>
+    </div>
+
+        </div></body>
+</html>
