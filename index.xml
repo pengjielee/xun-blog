@@ -11788,7 +11788,7 @@ function h(sel, b, c) { let data = {}; let children; let text; let i; if (c !</d
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.pengjielee.cn/post/read/%E8%87%AA%E5%B7%B1/%E8%AF%BB%E4%B8%8E%E7%A5%9E%E5%AF%B9%E8%AF%9D1-chapter7%E7%94%9F%E6%B4%BB/</guid>
-      <description>title: &amp;ldquo;与神对话1 - chapter7生活&amp;rdquo; date: 2022-10-12T11:02:58+08:00 categories: [&amp;lsquo;read&amp;rsquo;] draft: true
+      <description>title: &amp;ldquo;与神对话1 - chapter7生活&amp;rdquo; date: 2022-10-12T11:02:58+08:00 categories: &amp;lsquo;read&amp;rsquo; draft: true
 生活没什么可怕的，前提是你不执着于结果。
 你选择的东西，你统统能够得到。
 只要永远忠于真实——你的真实经验——就好了。</description>
