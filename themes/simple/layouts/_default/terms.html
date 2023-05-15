@@ -1,0 +1,22 @@
+{{- define "main" -}}
+  {{ $name := .Data.Plural -}}
+  {{ $terms := .Data.Terms.ByCount -}}
+  {{ $length := len $terms -}}
+  {{- if eq $name "tags" -}}
+    <div class="page-tags">
+      <h1 class="page-title">
+        Tags
+      </h1>
+      <div class="list">
+        {{- range $key, $value := $terms }}
+          <div class="item">
+            <a class="title" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
+            {{ $value.Term }}
+            <span class="count">({{ len $value.Pages }})</span>
+          </a>
+        </div>
+        {{ end -}}
+      </div>
+    </div>
+  {{- end }}
+{{- end }}

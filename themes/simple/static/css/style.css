@@ -181,28 +181,22 @@ dd.archive-post {
 .page-list {
     margin: 30px 0;
 }
-.page-list .page-title {
+.page-title {
     margin-bottom: 30px;
     font-size: 30px;
 }
 
-.page-list.tags .list {
+.page-tags .list {
     display: flex;
     flex-wrap: wrap;
 }
-.page-list.tags .list .title {
+.page-tags .list .title {
     font-size: 16px;
 }
-.page-list.tags .list .item {
+.page-tags .list .item {
     flex: 0 1 20%;
-    margin-bottom: 0;
 }
-.page-list.tags .list .post-meta {
-    display: none;
-}
-.page-list.categories .list .item {
-    margin-bottom: 0;
-}
+
 
 .page-404 {
     display: flex;
