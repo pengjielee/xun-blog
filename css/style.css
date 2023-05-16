@@ -1,3 +1,6 @@
+:root {
+    --primary-color: #315efb;
+};
 * {
     box-sizing: border-box;
 }
@@ -125,6 +128,10 @@ dd.archive-post {
     -webkit-box-orient: vertical;
 }
 
+.page {
+    padding: 0 20px;
+}
+
 .page-home {
     display: flex;
     flex-direction: column;
@@ -154,6 +161,9 @@ dd.archive-post {
 .page-home .more {
     text-align: right;
 }
+.page-home .more a {
+    color: var(--primary-color)
+}
 
 .page-single {
     margin: 30px 0;
@@ -176,6 +186,16 @@ dd.archive-post {
 .page-single .content p {
     text-indent: 30px;
     margin: 10px 0;
+}
+
+.page-single .content ul,
+.page-single .content li  {
+    margin: 0;
+    padding: 0;
+}
+
+.page-single .content a {
+    color: var(--primary-color);
 }
 
 .page-list {
@@ -207,8 +227,8 @@ dd.archive-post {
 
 @media screen and (max-width: 800px) {
     #main {
+        width: 100%;
         max-width: 100%;
-        padding: 0 30px;
     }
     .post-meta {
         flex-wrap: wrap;
@@ -216,5 +236,11 @@ dd.archive-post {
     .post-meta .date {
         flex: 1 1 100%;
         margin-bottom: 10px;
+    }
+    .page-tags .list .item {
+        flex: 0 1 33.33%;
+    }
+    .pagination {
+        text-align: center;
     }
 }
