@@ -3,7 +3,7 @@
     {{ $terms := .Data.Terms.ByCount -}}
     {{ $length := len $terms -}}
     {{- if eq $name "tags" -}}
-        <div class="page-tags">
+        <div class="page page-tags">
             <h1 class="page-title">Tags</h1>
             <div class="list">
                 {{- range $key, $value := $terms }}
