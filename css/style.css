@@ -1,6 +1,10 @@
 :root {
     --primary-color: #315efb;
-};
+    --title-size: 20px;
+    --logo-size: 32px;
+    --page-title-size: 30px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,7 +12,7 @@
 body {
     margin: 0;
     font-family: "Ubuntu", "Open Sans", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     word-wrap: break-word;
     -webkit-font-smoothing: antialiased;
 }
@@ -59,6 +63,30 @@ pre code {
     border: 0;
 }
 
+
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
 #main {
     width: 1000px;
     margin: 0px auto;
@@ -80,9 +108,6 @@ pre code {
     margin: 30px 0;
 }
 
-.nav a {
-    font-size: 18px;
-}
 .nav .divide {
     margin: 0 10px;
 }
@@ -103,7 +128,6 @@ pre code {
 dd.archive-post {
     margin-left: 20px;
     margin-bottom: 15px;
-    font-size: 15px;
 }
 .archive-post-title {
     margin-left: 15px;
@@ -115,8 +139,9 @@ dd.archive-post {
     margin-bottom: 20px;
 }
 .list .title {
-    font-size: 20px;
+    font-size: var(--title-size);
     margin-bottom: 10px;
+    font-weight: bold;
 }
 .list .summary {
     line-height: 25px;
@@ -143,7 +168,7 @@ dd.archive-post {
     margin: 30px 0;
 }
 .page-home .header h1 {
-    font-size: 28px;
+    font-size: var(--logo-size);
     margin: 0;
     margin-bottom: 15px;
 }
@@ -167,9 +192,6 @@ dd.archive-post {
 .page-home .nav {
     margin: 20px 0 5px;
 }
-.page-home .nav a {
-    font-size: 14px;
-}
 
 a.tags_link {
      color: var(--primary-color);
@@ -184,11 +206,10 @@ a.tags_link {
 }
 .page-single .title {
     margin-bottom: 15px;
-    font-size: 24px;
+    font-size: var(--page-title-size);
 }
 .page-single .content {
     line-height: 28px;
-    font-size: 15px;
 }
 .page-single .post-meta {
     justify-content: center;
@@ -214,15 +235,12 @@ a.tags_link {
 }
 .page-title {
     margin-bottom: 30px;
-    font-size: 30px;
+    font-size: var(--page-title-size);
 }
 
 .page-tags .list {
     display: flex;
     flex-wrap: wrap;
-}
-.page-tags .list .title {
-    font-size: 16px;
 }
 .page-tags .list .item {
     flex: 0 1 20%;
