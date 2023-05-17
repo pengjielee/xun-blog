@@ -13,14 +13,14 @@ draft: false
 
 ## 查看远程分支信息，发现不是最新的
 
-```
-git pull origin branchname
-git branch -a 
+```bash
+$ git pull origin branchname
+$ git branch -a 
 ```
 
 ## 解决办法：执行下面命令即可
 
-```
-git fetch origin
-git remote prune origin  //可以用这个命令清除无效分支
+```bash
+$ git fetch origin
+$ git remote prune origin  //可以用这个命令清除无效分支
 ```
