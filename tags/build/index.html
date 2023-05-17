@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">build</h1>
+        <h1 class="title">build</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,12 +34,12 @@
     <div class="date">2021-03-29</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/build/" rel="tag">build</a>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/build/" rel="tag">build</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">version1: jsx const element = &lt;h1 title=&#34;foo&#34;&gt;Hello&lt;/h1&gt;; const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &#34;h1&#34;, { title: &#34;foo&#34;}, &#34;Hello&#34; ); const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version3: convert jsx to js const element = { type: &#34;h1&#34;, props: { title: &#34;foo&#34;, children: &#34;Hello&#34; } } const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version4: const element = { type: &#34;h1&#34;, props: { title: &#34;foo&#34;, children: &#34;Hello&#34; } } const container = document.</p>
+        <div class="summary">version1: jsx const element = &lt;h1 title=&#34;foo&#34;&gt;Hello&lt;/h1&gt;; const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &#34;h1&#34;, { title: &#34;foo&#34;}, &#34;Hello&#34; ); …</div>
     
 </div>
 
@@ -46,5 +48,13 @@
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

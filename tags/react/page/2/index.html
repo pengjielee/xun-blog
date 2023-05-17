@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">React</h1>
+        <h1 class="title">React</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,12 +34,12 @@
     <div class="date">2021-03-29</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">useState实现 function useState(initialValue) { var _val = initialValue; function state(){ return _val; } function setState(newVal){ _val = newVal; } return [state, setState]; } 使用
-var [foo, setFoo] = useState(0) // 数组解构 console.log(foo()); //output: 0 setFoo(1); console.log(foo()); //output: 1 在函数组件中使用 function Counter() { const [count, setCount] = useState(0) // 和上文实现的一样 return { click: () =&gt; setCount(count() + 1), render: () =&gt; console.log(&#39;render:&#39;, { count: count() }) } } const C = Counter() C.</p>
+        <div class="summary">useState实现 function useState(initialValue) { var _val = initialValue; function state(){ return _val; } function setState(newVal){ _val = newVal; } return [state, setState]; } 使用
+var [foo, setFoo] = useState(0) // 数组解构 console.log(foo()); //output: 0 setFoo(1); console.log(foo()); //output: 1 在函数组件中使 …</div>
     
 </div>
 <div class="item">
@@ -47,12 +49,12 @@ var [foo, setFoo] = useState(0) // 数组解构 console.log(foo()); //output: 0 
     <div class="date">2021-03-29</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/build/" rel="tag">build</a>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/build/" rel="tag">build</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">version1: jsx const element = &lt;h1 title=&#34;foo&#34;&gt;Hello&lt;/h1&gt;; const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &#34;h1&#34;, { title: &#34;foo&#34;}, &#34;Hello&#34; ); const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version3: convert jsx to js const element = { type: &#34;h1&#34;, props: { title: &#34;foo&#34;, children: &#34;Hello&#34; } } const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version4: const element = { type: &#34;h1&#34;, props: { title: &#34;foo&#34;, children: &#34;Hello&#34; } } const container = document.</p>
+        <div class="summary">version1: jsx const element = &lt;h1 title=&#34;foo&#34;&gt;Hello&lt;/h1&gt;; const container = document.getElementById(&#39;root&#39;); ReactDOM.render(element, container); version2: React.createElement const element = React.createElement( &#34;h1&#34;, { title: &#34;foo&#34;}, &#34;Hello&#34; ); …</div>
     
 </div>
 <div class="item">
@@ -62,13 +64,12 @@ var [foo, setFoo] = useState(0) // 数组解构 console.log(foo()); //output: 0 
     <div class="date">2021-03-13</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">创建项目 $ npx create-react-app react-try 情景一：shouldComponentUpdate Child.js
-import React from &#39;react&#39;; class Child extends React.Component { constructor(props) { super(props); } componentDidMount() { console.log(&#39;child did mount&#39;); } componentWillUnmount() { console.log(&#39;child will mount&#39;); } render() { console.log(&#39;child render&#39;); return ( &lt;div&gt; &lt;h1&gt;This is Child&lt;/h1&gt; &lt;/div&gt; ); } } export default Child; Parent.js
-import React from &#39;react&#39;; import Child from &#39;./Child&#39;; class Parent extends React.Component { constructor(props) { super(props); this.state = {date: new Date()}; this.</p>
+        <div class="summary">创建项目 $ npx create-react-app react-try 情景一：shouldComponentUpdate Child.js
+import React from &#39;react&#39;; class Child extends React.Component { constructor(props) { super(props); } componentDidMount() { console.log(&#39;child did mount&#39;); } componentWillUnmount() { console.log(&#39;child will …</div>
     
 </div>
 <div class="item">
@@ -78,11 +79,11 @@ import React from &#39;react&#39;; import Child from &#39;./Child&#39;; class Pa
     <div class="date">2021-03-13</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">1、 import React from &#34;react&#34;; export default class App extends React.Component { innerClick = () =&gt; { console.log(&#34;A: react inner click.&#34;); }; outerClick = () =&gt; { console.log(&#34;B: react outer click.&#34;); }; componentDidMount() { document.getElementById(&#34;outer&#34;).addEventListener(&#34;click&#34;, () =&gt; { console.log(&#34;C: native outer click&#34;); }); document.getElementById(&#34;inner&#34;).addEventListener(&#34;click&#34;, () =&gt; { console.log(&#34;D: native inner click&#34;); }); } render() { return ( &lt;div id=&#34;outer&#34; onClick={this.outerClick}&gt; &lt;button id=&#34;inner&#34; onClick={this.innerClick}&gt; BUTTON &lt;/button&gt; &lt;/div&gt; ); } } 输出：</p>
+        <div class="summary">1、 import React from &#34;react&#34;; export default class App extends React.Component { innerClick = () =&gt; { console.log(&#34;A: react inner click.&#34;); }; outerClick = () =&gt; { console.log(&#34;B: react outer click.&#34;); }; componentDidMount() { …</div>
     
 </div>
 <div class="item">
@@ -92,13 +93,12 @@ import React from &#39;react&#39;; import Child from &#39;./Child&#39;; class Pa
     <div class="date">2021-03-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">1、在构造函数中绑定事件
-class Item extends React.Component { constructor(props) { super(props); this.state = { number: 0, }; this.handleClick = this.handleClick.bind(this); } handleClick() { console.log(&#39;click&#39;); this.setState({ number: this.state.number + 1, }); } render() { return ( &lt;div&gt; &lt;span style={{ marginRight: &#39;5px&#39; }}&gt;number: {this.state.number}&lt;/span&gt; &lt;button onClick={this.handleClick}&gt;click&lt;/button&gt; &lt;/div&gt; ); } } 2、在render中绑定 this
-class Item extends React.Component { constructor(props) { super(props); this.state = { number: 0, }; } handleClick() { console.log(&#39;click&#39;); this.setState({ number: this.state.number + 1, }); } render() { return ( &lt;div&gt; &lt;span style={{ marginRight: &#39;5px&#39; }}&gt;number: {this.</p>
+        <div class="summary">1、在构造函数中绑定事件
+class Item extends React.Component { constructor(props) { super(props); this.state = { number: 0, }; this.handleClick = this.handleClick.bind(this); } handleClick() { console.log(&#39;click&#39;); this.setState({ number: this.state.number + 1, }); } render() { return ( &lt;div&gt; …</div>
     
 </div>
 <div class="item">
@@ -108,11 +108,11 @@ class Item extends React.Component { constructor(props) { super(props); this.sta
     <div class="date">2021-03-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">看代码 import React, { useState } from &#39;react&#39;; // 计算斐波那契数 const fibc = n =&gt; { console.log(&#39;calculate...&#39;); if (n &lt;= 2) { return 1; } return fibc(n - 1) + fibc(n - 2); }; const Fibc = props =&gt; { let [number, setNumber] = useState(1); let [count, setCount] = useState(0); // 优化前 const result = fibc(number); return ( &lt;div&gt; &lt;p&gt;number: {number}&lt;/p&gt; &lt;p&gt;count: {count}&lt;/p&gt; &lt;p&gt;fibc result: {result}&lt;/p&gt; &lt;button onClick={() =&gt; setNumber(number + 1)}&gt;add number&lt;/button&gt; &lt;button onClick={() =&gt; setCount(count + 1)}&gt;add count&lt;/button&gt; &lt;/div&gt; ); }; export default Fibc; 问题:</p>
+        <div class="summary">看代码 import React, { useState } from &#39;react&#39;; // 计算斐波那契数 const fibc = n =&gt; { console.log(&#39;calculate...&#39;); if (n &lt;= 2) { return 1; } return fibc(n - 1) + fibc(n - 2); }; const Fibc = props =&gt; { let [number, setNumber] = useState(1); let [count, setCount] = useState(0); // …</div>
     
 </div>
 <div class="item">
@@ -122,14 +122,12 @@ class Item extends React.Component { constructor(props) { super(props); this.sta
     <div class="date">2021-03-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">设置行内样式 1、使用行内 style 样式
-import React from &#39;react&#39;; const Home = props =&gt; { const name = &#39;Home Page&#39;; return ( &lt;div style={{ backgroundColor: &#39;#ddd&#39;, color: &#39;red&#39;, fontSize: &#39;30px&#39;, paddingLeft: &#39;20px&#39;, }}&gt; { name } &lt;/div&gt; ); }; export default Home; 注意：
-行内样式的属性名需使用驼峰命名。 行内样式需要使用双大括号{{ }}，变量用单个大括号{ } 2、使用分离的 style 对象
-import React from &#39;react&#39;; const Home = props =&gt; { const name = &#39;Home Page&#39;; const nameStyle = { backgroundColor: &#39;#333&#39;, color: &#39;#fff&#39;, fontSize: &#39;30px&#39;, paddingLeft: &#39;20px&#39;, marginTop: &#39;10px&#39;, }; return ( &lt;div&gt; &lt;div style={nameStyle}&gt;{name}&lt;/div&gt; &lt;/div&gt; ); }; export default Home; 设置多个class 1、使用join拼接</p>
+        <div class="summary">设置行内样式 1、使用行内 style 样式
+import React from &#39;react&#39;; const Home = props =&gt; { const name = &#39;Home Page&#39;; return ( &lt;div style={{ backgroundColor: &#39;#ddd&#39;, color: &#39;red&#39;, fontSize: &#39;30px&#39;, paddingLeft: &#39;20px&#39;, }}&gt; { name } &lt;/div&gt; ); }; export …</div>
     
 </div>
 <div class="item">
@@ -139,17 +137,16 @@ import React from &#39;react&#39;; const Home = props =&gt; { const name = &#39;
     <div class="date">2021-03-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">代码 1、安装
+        <div class="summary">代码 1、安装
 $ npm install react-router-dom 2、创建多页面
 文件结构：
 /src /views /blog detail.js list.js about.js home.js app.js index.js home.js
 import React from &#39;react&#39;; const Home = props =&gt; { return &lt;div&gt;Home Page&lt;/div&gt;; }; export default Home; about.js
-import React from &#39;react&#39;; const About = props =&gt; { return &lt;div&gt;About Page&lt;/div&gt;; }; export default About; blog/list.js
-import React from &#39;react&#39;; import { Link } from &#39;react-router-dom&#39;; const BlogList = props =&gt; { const blogs = [ { id: 1, title: &#39;将React应用部署到GitHub Pages&#39;, url: &#39;https://cnodejs.</p>
+import React from &#39;react&#39;; …</div>
     
 </div>
 <div class="item">
@@ -159,18 +156,15 @@ import React from &#39;react&#39;; import { Link } from &#39;react-router-dom&#3
     <div class="date">2021-03-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">添加 .css 文件 1、安装 css-loader/style-loader
+        <div class="summary">添加 .css 文件 1、安装 css-loader/style-loader
 $ npm install --save-dev css-loader style-loader 2、更新 webpack.config.js
 module.exports = { module: { rules: [ { test: /\.css$/i, use: [&#39;style-loader&#39;, &#39;css-loader&#39;], }, ], }, }; 3、创建 base.css 文件
 /src /assets /styles base.css base.css
-body { background: red; color: #fff; } 4、引入 base.css 文件
-src/index.js
-import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; // 引入样式文件 import &#39;./assets/styles/base.css&#39;; ReactDOM.render(&lt;h1&gt;Hello, World!&lt;/h1&gt;, document.getElementById(&#39;root&#39;)); 此时打开浏览器： http://localhost:9000/
-项目源码见（切换 tag 至 css-loader）git checkout css-loader： https://github.</p>
+body { …</div>
     
 </div>
 <div class="item">
@@ -180,15 +174,11 @@ import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; // 
     <div class="date">2021-03-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">安装 $ npm install --save-dev --save-exact prettier 创建一个空的配置文件 $ echo {}&gt; .prettierrc.js 配置.prettierrc.js module.exports = { arrowParens: &#34;avoid&#34;, bracketSpacing: true, printWidth: 100, semi: true, singleQuote: true, tabWidth: 2, trailingComma: &#34;all&#34;, jsxSingleQuote: false, jsxBracketSameLine: false, useTabs: false, overrides: [ { files: &#34;*.html&#34;, options: { parser: &#34;angular&#34;, htmlWhitespaceSensitivity: &#34;ignore&#34;, printWidth: 120, tabWidth: 2, }, } ], }; 我的prettier配置
-创建忽略文件 .prettierignore 文件用来设置哪些文件不需要格式化。
-.prettierignore
-build coverage dist/*.js 使用 npm scripts 格式化 package.json
-{ scripts: { &#34;prettier&#34;: &#34;prettier --write src/*.</p>
+        <div class="summary">安装 $ npm install --save-dev --save-exact prettier 创建一个空的配置文件 $ echo {}&gt; .prettierrc.js 配置.prettierrc.js module.exports = { arrowParens: &#34;avoid&#34;, bracketSpacing: true, printWidth: 100, semi: true, singleQuote: true, tabWidth: 2, trailingComma: &#34;all&#34;, jsxSingleQuote: false, …</div>
     
 </div>
 <div class="item">
@@ -198,17 +188,15 @@ build coverage dist/*.js 使用 npm scripts 格式化 package.json
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">Mac系统下环境变量 1、注入环境变量，export NODE_ENV=development
+        <div class="summary">Mac系统下环境变量 1、注入环境变量，export NODE_ENV=development
 package.json
 { &#34;scripts&#34;: { &#34;dev&#34;: &#34;export NODE_ENV=development &amp;&amp; webpack serve&#34;, &#34;build&#34;: &#34;export NODE_ENV=production &amp;&amp; webpack&#34; }, } 2、使用环境变量 process.env.NODE_ENV
 webpack.config.js
-const path = require(&#39;path&#39;); const devMode = process.env.NODE_ENV !== &#39;production&#39;; console.log(&#39;devMode:&#39;, devMode); module.exports = { entry: &#39;./src/index.js&#39;, mode: devMode ? &#39;development&#39; : &#39;production&#39;, output: { path: path.resolve(__dirname, &#39;dist&#39;), filename: &#39;[name].bundle.js&#39;, }, }; cross-env，跨平台设置环境变量 1、安装
-$ npm install --save-dev cross-env 2、注入
-{ &#34;scripts&#34;: { &#34;cross:dev&#34;: &#34;cross-env NODE_ENV=development webpack serve&#34;, &#34;cross:build&#34;: &#34;cross-env NODE_ENV=production webpack&#34; }, } 项目源码见（切换 tag 至 node_env）git checkout node_env： https://github.</p>
+const path …</div>
     
 </div>
 <div class="item">
@@ -218,12 +206,11 @@ $ npm install --save-dev cross-env 2、注入
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">创建项目 # 创建项目目录 $ mkdir hello-world # 进入项目目录 $ cd hello-world # 初始化 package.json 文件 $ npm init -y # 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js $ mkdir src &amp;&amp; touch index.js # 安装react和react-dom $ npm install react react-dom # 安装babel-loader，用于处理js文件 # 安装@babel/preset-react，用于处理jsx $ npm install -D babel-loader @babel/preset-react # 安装webpack相关库 $ npm install -D webpack webpack-cli webpack-dev-serve 项目结构 hello-world /dist index.html /src index.js package.json webpack.config.js 项目代码 1、src/index.js
-import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; ReactDOM.</p>
+        <div class="summary">创建项目 # 创建项目目录 $ mkdir hello-world # 进入项目目录 $ cd hello-world # 初始化 package.json 文件 $ npm init -y # 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js $ mkdir src &amp;&amp; touch index.js # 安装react和react-dom $ npm install react react-dom # 安装babel-loader，用于处理js文件 # 安装@babel/preset-react，用于处理jsx $ npm install …</div>
     
 </div>
 <div class="item">
@@ -233,16 +220,15 @@ import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; Rea
     <div class="date">2021-02-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/screenfull/" rel="tag">screenfull</a>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/screenfull/" rel="tag">screenfull</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">安装 $ npm install screenfull React中使用screenfull 1、引入
+        <div class="summary">安装 $ npm install screenfull React中使用screenfull 1、引入
 import screenfull from &#39;screenfull&#39;; 2、全屏
 const handleClick = () =&gt; { if (screenfull.isEnabled) { //全屏整个页面 //screenfull.request(); //全屏某个元素 screenfull.request(element); } }; 3、切换
-const handleToggle = () =&gt; { if (screenfull.isEnabled) { screenfull.toggle(); } }; 4、监听change事件
-import React, { useEffect, useRef } from &#34;react&#34;; import screenfull from &#34;screenfull&#34;; const Component = () =&gt; { useEffect(() =&gt; { if (screenfull.isEnabled) { screenfull.on(&#34;change&#34;, () =&gt; { console.log(&#34;Am I fullscreen?</p>
+const handleToggle = () =&gt; { if (screenfull.isEnabled) …</div>
     
 </div>
 <div class="item">
@@ -252,12 +238,12 @@ import React, { useEffect, useRef } from &#34;react&#34;; import screenfull from
     <div class="date">2020-11-11</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
-                <a class="tags_link" href="/tags/typescript/" rel="tag">TypeScript</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/typescript/" rel="tag">TypeScript</a>
         </div>
 </div>
 
-        <p class="summary">初始化 $ mkdir react-ts-app $ cd react-ts-app $ npm init -y $ npm install react react-dom $ mkdir src $ cd src $ touch index.html $ touch App.tsx src/index.html &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34; /&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt; &lt;title&gt;React + TypeScript&lt;/title&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;main&#34;&gt;&lt;/div&gt; &lt;script src=&#34;./App.tsx&#34;&gt;&lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 安装Parcel $ npm i parcel-bundler -D $ npm i typescript -D $ npm i -D @types/react @types/react-dom package.</p>
+        <div class="summary">初始化 $ mkdir react-ts-app $ cd react-ts-app $ npm init -y $ npm install react react-dom $ mkdir src $ cd src $ touch index.html $ touch App.tsx src/index.html &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34; /&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; …</div>
     
 </div>
 <div class="item">
@@ -267,13 +253,13 @@ import React, { useEffect, useRef } from &#34;react&#34;; import screenfull from
     <div class="date">2020-11-11</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">高阶组件（HOC），High Order Component。 高阶组件（HOC）是 React 中用于复用组件逻辑的一种高级技巧。HOC 自身不是 React API 的一部分，它是一种基于 React 的组合特性而形成的设计模式。
+        <div class="summary">高阶组件（HOC），High Order Component。 高阶组件（HOC）是 React 中用于复用组件逻辑的一种高级技巧。HOC 自身不是 React API 的一部分，它是一种基于 React 的组合特性而形成的设计模式。
 高阶组件是参数为组件，返回值为新组件的函数。
-class NoteList extends React.Component { constructor(props) { super(props); } render() { return ( &lt;div className=&#34;list&#34;&gt; { this.props.list.map(function(item, index) { return ( &lt;div className=&#34;list-item&#34;&gt; &lt;a className=&#34;title&#34;&gt;{item.title}&lt;/a&gt; &lt;div className=&#34;content&#34; dangerouslySetInnerHTML={{__html: item.content}}&gt;&lt;/div&gt; &lt;/div&gt; ); }) } &lt;/div&gt; ); } } class BlogList extends React.Component { constructor(props) { super(props); this.handleRemove = this.handleRemove.bind(this); } handleRemove(id,e){ this.props.handleRemove(id,e); } renderList(){ const self = this; return this.</p>
+class NoteList extends React.Component { constructor(props) { super(props); } render() { return ( &lt;div className=&#34;list&#34;&gt; { …</div>
     
 </div>
 <div class="item">
@@ -283,22 +269,30 @@ class NoteList extends React.Component { constructor(props) { super(props); } re
     <div class="date">2020-11-11</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">useState import React, { useState } from &#39;react&#39;; function Counter() { const [count, setCount] = useState(0); return ( &lt;div&gt; &lt;p className=&#39;title&#39;&gt;You clicked {count} times&lt;/p&gt; &lt;br /&gt; &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt; &lt;/div&gt; ); } export default Counter; useEffect：设置标题 import React, { useState, useEffect } from &#39;react&#39;; function Counter() { const [count, setCount] = useState(0); useEffect(() =&gt; { document.title = `You clicked ${count} times`; }); return ( &lt;div&gt; &lt;p className=&#39;title&#39;&gt;You clicked {count} times&lt;/p&gt; &lt;br /&gt; &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt; &lt;/div&gt; ); } export default Counter; useEffect：监听滚动/移除滚动 import React, { useState, useEffect } from &#39;react&#39;; function Counter() { const [count, setCount] = useState(0); useEffect(() =&gt; { document.</p>
+        <div class="summary">useState import React, { useState } from &#39;react&#39;; function Counter() { const [count, setCount] = useState(0); return ( &lt;div&gt; &lt;p className=&#39;title&#39;&gt;You clicked {count} times&lt;/p&gt; &lt;br /&gt; &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt; …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/tags/react/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/tags/react/">Prev</a>
         <span class="pagination__item pagination__item--current">2/2</span>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

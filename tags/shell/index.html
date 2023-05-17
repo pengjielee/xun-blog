@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Shell</h1>
+        <h1 class="title">Shell</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,16 +34,15 @@
     <div class="date">2021-02-26</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/shell/" rel="tag">Shell</a>
+                <a class="link" href="/tags/shell/" rel="tag">Shell</a>
         </div>
 </div>
 
-        <p class="summary">输出 Hello World test.sh
+        <div class="summary">输出 Hello World test.sh
 #!/bin/bash echo &#34;Hello World !&#34; #! 告诉系统解释此脚本文件的 Shell 程序。
 输出变量 test.sh
 #!/bin/bash message=&#39;Hello World&#39; echo $message # output: Hello World 拼接变量 test.sh
-#!/bin/bash name=&#39;Peng&#39; echo &#34;Hello, $name&#34; # output: Hello, Peng 运行Shell脚本 $ chmod +x ./test.sh #使脚本具有执行权限 $ ./test.sh #执行脚本 or $ sh test.sh #执行脚本 创建一个提交 git 记录的 shell 脚本 deploy.sh
-#!/bin/bash deploy_time=$(date +%Y-%m-%d\ %H:%M:%S) # 发布时间，格式如：2021-02-26 11:32:54 git pull # 拉取最新代码 git add . # 添加所有代码到代码库 git commit -m &#34;deploy on $deploy_time&#34; # 提交代码 git push # 推送代码到服务器 </p>
+#!/bin/bash name=&#39;Peng&#39; echo &#34;Hello, $name&#34; # output: Hello, Peng 运行Shell脚本 $ chmod +x …</div>
     
 </div>
 <div class="item">
@@ -51,14 +52,14 @@
     <div class="date">2021-01-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/shell/" rel="tag">Shell</a>
+                <a class="link" href="/tags/shell/" rel="tag">Shell</a>
         </div>
 </div>
 
-        <p class="summary">文件名使用每日日期 newfile.sh
+        <div class="summary">文件名使用每日日期 newfile.sh
 #!/bin/bash file_name=$(date +%Y.%m.%d) touch &#34;${file_name}.md&#34; 写入内容并创建文件 newfile.sh
 #!/bin/bash file_name=$(date +%Y.%m.%d) echo &#34;hello world&#34; &gt; &#34;${file_name}.md&#34; 批量创建文件 newfiles.sh
-#!/bin/bash filenames=() filenames[0]=&#39;CSS实现弹幕效果.md&#39; filenames[1]=&#39;CSS实现动画.md&#39; filenames[1]=&#39;CSS盒子模型.md&#39; for filename in ${filenames[@]} do touch ${filename} done </p>
+#!/bin/bash filenames=() filenames[0]=&#39;CSS实现弹幕效果.md&#39; …</div>
     
 </div>
 
@@ -67,5 +68,13 @@
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

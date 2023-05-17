@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">search</h1>
+        <h1 class="title">search</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,19 +34,16 @@
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/array/" rel="tag">array</a>
-                <a class="tags_link" href="/tags/search/" rel="tag">search</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/search/" rel="tag">search</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+        <div class="summary">题目 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 示例:
 现有矩阵 matrix 如下： [ [1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30] ] 给定 target = 5，返回 true。 给定 target = 20，返回 false。 限制：
-0 &lt;= n &lt;= 1000 0 &lt;= m &lt;= 1000
-注意：本题与主站 240 题相同：https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number[][]} matrix * @param {number} target * @return {boolean} */ var findNumberIn2DArray = function(matrix, target) { const rows = matrix.</p>
+0 &lt;= n &lt;= 1000 0 …</div>
     
 </div>
 
@@ -53,5 +52,13 @@ JS实现 /** * @param {number[][]} matrix * @param {number} target * @return {bo
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

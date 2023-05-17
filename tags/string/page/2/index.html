@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">string</h1>
+        <h1 class="title">string</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,25 +34,16 @@
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。
+        <div class="summary">题目 写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。
 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。
 当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。
 该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。
-注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。
-在任何情况下，若函数不能进行有效的转换时，请返回 0。
-说明：
-假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为[−2^31, 2^31− 1]。如果数值超过这个范围，请返回 INT_MAX (2^31− 1) 或INT_MIN (−2^31) 。
-示例1:
-输入: &ldquo;42&rdquo; 输出: 42 示例2:
-输入: &quot; -42&quot; 输出: -42 解释: 第一个非空白字符为 &lsquo;-&rsquo;, 它是一个负号。 我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。 示例3:
-输入: &ldquo;4193 with words&rdquo; 输出: 4193 解释: 转换截止于数字 &lsquo;3&rsquo; ，因为它的下一个字符不为数字。 示例4:
-输入: &ldquo;words and 987&rdquo; 输出: 0 解释: 第一个非空字符是 &lsquo;w&rsquo;, 但它不是数字或正、负号。 因此无法执行有效的转换。 示例5:
-输入: &ldquo;-91283472332&rdquo; 输出: -2147483648 解释: 数字 &ldquo;-91283472332&rdquo; 超过 32 位有符号整数范围。 因此返回 INT_MIN (−231) 。</p>
+注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进 …</div>
     
 </div>
 <div class="item">
@@ -60,14 +53,14 @@
     <div class="date">2021-08-24</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/math/" rel="tag">math</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/math/" rel="tag">math</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 JS实现 </p>
+        <div class="summary">题目 JS实现 </div>
     
 </div>
 <div class="item">
@@ -77,17 +70,17 @@
     <div class="date">2021-08-24</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 请实现一个函数，把字符串 s 中的每个空格替换成&quot;%20&quot;。
+        <div class="summary">题目 请实现一个函数，把字符串 s 中的每个空格替换成&quot;%20&quot;。
 示例 1：
 输入：s = &ldquo;We are happy.&rdquo; 输出：&ldquo;We%20are%20happy.&rdquo; 限制：
 0 &lt;= s 的长度 &lt;= 10000
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {string} s * @return {string} */ var replaceSpace = function(s) { let result = &#39;&#39;; for(let i = 0; i &lt; s.length; i++){ if(s[i] === &#39; &#39;){ result += &#39;%20&#39;; }else { result += s[i]; } } return result; }; </p>
+JS实现 /** * @param {string} s * @return …</div>
     
 </div>
 <div class="item">
@@ -97,18 +90,16 @@ JS实现 /** * @param {string} s * @return {string} */ var replaceSpace = functi
     <div class="date">2021-07-14</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。
+        <div class="summary">题目 给你一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。
 单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
 示例 1： 输入：s = &#34;Hello World&#34; 输出：5 示例 2： 输入：s = &#34; &#34; 输出：0 提示：
 1 &lt;= s.length &lt;= 10^4 s 仅有英文字母和空格 &rsquo; &rsquo; 组成
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/length-of-last-word 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考代码1：
-/** * @param {string} s * @return {number} */ var lengthOfLastWord = function (s) { //获取最后一个字符的下标 let endIndex = s.length - 1; //如果下标大于等于0，并且最后一个字符等于空字符串 while (endIndex &gt;= 0 &amp;&amp; s[endIndex] == &#34; &#34;) { endIndex--; } if (endIndex &lt; 0) { return 0; } let startIndex = endIndex; while (startIndex &gt;= 0 &amp;&amp; s[startIndex] !</p>
+来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -118,20 +109,16 @@ JS实现 参考代码1：
     <div class="date">2021-05-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+        <div class="summary">题目 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
 说明：本题中，我们将空字符串定义为有效的回文串。
 示例 1: 输入: &#34;A man, a plan, a canal: Panama&#34; 输出: true 示例 2: 输入: &#34;race a car&#34; 输出: false 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/valid-palindrome 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-知识点 charCodeAt()
-charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。
-charAt()
-方法 charCodeAt() 与 charAt() 方法执行的操作相似，只不过前者返回的是位于指定位置的字符的编码，而后者返回的是字符子串。
-&#39;a&#39;.charCodeAt(); //97 &#39;b&#39;.charCodeAt(); //98 ... &#39;z&#39;.charCodeAt(); //122 (97+26-1=122) &#39;A&#39;.charCodeAt(); //65 &#39;B&#39;.charCodeAt(); //66 ... &#39;Z&#39;.charCodeAt(); //90 (65+26-1=90) &#39;0&#39;.charCodeAt(); //48 &#39;1&#39;.charCodeAt(); //49 &#39;9&#39;.charCodeAt(); //57 (48+10-1=57) JS实现 /** * @param {string} s * @return {boolean} */ var isPalindrome = (str) =&gt; { // 字符串转为小写 str = str.</p>
+知识点 charCodeAt() …</div>
     
 </div>
 <div class="item">
@@ -141,16 +128,16 @@ charAt()
     <div class="date">2021-05-06</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
+        <div class="summary">题目 给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
 示例 1: 输入: &#34;aba&#34; 输出: True 示例 2: 输入: &#34;abca&#34; 输出: True 解释: 你可以删除c字符。 注意:
 字符串只包含从 a-z 的小写字母。字符串的最大长度是50000。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/valid-palindrome-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {string} s * @return {boolean} */ var validPalindrome = function (s) { // 双指针，一个指向字符串开头，一个指向字符串末尾 let i = 0, j = s.length - 1; // 判断是否是回文串 const isPalindrome = (low, high) =&gt; { while (low &lt; high) { if (s.charAt(low) != s.charat(high)) { return false; } low++; high--; } return true; }; while (i &lt; j) { // 字符串开头与末尾不相等 if (s.</p>
+JS实现 /** * @param {string} s * …</div>
     
 </div>
 <div class="item">
@@ -160,23 +147,16 @@ JS实现 /** * @param {string} s * @return {boolean} */ var validPalindrome = fu
     <div class="date">2021-04-27</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+        <div class="summary">题目 给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
 在构造过程中，请注意区分大小写。比如 &ldquo;Aa&rdquo; 不能当做一个回文字符串。
 注意: 假设字符串的长度不会超过 1010。
 示例 1:
-输入: &#34;abccccdd&#34; 输出: 7 解释: 我们可以构造的最长的回文串是&#34;dccaccd&#34;, 它的长度是 7。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-palindrome 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 回文串： 正读和反读都相同的字符序列为回文串。
-奇数个字符的回文串： 除中间字符以外，其他字符镜面对称（即其他字符都出现偶数次）。
-偶数个字符的回文串： 所有字符镜面对称（即所有字符都出现偶数次）。
-回文串的本质： 可能除去一个字符以外)其他的字母都出现偶数次。
-最长回文串的构成： 使所有字母尽可能多的出现偶数次 + 1次（如果此时还有字母没用完）。
-JS实现 参考实现1：
-/** * @param {string} s * @return {number} */ var longestPalindrome = function (s) { let result = 0; // 为奇数的标识 let odd_mark = false; // 创建长度为58的数组，默认填充0，存放每个字母出现的次数 // A-Z, 65-90; a-z, 97-122 // 长度为58（26个英文小写字母+26个英文大写字母+大写Z与小写a中间的6个字符） const numbers = new Array(58).</p>
+输入: &#34;abccccdd&#34; 输出: 7 解释: 我们可以构造的最长的回文串是&#34;dccaccd&#34;, 它的长度是 7。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-palindrome 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出 …</div>
     
 </div>
 <div class="item">
@@ -186,17 +166,16 @@ JS实现 参考实现1：
     <div class="date">2021-04-27</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 实现 strStr() 函数。
+        <div class="summary">题目 实现 strStr() 函数。
 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回 -1 。
 说明：
 当 needle 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与 C 语言的 strstr() 以及 Java 的 indexOf() 定义相符。 示例：
-示例 1： 输入：haystack = &#34;hello&#34;, needle = &#34;ll&#34; 输出：2 示例 2： 输入：haystack = &#34;aaaaa&#34;, needle = &#34;bba&#34; 输出：-1 示例 3： 输入：haystack = &#34;&#34;, needle = &#34;&#34; 输出：0 提示：
-0 &lt;= haystack.length, needle.length &lt;= 5 * 10^4 haystack 和 needle 仅由小写英文字符组成 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+示例 1： 输入：haystack = &#34;hello&#34;, needle = &#34;ll&#34; 输出：2  …</div>
     
 </div>
 <div class="item">
@@ -206,17 +185,14 @@ JS实现 参考实现1：
     <div class="date">2021-04-27</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/hashtable/" rel="tag">hashtable</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
-示例 1: 输入: s = &#34;abcabcbb&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;abc&#34;，所以其长度为 3。 示例 2: 输入: s = &#34;bbbbb&#34; 输出: 1 解释: 因为无重复字符的最长子串是 &#34;b&#34;，所以其长度为 1。 示例 3: 输入: s = &#34;pwwkew&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;wke&#34;，所以其长度为 3。 请注意，你的答案必须是 子串 的长度，&#34;pwke&#34; 是一个子序列，不是子串。 示例 4: 输入: s = &#34;&#34; 输出: 0 提示：
-0 &lt;= s.length &lt;= 5 * 10^4 s 由英文字母、数字、符号和空格组成 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考代码1：
-/** * @param {string} s * @return {number} */ var lengthOfLongestSubstring = function (s) { // hashmap，记录每个字符是否出现过 const map = new Map(); // 无重复字符最长子串的左边界 let left = 0; // 无重复字符最长子串的长度 let max = 0; // 遍历字符串 for (let i = 0; i &lt; s.</p>
+        <div class="summary">题目 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+示例 1: 输入: s = &#34;abcabcbb&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;abc&#34;，所以其长度为 3。 示例 2: 输入: s = &#34;bbbbb&#34; 输出: 1 解释: 因为无重复字符的最长子串是 &#34;b&#34;，所以其长度为 1。 示例 3: 输入: s = &#34;pwwkew&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;wke&#34;，所以其长度为 3。 请注意，你的答案必须是 子串 的长 …</div>
     
 </div>
 <div class="item">
@@ -226,17 +202,15 @@ JS实现 参考代码1：
     <div class="date">2021-04-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 编写一个函数来查找字符串数组中的最长公共前缀。
+        <div class="summary">题目 编写一个函数来查找字符串数组中的最长公共前缀。
 如果不存在公共前缀，返回空字符串 &ldquo;&quot;。
 示例 1： 输入：strs = [&#34;flower&#34;,&#34;flow&#34;,&#34;flight&#34;] 输出：&#34;fl&#34; 示例 2： 输入：strs = [&#34;dog&#34;,&#34;racecar&#34;,&#34;car&#34;] 输出：&#34;&#34; 解释：输入不存在公共前缀。 提示：
-0 &lt;= strs.length &lt;= 200 0 &lt;= strs[i].length &lt;= 200 strs[i] 仅由小写英文字母组成 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-common-prefix 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 1、横向扫描法
-/** * @param {string[]} strs * @return {string} */ var longestCommonPrefix = function (strs) { if (strs.length === 0) { return &#34;&#34;; } // 获取两个字符串的最长公共前缀 const lcp = (str1, str2) =&gt; { const length = Math.</p>
+0 &lt;= strs.length &lt;= 200 0 &lt;= strs[i].length &lt;= 200 …</div>
     
 </div>
 <div class="item">
@@ -246,17 +220,17 @@ JS实现 1、横向扫描法
     <div class="date">2021-03-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+        <div class="summary">题目 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
 示例：
 s = &#34;leetcode&#34; 返回 0 s = &#34;loveleetcode&#34; 返回 2 提示：你可以假定该字符串只包含小写字母。
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/first-unique-character-in-a-string 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 参考代码1：
-/** * @param {string} s * @return {number} */ var firstUniqChar = function (s) { const map = {}; for (let i = 0; i &lt; s.length; i++) { const ch = s[i]; map[ch] = (map[ch] || 0) + 1; } for (let i = 0; i &lt; s.length; i++) { if (map[s[i]] === 1) { return i; } } return -1; }; 参考代码2：hashmap实现</p>
+/** * @param {string} s * @return …</div>
     
 </div>
 <div class="item">
@@ -266,25 +240,18 @@ JS实现 参考代码1：
     <div class="date">2021-03-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
+        <div class="summary">题目 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
 示例 1：
 输入：[&#34;h&#34;,&#34;e&#34;,&#34;l&#34;,&#34;l&#34;,&#34;o&#34;] 输出：[&#34;o&#34;,&#34;l&#34;,&#34;l&#34;,&#34;e&#34;,&#34;h&#34;] 示例 2：
-输入：[&#34;H&#34;,&#34;a&#34;,&#34;n&#34;,&#34;n&#34;,&#34;a&#34;,&#34;h&#34;] 输出：[&#34;h&#34;,&#34;a&#34;,&#34;n&#34;,&#34;n&#34;,&#34;a&#34;,&#34;H&#34;] 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reverse-string 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 双指针的解法：
-1、将 left 指向字符数组首元素，right 指向字符数组尾元素。
-2、当 left &lt; right：
-交换 s[left] 和 s[right]； left 指针右移一位，即 left = left + 1； right 指针左移一位，即 right = right - 1。 3、当 left &gt;= right，反转结束，返回字符数组即可。
-作者：LeetCode-Solution 链接：https://leetcode-cn.com/problems/reverse-string/solution/fan-zhuan-zi-fu-chuan-by-leetcode-solution/ 来源：力扣（LeetCode） 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-JS实现 参考代码1：
-/** * @param {character[]} s * @return {void} Do not return anything, modify s in-place instead.</p>
+输 …</div>
     
 </div>
 <div class="item">
@@ -294,27 +261,35 @@ JS实现 参考代码1：
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy。则经过替换之后的字符串为We%20Are%20Happy。
-JS实现 //实现1：调用自带函数 function replaceSpace(str) { // write code here return str.replace(/\s{1}/g, &#34;%20&#34;); } //实现2：用新的变量存，当遇到 &#34; &#34;，就追加 &#34;%20&#34;，否则遇到什么追加什么 function replaceSpace(str) { // write code here let result = &#34;&#34;; for (let i = 0; i &lt; str.length; i++) { if (str[i] === &#34; &#34;) { result += &#34;%20&#34;; } else { result += str[i]; } } return result; } Go实现 package main import ( &#34;fmt&#34; &#34;strings&#34; ) func main() { str := &#34;We are happy.</p>
+        <div class="summary">题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy。则经过替换之后的字符串为We%20Are%20Happy。
+JS实现 //实现1：调用自带函数 function replaceSpace(str) { // write code here return str.replace(/\s{1}/g, &#34;%20&#34;); } //实现2：用新的变量存，当遇到 &#34; &#34;，就追加 &#34;%20&#34;，否则遇到什么追加什么 function replaceSpace(str) { // write code …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/tags/string/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/tags/string/">Prev</a>
         <span class="pagination__item pagination__item--current">2/2</span>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

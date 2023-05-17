@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">nextjs</h1>
+        <h1 class="title">nextjs</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,14 +34,12 @@
     <div class="date">2021-06-30</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">1、请求数据 topic.js
-export default function Topic({ result }) { const data = result &amp;&amp; result.data || []; return ( &lt;ul className=&#34;list&#34;&gt; {data.map(item =&gt; ( &lt;li key={item.id}&gt;{item.title}&lt;/li&gt; ))} &lt;/ul&gt; ); } export async function getServerSideProps(context) { const response = await fetch(&#39;https://cnodejs.org/api/v1/topics&#39;); const result = await response.json(); return { props: { result } }; } 2、自定义服务器 1、安装express
-$ npm install express 2、创建server.js
-const express = require(&#39;express&#39;); const next = require(&#39;next&#39;); const port = parseInt(process.</p>
+        <div class="summary">1、请求数据 topic.js
+export default function Topic({ result }) { const data = result &amp;&amp; result.data || []; return ( &lt;ul className=&#34;list&#34;&gt; {data.map(item =&gt; ( &lt;li key={item.id}&gt;{item.title}&lt;/li&gt; ))} &lt;/ul&gt; ); } export async function getServerSideProps(context) { …</div>
     
 </div>
 <div class="item">
@@ -49,11 +49,11 @@ const express = require(&#39;express&#39;); const next = require(&#39;next&#39;)
     <div class="date">2021-06-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">定制错误页 import Error from &#39;next/error&#39;; export default function Index({ result }) { const { success, data } = result; if (!success) { return &lt;Error statusCode={500} title=&#34;出错了&#34; /&gt;; } return ( &lt;&gt; &lt;style jsx&gt; {` .list { margin: 30px; } `} &lt;/style&gt; &lt;ul className=&#34;list&#34;&gt; {data.map(item =&gt; ( &lt;li key={item.id}&gt;{item.title}&lt;/li&gt; ))} &lt;/ul&gt; &lt;/&gt; ); } export async function getServerSideProps(context) { const response = await fetch(&#39;https://cnodejs.org/api/v1/topics&#39;); const result = await response.json(); return { props: { result }, }; } </p>
+        <div class="summary">定制错误页 import Error from &#39;next/error&#39;; export default function Index({ result }) { const { success, data } = result; if (!success) { return &lt;Error statusCode={500} title=&#34;出错了&#34; /&gt;; } return ( &lt;&gt; &lt;style jsx&gt; {` .list { margin: 30px; } `} &lt;/style&gt; &lt;ul …</div>
     
 </div>
 <div class="item">
@@ -63,15 +63,12 @@ const express = require(&#39;express&#39;); const next = require(&#39;next&#39;)
     <div class="date">2021-06-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">安装 cross-env $ npm install cross-env --save-dev 使用cross-env注入环境变量 package.json
-{ scripts: { &#34;dev&#34;: &#34;next dev&#34;, &#34;build&#34;: &#34;next build&#34;, &#34;start&#34;: &#34;next start&#34;, &#34;build:test&#34;: &#34;cross-env BUILD_TARGET=test next build&#34;, &#34;build:prod&#34;: &#34;cross-env BUILD_TARGET=prod next build&#34;, }, }; 创建next.config.js文件，并设置env变量 next.config.js
-module.exports = { poweredByHeader: false, env: { NEXT_PUBLIC_BUILD_TARGET: process.env[&#39;BUILD_TARGET&#39;], }, }; 默认情况下，所有通过 .env.local 加载的环境变量仅在 Node.js 环境中可用，这意味着它们不会暴露到浏览器端。
-为了向浏览器暴露环境变量，你必须在变量前添加 NEXT_PUBLIC_ 前缀。
-使用环境变量 let baseURL = &#39;&#39;; switch (process.env.NEXT_PUBLIC_TARGET) { case &#39;test&#39;: baseURL = &#39;https://test.***.com&#39;; break; case &#39;prod&#39;: baseURL = &#39;https://m.</p>
+        <div class="summary">安装 cross-env $ npm install cross-env --save-dev 使用cross-env注入环境变量 package.json
+{ scripts: { &#34;dev&#34;: &#34;next dev&#34;, &#34;build&#34;: &#34;next build&#34;, &#34;start&#34;: &#34;next start&#34;, &#34;build:test&#34;: &#34;cross-env BUILD_TARGET=test next build&#34;, &#34;build:prod&#34;: …</div>
     
 </div>
 <div class="item">
@@ -81,11 +78,11 @@ module.exports = { poweredByHeader: false, env: { NEXT_PUBLIC_BUILD_TARGET: proc
     <div class="date">2021-06-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">安装 $ npm install wangeditor-for-react React中使用 import { useState } from &#34;react&#34;; import ReactWEditor from &#34;wangeditor-for-react&#34;; function Editor() { const [value, setValue] = useState(&#34;&#34;); return &lt;ReactWEditor defaultValue={value} onChange={setValue} /&gt;; } export default Editor; Nextjs中使用 import { useState } from &#34;react&#34;; import dynamic from &#34;next/dynamic&#34;; const ReactWEditor = dynamic(import(&#34;wangeditor-for-react&#34;), { ssr: false, loading: () =&gt; &lt;p&gt;Loading ...&lt;/p&gt;, }); const config = { height: 500, menus: [&#34;bold&#34;, &#34;link&#34;, &#34;image&#34;], showFullScreen: true, customUploadImg: function (resultFiles, insertImgFn) { // 获取上传的文件 const file = resultFiles[0]; // 上传图片，返回结果，将图片插入到编辑器中 insertImgFn(&#39;imgUrl&#39;); }, }; function Editor() { const [value, setValue] = useState(&#34;&#34;); return ( &lt;ReactWEditor config={config} defaultValue={value} onChange={setValue} &gt;&lt;/ReactWEditor&gt; ); }; export default Editor; More wangeditor-for-react</p>
+        <div class="summary">安装 $ npm install wangeditor-for-react React中使用 import { useState } from &#34;react&#34;; import ReactWEditor from &#34;wangeditor-for-react&#34;; function Editor() { const [value, setValue] = useState(&#34;&#34;); return &lt;ReactWEditor defaultValue={value} onChange={setValue} /&gt;; } export …</div>
     
 </div>
 <div class="item">
@@ -95,11 +92,11 @@ module.exports = { poweredByHeader: false, env: { NEXT_PUBLIC_BUILD_TARGET: proc
     <div class="date">2021-06-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">安装 $ npm install react-quill --save // or $ yarn add react-quill React中使用 import React, { useState } from &#34;react&#34;; import ReactQuill from &#34;react-quill&#34;; import &#34;react-quill/dist/quill.snow.css&#34;; function MyComponent() { const [value, setValue] = useState(&#34;&#34;); return &lt;ReactQuill theme=&#34;snow&#34; value={value} onChange={setValue} /&gt;; } Nextjs中使用 import dynamic from &#34;next/dynamic&#34;; import &#34;react-quill/dist/quill.snow.css&#34;; const QuillNoSSRWrapper = dynamic(import(&#34;react-quill&#34;), { ssr: false, loading: () =&gt; &lt;p&gt;Loading ...&lt;/p&gt;, }); const modules = { toolbar: [[{ header: 1 }, &#34;bold&#34;, { color: [] }], [&#34;clean&#34;]], }; export default function Editor(props) { const [value, setValue] = useState(&#34;&#34;); return ( &lt;QuillNoSSRWrapper theme=&#34;snow&#34; value={value} modules={modules} onChange={setValue} /&gt; ); } 封装组件 import dynamic from &#34;next/dynamic&#34;; import &#34;react-quill/dist/quill.</p>
+        <div class="summary">安装 $ npm install react-quill --save // or $ yarn add react-quill React中使用 import React, { useState } from &#34;react&#34;; import ReactQuill from &#34;react-quill&#34;; import &#34;react-quill/dist/quill.snow.css&#34;; function MyComponent() { const [value, setValue] = useState(&#34;&#34;); return …</div>
     
 </div>
 <div class="item">
@@ -109,15 +106,13 @@ module.exports = { poweredByHeader: false, env: { NEXT_PUBLIC_BUILD_TARGET: proc
     <div class="date">2021-06-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nextjs/" rel="tag">nextjs</a>
+                <a class="link" href="/tags/nextjs/" rel="tag">nextjs</a>
         </div>
 </div>
 
-        <p class="summary">需求 antd 目前的默认文案是英文，我们需要使用中文。
+        <div class="summary">需求 antd 目前的默认文案是英文，我们需要使用中文。
 nextjs自定义 App 创建./pages/_app.js
-function MyApp({ Component, pageProps }) { return ( &lt;Component {...pageProps} /&gt; ); } export default MyApp 安装antd $ npm install antd --save # or $ yarn add antd 配置 import { ConfigProvider } from &#39;antd&#39;; import zhCN from &#39;antd/lib/locale/zh_CN&#39;; function MyApp({ Component, pageProps }) { return ( &lt;ConfigProvider locale={zhCN}&gt; &lt;Component {...pageProps} /&gt; &lt;/ConfigProvider&gt; ); } export default MyApp; More antd 国际化
-https://ant.design/docs/react/i18n-cn
-自定义 App</p>
+function MyApp({ Component, pageProps }) { return ( &lt;Component {...pageProps} /&gt; ); } export default MyApp 安装antd $ npm install antd --save # or $ yarn add antd 配置 import { ConfigProvider } from &#39;antd&#39;; import zhCN from …</div>
     
 </div>
 
@@ -126,5 +121,13 @@ https://ant.design/docs/react/i18n-cn
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

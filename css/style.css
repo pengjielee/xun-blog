@@ -2,7 +2,6 @@
     --primary-color: #315efb;
     --title-size: 20px;
     --logo-size: 32px;
-    --page-title-size: 30px;
 }
 
 * {
@@ -63,7 +62,6 @@ pre code {
     border: 0;
 }
 
-
 table {
   width: 100%;
   margin-bottom: 1rem;
@@ -107,15 +105,18 @@ table tbody + tbody {
     justify-content: center;
     margin: 30px 0;
 }
-
 .nav .divide {
     margin: 0 10px;
+}
+
+a.link {
+     color: var(--primary-color);
+     margin-right: 8px;
 }
 
 .pagination {
     margin: 30px 0;
 }
-
 .pagination__item:hover,
 .pagination__item--current {
     color: blue;
@@ -124,17 +125,6 @@ table tbody + tbody {
     margin-right: 15px;
 }
 
-dd.archive-post {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-.archive-post-title {
-    margin-left: 15px;
-}
-
-
-.list {
-}
 .list .item {
     margin-bottom: 20px;
 }
@@ -156,7 +146,11 @@ dd.archive-post {
 .page {
     padding: 0 20px;
 }
+.page h1.title {
+    margin-bottom: 30px;
+}
 
+/* 首页 */
 .page-home {
     display: flex;
     flex-direction: column;
@@ -193,11 +187,7 @@ dd.archive-post {
     margin: 20px 0 5px;
 }
 
-a.tags_link {
-     color: var(--primary-color);
-     margin-right: 8px;
-}
-
+/* 文章详情页面 */
 .page-single {
     margin: 30px 0;
 }
@@ -206,7 +196,6 @@ a.tags_link {
 }
 .page-single .title {
     margin-bottom: 15px;
-    font-size: var(--page-title-size);
 }
 .page-single .content {
     line-height: 28px;
@@ -216,8 +205,10 @@ a.tags_link {
     margin: 20px 0;
 }
 .page-single .content p {
-    text-indent: 30px;
     margin: 10px 0;
+}
+.page-single .content li p {
+    text-indent: 30px;
 }
 
 .page-single .content ul,
@@ -225,23 +216,27 @@ a.tags_link {
     margin: 0;
     padding: 0;
 }
-
 .page-single .content a {
     color: var(--primary-color);
 }
 
-.page-list {
-    margin: 30px 0;
+/* 归档页面 */
+.page-archive .archive-year {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
-.page-title {
-    margin-bottom: 30px;
-    font-size: var(--page-title-size);
+.page-archive .archive-post {
+   margin: 0 0 20px 20px;
 }
-
+.page-archive .post-link {
+    margin-left: 10px;
+}
 .page-archive .pagination {
     margin-left: 20px;
 }
 
+/* 标签列表页 */
 .page-tags .list {
     display: flex;
     flex-wrap: wrap;
@@ -250,6 +245,7 @@ a.tags_link {
     flex: 0 1 20%;
 }
 
+/* 404页面 */
 .page-404 {
     display: flex;
     align-items: center;
@@ -275,5 +271,11 @@ a.tags_link {
     }
     .pagination {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page-tags .list .item {
+        flex: 0 1 50%;
     }
 }

@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Flask</h1>
+        <h1 class="title">Flask</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,12 +34,12 @@
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) def page_not_found(error): return render_template(&#39;404.html&#39;, 404) </p>
+        <div class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) …</div>
     
 </div>
 <div class="item">
@@ -47,13 +49,13 @@
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">设置密钥 app.secret_key = b&#39;_5#y2L&#34;F4Q8z\n\xec]/&#39; 生成随机密钥：
-$ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &#39;nimei&#39; @app.route(&#39;/&#39;) def index(): return &#39;&lt;h1&gt;Welcome&lt;/h1&gt;&lt;br /&gt;&lt;a href=&#34;/login&#34;&gt;登录&lt;/a&gt;&#39; 登录 storage = {&#39;username&#39;: &#39;lipengjie&#39;, &#39;password&#39;: &#39;123456&#39;} @app.route(&#39;/login&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;]) def login(): if request.method == &#39;POST&#39;: username = request.form[&#39;username&#39;] password = request.form[&#39;password&#39;] # 判断与服务器存储的用户密码是否一致，此处用一个对象模拟数据库 if storage[&#39;username&#39;] == username and storage[&#39;password&#39;] == password: # 登录成功以后，把用户名存入session，并跳转后台 session[&#39;username&#39;] = username return redirect(url_for(&#39;admin&#39;)) else: return &#39;用户名或密码错误！&#39; else: return render_template(&#39;newlogin.</p>
+        <div class="summary">设置密钥 app.secret_key = b&#39;_5#y2L&#34;F4Q8z\n\xec]/&#39; 生成随机密钥：
+$ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &#39;nimei&#39; …</div>
     
 </div>
 <div class="item">
@@ -63,18 +65,16 @@ $ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import 
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">渲染模板 1、创建模板目录 templates，及模板文件
+        <div class="summary">渲染模板 1、创建模板目录 templates，及模板文件
 $ mkdir templates &amp;&amp; cd templates $ touch hello.html $ touch login.html 2、目录结构
 /flask_web /templates /hello.html /login.html /app.py 3、模板文件
 hello.html
-&lt;!doctype html&gt; &lt;title&gt;Hello from Flask&lt;/title&gt; {% if name %} &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt; {% else %} &lt;h1&gt;Hello, World!&lt;/h1&gt; {% endif %} login.html
-&lt;!doctype html&gt; &lt;h1&gt;{{ title }}&lt;/h1&gt; &lt;form action=&#34;/login&#34; method=&#34;post&#34;&gt; &lt;div&gt; &lt;label&gt;用户名&lt;/label&gt; &lt;input type=&#34;text&#34; name=&#34;name&#34;/&gt; &lt;/div&gt; &lt;div&gt; &lt;label&gt;密码&lt;/label&gt; &lt;input type=&#34;password&#34; name=&#34;password&#34;/&gt; &lt;/div&gt; &lt;button&gt;login&lt;/button&gt; &lt;/form&gt; 4、指定模板
-from flask import render_template @app.</p>
+&lt;!doctype html&gt; &lt;title&gt;Hello from Flask&lt;/title&gt; {% if name %} &lt;h1&gt;Hello {{ name …</div>
     
 </div>
 <div class="item">
@@ -84,12 +84,12 @@ from flask import render_template @app.</p>
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">定义 GET 方法（默认） from flask import request from flask import render_template @app.route(&#39;/register&#39;, methods=[&#39;GET&#39;]) def register(): return render_template(&#39;register.html&#39;, title=&#39;Register Form&#39;) 定义 POST 方法 from flask import request from markupsafe import escape @app.route(&#39;/register&#39;, methods=[&#39;POST&#39;]) def register_submit(): name = request.form[&#39;name&#39;] email = request.form[&#39;email&#39;] return &#39;Username: &#39; + escape(name) + &#39;, Email: &#39; + escape(email) 合在一起 @app.route(&#39;/register&#39;, methods=[&#39;POST&#39;]) def register(): if request.method == &#39;POST&#39;: name = request.form[&#39;name&#39;] email = request.form[&#39;email&#39;] return &#39;Username: &#39; + escape(name) + &#39;, Email: &#39; + escape(email) else: return render_template(&#39;register.</p>
+        <div class="summary">定义 GET 方法（默认） from flask import request from flask import render_template @app.route(&#39;/register&#39;, methods=[&#39;GET&#39;]) def register(): return render_template(&#39;register.html&#39;, title=&#39;Register Form&#39;) 定义 POST 方法 from flask import request from markupsafe import escape …</div>
     
 </div>
 <div class="item">
@@ -99,13 +99,12 @@ from flask import render_template @app.</p>
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">创建 app.py （flask默认会运行app.py文件) from flask import Flask from markupsafe import escape app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Index Page&#39; 定义多个路由 @app.route(&#39;/hello&#39;) def hello(): return &#39;Hello, World&#39; @app.route(&#39;/about&#39;) def about(): return &#39;About Page&#39; 路由变量约束 接受变量类型：
-string，默认类型，接受任何字符串（斜杠除外） int，接受整数； float，接受浮点数； path，类似字符串（包括斜杠）； uuid，接受UUID； @app.route(&#39;/post/&lt;int:post_id&gt;&#39;) def show_post(post_id): return &#39;Post: %d&#39; % post_id @app.route(&#39;/user/&lt;username&gt;&#39;) def show_user(username): return &#39;User: %s&#39; % escape(username) @app.route(&#39;/path/&lt;path:subpath&gt;&#39;) def show_path(subpath): return &#39;Subpath: %s&#39; % escape(subpath) @app.route(&#39;/product/&lt;float:price&gt;&#39;) def show_price(price): return &#39;Price: %f&#39; % price 请求响应：</p>
+        <div class="summary">创建 app.py （flask默认会运行app.py文件) from flask import Flask from markupsafe import escape app = Flask(__name__) @app.route(&#39;/&#39;) def index(): return &#39;Index Page&#39; 定义多个路由 @app.route(&#39;/hello&#39;) def hello(): return &#39;Hello, World&#39; @app.route(&#39;/about&#39;) def about(): return …</div>
     
 </div>
 <div class="item">
@@ -115,15 +114,14 @@ string，默认类型，接受任何字符串（斜杠除外） int，接受整�
     <div class="date">2021-02-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/python/" rel="tag">Python</a>
-                <a class="tags_link" href="/tags/flask/" rel="tag">Flask</a>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
         </div>
 </div>
 
-        <p class="summary">安装 flask $ pip install flask 查看flask版本
+        <div class="summary">安装 flask $ pip install flask 查看flask版本
 $ flask --version 终端输出：
-Flask 1.0.2 Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31) [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] 创建项目目录 $ mkdir flask_web &amp;&amp; cd flask_web 创建 hello.py from flask import Flask app = Flask(__name__) @app.route(&#39;/&#39;) def hello(): return &#39;Hello, World!&#39; 运行 $ export FLASK_APP=hello.py $ flask run 终端输出：
-peng@localhost flask_web % export FLASK_APP=hello.py peng@localhost flask_web % flask run * Serving Flask app &#34;hello.</p>
+Flask 1.0.2 Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31) [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)] 创建项目目录 $ mkdir flask_web &amp;&amp; cd flask_web 创建 hello.py from flask import Flask app = Flask(__name__) …</div>
     
 </div>
 
@@ -132,5 +130,13 @@ peng@localhost flask_web % export FLASK_APP=hello.py peng@localhost flask_web % 
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

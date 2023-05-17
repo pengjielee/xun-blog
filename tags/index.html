@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -22,7 +24,7 @@
     <a href="/post">归档</a>
 </nav>
 <div class="page page-tags">
-            <h1 class="page-title">Tags</h1>
+            <h1 class="title">Tags</h1>
             <div class="list">
                     <div class="item">
                         <a class="terms-link" href="/tags/leetcode/">
@@ -536,5 +538,13 @@
                     </div>
                 </div>
         </div>
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

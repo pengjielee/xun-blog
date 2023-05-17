@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -28,9 +30,9 @@
     <div class="date">2021-05-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
 </div>
 </header>
@@ -98,5 +100,13 @@ charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返�
 </span></span></code></pre></div></div>
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

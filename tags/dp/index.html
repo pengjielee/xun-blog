@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">dp</h1>
+        <h1 class="title">dp</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,19 +34,15 @@
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？
+        <div class="summary">题目 在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？
 示例 1: 输入: [ [1,3,1], [1,5,1], [4,2,1] ] 输出: 12 解释: 路径 1→3→5→2→1 可以拿到最多价值的礼物 提示：
 0 &lt; grid.length &lt;= 200 0 &lt; grid[0].length &lt;= 200
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 设 f(i,j) 为从棋盘左上角走至单元格 (i,j) 的礼物最大累计价值，易得到以下递推关系：f(i,j) 等于 f(i,j-1) 和 f(i-1,j) 中的较大值加上当前单元格礼物价值 grid(i,j) 。
-f(i,j)=max[f(i,j−1),f(i−1,j)]+grid(i,j) 作者：jyd 链接：https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/solution/mian-shi-ti-47-li-wu-de-zui-da-jie-zhi-dong-tai-gu/ 来源：力扣（LeetCode） 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-JS实现 参考1：滚动数组
-/** * @param {number[][]} grid * @return {number} */ var maxValue = function (grid) { const rows = grid.</p>
+来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -54,17 +52,15 @@ JS实现 参考1：滚动数组
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？
+        <div class="summary">题目 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？
 示例 1: 输入: [7,1,5,3,6,4] 输出: 5 解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。 示例 2: 输入: [7,6,4,3,1] 输出: 0 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。 限制：
 0 &lt;= 数组长度 &lt;= 10^5
-注意：本题与主站 121 题相同：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number[]} prices * @return {number} */ var maxProfit = function(prices) { }; </p>
+注意：本题与主站 121 题相 …</div>
     
 </div>
 <div class="item">
@@ -74,20 +70,19 @@ JS实现 /** * @param {number[]} prices * @return {number} */ var maxProfit = fu
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
+        <div class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 示例 1：
 输入：n = 2 输出：2 示例 2：
 输入：n = 7 输出：21 示例 3：
 输入：n = 0 输出：1 提示：
 0 &lt;= n &lt;= 100 注意：本题与主站 70 题相同：https://leetcode-cn.com/problems/climbing-stairs/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var numWays = function(n) { }; </p>
+来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -97,18 +92,17 @@ JS实现 /** * @param {number} n * @return {number} */ var numWays = function(n)
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下：
+        <div class="summary">题目 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下：
 F(0) = 0, F(1) = 1 F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1. 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 示例 1： 输入：n = 2 输出：1 示例 2： 输入：n = 5 输出：5 提示：
 0 &lt;= n &lt;= 100
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }; </p>
+来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -118,15 +112,14 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
     <div class="date">2021-07-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个三角形 triangle ，找出自顶向下的最小路径和。
+        <div class="summary">题目 给定一个三角形 triangle ，找出自顶向下的最小路径和。
 每一步只能移动到下一行中相邻的结点上。相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。也就是说，如果正位于当前行的下标 i ，那么下一步可以移动到下一行的下标 i 或 i + 1 。
-示例 1： 输入：triangle = [[2],[3,4],[6,5,7],[4,1,8,3]] 输出：11 解释：如下面简图所示： 2 3 4 6 5 7 4 1 8 3 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。 示例 2： 输入：triangle = [[-10]] 输出：-10 提示：
-1 &lt;= triangle.length &lt;= 200 triangle[0].length == 1 triangle[i].length == triangle[i - 1].length + 1 -10^4 &lt;= triangle[i][j] &lt;= 10^4 进阶：</p>
+示例 1： 输入：triangle = [[2],[3,4],[6,5,7],[4,1,8,3]] 输出：11 解释：如下面简图所示： 2 3 4 6 5 7 4 1 8 3 自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。 示例 2： 输入：triangle = …</div>
     
 </div>
 <div class="item">
@@ -136,15 +129,14 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
     <div class="date">2021-05-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+        <div class="summary">题目 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
 你可以认为每种硬币的数量是无限的。
-示例 1： 输入：coins = [1, 2, 5], amount = 11 输出：3 解释：11 = 5 + 5 + 1 示例 2： 输入：coins = [2], amount = 3 输出：-1 示例 3： 输入：coins = [1], amount = 0 输出：0 示例 4： 输入：coins = [1], amount = 1 输出：1 示例 5： 输入：coins = [1], amount = 2 输出：2 提示：
-1 &lt;= coins.length &lt;= 12 1 &lt;= coins[i] &lt;= 2^31 - 1 0 &lt;= amount &lt;= 10^4 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+示例 1： 输入：coins = [1, 2, 5], amount = 11 输出：3 解释：11 = 5 + 5 + 1 示例 2： 输入：coins = [2], amount = 3 输出：-1 示例 3： 输入：coins = [1], amount = 0 输出：0 示例 4： 输入：coins = [1], amount = 1 输出：1 示例 5： 输入：coins = …</div>
     
 </div>
 <div class="item">
@@ -154,19 +146,15 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
     <div class="date">2021-05-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
+        <div class="summary">题目 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
 示例 1： 输入：nums = [10,9,2,5,3,7,101,18] 输出：4 解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。 示例 2： 输入：nums = [0,1,0,3,2,3] 输出：4 示例 3： 输入：nums = [7,7,7,7,7,7,7] 输出：1 提示：
-1 &lt;= nums.length &lt;= 2500 -10^4 &lt;= nums[i] &lt;= 10^4 进阶：
-你可以设计时间复杂度为 O(n2) 的解决方案吗？ 你能将算法的时间复杂度降低到 O(n log(n)) 吗? 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-increasing-subsequence 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 子序列和子串：
-子序列（subsequence）：子序列并不要求连续，例如：序列 [4, 6, 5] 是 [1, 2, 4, 3, 7, 6, 5] 的一个子序列； 子串（substring、subarray）：子串一定是原始字符串的连续子串。 定义状态：
-定义 dp[i] 为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度，注意 nums[i] 必须被选取。</p>
+1 &lt;= nums.length &lt;= 2500 …</div>
     
 </div>
 <div class="item">
@@ -176,15 +164,15 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
     <div class="date">2021-05-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
+        <div class="summary">题目 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
 问总共有多少条不同的路径？
-解决： 示例 1： 输入：m = 3, n = 7 输出：28 示例 2： 输入：m = 3, n = 2 输出：3 解释： 从左上角开始，总共有 3 条路径可以到达右下角。 1. 向右 -&gt; 向下 -&gt; 向下 2. 向下 -&gt; 向下 -&gt; 向右 3. 向下 -&gt; 向右 -&gt; 向下 示例 3： 输入：m = 7, n = 3 输出：28 示例 4： 输入：m = 3, n = 3 输出：6 提示：</p>
+解决： 示例 1： 输入：m = 3, n = 7 输出：28 示例 2： 输入：m = 3, n = 2 输出：3 解释： 从左上角开始，总共有 3 条路径可以到达右下角。 1. 向右 -&gt; 向下 -&gt; 向下 2. 向下 -&gt; 向下 -&gt; 向右 3. 向下 -&gt; 向右 -&gt; 向下 示例 3： 输入：m = 7, n = 3 输 …</div>
     
 </div>
 <div class="item">
@@ -194,18 +182,16 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
     <div class="date">2021-05-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
+        <div class="summary">题目 给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
 数组中的每个元素代表你在该位置可以跳跃的最大长度。
 判断你是否能够到达最后一个下标。
 示例 1： 输入：nums = [2,3,1,1,4] 输出：true 解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。 示例 2： 输入：nums = [3,2,1,0,4] 输出：false 解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。 提示：
-1 &lt;= nums.length &lt;= 3 * 10^4 0 &lt;= nums[i] &lt;= 10^5 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/jump-game 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考代码1：
-/** * @param {number[]} nums * @return {boolean} */ var canJump = function (nums) { //数组的长度 const n = nums.</p>
+1 &lt;= nums.length &lt;= 3 * 10^4 0 …</div>
     
 </div>
 <div class="item">
@@ -215,23 +201,15 @@ JS实现 参考代码1：
     <div class="date">2021-05-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+        <div class="summary">题目 给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
 说明：每次只能向下或者向右移动一步。
 示例 1： 输入：grid = [[1,3,1],[1,5,1],[4,2,1]] 输出：7 解释：因为路径 1→3→1→1→1 的总和最小。 示例 2： 输入：grid = [[1,2,3],[4,5,6]] 输出：12 提示：
-m == grid.length n == grid[i].length 1 &lt;= m, n &lt;= 200 0 &lt;= grid[i][j] &lt;= 100 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/minimum-path-sum 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 1、设置状态。
-令dp[i][j]表示走到(i,j)点的最小路径和。
-2、状态转移方程。
-如何求出dp[i][j]？
-由于每次只能往右走或者下走。换言之，当前单元格dp[i][j]的前继状态只有dp[i-1][j],dp[i][j-1]，所以我们在两者取最小，然后加上当前格子内的数即可。
-走到当前单元格(i,j)的最小路径和 = 【从左方单元格 (i-1,j) 与 从上方单元格 (i,j−1) 走来的 两个最小路径和中较小的】 + 当前单元格值 grid[i][j]
-dp(i,j) = grid(i,j) + min(dp(i-1,j),dp(i,j-1)) 具体分以下4种情况:
-当左边和上边都不是矩阵边界时：即 i!</p>
+m == grid.length n == grid[i].length 1 &lt;= m, n &lt;= 200 0 &lt;= grid[i][j] &lt;= 100 来源：力 …</div>
     
 </div>
 <div class="item">
@@ -241,19 +219,17 @@ dp(i,j) = grid(i,j) + min(dp(i-1,j),dp(i,j-1)) 具体分以下4种情况:
     <div class="date">2021-05-06</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 如果一个数列至少有三个元素，并且任意两个相邻元素之差相同，则称该数列为等差数列。
+        <div class="summary">题目 如果一个数列至少有三个元素，并且任意两个相邻元素之差相同，则称该数列为等差数列。
 例如
 以下数列为等差数列: 1, 3, 5, 7, 9 7, 7, 7, 7 3, -1, -5, -9 以下数列不是等差数列。 1, 1, 2, 5, 7 数组 A 包含 N 个数，且索引从0开始。数组 A 的一个子数组划分为数组 (P, Q)，P 与 Q 是整数且满足 0&lt;=P&lt;Q&lt;N 。
 如果满足以下条件，则称子数组(P, Q)为等差数组：
 元素 A[P], A[p + 1], &hellip;, A[Q - 1], A[Q] 是等差的。并且 P + 1 &lt; Q 。
-函数要返回数组 A 中所有为等差数组的子数组个数。
-示例:
-A = [1, 2, 3, 4] 返回: 3, A 中有三个子等差数组: [1, 2, 3], [2, 3, 4] 以及自身 [1, 2, 3, 4]。 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+函数要返回 …</div>
     
 </div>
 <div class="item">
@@ -263,16 +239,16 @@ A = [1, 2, 3, 4] 返回: 3, A 中有三个子等差数组: [1, 2, 3], [2, 3, 4] 
     <div class="date">2021-04-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个整数 n，求以 1 &hellip; n 为节点组成的二叉搜索树有多少种？
+        <div class="summary">题目 给定一个整数 n，求以 1 &hellip; n 为节点组成的二叉搜索树有多少种？
 示例:
 输入: 3 输出: 5 解释: 给定 n = 3, 一共有 5 种不同结构的二叉搜索树: 1 3 3 2 1 \ / / / \ \ 3 2 1 1 3 2 / / \ \ 2 1 2 3 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/unique-binary-search-trees 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 假设 n 个节点存在二叉排序树的个数是 G (n)，令 f(i) 为以 i 为根的二叉搜索树的个数，则 G(n) = f(1) + f(2) + f(3) + f(4) + &hellip; + f(n)</p>
+思路 假设 n 个节点存在二叉排序树的个数是 G (n)，令 f(i) 为以 i 为 …</div>
     
 </div>
 <div class="item">
@@ -282,17 +258,16 @@ A = [1, 2, 3, 4] 返回: 3, A 中有三个子等差数组: [1, 2, 3], [2, 3, 4] 
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+        <div class="summary">题目 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
 给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
 示例 1：
 输入：[1,2,3,1] 输出：4 解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。 偷窃到的最高金额 = 1 + 3 = 4 。 示例 2：
-输入：[2,7,9,3,1] 输出：12 解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。 偷窃到的最高金额 = 2 + 9 + 1 = 12 。 提示：
-0 &lt;= nums.length &lt;= 100 0 &lt;= nums[i] &lt;= 400 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+输入：[2,7,9,3,1] 输出：12 解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 ( …</div>
     
 </div>
 <div class="item">
@@ -302,17 +277,14 @@ A = [1, 2, 3, 4] 返回: 3, A 中有三个子等差数组: [1, 2, 3], [2, 3, 4] 
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+        <div class="summary">题目 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 示例 1： 输入：nums = [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。 示例 2： 输入：nums = [1] 输出：1 示例 3： 输入：nums = [0] 输出：0 示例 4： 输入：nums = [-1] 输出：-1 示例 5： 输入：nums = [-100000] 输出：-100000 提示：
-1 &lt;= nums.length &lt;= 3 * 10^4 -10^5 &lt;= nums[i] &lt;= 10^5 进阶：如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的 分治法 求解。
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/maximum-subarray 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考代码1：
-/** * @param {number[]} nums * @return {number} */ var maxSubArray = function (nums) { // 当前和 let cur_sum = nums[0]; // 最大和 let max_sum = nums[0]; // 遍历数组 for (let i = 1; i &lt; nums.</p>
+1 &lt;= nums.length &lt;= 3 * 10^4 -10^5 &lt;= …</div>
     
 </div>
 <div class="item">
@@ -322,20 +294,17 @@ JS实现 参考代码1：
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
-                <a class="tags_link" href="/tags/stock/" rel="tag">stock</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/stock/" rel="tag">stock</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
+        <div class="summary">题目 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
 你只能选择 某一天 买入这只股票，并选择在 未来的某一个不同的日子 卖出该股票。设计一个算法来计算你所能获取的最大利润。
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
 示例 1：
-输入：[7,1,5,3,6,4] 输出：5 解释： 在第 2 天（股票价格 = 1）的时候买入， 在第 5 天（股票价格 = 6）的时候卖出， 最大利润 = 6-1 = 5 。 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。 示例 2：
-输入：prices = [7,6,4,3,1] 输出：0 解释：在这种情况下, 没有交易完成, 所以最大利润为 0。 提示：
-1 &lt;= prices.length &lt;= 10^5 0 &lt;= prices[i] &lt;= 10^4 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考1：一次遍历</p>
+输入：[7,1,5,3,6,4] 输出：5 解释： 在第 2 天（股票价格 = 1）的时候买入， 在第 5 天（股票价格 = 6）的时候卖出， 最大利润 = 6-1 = 5 。 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。 …</div>
     
 </div>
 <div class="item">
@@ -345,18 +314,15 @@ JS实现 参考1：一次遍历</p>
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
 </div>
 
-        <p class="summary">题目 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+        <div class="summary">题目 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
 注意：给定 n 是一个正整数。
-示例 1： 输入： 2 输出： 2 解释： 有两种方法可以爬到楼顶。 1. 1 阶 + 1 阶 2. 2 阶 示例 2： 输入： 3 输出： 3 解释： 有三种方法可以爬到楼顶。 1. 1 阶 + 1 阶 + 1 阶 2. 1 阶 + 2 阶 3. 2 阶 + 1 阶 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/climbing-stairs 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 1、递归（执行超时了）
-找规律：
-第1级台阶，1种方法（爬1级） 第2级台阶，2种方法（爬1级 或 爬2级） 第3级台阶，3种方法（从第2级台阶爬1级 或 从第1级台阶爬2级） &hellip; 第n级台阶，从第n-1级台阶爬1级 或 从第n-2级台阶爬2级 递推公式：F(n) = F(n-1) + F(n-2)</p>
+示例 1： 输入： 2 输出： 2 解释： 有两种方法可以爬到楼顶。 1. 1 阶 + 1 阶 2. 2 阶 示例 2： 输入： 3 输出： 3 解释： 有三种方法可以爬到楼顶。 1. 1 阶 + 1 阶 + 1 阶 2. 1 阶 + 2 阶 3. 2 阶 + 1 阶 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/climbing-stairs 著作权归领扣网络所有。商业转载请联系 …</div>
     
 </div>
 <div class="item">
@@ -366,19 +332,18 @@ JS实现 1、递归（执行超时了）
     <div class="date">2021-03-12</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为k[0],k[1],&hellip;,k[m]。 请问k[0] x k[1] x &hellip; x k[m]可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+        <div class="summary">题目 给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为k[0],k[1],&hellip;,k[m]。 请问k[0] x k[1] x &hellip; x k[m]可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
 输入描述: 输入一个数n，意义见题面。（2 &lt;= n &lt;= 60） 输出描述: 输出答案。 示例1 输入 8 输出 18 详解 动态规划（自底向上）
 使用动态规划，从已知值 F(2) 逐步迭代到目标值 F(n)，它是一种自底向上的方法。
-算法:
-建立一维动态数组 dp； 边界条件：dp[1] = dp[2] = 1，表示长度为 2 的绳子最大乘积为 1； 状态转移方程：dp[i] = max(dp[i], max((i - j) * j, j * dp[i - j]))，可以这样理解： dp[i] = max(【dp[i]】, max(【(i - j) * j】, 【j * dp[i - j]】)) 【】0，维护原状态，不剪； 【】1，从j处剪一下，剪下来的部分是i-j，i-j不再剪了； 【】2，从j处剪一下，剪下来的部分是i-j，i-j继续剪； JS实现 确定边界条件和状态转移方程：</p>
+ …</div>
     
 </div>
 
@@ -386,10 +351,18 @@ JS实现 1、递归（执行超时了）
         
     <div class="pagination">
         <span class="pagination__item pagination__item--current">1/2</span>
-            <a class="pagination__item pagination__item--next btn" href="/tags/dp/page/2/">Next</a>
+            <a class="pagination__item pagination__item--next" href="/tags/dp/page/2/">Next</a>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

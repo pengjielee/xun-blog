@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">bash</h1>
+        <h1 class="title">bash</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,18 +34,18 @@
     <div class="date">2021-07-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/bash/" rel="tag">bash</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个文件 file.txt，转置它的内容。
+        <div class="summary">题目 给定一个文件 file.txt，转置它的内容。
 你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。
 示例：
 假设 file.txt 文件内容如下：
 name age alice 21 ryan 30 应当输出：
 name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/transpose-file 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 COUNT=`head -1 file.txt | wc -w` for (( i = 1; i &lt;= $COUNT; i++ )); do awk -v arg=$i &#39;{print $arg}&#39; file.txt | xargs done </p>
+实现 COUNT=`head -1 file.txt | wc -w` for (( i = 1; …</div>
     
 </div>
 <div class="item">
@@ -53,19 +55,18 @@ name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcod
     <div class="date">2021-07-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/bash/" rel="tag">bash</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
+        <div class="summary">题目 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
 你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
 你也可以假设每行前后没有多余的空格字符。
 示例：
 假设 file.txt 内容如下：
 987-123-4567 123 456 7890 (123) 456-7890 你的脚本应当输出下列有效的电话号码：
-987-123-4567 (123) 456-7890 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/valid-phone-numbers 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 awk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/&#39; file.txt or gawk &#39;/^([0-9]{3}-|\([0-9]{3}\) )[0-9]{3}-[0-9]{4}$/&#39; file.txt </p>
+987-123-4567 (123) 456-7890 来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -75,19 +76,18 @@ name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcod
     <div class="date">2021-07-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/bash/" rel="tag">bash</a>
         </div>
 </div>
 
-        <p class="summary">题目 写一个 bash 脚本以统计一个文本文件 words.txt 中每个单词出现的频率。
+        <div class="summary">题目 写一个 bash 脚本以统计一个文本文件 words.txt 中每个单词出现的频率。
 为了简单起见，你可以假设：
 words.txt只包括小写字母和 &rsquo; &rsquo; 。 每个单词只由小写字母组成。 单词间由一个或多个空格字符分隔。 示例:
 假设 words.txt 内容如下：
 the day is sunny the the the sunny is 你的脚本应当输出（以词频降序排列）：
 the 4 is 3 sunny 2 day 1 说明:
-不要担心词频相同的单词的排序问题，每个单词出现的频率都是唯一的。 你可以使用一行 Unix pipes 实现吗？ 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/word-frequency 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 cat words.txt | tr -s &#39; &#39; &#39;\n&#39; | sort | uniq -c | sort -r | awk &#39;{print $2,$1}&#39; or cat words.txt | xargs -n 1 | sort | uniq -c | sort -nr | awk &#39;{print $2&#34; &#34;$1}&#39; </p>
+不要担心词频相同的单词的排序问题，每个单词出现的频率都是唯一的。 你可以使用一行 Unix pipes 实现吗？ 来源：力 …</div>
     
 </div>
 <div class="item">
@@ -97,19 +97,17 @@ the 4 is 3 sunny 2 day 1 说明:
     <div class="date">2021-07-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/bash/" rel="tag">bash</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/bash/" rel="tag">bash</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个文本文件 file.txt，请只打印这个文件中的第十行。
+        <div class="summary">题目 给定一个文本文件 file.txt，请只打印这个文件中的第十行。
 示例:
 假设 file.txt 有如下内容：
 Line 1 Line 2 Line 3 Line 4 Line 5 Line 6 Line 7 Line 8 Line 9 Line 10 你的脚本应当显示第十行：
 Line 10 说明:
-如果文件少于十行，你应当输出什么？ 至少有三种不同的解法，请尝试尽可能多的方法来解题。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/tenth-line 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 sed -n &#34;10p&#34; file.txt or awk &#39;{if(NR==10){print $0}}&#39; file.txt or grep -n &#34;&#34; file.txt | grep -w &#39;10&#39; | cut -d: -f2 不足10行
-row_num=$(cat file.txt | wc -l) echo $row_num if [ $row_num -lt 10 ];then echo &#34;The number of row is less than 10&#34; else awk &#39;{if(NR==10){print $0}}&#39; file.</p>
+如果文件少于十行，你应当输出什么？ 至少有三种不同的解法，请尝试尽可能多的方法来解题。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/tenth-line 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 …</div>
     
 </div>
 
@@ -118,5 +116,13 @@ row_num=$(cat file.txt | wc -l) echo $row_num if [ $row_num -lt 10 ];then echo &
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

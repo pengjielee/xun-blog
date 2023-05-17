@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Webpack</h1>
+        <h1 class="title">Webpack</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,14 +34,14 @@
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+                <a class="link" href="/tags/webpack/" rel="tag">Webpack</a>
         </div>
 </div>
 
-        <p class="summary">问题 每次创建新的页面时，如果都要去更改webpack的入口 配置文件，那样太不爽了，我们改造我们的代码来动态获取入口文件。
+        <div class="summary">问题 每次创建新的页面时，如果都要去更改webpack的入口 配置文件，那样太不爽了，我们改造我们的代码来动态获取入口文件。
 改造 1、安装glob
 $ npm install glob -D 2、动态获取目录中的文件
-const glob = require(&#39;glob&#39;); /* * 1. 我们以文件夹里是否有html文件为准，来判断是否需要生成多页面 * 2. 我们的多页应用目录最多支持三级 */ const pages = glob.sync(&#39;./src/pages/**?/**/index.html&#39;).map(item =&gt; { /* * pathArr * = [ &#39;.&#39;, &#39;src&#39;, &#39;pages&#39;, &#39;home&#39;, &#39;index.html&#39; ] * = [ &#39;.&#39;, &#39;src&#39;, &#39;pages&#39;, &#39;blog&#39;, &#39;list&#39;, &#39;index.html&#39; ] * = [ &#39;.&#39;, &#39;src&#39;, &#39;pages&#39;, &#39;blog&#39;, &#39;list&#39;, &#39;detail&#39;, &#39;index.html&#39; ] */ const pathArr = item.split(&#39;/&#39;); // 从第3个截取至倒数第一个，为我们的文件名 return pathArr.</p>
+const glob = require(&#39;glob&#39;); /* * 1. 我们以文件夹里是否有html文件为准，来判断是否需要生成多页面 * 2. 我们的多页应用目录最多支持三级 */ const pages = glob.sync(&#39;./src/pages/**?/**/index.html&#39;).map(item =&gt; { /* * …</div>
     
 </div>
 <div class="item">
@@ -49,12 +51,12 @@ const glob = require(&#39;glob&#39;); /* * 1. 我们以文件夹里是否有html
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+                <a class="link" href="/tags/webpack/" rel="tag">Webpack</a>
         </div>
 </div>
 
-        <p class="summary">安装依赖 $ npm install chalk inquirer fs-extra -D chalk，终端美化； inquirer，命令行交互工具； fs-extra，fs模块的增加版； 创建页面的脚本 newPage.js
-const path = require(&#39;path&#39;); const chalk = require(&#39;chalk&#39;); const inquirer = require(&#39;inquirer&#39;); const fs = require(&#39;fs-extra&#39;); // 获取传递的参数 const options = process.argv.slice(2); const name = options[0]; // 创建html文件 const createHtml = function(desFilePath, dirName) { const content = `&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34; /&gt; &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, shrink-to-fit=no&#34; /&gt; &lt;meta name=&#34;keywords&#34; content=&#34;&#34; /&gt; &lt;meta name=&#34;description&#34; content=&#34;&#34;/&gt; &lt;title&gt;&lt;%= htmlWebpackPlugin.</p>
+        <div class="summary">安装依赖 $ npm install chalk inquirer fs-extra -D chalk，终端美化； inquirer，命令行交互工具； fs-extra，fs模块的增加版； 创建页面的脚本 newPage.js
+const path = require(&#39;path&#39;); const chalk = require(&#39;chalk&#39;); const inquirer = require(&#39;inquirer&#39;); const fs = require(&#39;fs-extra&#39;); // 获取传递的参数 const …</div>
     
 </div>
 <div class="item">
@@ -64,15 +66,12 @@ const path = require(&#39;path&#39;); const chalk = require(&#39;chalk&#39;); co
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+                <a class="link" href="/tags/webpack/" rel="tag">Webpack</a>
         </div>
 </div>
 
-        <p class="summary">添加 React $ npm install react react-com home/index.js
-import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; function App() { return &lt;h1&gt;About page - Rendered by React&lt;/h1&gt;; } ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;)); about/index.js
-import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; function App() { return &lt;h1&gt;Home page - Rendered by React&lt;/h1&gt;; } ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;)); 更新webpack 1、安装依赖
-$ npm install -D babel-loader @babel/preset-react -D 2、更新webpack.config.js，添加处理js后缀的loader
-module.exports = { //... module: { rules: [ { test: /\.</p>
+        <div class="summary">添加 React $ npm install react react-com home/index.js
+import React from &#39;react&#39;; import ReactDOM from &#39;react-dom&#39;; function App() { return &lt;h1&gt;About page - Rendered by React&lt;/h1&gt;; } ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;)); about/index.js …</div>
     
 </div>
 <div class="item">
@@ -82,17 +81,15 @@ module.exports = { //... module: { rules: [ { test: /\.</p>
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+                <a class="link" href="/tags/webpack/" rel="tag">Webpack</a>
         </div>
 </div>
 
-        <p class="summary">准备工作 1、创建项目
+        <div class="summary">准备工作 1、创建项目
 $ mkdir multi-pages &amp; cd multi-pages $ npm init -y 2、项目结构
 src/ pages/ home/ index.js about/ index.js webpack.config.js home/index.js
 export default function index() { return &#39;Home Page&#39;; } document.getElementById(&#39;root&#39;).innerHTML = index(); about/index.js
-export default function index() { return &#39;About Page&#39;; } document.getElementById(&#39;root&#39;).innerHTML = index(); webpack配置 1、安装依赖
-$ npm install webpack webpack-cli webpack-dev-server -D $ npm install html-webpack-plugin -D 2、webpack.config.js
-const path = require(&#39;path&#39;); const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;); module.exports = { entry: { home: &#39;.</p>
+export …</div>
     
 </div>
 <div class="item">
@@ -102,15 +99,11 @@ const path = require(&#39;path&#39;); const HtmlWebpackPlugin = require(&#39;htm
     <div class="date">2021-01-14</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/webpack/" rel="tag">Webpack</a>
+                <a class="link" href="/tags/webpack/" rel="tag">Webpack</a>
         </div>
 </div>
 
-        <p class="summary">统计shell脚本执行时间 #!/bin/bash #记录开始时间 start_time=$(date +%s) #安装及构建 npm install npm run build #记录结束时间 end_time=$(date +%s) #计算执行时间 cost_time=$[ $end_time-$start_time ] #输出执行时间 echo $cost_time echo &#34;cost time is $(($cost_time/60))min $(($cost_time%60))s&#34; 分析webpack编译时间 1、安装speed-measure-webpack-plugin
-$ npm install --save-dev speed-measure-webpack-plugin 2、更新webpack配置
-Change your webpack config from
-const webpackConfig = { plugins: [ new MyPlugin(), new MyOtherPlugin() ] } to
-const SpeedMeasurePlugin = require(&#34;speed-measure-webpack-plugin&#34;); const smp = new SpeedMeasurePlugin(); const webpackConfig = smp.wrap({ plugins: [ new MyPlugin(), new MyOtherPlugin() ], }); </p>
+        <div class="summary">统计shell脚本执行时间 #!/bin/bash #记录开始时间 start_time=$(date +%s) #安装及构建 npm install npm run build #记录结束时间 end_time=$(date +%s) #计算执行时间 cost_time=$[ $end_time-$start_time ] #输出执行时间 echo $cost_time echo &#34;cost time is $(($cost_time/60))min $(($cost_time%60))s&#34; 分析webpack编译时间 1、安 …</div>
     
 </div>
 
@@ -119,5 +112,13 @@ const SpeedMeasurePlugin = require(&#34;speed-measure-webpack-plugin&#34;); cons
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">swordoffer</h1>
+        <h1 class="title">swordoffer</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,17 +34,17 @@
     <div class="date">2021-03-12</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
+        <div class="summary">题目 在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
 详解 排序：将输入数组排序，再判断相邻位置是否存在相同数字，如果存在，对 duplication 赋值返回，否则继续比较
-JS实现 function duplicate(numbers, duplication) { // write code here if (numbers.length &lt;= 0) { return false; } numbers = numbers.sort(); for (let i = 0; i &lt; numbers.length - 1; i++) { if (numbers[i] === numbers[i + 1]) { duplication[0] = numbers[i]; return true; } } return false; } Go实现 package main import ( &#34;fmt&#34; &#34;sort&#34; ) func main() { nums := []int{3, 1, 0, 2, 5, 3, 5} fmt.</p>
+JS实现 function duplicate(numbers, duplication) { // write code here if (numbers.length &lt;= 0) { …</div>
     
 </div>
 <div class="item">
@@ -52,13 +54,13 @@ JS实现 function duplicate(numbers, duplication) { // write code here if (numbe
     <div class="date">2021-03-12</div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 求1+2+3+&hellip;+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+        <div class="summary">题目 求1+2+3+&hellip;+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
 详解 短路原理
-JS实现 function Sum_Solution(n) { // write code here let result = n; result &amp;&amp; (result += Sum_Solution(n - 1)); return result; } </p>
+JS实现 function Sum_Solution(n) { // write code here let result = n; result &amp;&amp; (result += Sum_Solution(n - 1)); return result; } </div>
     
 </div>
 <div class="item">
@@ -68,15 +70,12 @@ JS实现 function Sum_Solution(n) { // write code here let result = n; result &a
     <div class="date">2021-03-12</div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 LL今天心情特别好，因为他去买了一副扑克牌，发现里面居然有2个大王，2个小王(一副牌原本是54张^ _ ^)&hellip;他随机从中抽出了5张牌，想测测自己的手气，看看能不能抽到顺子，如果抽到的话，他决定去买体育彩票，嘿嘿！！&ldquo;红心A，黑桃3，小王，大王，方片5&rdquo;，&ldquo;Oh My God!&ldquo;不是顺子&hellip;..
-LL不高兴了，他想了想，决定大小 王可以看成任何数字，并且A看作1，J为11，Q为12，K为13。上面的5张牌就可以变成&quot;1，2，3，4，5&rdquo;(大小王分别看作2和4)，&ldquo;So Lucky!&quot;。LL决定去买体育彩票啦。
-现在，要求你使用这幅牌模拟上面的过程，然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。为了方便起见，你可以认为大小王是0。
-详解 说了那么多，其实就是给一个数字数组，然后判断是否符合以下五个条件：
-必须是五个数； 数字范围必须是 0 - 13； 大王小王可以跳过； 最大和最小的数相减必须少于5； 除了大王和小王，其他数字只能出现1次； JS实现 function IsContinuous(numbers) { if (numbers.length &lt; 5) { return false; } let min = 14; let max = -1; let obj = {}; for (let i = 0; i &lt; numbers.length; i++) { if (numbers[i] &lt; 0 || numbers[i] &gt; 13) { return false; } if (numbers[i] === 0) { continue; } if (obj[numbers[i]]) { return false; } obj[numbers[i]] = true; if (numbers[i] &lt; min) { min = numbers[i]; } if (numbers[i] &gt; max) { max = numbers[i]; } if (max - min &gt;= 5) { return false; } } return true; } More 剑指OFFER&mdash;-61、扑克牌顺子(js实现)</p>
+        <div class="summary">题目 LL今天心情特别好，因为他去买了一副扑克牌，发现里面居然有2个大王，2个小王(一副牌原本是54张^ _ ^)&hellip;他随机从中抽出了5张牌，想测测自己的手气，看看能不能抽到顺子，如果抽到的话，他决定去买体育彩票，嘿嘿！！&ldquo;红心A，黑桃3，小王，大王，方片5&rdquo;，&ldquo;Oh My God!&ldquo;不是顺子&hellip;..
+LL不高兴了，他想了想，决定大小 王可以看成任何数字，并且A看作1，J为11，Q为12，K为13。上面的5张牌就可以变成&quot;1，2，3，4，5&rdquo;(大小王分别看作2和4)，&ldquo;So …</div>
     
 </div>
 <div class="item">
@@ -86,19 +85,18 @@ LL不高兴了，他想了想，决定大小 王可以看成任何数字，并�
     <div class="date">2021-03-12</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/dp/" rel="tag">dp</a>
+                <a class="link" href="/tags/dp/" rel="tag">dp</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为k[0],k[1],&hellip;,k[m]。 请问k[0] x k[1] x &hellip; x k[m]可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+        <div class="summary">题目 给你一根长度为n的绳子，请把绳子剪成整数长的m段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为k[0],k[1],&hellip;,k[m]。 请问k[0] x k[1] x &hellip; x k[m]可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
 输入描述: 输入一个数n，意义见题面。（2 &lt;= n &lt;= 60） 输出描述: 输出答案。 示例1 输入 8 输出 18 详解 动态规划（自底向上）
 使用动态规划，从已知值 F(2) 逐步迭代到目标值 F(n)，它是一种自底向上的方法。
-算法:
-建立一维动态数组 dp； 边界条件：dp[1] = dp[2] = 1，表示长度为 2 的绳子最大乘积为 1； 状态转移方程：dp[i] = max(dp[i], max((i - j) * j, j * dp[i - j]))，可以这样理解： dp[i] = max(【dp[i]】, max(【(i - j) * j】, 【j * dp[i - j]】)) 【】0，维护原状态，不剪； 【】1，从j处剪一下，剪下来的部分是i-j，i-j不再剪了； 【】2，从j处剪一下，剪下来的部分是i-j，i-j继续剪； JS实现 确定边界条件和状态转移方程：</p>
+ …</div>
     
 </div>
 <div class="item">
@@ -108,15 +106,15 @@ LL不高兴了，他想了想，决定大小 王可以看成任何数字，并�
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
+        <div class="summary">题目 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
 例如数组 {3,4,5,1,2} 为 {1,2,3,4,5} 的一个旋转，该数组的最小值为1。
 原来的：{1,2,3,4,5}
 旋转后：{3,4,5,1,2}
@@ -124,17 +122,7 @@ NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 详解 旋转之后的数组实际上可以划分成两个有序的子数组：前面子数组的值 都大于 后面子数组中的元素。
 注意到实际上最小的元素就是两个子数组的分界线。本题目给出的数组一定程度上是排序的，因此我们试着用二分查找法寻找这个最小的元素。
 思路：
-我们用两个指针left，right分别指向数组的第一个元素和最后一个元素。 按照题目的旋转的规则，第一个元素应该是大于最后一个元素的没. 重复的元素）。 但是如果不是旋转，第一个元素肯定小于最后一个元素。
-找到数组的中间元素。 中间元素大于第一个元素，则中间元素位于前面的递增子数组，此时最小元素位于中间元素的后面。我们可以让第一个指针left指向中间元素。 移动之后，第一个指针仍然位于前面的递增数组中。 中间元素小于第一个元素，则中间元素位于后面的递增子数组，此时最小元素位于中间元素的前面。我们可以让第二个指针right指向中间元素。 移动之后，第二个指针仍然位于后面的递增数组中。 这样可以缩小寻找的范围。 按照以上思路，第一个指针left总是指向前面递增数组的元素，第二个指针right总是指向后面递增的数组元素。 最终第一个指针将指向前面数组的最后一个元素，第二个指针指向后面数组中的第一个元素。 也就是说他们将指向两个相邻的元素，而第二个指针指向的刚好是最小的元素，这就是循环的结束条件。
-到目前为止以上思路很耗的解决了没有重复数字的情况，这一道题目添加上了这一要求，有了重复数字。
-因此这一道题目比上一道题目多了些特殊情况：
-我们看一组例子：｛1，0，1，1，1｝ 和 ｛1，1， 1，0，1｝ 都可以看成是递增排序数组｛0，1，1，1，1｝的旋转。
-这种情况下我们无法继续用上一道题目的解法，去解决这道题目。因为在这两个数组中，第一个数字，最后一个数字，中间数字都是1。
-第一种情况下，中间数字位于后面的子数组，第二种情况，中间数字位于前面的子数组。
-因此当两个指针指向的数字和中间数字相同的时候，我们无法确定中间数字1是属于前面的子数组（绿色表示）还是属于后面的子数组（紫色表示）。 也就无法移动指针来缩小查找的范围。
-牛客网
-https://www.nowcoder.com/questionTerminal/9f3231a991af4f55b95579b44b7a01ba?f=discussion
-JS实现 function minNumberInRotateArray(rotateArray) { // write code here const len = rotateArray.length; if (len === 0) { return 0; } let low = 0; let high = len - 1; while (low &lt; high) { const mid = low + Math.</p>
+我们用 …</div>
     
 </div>
 <div class="item">
@@ -144,16 +132,16 @@ JS实现 function minNumberInRotateArray(rotateArray) { // write code here const
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/string/" rel="tag">string</a>
+                <a class="link" href="/tags/string/" rel="tag">string</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy。则经过替换之后的字符串为We%20Are%20Happy。
-JS实现 //实现1：调用自带函数 function replaceSpace(str) { // write code here return str.replace(/\s{1}/g, &#34;%20&#34;); } //实现2：用新的变量存，当遇到 &#34; &#34;，就追加 &#34;%20&#34;，否则遇到什么追加什么 function replaceSpace(str) { // write code here let result = &#34;&#34;; for (let i = 0; i &lt; str.length; i++) { if (str[i] === &#34; &#34;) { result += &#34;%20&#34;; } else { result += str[i]; } } return result; } Go实现 package main import ( &#34;fmt&#34; &#34;strings&#34; ) func main() { str := &#34;We are happy.</p>
+        <div class="summary">题目 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy。则经过替换之后的字符串为We%20Are%20Happy。
+JS实现 //实现1：调用自带函数 function replaceSpace(str) { // write code here return str.replace(/\s{1}/g, &#34;%20&#34;); } //实现2：用新的变量存，当遇到 &#34; &#34;，就追加 &#34;%20&#34;，否则遇到什么追加什么 function replaceSpace(str) { // write code …</div>
     
 </div>
 <div class="item">
@@ -163,21 +151,19 @@ JS实现 //实现1：调用自带函数 function replaceSpace(str) { // write co
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+        <div class="summary">题目 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 详解 前序：根-&gt;左-&gt;右 {1,2,4,7,3,5,6,8} 中序：左-&gt;根-&gt;右 {4,7,2,1,5,3,8,6}
 根据中序遍历和前序遍历可以确定二叉树，具体过程为：
-根据前序序列第一个结点确定根结点； 根据根结点在中序序列中的位置分割出左右两个子序列； 对左子树和右子树分别递归使用同样的方法继续分解； 例如： 前序序列{1,2,4,7,3,5,6,8} = pre 中序序列{4,7,2,1,5,3,8,6} = in
-根据当前前序序列的第一个结点确定根结点，为 1 找到 1 在中序遍历序列中的位置，为 in[3] 切割左右子树，则 in[3] 前面的为左子树， in[3] 后面的为右子树 则切割后的左子树前序序列为：{2,4,7}，切割后的左子树中序序列为：{4,7,2}；切割后的右子树前序序列为：{3,5,6,8}，切割后的右子树中序序列为：{5,3,8,6} 对子树分别使用同样的方法分解 链接：https://www.nowcoder.com/questionTerminal/8a19cbe657394eeaac2f6ea9b0f6fcf6?answerType=1&amp;f=discussion 来源：牛客网
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function reConstructBinaryTree(pre, vin) { // write code here if (pre.length === 0 || vin.length === 0) { return null; } //前序的第一个节点为根节点 let root = new TreeNode(pre[0]); //在中序中找到根节点 for (let i = 0; i &lt; vin.</p>
+根据前序序列第一个结点确定根结点； 根据根结点在中序序列中的位置分割出左右两个子序列； 对左子树和右子树分别递归使用同样的方法继续分解； 例如： 前序序 …</div>
     
 </div>
 <div class="item">
@@ -187,26 +173,21 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+        <div class="summary">题目 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ] 详解 暴力法 挨个遍历数组，如果找到就返回 true
 时间复杂度：O(n^2) 空间复杂度：O(1)
 从左下找 利用该二维数组的性质：
 每一行都按照从左到右递增的顺序排序， 每一列都按照从上到下递增的顺序排序 换个说法，即对于左下角的值 m，m 是该行最小的数，是该列最大的数
 每次将 m 和目标值 target 比较：
-当 m &lt; target，由于 m 已经是该行最大的元素，想要更大只有从列考虑，取值右移一位 当 m &gt; target，由于 m 已经是该列最小的元素，想要更小只有从行考虑，取值上移一位 当 m = target，找到该值，返回 true 用某行最小或某列最大与 target 比较，每次可剔除一整行或一整列。
-时间复杂度：O(行高 + 列宽) 空间复杂度：O(1)
-从右上找 和从左下找道理一样，都是因为每次判断都能剔除一整行或一整列
-时间复杂度：O(行高 + 列宽) 空间复杂度：O(1)
-链接：https://www.nowcoder.com/questionTerminal/abc3fe2ce8e146608e868a70efebf62e?answerType=1&amp;f=discussion 来源：牛客网
-JS实现 //暴力法 function Find(target, array) { // write code here for (let i = 0; i &lt; array.</p>
+当 m …</div>
     
 </div>
 <div class="item">
@@ -216,16 +197,16 @@ JS实现 //暴力法 function Find(target, array) { // write code here for (let 
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function HasSubtree(root1, root2) { // write code here if (root1 === null || root2 === null) { return false; } let result = false; if (root1.val === root2.val) { result = helper(root1, root2); } if (!result) { result = helper(root1.left, root2); } if (!result) { result = helper(root1.right, root2); } return result; } function helper(r1, r2) { if (r2 === null) return true; if (r1 === null) return false; if (r1.</p>
+        <div class="summary">题目 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function HasSubtree(root1, root2) { // write code here if (root1 === null || root2 === null) { return false; } let result = false; if (root1.val === root2.val) { …</div>
     
 </div>
 <div class="item">
@@ -235,18 +216,16 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-10</div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字， 例如，
+        <div class="summary">题目 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字， 例如，
 如果输入如下4 X 4矩阵：
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字 1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10.
 详解 简单来说，就是不断地收缩矩阵的边界。
 定义四个变量代表范围，up、down、left、right
-向右走存入整行的值，当存入后，该行再也不会被遍历，代表上边界的 up 加一，同时判断是否和代表下边界的 down 交错 向下走存入整列的值，当存入后，该列再也不会被遍历，代表右边界的 right 减一，同时判断是否和代表左边界的 left 交错 向左走存入整行的值，当存入后，该行再也不会被遍历，代表下边界的 down 减一，同时判断是否和代表上边界的 up 交错 向上走存入整列的值，当存入后，该列再也不会被遍历，代表左边界的 left 加一，同时判断是否和代表右边界的 right 交错 链接：https://www.nowcoder.com/questionTerminal/9b4c81a02cd34f76be2659fa0d54342a?answerType=1&amp;f=discussion
-来源：牛客网
-JS实现 function printMatrix(matrix) { // write code here let result = []; if (matrix === null || matrix.</p>
+向右走存入整行的值，当存入后，该行再也不会被遍历，代表上边界的 up 加一，同时判断是否和代表下边界的 down 交错 向下走存入整列的值，当存入后，该列再也不会被遍历， …</div>
     
 </div>
 <div class="item">
@@ -256,17 +235,17 @@ JS实现 function printMatrix(matrix) { // write code here let result = []; if (
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 按之字形顺序打印二叉树
+        <div class="summary">题目 按之字形顺序打印二叉树
 请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function Print(pRoot) { // write code here let result = []; if (pRoot === null) { return result; } let q = []; q.push(pRoot); let rev = true; while (q.length != 0) { let level = []; let len = q.length; for (let i = 0; i &lt; len; i++) { const node = q.</p>
+JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function Print(pRoot) { // write code here let result = []; if (pRoot === null) { return result; } let q = []; q.push(pRoot); …</div>
     
 </div>
 <div class="item">
@@ -276,16 +255,16 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function isSymmetrical(pRoot) { // write code here return isSymmetricalTree(pRoot, pRoot); } function isSymmetricalTree(node1, node2) { //判断两个节点都是否为空 if (!node1 &amp;&amp; !node2) { return true; } //判断两个节点是否存在一个为空 if (!node1 || !node2) { return false; } //判断两个节点是否相同 if (node1.val != node2.val) { return false; } return ( isSymmetricalTree(node1.left, node2.right) &amp;&amp; isSymmetricalTree(node1.right, node2.left) ); } </p>
+        <div class="summary">题目 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function isSymmetrical(pRoot) { // write code here return isSymmetricalTree(pRoot, pRoot); } function isSymmetricalTree(node1, node2) { //判断两个节点都是否为空 if …</div>
     
 </div>
 <div class="item">
@@ -295,18 +274,18 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+        <div class="summary">题目 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
 平衡二叉树一般指平衡树。
 平衡树(Balance Tree，BT) 指的是，任意节点的子树的高度差都小于等于1。
-详解 /* * 链接：https://www.nowcoder.com/questionTerminal/8b3b95850edb4115918ecebdf1b4d222?f=discussion * 来源：牛客网 */ public class Solution { public boolean IsBalanced_Solution(TreeNode root) { return getDepth(root) != -1; } private int getDepth(TreeNode root) { if (root == null) return 0; int left = getDepth(root.left); if (left == -1) return -1; int right = getDepth(root.right); if (right == -1) return -1; return Math.abs(left - right) &gt; 1 ? -1 : 1 + Math.max(left, right); } } JS实现 /* function TreeNode(x) { this.</p>
+详解 /* * 链接：https://www.nowcoder.com/questionTerminal/8b3b95850edb4115918ecebdf1b4d222?f=discussion * 来源：牛客网 */ public class Solution { public boolean IsBalanced_Solution(TreeNode root) { return getDepth(root) != -1; …</div>
     
 </div>
 <div class="item">
@@ -316,17 +295,16 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function TreeDepth(pRoot) { // write code here if (pRoot == null) { return 0; } const left = TreeDepth(pRoot.left); const right = TreeDepth(pRoot.right); return Math.max(left, right) + 1; } More 牛客网题解
-https://www.nowcoder.com/questionTerminal/435fb86331474282a3499955f0a41e8b?f=discussion</p>
+        <div class="summary">题目 输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function TreeDepth(pRoot) { // write code here if (pRoot == null) { return 0; } const left = TreeDepth(pRoot.left); const right = …</div>
     
 </div>
 <div class="item">
@@ -336,16 +314,16 @@ https://www.nowcoder.com/questionTerminal/435fb86331474282a3499955f0a41e8b?f=dis
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
-JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function PrintFromTopToBottom(root) { // write code here let result = []; if (root === null) { return result; } let q = []; q.push(root); while (q.length != 0) { let len = q.length; for (let i = 0; i &lt; len; i++) { const node = q.shift(); result.push(node.val); if (node.left != null) { q.</p>
+        <div class="summary">题目 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function PrintFromTopToBottom(root) { // write code here let result = []; if (root === null) { return result; } let q = []; q.push(root); while (q.length != 0) { let len = q.length; …</div>
     
 </div>
 <div class="item">
@@ -355,17 +333,17 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-07</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">BinaryTree</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 操作给定的二叉树，将其变换为源二叉树的镜像。
+        <div class="summary">题目 操作给定的二叉树，将其变换为源二叉树的镜像。
 输入描述: 二叉树的镜像定义
-//源二叉树 8 / \ 6 10 / \ / \ 5 7 9 11 //镜像二叉树 8 / \ 10 6 / \ / \ 11 9 7 5 JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function Mirror(root) { // write code here if (root === null) { return; } if (root.left === null &amp;&amp; root.right === null) { return; } let temp = root.</p>
+//源二叉树 8 / \ 6 10 / \ / \ 5 7 9 11 //镜像二叉树 8 / \ 10 6 / \ / \ 11 9 7 5 JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = null; } */ function Mirror(root) { // write code here if (root === null) { return; } if (root.left === null …</div>
     
 </div>
 <div class="item">
@@ -375,24 +353,22 @@ JS实现 /* function TreeNode(x) { this.val = x; this.left = null; this.right = 
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+                <a class="link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 我们可以用2 * 1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2 * 1的小矩形无重叠地覆盖一个2 * n的大矩形，总共有多少种方法？
+        <div class="summary">题目 我们可以用2 * 1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2 * 1的小矩形无重叠地覆盖一个2 * n的大矩形，总共有多少种方法？
 比如n=3时，2 * 3的矩形块有3种覆盖方法： ()[../images/offer10.png]
 详解 每次使用两个变量a，b来计算下一个数的值sum，然后a，b，sum分别是斐波那契数列中的三个数，那么就令a=b，b=sum，这样a和b就往下移动了一个位置，再计算sum就是第4个数了，重复这个过程即可。
 target = 1时，1种
 target = 2时，2种
 target = 3时，3种
 target = 4时，5种
-target = n时，分两步考虑：
-第一次摆放2* 1的小矩形，则摆放方法总共为f(target-1); 第一次摆放1* 2的小矩形，则摆放方法总共为f(target-2); 这就是斐波那契数列啊。
-JS实现 function rectCover(number) { // write code here if (number === 1) { return 1; } if (number === 2) { return 2; } let a = 1, b = 2, sum = 0; for (let i = 3; i &lt;= number; i++) { sum = a + b; a = b; b = sum; } return sum; } </p>
+target = n …</div>
     
 </div>
 <div class="item">
@@ -402,15 +378,15 @@ JS实现 function rectCover(number) { // write code here if (number === 1) { ret
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+                <a class="link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+        <div class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
 详解 关于本题，前提是n个台阶会有一次n阶的跳法。分析如下：
 f(1) = 1
 f(2) = f(2-1) + f(2-2) //f(2-2)表示2阶一次跳2阶的次数。
@@ -419,17 +395,7 @@ f(3) = f(3-1) + f(3-2) + f(3-3)
 f(n) = f(n-1) + f(n-2) + f(n-3) + &hellip; + f(n-(n-1)) + f(n-n)
 说明：
 这里的f(n)代表的是n个台阶有一次1,2,&hellip;,n阶的跳法数。
-n=1时，只有1种跳法，f(1)=1
-n=2时，会有两种跳的方式，一次1阶或者2阶，这回归到了问题(1)，f(2)=f(2-1)+f(2-2)
-n=3时，会有三种跳的方式，1阶、2阶、3阶，那么就是第一次跳出1阶后面剩下：f(3-1)；第一次跳出2阶，剩下f(3-2)；第一次3阶，那么剩下f(3-3)。因此结论是f(3)=f(3-1)+f(3-2)+f(3-3)
-n=n时，会有n种跳的方式，1阶、2阶&hellip;n阶，得出结论： f(n)=f(n-1)+f(n-2)+f(n-3)+&hellip;+f(n-(n-1))+f(n-n) =&gt; f(0)+f(1)+f(2)+&hellip;+f(n-1) //[式1]
-由以上已经是一种结论，我们可以继续简化： f(n-1)=f(0)+f(1)+f(2)+f(3)+&hellip;+f((n-1)-1) = f(0)+f(1)+f(2)+&hellip;+f(n-2) //[式2]
-[式1]-[式2]
-f(n) = f(0)+f(1)+f(2)+&hellip;+f(n-1) f(n-1) = f(0)+f(1)+f(2)+&hellip;+f(n-2)
-f(n)-f(n-1)= f(n-1)
-可以得出：
-f(n) = 2 * f(n-1)
-得出最终结论，在n阶台阶，一次有1、2、&hellip;n阶的跳的方式时，总的跳法为： | 1, (n=0) f(n) =| 1, (n=1) | 2 * f(n-1),(n&gt;=2) 来源：https://www.</p>
+n=1时，只 …</div>
     
 </div>
 <div class="item">
@@ -439,18 +405,16 @@ f(n) = 2 * f(n-1)
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+                <a class="link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
-详解 一次1阶或者2阶的跳法： a. 如果两种跳法，1阶或者2阶，那么假定第一次跳的是一阶，那么剩下的是n-1个台阶，跳法是f(n-1); b. 假定第一次跳的是2阶，那么剩下的是n-2个台阶，跳法是f(n-2) c. 由a\b假设可以得出总跳法为: f(n) = f(n-1) + f(n-2) d. 然后通过实际的情况可以得出：只有一阶的时候 f(1) = 1 ,只有两阶的时候可以有 f(2) = 2 e. 可以发现最终得出的是一个斐波那契数列： | 1, (n=1) f(n) = | 2, (n=2) | f(n-1)+f(n-2) ,(n&gt;2,n为整数)
-链接：https://www.nowcoder.com/questionTerminal/8c82a5b80378478f9484d87d1c5f12a4?f=discussion 来源：牛客网
-JS实现 //递归实现 const jumpFloor = (target) =&gt; { if (target &lt;= 0) { return -1; } if (target === 1) { return 1; } if (target === 2) { return 2; } return jumpFloor(target - 1) + jumpFloor(target - 2); }; //迭代实现 const jumpFloor = (target) =&gt; { if (target &lt;= 0) { return -1; } if (target === 1) { return 1; } if (target === 2) { return 2; } let a = 1, b = 2, sum = a + b; for (let i = 3; i &lt;= target; i++) { sum = a + b; a = b; b = sum; } return sum; }; </p>
+        <div class="summary">题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+详解 一次1阶或者2阶的跳法： a. 如果两种跳法，1阶或者2阶，那么假定第一次跳的是一阶，那么剩下的是n-1个台阶，跳法是f(n-1); b. 假定第一次跳的是2阶，那么剩下的是n-2个台阶，跳法是f(n-2) c. 由a\b假设可以得出总跳法为: f(n) = f(n-1) + f(n-2) d. 然后通过实际的情况可以得出：只有一阶的时候 f(1) = 1 ,只有两阶的时候可以有 f(2) = 2 e. 可以发现最终得出的是一个斐波那契数列： | 1, (n=1) …</div>
     
 </div>
 <div class="item">
@@ -460,17 +424,17 @@ JS实现 //递归实现 const jumpFloor = (target) =&gt; { if (target &lt;= 0) {
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
+                <a class="link" href="/tags/fibonacci/" rel="tag">Fibonacci</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。 n&lt;=39
+        <div class="summary">题目 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。 n&lt;=39
 斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144&hellip; , 这个数列从第3项开始，每一项都等于前两项之和。
-JS实现 //递归实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0; } if (n === 1) { return 1; } return Fibonacci(n - 1) + Fibonacci(n - 2); }; //迭代实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0; } if (n === 1) { return 1; } let a = 0, b = 1, sum = 0; for (let i = 2; i &lt;= n; i++) { sum = a + b; a = b; b = sum; } return sum; }; </p>
+JS实现 //递归实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0; } if (n === 1) { return 1; } return Fibonacci(n - 1) + Fibonacci(n - 2); }; // …</div>
     
 </div>
 <div class="item">
@@ -480,19 +444,18 @@ JS实现 //递归实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0;
     <div class="date">2021-03-01</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/stack/" rel="tag">Stack</a>
-                <a class="tags_link" href="/tags/queue/" rel="tag">queue</a>
+                <a class="link" href="/tags/stack/" rel="tag">Stack</a>
+                <a class="link" href="/tags/queue/" rel="tag">queue</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+        <div class="summary">题目 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
 详解 队列的特性是：“先进先出”，栈的特性是：“先进后出”。
-当我们向模拟的队列插入数 a,b,c 时，假设插入的是 stack1，此时的栈情况为： 栈 stack1：{a,b,c} 栈 stack2：{} 当需要弹出一个数，根据队列的&#34;先进先出&#34;原则，a 先进入，则 a 应该先弹出。但是此时 a 在 stack1 的最下面，将 stack1 中全部元素逐个弹出压入 stack2，现在可以正确的从 stack2 中弹出 a，此时的栈情况为： 栈 stack1：{} 栈 stack2：{c,b} 继续弹出一个数，b 比 c 先进入&#34;队列&#34;，b 弹出，注意此时 b 在 stack2 的栈顶，可直接弹出，此时的栈情况为： 栈 stack1：{} 栈 stack2：{c} 此时向模拟队列插入一个数 d，还是插入 stack1，此时的栈情况为： 栈 stack1：{d} 栈 stack2：{c} 弹出一个数，c 比 d 先进入，c 弹出，注意此时 c 在 stack2 的栈顶，可直接弹出，此时的栈情况为： 栈 stack1：{d} 栈 stack2：{} 根据上述例子可得出结论：
-当插入时，直接插入 stack1； 当弹出时，当 stack2 不为空，弹出 stack2 栈顶元素，如果 stack2 为空，将 stack1 中的全部数逐个出栈入栈 stack2，再弹出 stack2 栈顶元素； 链接：https://www.</p>
+当我们向模拟的队列插入数 a,b,c 时，假设插入的是 stack1，此时的栈情况为： 栈 stack1：{a,b,c} 栈 stack2：{} 当需要弹出一个数，根据队列的&#34;先进先出&#34;原则，a 先进入，则 a 应该先弹出。但是此时 a 在 stack1 的最下面，将 stack1 中全部元素逐个弹出压入 stack2，现在可以正确的从 stack2 中弹出 a，此时的栈情况为： 栈 stack1：{} …</div>
     
 </div>
 <div class="item">
@@ -502,20 +465,20 @@ JS实现 //递归实现 const Fibonacci = (n) =&gt; { if (n &lt;= 0) { return 0;
     <div class="date">2021-03-01</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/stack/" rel="tag">Stack</a>
+                <a class="link" href="/tags/stack/" rel="tag">Stack</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
+        <div class="summary">题目 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
 注意：保证测试中不会当栈为空的时候，对栈调用pop()或者min()或者top()方法。
 详解 利用一个辅助栈来存放最小值；
 每入栈一次，就与辅助栈顶比较大小，如果小就入栈，如果大就入栈当前的辅助栈顶；
 当出栈时，辅助栈也要出栈；
-JS实现 var stack1 = []; var stack2 = []; // 辅助栈，存最小值 function push(node) { // write code here stack1.push(node); if (stack2.length === 0) { stack2.push(node); } else { var peak2 = stack2[stack2.length - 1]; //栈顶元素 if (node &lt;= peak2) { stack2.push(node); } else { stack2.push(peak2); } } } function pop() { // write code here stack1.pop(); stack2.pop(); } function top1() { // write code here if (stack1.</p>
+JS实现 var stack1 = []; var stack2 = []; // 辅助栈，存最小值 function push(node) { // write code here stack1.push(node); if (stack2.length …</div>
     
 </div>
 <div class="item">
@@ -525,32 +488,18 @@ JS实现 var stack1 = []; var stack2 = []; // 辅助栈，存最小值 function 
     <div class="date">2021-03-01</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/stack/" rel="tag">Stack</a>
+                <a class="link" href="/tags/stack/" rel="tag">Stack</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。
+        <div class="summary">题目 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。
 假设压入栈的所有数字均不相等。
 例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
-示例1: 输入： [1,2,3,4,5],[4,5,3,2,1] 返回： true 可以通过push(1)=&gt;push(2)=&gt;push(3)=&gt;push(4)=&gt;pop()=&gt;push(5)=&gt;pop()=&gt;pop()=&gt;pop()=&gt;pop() 这样的顺序得到[4,5,3,2,1]这个序列，返回true 示例2: 输出：[1,2,3,4,5],[4,3,5,1,2] 返回：false 由于是[1,2,3,4,5]的压入顺序，[4,3,5,1,2]的弹出顺序，要求4，3，5必须在1，2前压入，且1，2不能弹出，但是这样压入的顺序，1又不能在2之前弹出，所以无法形成的，返回false 详解 借用一个辅助的栈，遍历压栈顺序，先将第一个放入栈中，这里是1，然后判断栈顶元素是不是出栈顺序的第一个元素，这里是4，很显然1≠4，所以我们继续压栈，直到相等以后开始出栈，出栈一个元素，则将出栈顺序向后移动一位，直到不相等，这样循环等压栈顺序遍历完成，如果辅助栈还不为空，说明弹出序列不是该栈的弹出顺序。
-举例：
-入栈1,2,3,4,5
-出栈4,5,3,2,1
-首先1入辅助栈，此时栈顶1≠4，继续入栈2
-此时栈顶2≠4，继续入栈3
-此时栈顶3≠4，继续入栈4
-此时栈顶4＝4，出栈4，弹出序列向后一位，此时为5，辅助栈里面是1,2,3
-此时栈顶3≠5，继续入栈5
-此时栈顶5=5，出栈5，弹出序列向后一位，此时为3，辅助栈里面是1,2,3
-…
-依次执行，最后辅助栈为空。如果不为空说明弹出序列不是该栈的弹出顺序。
-链接：https://www.nowcoder.com/questionTerminal/d77d11405cc7470d82554cb392585106?f=discussion
-来源：牛客网
-JS实现 function IsPopOrder(pushV, popV) { // write code here if (pushV.length === 0 || popV.length === 0) { return false; } const stack = []; //辅助栈 let popIndex = 0; //标识弹出序列的位置 for (let i = 0; i &lt; pushV.length; i++) { stack.</p>
+示例1: 输入： [1,2,3,4,5],[4,5,3,2,1] 返回： true 可以通 …</div>
     
 </div>
 <div class="item">
@@ -560,17 +509,17 @@ JS实现 function IsPopOrder(pushV, popV) { // write code here if (pushV.length 
     <div class="date">2021-02-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+        <div class="summary">题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
 思路 利用JS数组的unshift()方法，在数组开头插入数据。
-var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.log(nums); //[4,1,2,3] var nums = [1,2,3]; var temp = nums.shift(); console.log(temp); //1 console.log(nums); //[2,3] JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function printListFromTailToHead(head) { // write code here let result = []; if (head === null) { return result; } let current = head; while (current != null) { result.unshift(current.val); current = current.next; } return result; } Go实现 package main import ( &#34;container/list&#34; &#34;fmt&#34; ) type ListNode struct { Val int Next *ListNode } func printList(head *ListNode) { curr := head for curr !</p>
+var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.log(nums); //[4,1,2,3] var nums = [1,2,3]; var temp = nums.shift(); console.log(temp); //1 console.log(nums); //[2,3] JS实现 /*function ListNode(x){ …</div>
     
 </div>
 <div class="item">
@@ -580,18 +529,17 @@ var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.l
     <div class="date">2021-02-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，输出该链表中倒数第k个结点。
+        <div class="summary">题目 输入一个链表，输出该链表中倒数第k个结点。
 思路 利用快慢指针，快指针先走k步，然后快慢指针一起走，当快指针走到末尾，那么慢指针就到了倒数第k个节点了。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindKthToTail(head, k) { // write code here let fast = head, slow = head; for (let i = 0; i &lt; k; i++) { if (fast === null) return; fast = fast.next; } while (fast) { fast = fast.next; slow = slow.next; } return slow; } Test
-var linkedlist = { length: 7, head: { value: 1, next: { value: 2, next: { value: 2, next: { value: 3, next: { value: 4, next: { value: 4, next: { value: 5, next: null } }, }, }, }, }, }, }; function display(linkedlist) { var results = []; var current = linkedlist.</p>
+JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindKthToTail(head, k) { // write code here let fast = head, slow = head; for (let i = 0; i &lt; k; i++) { if (fast === null) return; fast = …</div>
     
 </div>
 <div class="item">
@@ -601,17 +549,16 @@ var linkedlist = { length: 7, head: { value: 1, next: { value: 2, next: { value:
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，反转链表后，输出新链表的表头。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function ReverseList(pHead) { // write code here if (pHead === null || pHead.next === null) { return pHead; } let prev = null; //记录节点的前一个节点 let next = null; //记录节点的后一个节点 while (pHead != null) { next = pHead.next; //记录当前节点的下一个节点位置； pHead.next = prev; //让当前节点指向前一个节点位置，完成反转 prev = pHead; //prev 往右走 pHead = next; //当前节点往右继续走 } return prev; } Test
-var linkedlist = { length: 3, head: { value: 5, next: { value: 4, next: { value: 6, next: null } } }, }; ReverseList(linkedlist.</p>
+        <div class="summary">题目 输入一个链表，反转链表后，输出新链表的表头。
+JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function ReverseList(pHead) { // write code here if (pHead === null || pHead.next === null) { return pHead; } let prev = null; //记录节点的前一个节点 let next = null; //记录节点的后一个节点 while (pHead != null) { next = …</div>
     
 </div>
 <div class="item">
@@ -621,18 +568,17 @@ var linkedlist = { length: 3, head: { value: 5, next: { value: 4, next: { value:
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+        <div class="summary">题目 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
 JS实现 1、递归实现
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } if (pHead1.val &lt; pHead2.val) { pHead1.next = Merge(pHead1.next, pHead2); return pHead1; } else { pHead2.next = Merge(pHead1, pHead2.next); return pHead2; } } 2、非递归实现
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { // write code here if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } let mergedHead = null; let current = null; while (pHead1 !</p>
+/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } if (pHead1.val &lt; pHead2.val) { pHead1.next = …</div>
     
 </div>
 <div class="item">
@@ -642,19 +588,18 @@ JS实现 1、递归实现
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）
+        <div class="summary">题目 输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）
 思路 什么是公共节点，并不是两个节点的值相同就是公共节点。 而是在第一链表和第二链表中都存在一个节点，该节点往后的子链表在两个链表中是相同的。
 如下图中链表6-7就是两个链表的公共链表，而节点6就是第一个公共节点。
-1 -&gt; 2 -&gt; 3 -&gt; 6 -&gt; 7 4 -&gt; 5 -&gt; 6 -&gt; 7 如果两个链表存在公共节点，那么公共节点出现在两个链表的尾部。如果我们从两个链表的尾部开始往前比较，那么最后一个相同的节点就是我们要找的节点。但是这两个链表是单向的，要实现尾节点最先比较，我们可以借助两个辅助栈。分别将两个链表的节点放入两个栈中，这样栈顶就是两个链表的尾节点，比较两个栈顶节点是否相同，如果相同，将栈顶弹出比较下一个栈顶，直到找到最后一个相同的栈顶。时间复杂度O(m + n)。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindFirstCommonNode(pHead1, pHead2) { // write code here if (pHead1 === null || pHead2 === null) { return null; } let stack1 = [], stack2 = []; while (pHead1 != null) { stack1.push(pHead1); pHead1 = pHead1.</p>
+1 -&gt; 2 -&gt; 3 -&gt; 6 -&gt; 7 4 -&gt; 5 -&gt; 6 -&gt; 7 如果两个链表存在公共节点，那么公共节点出现在两个链表的尾部。如果我们从两个链表的尾部开始往前比较，那么最后一个相同的节点就是我 …</div>
     
 </div>
 <div class="item">
@@ -664,19 +609,19 @@ JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function Fi
     <div class="date">2021-02-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
+        <div class="summary">题目 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
 思路 1、设置快慢指针，假如有环，他们一定相遇在环中；
 2、两个指针相遇后，让两个指针分别从链表头和相遇点重新出发，每次走一步，最后一定相遇于环入口；
 JS实现 参考1
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function EntryNodeOfLoop(pHead) { // write code here //至少3个节点才能成环 if (!pHead || !pHead.next || !pHead.next.next) { return null; } //定义快慢指针 let slow = pHead.next; let fast = pHead.next.next; while (slow &amp;&amp; fast) { if (fast !== slow) { fast = fast.next.next; slow = slow.next; } else { break; } } //没有环 if (!fast || !slow) { return null; } fast = pHead; while (slow !</p>
+/*function ListNode(x){ this.val = x; this.next = null; }*/ function EntryNodeOfLoop(pHead) { // write code here //至少3个节点才能成环 if (!pHead || !pHead.next || !pHead.next.next) { …</div>
     
 </div>
 <div class="item">
@@ -686,31 +631,39 @@ JS实现 参考1
     <div class="date">2021-02-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5
+        <div class="summary">题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5
 思路 非递归的代码：
 1、首先添加一个头节点，以方便碰到第一个，第二个节点就相同的情况；
 2、设置 pre ，last 指针， pre指针指向当前确定不重复的那个节点，而last指针相当于工作指针，一直往后面搜索。
-JS实现 // 非递归法 function deleteDuplication(pHead) { if (!pHead || !pHead.next) { return pHead; } let newHead = { val: &#34;a&#34;, next: pHead, }; let before = newHead; let current = newHead.next; while (current &amp;&amp; current.next) { if (current.val === current.next.val) { let val = current.val; while (current &amp;&amp; current.val === val) { current = current.next; } before.next = current; } else { current = current.</p>
+JS实现 // 非递归法 function deleteDuplication(pHead) { if (!pHead || !pHead.next) { …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/categories/swordoffer/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/categories/swordoffer/">Prev</a>
         <span class="pagination__item pagination__item--current">2/3</span>
-            <a class="pagination__item pagination__item--next btn" href="/categories/swordoffer/page/3/">Next</a>
+            <a class="pagination__item pagination__item--next" href="/categories/swordoffer/page/3/">Next</a>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

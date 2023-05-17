@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Code</h1>
+        <h1 class="title">Code</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,16 +34,13 @@
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。
+        <div class="summary">finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。
 这避免了同样的语句需要在then()和catch()中各写一次的情况。
-语法 p.finally(onFinally); p.finally(function() { // 返回状态为(resolved 或 rejected) }); 实现 Promise.prototype._finally = function (callback) { let P = this.constructor; return this.then( value =&gt; P.resolve(callback()).then(() =&gt; value), reason =&gt; P.resolve(callback()).then(() =&gt; { throw reason }) ); }; More Promise.prototype.finally()
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally
-Promise.prototype.finally()
-https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally</p>
+语法 p.finally(onFinally); p.finally(function() { // 返回状态为(resolved 或 rejected) }); 实现 Promise.prototype._finally = function (callback) { let P = …</div>
     
 </div>
 <div class="item">
@@ -51,20 +50,15 @@ https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally</p>
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">语法 Promise.all(iterable); 参数：
+        <div class="summary">语法 Promise.all(iterable); 参数：
 iterable
 一个可迭代对象，如 Array 或 String。
 返回值：
-如果传入的参数是一个空的可迭代对象，则返回一个已完成（already resolved）状态的 Promise。 如果传入的参数不包含任何 promise，则返回一个异步完成（asynchronously resolved） Promise。注意：Google Chrome 58 在这种情况下返回一个已完成（already resolved）状态的 Promise。 其它情况下返回一个处理中（pending）的Promise。这个返回的 promise 之后会在所有的 promise 都完成或有一个 promise 失败时异步地变为完成或失败。 说明：
-完成（Fulfillment）： 如果传入的可迭代对象为空，Promise.all 会同步地返回一个已完成（resolved）状态的promise。
-如果所有传入的 promise 都变为完成状态，或者传入的可迭代对象内没有 promise，Promise.all 返回的 promise 异步地变为完成。
-在任何情况下，Promise.all 返回的 promise 的完成状态的结果都是一个数组，它包含所有的传入迭代参数对象的值（也包括非 promise 值）。
-失败/拒绝（Rejection）： 如果传入的 promise 中有一个失败（rejected），Promise.all 异步地将失败的那个结果给失败状态的回调函数，而不管其它 promise 是否完成。
-实现 Promise._all = function (promises) { // promises 是可迭代对象，省略参数合法性检查 return new Promise((resolve, reject) =&gt; { // Array.from 将可迭代对象转换成数组 promises = Array.</p>
+如果传入的参数是一个空的可迭代对象，则返回一个已完成（already resolved）状态的 Promise。 如果传入的参数不包含任何 promise，则返回一个异步完成（asynchronously resolved） Promise。注意：Google Chrome 58 在这种情况下返回一个已完成（already resolved）状态的 Promise。 其它情况下返回一个处理中（pending）的Promise。这个返回的 promise 之 …</div>
     
 </div>
 <div class="item">
@@ -74,12 +68,12 @@ iterable
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如
-//输入 var object = { a: 1, b: 2, c: { d: 3 }, e: [4, 5, { g: 6 }] } //输出 参考 JSON.stringify(object, null, &#39; &#39;) &#34; { &#34;a&#34;: 1, &#34;b&#34;: 2, &#34;c&#34;: { &#34;d&#34;: 3 }, &#34;e&#34;: [ 4, 5, { &#34;g&#34;: 6 } ] } &#34; 参考1（不符题目要求，未格式化输出） function jsonStringify(obj) { let type = typeof obj; if (type !== &#34;object&#34; || type === null) { if (/string|undefined|function/.</p>
+        <div class="summary">写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如
+//输入 var object = { a: 1, b: 2, c: { d: 3 }, e: [4, 5, { g: 6 }] } //输出 参考 JSON.stringify(object, null, &#39; &#39;) &#34; { &#34;a&#34;: 1, &#34;b&#34;: 2, &#34;c&#34;: { &#34;d&#34;: 3 }, &#34;e&#34;: [ 4, …</div>
     
 </div>
 <div class="item">
@@ -89,19 +83,18 @@ iterable
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">语法 Promise.race(iterable); 参数：
+        <div class="summary">语法 Promise.race(iterable); 参数：
 iterable
 可迭代对象，类似Array。
 返回值：
 一个待定的 Promise 只要给定的迭代中的一个promise解决或拒绝，就采用第一个promise的值作为它的值，从而异步地解析或拒绝（一旦堆栈为空）。
 理解 Promise.race(iterable) 方法返回一个 promise，一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝。
 理解1：
-var p1 = new Promise((resolve, reject) =&gt; { setTimeout(resolve, 500, &#34;one&#34;); }); var p2 = new Promise((resolve, reject) =&gt; { setTimeout(resolve, 100, &#34;two&#34;); }); Promise.race([p1, p2]).then((value) =&gt; { console.log(value); // Both resolve, but p2 is faster }); // expected output: &#34;two&#34; 理解2：
-var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;three&#34;); }); var p4 = new Promise(function(resolve, reject) { setTimeout(reject, 500, &#34;four&#34;); }); Promise.</p>
+var p1 = new Promise((resolve, reject) =&gt; { setTimeout(resolve, 500, …</div>
     
 </div>
 <div class="item">
@@ -111,11 +104,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">Promise规范 promise 有三个状态：pending，fulfilled，rejected。「规范 Promise/A+ 2.1」 new promise时， 需要传递一个executor()执行器，执行器立即执行； executor接受两个参数，分别是resolve和reject； promise 的默认状态是 pending； promise 有一个value保存成功状态的值，可以是undefined/thenable/promise；「规范 Promise/A+ 1.3」 promise 有一个reason保存失败状态的值；「规范 Promise/A+ 1.5」 promise 只能从pending到rejected, 或者从pending到fulfilled，状态一旦确认，就不会再改变； promise 必须有一个then方法，then 接收两个参数，分别是 promise 成功的回调 onFulfilled, 和 promise 失败的回调 onRejected；「规范 Promise/A+ 2.2」 如果调用 then 时，promise 已经成功，则执行onFulfilled，参数是promise的value； 如果调用 then 时，promise 已经失败，那么执行onRejected, 参数是promise的reason； 如果 then 中抛出了异常，那么就会把这个异常作为参数，传递给下一个 then 的失败的回调onRejected； Promise版本1 // 定义三种状态 const PENDING = &#34;PENDING&#34;; const FULFILLED = &#34;FULFILLED&#34;; const REJECTED = &#34;REJECTED&#34;; class Promise { constructor(executor) { // 默认状态为 PENDING this.</p>
+        <div class="summary">Promise规范 promise 有三个状态：pending，fulfilled，rejected。「规范 Promise/A+ 2.1」 new promise时， 需要传递一个executor()执行器，执行器立即执行； executor接受两个参数，分别是resolve和reject； promise 的默认状态是 pending； promise 有一个value保存成功状态的值，可以是undefined/thenable/promise；「规范 Promise/A+ 1.3」 promise 有一个reason保存失败状态的值；「规范 Promise/A+ 1.5」 promise …</div>
     
 </div>
 <div class="item">
@@ -125,11 +118,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">升级版 const PENDING = &#34;pending&#34;; const FULFILLED = &#34;fulfilled&#34;; const REJECTED = &#34;rejected&#34;; function Promise(excutor) { let that = this; // 缓存当前promise实例对象 that.status = PENDING; // 初始状态 that.value = undefined; // fulfilled状态时 返回的信息 that.reason = undefined; // rejected状态时 拒绝的原因 that.onFulfilledCallbacks = []; // 存储fulfilled状态对应的onFulfilled函数 that.onRejectedCallbacks = []; // 存储rejected状态对应的onRejected函数 function resolve(value) { // value成功态时接收的终值 if (value instanceof Promise) { return value.then(resolve, reject); } // 实践中要确保 onFulfilled 和 onRejected 方法异步执行，且应该在 then 方法被调用的那一轮事件循环之后的新执行栈中执行。 setTimeout(() =&gt; { // 调用resolve 回调对应onFulfilled函数 if (that.</p>
+        <div class="summary">升级版 const PENDING = &#34;pending&#34;; const FULFILLED = &#34;fulfilled&#34;; const REJECTED = &#34;rejected&#34;; function Promise(excutor) { let that = this; // 缓存当前promise实例对象 that.status = PENDING; // 初始状态 that.value = undefined; // fulfilled状态时 返回的信息 that.reason = undefined; // rejected状态时 拒绝的原 …</div>
     
 </div>
 <div class="item">
@@ -139,11 +132,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-31</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">简洁版 function myPromise(constructor) { let self = this; self.status = &#34;pending&#34;; //定义状态改变前的初始状态 self.value = undefined; //定义状态为resolved的时候的状态 self.reason = undefined; //定义状态为rejected的时候的状态 function resolve(value) { //两个===&#34;pending&#34;，保证了状态的改变是不可逆的 if (self.status === &#34;pending&#34;) { self.value = value; self.status = &#34;resolved&#34;; } } function reject(reason) { //两个===&#34;pending&#34;，保证了状态的改变是不可逆的 if (self.status === &#34;pending&#34;) { self.reason = reason; self.status = &#34;rejected&#34;; } } //捕获构造异常 try { constructor(resolve, reject); } catch (e) { reject(e); } } myPromise.prototype.then = function (onFullfilled, onRejected) { let self = this; switch (self.</p>
+        <div class="summary">简洁版 function myPromise(constructor) { let self = this; self.status = &#34;pending&#34;; //定义状态改变前的初始状态 self.value = undefined; //定义状态为resolved的时候的状态 self.reason = undefined; //定义状态为rejected的时候的状态 function resolve(value) { //两个===&#34;pending&#34;，保证了状态的改变是不可逆的 if (self.status === &#34;pending&#34;) …</div>
     
 </div>
 <div class="item">
@@ -153,11 +146,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">代码 // 组件通信，一个触发与监听的过程 class EventEmitter { constructor() { // 存储事件 this.events = this.events || new Map(); } // 监听事件 addListener(type, fn) { if (!this.events.get(type)) { this.events.set(type, fn); } } // 触发事件 emit(type) { let handle = this.events.get(type); handle.apply(this, [...arguments].slice(1)); } } Test // 测试 let emitter = new EventEmitter(); // 监听事件 emitter.addListener(&#34;ages&#34;, (age) =&gt; { console.log(age); }); // 触发事件 emitter.emit(&#34;ages&#34;, 18); // 18 </p>
+        <div class="summary">代码 // 组件通信，一个触发与监听的过程 class EventEmitter { constructor() { // 存储事件 this.events = this.events || new Map(); } // 监听事件 addListener(type, fn) { if (!this.events.get(type)) { this.events.set(type, fn); } } // 触发事件 emit(type) { let handle = this.events.get(type); handle.apply(this, …</div>
     
 </div>
 <div class="item">
@@ -167,11 +160,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">实现myfilter Array.prototype._filter = function (fn) { const result = []; for (let i = 0; i &lt; this.length; i++) { if (fn(this[i], i, this)) { result.push(this[i]); } } return result; }; Test var arr = [4, 5, 6, 7, 9, 10]; var result1 = arr.filter((el) =&gt; el &gt; 5); console.log(result1); //[6,7,9,10] var result2 = arr._filter((el) =&gt; el &gt; 5); console.log(result2); //[6,7,9,10] Polyfill filter 被添加到 ECMA-262 标准第 5 版中，因此在某些实现环境中不被支持。可以把下面的代码插入到脚本的开头来解决此问题，该代码允许在那些没有原生支持 filter 的实现环境中使用它。该算法是 ECMA-262 第 5 版中指定的算法，假定 fn.</p>
+        <div class="summary">实现myfilter Array.prototype._filter = function (fn) { const result = []; for (let i = 0; i &lt; this.length; i++) { if (fn(this[i], i, this)) { result.push(this[i]); } } return result; }; Test var arr = [4, 5, 6, 7, 9, 10]; var result1 = arr.filter((el) =&gt; el &gt; 5); console.log(result1); …</div>
     
 </div>
 <div class="item">
@@ -181,11 +174,11 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">实现 var Jsonp = { loadScript: function(url) { var script = document.createElement(&#34;script&#34;); script.type = &#34;text/javascript&#34;; if (script.readyState) { script.onreadystatechange = function() { if (this.readyState == &#34;loaded&#34; || this.readyState == &#34;complete&#34;) { this.onreadystatechange = null; document.body.removeChild(this); } }; } else { script.onload = function() { document.body.removeChild(this); }; } script.setAttribute(&#39;src&#39;, url); document.body.appendChild(script); }, encodeParameters: function(parameters) { var params = []; for (parameter in parameters) { params.push(escape(parameter) + &#34;=&#34; + escape(parameters[parameter])); } return params.</p>
+        <div class="summary">实现 var Jsonp = { loadScript: function(url) { var script = document.createElement(&#34;script&#34;); script.type = &#34;text/javascript&#34;; if (script.readyState) { script.onreadystatechange = function() { if (this.readyState == &#34;loaded&#34; || this.readyState == &#34;complete&#34;) { …</div>
     
 </div>
 <div class="item">
@@ -195,23 +188,15 @@ var p3 = new Promise(function(resolve, reject) { setTimeout(resolve, 100, &#34;t
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">防抖函数 1、防抖函数接收两个参数（运行函数，定时器时间间隔）；
+        <div class="summary">防抖函数 1、防抖函数接收两个参数（运行函数，定时器时间间隔）；
 2、防抖函数返回一个函数（闭包）；
 3、闭包外定义定时器；
 4、闭包里：
-定义this，arguments； 首先清除定时器； 重新设置定时器； function debounce(fn, delay) { let timer = null; return function () { const self = this, args = arguments; timer &amp;&amp; clearTimeout(timer); timer = setTimeout(function () { fn.apply(self, args); }, delay); }; } 节流函数 1、节流函数有三个参数（运行的函数，定时器运行间隔，必须运行的时间间隔）；
-2、节流函数返回一个函数（闭包）；
-3、闭包外定义定时器，开始时间；
-4、闭包里：
-a. 定义this，arguments，当前时间；
-b. 首先清除定时器；
-c. 判断是否达到必须运行时间间隔： 达到，运行函数，重置开始时间为当前时间；
-没达到，重新设置定时器；
-// 简单的节流函数 function throttle(fn, wait, mustRun) { let timer, startTime = new Date(); return function () { const self = this, args = arguments, currentTime = new Date(); timer &amp;&amp; clearTimeout(timer); // 如果达到了规定的触发时间间隔，触发 handler if (currentTime - startTime &gt;= mustRun) { fn.</p>
+定义this，arguments； 首先清除定时器； 重新设置定时器； function debounce(fn, delay) { let timer = null; return function () { const self = this, args = arguments; timer &amp;&amp; clearTimeout(timer); timer = setTimeout(function () { fn.apply(self, …</div>
     
 </div>
 <div class="item">
@@ -221,11 +206,11 @@ c. 判断是否达到必须运行时间间隔： 达到，运行函数，重置�
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">实现1 function deepClone(obj, hash = new WeakMap()) { if (obj instanceof RegExp) return new RegExp(obj); if (obj instanceof Date) return new Date(obj); if (obj === null || typeof obj != &#34;object&#34;) { return obj; // 如果不是复杂数据类型，直接返回 } if (hash.has(obj)) { return has.get(obj); } /** * 如果obj是数组，那么 obj.constructor 是 [Function: Array] * 如果obj是对象，那么 obj.constructor 是 [Function: Object] **/ let t = new obj.constructor(); hash.set(obj, t); for (let key in obj) { if (obj.</p>
+        <div class="summary">实现1 function deepClone(obj, hash = new WeakMap()) { if (obj instanceof RegExp) return new RegExp(obj); if (obj instanceof Date) return new Date(obj); if (obj === null || typeof obj != &#34;object&#34;) { return obj; // 如果不是复杂数据类型，直接返回 } if (hash.has(obj)) { return has.get(obj); } /** * 如果obj是数组， …</div>
     
 </div>
 <div class="item">
@@ -235,11 +220,11 @@ c. 判断是否达到必须运行时间间隔： 达到，运行函数，重置�
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">代码 function curry(fn, currArgs) { return function () { let args = [].slice.call(arguments); // 首次调用时，若未提供最后一个参数currArgs，则不用进行args的拼接 if (currArgs !== undefined) { args = args.concat(currArgs); } // 递归调用 if (args.length &lt; fn.length) { return curry(fn, args); } // 递归出口 return fn.apply(null, args); }; } Test function sum(a, b, c) { console.log(a + b + c); } const fn = curry(sum); fn(1, 2, 3); // 6 fn(1, 2)(3); // 6 fn(1)(2, 3); // 6 fn(1)(2)(3); // 6 </p>
+        <div class="summary">代码 function curry(fn, currArgs) { return function () { let args = [].slice.call(arguments); // 首次调用时，若未提供最后一个参数currArgs，则不用进行args的拼接 if (currArgs !== undefined) { args = args.concat(currArgs); } // 递归调用 if (args.length &lt; fn.length) { return curry(fn, args); } // 递归出口 return fn.apply(null, args); …</div>
     
 </div>
 <div class="item">
@@ -249,14 +234,14 @@ c. 判断是否达到必须运行时间间隔： 达到，运行函数，重置�
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">题目 基于 localStorage 设计一个 1M 的缓存系统，需要实现缓存淘汰机制。
+        <div class="summary">题目 基于 localStorage 设计一个 1M 的缓存系统，需要实现缓存淘汰机制。
 设计思路如下：
 存储的每个对象需要添加两个属性：分别是过期时间和存储时间。 利用一个属性保存系统中目前所占空间大小，每次存储都增加该属性。当该属性值大于 1M 时，需要按照时间排序系统中的数据，删除一定量的数据保证能够存储下目前需要存储的数据。 每次取数据时，需要判断该缓存数据是否过期，如果过期就删除。 以下是代码实现，实现了思路，但是可能会存在 Bug，但是这种设计题一般是给出设计思路和部分代码，不会需要写出一个无问题的代码
-class Store { constructor() { let store = localStorage.getItem(&#34;cache&#34;); if (!store) { store = { maxSize: 1024 * 1024, size: 0, }; this.store = store; } else { this.store = JSON.parse(store); } } set(key, value, expire) { this.store[key] = { date: Date.now(), expire, value, }; let size = this.sizeOf(JSON.stringify(this.store[key])); if (size + this.store.size &gt; this.store.maxSize) { console.</p>
+class Store { constructor() { let store …</div>
     
 </div>
 <div class="item">
@@ -266,11 +251,11 @@ class Store { constructor() { let store = localStorage.getItem(&#34;cache&#34;);
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">code</a>
+                <a class="link" href="/tags/code/" rel="tag">code</a>
         </div>
 </div>
 
-        <p class="summary">简单实现 var xhr = null; // Old compatibility code, no longer needed. if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ... xhr = new XMLHttpRequest(); } else if (window.ActiveXObject) { // IE 6 and older xhr = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); } xhr.onreadystatechange = function () { // Process the server response here. if (xhr.readyState === XMLHttpRequest.DONE) { // Everything is good, the response was received. if (xhr.status === 200) { // Perfect! console.</p>
+        <div class="summary">简单实现 var xhr = null; // Old compatibility code, no longer needed. if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ... xhr = new XMLHttpRequest(); } else if (window.ActiveXObject) { // IE 6 and older xhr = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); } xhr.onreadystatechange = function () { …</div>
     
 </div>
 <div class="item">
@@ -280,22 +265,30 @@ class Store { constructor() { let store = localStorage.getItem(&#34;cache&#34;);
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/code/" rel="tag">Code</a>
+                <a class="link" href="/tags/code/" rel="tag">Code</a>
         </div>
 </div>
 
-        <p class="summary">代码 class Storage { constructor(name) { this.name = &#34;storage&#34;; } //设置缓存 setItem(params) { let obj = { name: &#34;&#34;, value: &#34;&#34;, expires: &#34;&#34;, startTime: new Date().getTime(), //记录何时将值存入缓存，毫秒级 }; let options = {}; //将obj和传进来的params合并 Object.assign(options, obj, params); let { name, value, expires } = options; if (expires) { //如果options.expires设置了的话 //以options.name为key，options为值放进去 localStorage.setItem(name, JSON.stringify(options)); } else { //如果value是对象或者数组对象的类型，就先用JSON.stringify转一下，再存进去 if (Object.prototype.toString.call(value) == &#34;[object Object]&#34;) { value = JSON.stringify(value); } if (Object.prototype.toString.call(value) == &#34;[object Array]&#34;) { value = JSON.</p>
+        <div class="summary">代码 class Storage { constructor(name) { this.name = &#34;storage&#34;; } //设置缓存 setItem(params) { let obj = { name: &#34;&#34;, value: &#34;&#34;, expires: &#34;&#34;, startTime: new Date().getTime(), //记录何时将值存入缓存，毫秒级 }; let options = {}; //将obj和传进来的params合并 Object.assign(options, obj, params); let { …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/tags/code/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/tags/code/">Prev</a>
         <span class="pagination__item pagination__item--current">2/2</span>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

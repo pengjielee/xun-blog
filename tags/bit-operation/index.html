@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">bit-operation</h1>
+        <h1 class="title">bit-operation</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,16 +34,16 @@
     <div class="date">2021-08-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/bit-operation/" rel="tag">bit-operation</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/bit-operation/" rel="tag">bit-operation</a>
         </div>
 </div>
 
-        <p class="summary">题目 写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
+        <div class="summary">题目 写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
 示例: 输入: a = 1, b = 1 输出: 2 提示：
 a, b 均可能是负数或 0 结果不会溢出 32 位整数
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} a * @param {number} b * @return {number} */ var add = function(a, b) { }; </p>
+JS实现 /** * @param {number} a * @param {number} b * …</div>
     
 </div>
 
@@ -50,5 +52,13 @@ JS实现 /** * @param {number} a * @param {number} b * @return {number} */ var a
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

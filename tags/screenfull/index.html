@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">screenfull</h1>
+        <h1 class="title">screenfull</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,16 +34,15 @@
     <div class="date">2021-02-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/screenfull/" rel="tag">screenfull</a>
-                <a class="tags_link" href="/tags/react/" rel="tag">React</a>
+                <a class="link" href="/tags/screenfull/" rel="tag">screenfull</a>
+                <a class="link" href="/tags/react/" rel="tag">React</a>
         </div>
 </div>
 
-        <p class="summary">安装 $ npm install screenfull React中使用screenfull 1、引入
+        <div class="summary">安装 $ npm install screenfull React中使用screenfull 1、引入
 import screenfull from &#39;screenfull&#39;; 2、全屏
 const handleClick = () =&gt; { if (screenfull.isEnabled) { //全屏整个页面 //screenfull.request(); //全屏某个元素 screenfull.request(element); } }; 3、切换
-const handleToggle = () =&gt; { if (screenfull.isEnabled) { screenfull.toggle(); } }; 4、监听change事件
-import React, { useEffect, useRef } from &#34;react&#34;; import screenfull from &#34;screenfull&#34;; const Component = () =&gt; { useEffect(() =&gt; { if (screenfull.isEnabled) { screenfull.on(&#34;change&#34;, () =&gt; { console.log(&#34;Am I fullscreen?</p>
+const handleToggle = () =&gt; { if (screenfull.isEnabled) …</div>
     
 </div>
 
@@ -50,5 +51,13 @@ import React, { useEffect, useRef } from &#34;react&#34;; import screenfull from
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

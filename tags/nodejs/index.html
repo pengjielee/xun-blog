@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Nodejs</h1>
+        <h1 class="title">Nodejs</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,18 +34,14 @@
     <div class="date">2021-02-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nodejs/" rel="tag">Nodejs</a>
+                <a class="link" href="/tags/nodejs/" rel="tag">Nodejs</a>
         </div>
 </div>
 
-        <p class="summary">获取url中的参数 app.get(&#39;/blog/:id&#39;, (req, res) =&gt; { const id = req.params.id; console.log(id); res.send(id); }); 请求：/blog/1
+        <div class="summary">获取url中的参数 app.get(&#39;/blog/:id&#39;, (req, res) =&gt; { const id = req.params.id; console.log(id); res.send(id); }); 请求：/blog/1
 输出：1
 获取url中?后的参数 app.get(&#39;/blog&#39;, (req, res) =&gt; { const query = req.query; res.send(query); }); 请求：/blog?id=1&amp;name=jie
-输出：{&ldquo;id&rdquo;:&ldquo;1&rdquo;,&ldquo;name&rdquo;:&ldquo;jie&rdquo;}
-获取post提交的数据 Enctype: application/x-www-form-urlencoded (default)
-app.post(&#39;/blog&#39;, (req, res) =&gt; { res.send(req.body); }); &lt;form action=&#34;/blog&#34; method=&#34;post&#34;&gt; &lt;div class=&#34;form-group&#34;&gt; &lt;label&gt; 标题： &lt;input type=&#34;text&#34; name=&#34;title&#34; /&gt; &lt;/label&gt; &lt;/div&gt; &lt;div class=&#34;form-group&#34;&gt; &lt;label&gt; 日期： &lt;input type=&#34;date&#34; name=&#34;date&#34; /&gt; &lt;/label&gt; &lt;/div&gt; &lt;button&gt;submit&lt;/button&gt; &lt;/form&gt; 提交form，输出：{&ldquo;title&rdquo;:&ldquo;user&rdquo;,&ldquo;date&rdquo;:&ldquo;2021-02-05&rdquo;}
-获取post提交的数据 Enctype: multipart/form-data
-const formidable = require(&#39;formidable&#39;); const uploadDir = path.</p>
+输 …</div>
     
 </div>
 <div class="item">
@@ -53,13 +51,12 @@ const formidable = require(&#39;formidable&#39;); const uploadDir = path.</p>
     <div class="date">2021-02-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/nodejs/" rel="tag">Nodejs</a>
+                <a class="link" href="/tags/nodejs/" rel="tag">Nodejs</a>
         </div>
 </div>
 
-        <p class="summary">Form上传 1、前端
-&lt;section&gt; &lt;h2&gt;上传单个文件&lt;/h2&gt; &lt;form action=&#34;/api/upload/single&#34; method=&#34;post&#34; enctype=&#34;multipart/form-data&#34;&gt; &lt;input type=&#34;file&#34; name=&#34;file&#34; accept=&#34;image/*&#34; required=&#34;true&#34; /&gt; &lt;button&gt;上传&lt;/button&gt; &lt;/form&gt; &lt;/section&gt; 2、后端
-var createError = require(&#39;http-errors&#39;); var express = require(&#39;express&#39;); var path = require(&#39;path&#39;); var cookieParser = require(&#39;cookie-parser&#39;); var logger = require(&#39;morgan&#39;); const fs = require(&#39;fs-extra&#39;); const multer = require(&#39;multer&#39;); var app = express(); const port = 3000; // view engine setup app.set(&#39;views&#39;, path.join(__dirname, &#39;views&#39;)); app.set(&#39;view engine&#39;, &#39;pug&#39;); app.use(logger(&#39;dev&#39;)); app.use(express.json()); app.use(express.urlencoded({ extended: false })); app.</p>
+        <div class="summary">Form上传 1、前端
+&lt;section&gt; &lt;h2&gt;上传单个文件&lt;/h2&gt; &lt;form action=&#34;/api/upload/single&#34; method=&#34;post&#34; enctype=&#34;multipart/form-data&#34;&gt; &lt;input type=&#34;file&#34; name=&#34;file&#34; accept=&#34;image/*&#34; required=&#34;true&#34; /&gt; &lt;button&gt;上 …</div>
     
 </div>
 
@@ -68,5 +65,13 @@ var createError = require(&#39;http-errors&#39;); var express = require(&#39;exp
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

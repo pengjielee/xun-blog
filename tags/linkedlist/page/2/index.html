@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">linkedlist</h1>
+        <h1 class="title">linkedlist</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,17 +34,14 @@
     <div class="date">2021-08-27</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
+        <div class="summary">题目 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
 例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。
-示例： 给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2. 返回链表 4-&gt;5. 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 链表：1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2. 返回：4 -&gt; 5
-链表长度：5，倒数第2，即正数第 3
-JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * this.val = val; * this.next = null; * } */ /** * @param {ListNode} head * @param {number} k * @return {ListNode} */ var getKthFromEnd = function(head, k) { // 获取链表长度 const getLength = (head) =&gt; { let length = 0; let curr = head; while(curr) { length++; curr = curr.</p>
+示例： 给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2. 返回链表 4-&gt;5. 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof 著作权归领扣网络所有。商 …</div>
     
 </div>
 <div class="item">
@@ -52,19 +51,16 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * t
     <div class="date">2021-08-26</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
+        <div class="summary">题目 给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
 返回删除后的链表的头节点。
 注意：此题对比原题有改动
 示例 1: 输入: head = [4,5,1,9], val = 5 输出: [4,1,9] 解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9. 示例 2: 输入: head = [4,5,1,9], val = 1 输出: [4,5,9] 解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9. 说明：
-题目保证链表中节点的值互不相同 若使用 C 或 C++ 语言，你不需要 free 或 delete 被删除的节点
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 参考1:
-/** * Definition for singly-linked list. * function ListNode(val) { * this.</p>
+题目保证链表中节点的值互不 …</div>
     
 </div>
 <div class="item">
@@ -74,25 +70,19 @@ JS实现 参考1:
     <div class="date">2021-08-24</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/hashtable/" rel="tag">hashtable</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
+        <div class="summary">题目 请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
 示例 1：
 输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]] 输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
 示例 2：
 输入：head = [[1,1],[2,1]] 输出：[[1,1],[2,1]]
 示例 3：
-输入：head = [[3,null],[3,0],[3,null]] 输出：[[3,null],[3,0],[3,null]]
-示例 4： 输入：head = [] 输出：[] 解释：给定的链表为空（空指针），因此返回 null。
-提示：
--10000 &lt;= Node.val &lt;= 10000 Node.random 为空（null）或指向链表中的节点。 节点数目不超过 1000 。
-注意：本题与主站 138 题相同：https://leetcode-cn.com/problems/copy-list-with-random-pointer/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * // Definition for a Node. * function Node(val, next, random) { * this.val = val; * this.</p>
+输入：head = [[3,null],[3,0],[3,null]] 输 …</div>
     
 </div>
 <div class="item">
@@ -102,18 +92,17 @@ JS实现 /** * // Definition for a Node. * function Node(val, next, random) { * 
     <div class="date">2021-08-24</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/recursion/" rel="tag">recursion</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/recursion/" rel="tag">recursion</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+        <div class="summary">题目 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
 示例: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL 限制：
 0 &lt;= 节点个数 &lt;= 5000
 注意：本题与主站 206 题相同：https://leetcode-cn.com/problems/reverse-linked-list/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * this.val = val; * this.next = null; * } */ /** * @param {ListNode} head * @return {ListNode} */ var reverseList = function(head) { let prev = null; let curr = head; while(curr) { //获取当前节点的next const next = curr.next; //当前节点的next指向prev curr.</p>
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof 著作 …</div>
     
 </div>
 <div class="item">
@@ -123,20 +112,20 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * t
     <div class="date">2021-08-24</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/sword2/" rel="tag">sword2</a>
-                <a class="tags_link" href="/tags/stack/" rel="tag">stack</a>
-                <a class="tags_link" href="/tags/recursion/" rel="tag">recursion</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/sword2/" rel="tag">sword2</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
+                <a class="link" href="/tags/recursion/" rel="tag">recursion</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+        <div class="summary">题目 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
 示例 1： 输入：head = [1,3,2] 输出：[2,3,1] 限制：
 0 &lt;= 链表长度 &lt;= 10000
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、reverse()方法，反转数组
-/** * Definition for singly-linked list. * function ListNode(val) { * this.val = val; * this.next = null; * } */ /** * @param {ListNode} head * @return {number[]} */ var reversePrint = function(head) { const result = []; let current = head; while(current){ result.push(current.val); current = current.next; } return result.reverse(); }; 2、借助栈</p>
+/** * Definition for singly-linked list. * …</div>
     
 </div>
 <div class="item">
@@ -146,20 +135,14 @@ JS实现 1、reverse()方法，反转数组
     <div class="date">2021-07-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个长度为 n 的链表，每个节点包含一个额外增加的随机指针 random ，该指针可以指向链表中的任何节点或空节点。
+        <div class="summary">题目 给你一个长度为 n 的链表，每个节点包含一个额外增加的随机指针 random ，该指针可以指向链表中的任何节点或空节点。
 构造这个链表的 深拷贝。 深拷贝应该正好由 n 个 全新 节点组成，其中每个新节点的值都设为其对应的原节点的值。新节点的 next 指针和 random 指针也都应指向复制链表中的新节点，并使原链表和复制链表中的这些指针能够表示相同的链表状态。复制链表中的指针都不应指向原链表中的节点 。
-例如，如果原链表中有 X 和 Y 两个节点，其中 X.random &ndash;&gt; Y 。那么在复制链表中对应的两个节点 x 和 y ，同样有 x.random &ndash;&gt; y 。
-返回复制链表的头节点。
-用一个由 n 个节点组成的链表来表示输入/输出中的链表。每个节点用一个 [val, random_index] 表示：
-val：一个表示 Node.val 的整数。 random_index：随机指针指向的节点索引（范围从 0 到 n-1）；如果不指向任何节点，则为 null 。 你的代码 只 接受原链表的头节点 head 作为传入参数。
-示例 1：
-输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]] 输出：[[7,null],[13,0],[11,4],[10,2],[1,0]] 示例 2：
-输入：head = [[1,1],[2,1]] 输出：[[1,1],[2,1]] 示例 3：</p>
+例如，如果原链表中有 X 和 Y 两个节点，其中 X.random &ndash;&gt; Y 。那么在复制链表中对应的两个节点 x 和 y ，同样有 x.random …</div>
     
 </div>
 <div class="item">
@@ -169,17 +152,17 @@ val：一个表示 Node.val 的整数。 random_index：随机指针指向的节
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。
+        <div class="summary">题目 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。
 示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5
 rotate 1: 5 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 rotate 2: 4 -&gt; 5 -&gt; 1 -&gt; 2 -&gt; 3
 输入：head = [1,2,3,4,5], k = 2 输出：[4,5,1,2,3]
 示例 2： 0 -&gt; 1 -&gt; 2
-rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 rotate 3: 0 -&gt; 1 -&gt; 2 rotate 4: 2 -&gt; 0 -&gt; 1</p>
+rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 …</div>
     
 </div>
 <div class="item">
@@ -189,17 +172,16 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 rotate 3: 0 -&gt; 1 -&gt
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+        <div class="summary">题目 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
 示例 1： 输入：head = [1,2,3,4] 输出：[2,1,4,3] 示例 2： 输入：head = [] 输出：[] 示例 3： 输入：head = [1] 输出：[1] 提示：
 链表中节点的数目在范围 [0, 100] 内 0 &lt;= Node.val &lt;= 100 进阶：你能在不修改链表节点值的情况下解决这个问题吗?（也就是说，仅修改节点本身。）
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/swap-nodes-in-pairs 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-思路 链表： 1-&gt;2-&gt;3-&gt;4 头节点： head = 1, 结节点： dummy = 0, dummy.next = head; 0-&gt;1-&gt;2-&gt;3-&gt;4 临时节点： temp = dummy 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 | | dummy head temp temp.next，就是head，就是1 temp.next.next，就是head.next，就是2 node1 = temp.</p>
+来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -209,16 +191,16 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 rotate 3: 0 -&gt; 1 -&gt
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+        <div class="summary">题目 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
 进阶：你能尝试使用一趟扫描实现吗？
 示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 //删除倒数第2个后： 1 -&gt; 2 -&gt; 3 -&gt; 5 输入：head = [1,2,3,4,5], n = 2 输出：[1,2,3,5] 示例 2： 输入：head = [1], n = 1 输出：[] 示例 3： 输入：head = [1,2], n = 1 输出：[1] 提示：
-链表中结点的数目为 sz 1 &lt;= sz &lt;= 30 0 &lt;= Node.val &lt;= 100 1 &lt;= n &lt;= sz 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+链表中结点的数目为 sz 1 &lt;= sz &lt;= 30 0 &lt;= Node.val …</div>
     
 </div>
 <div class="item">
@@ -228,16 +210,15 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 rotate 3: 0 -&gt; 1 -&gt
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+        <div class="summary">题目 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
 请你将两个数相加，并以相同形式返回一个表示和的链表。
 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
-示例 1： 2 -&gt; 4 -&gt; 3 + 5 -&gt; 6 -&gt; 4 ------------- = 7 -&gt; 0 -&gt; 8 输入：l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 解释：342 + 465 = 807. 示例 2： 输入：l1 = [0], l2 = [0] 输出：[0] 示例 3： 输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9] 输出：[8,9,9,9,0,0,0,1] 提示：
-每个链表中的节点数在范围 [1, 100] 内 0 &lt;= Node.</p>
+示例 1： 2 -&gt; 4 -&gt; 3 + 5 -&gt; 6 -&gt; 4 ------------- = 7 -&gt; 0 -&gt; 8 输入：l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 解释：342 + 465 = 807. 示例 2： 输入：l1 = [0], l2 = [0] 输出：[0] 示例 3： …</div>
     
 </div>
 <div class="item">
@@ -247,16 +228,15 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 rotate 3: 0 -&gt; 1 -&gt
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。
+        <div class="summary">题目 存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。
 返回同样按升序排列的结果链表。
 示例 1： 输入：head = [1,2,3,3,4,4,5] 输出：[1,2,5] 示例 2： 输入：head = [1,1,1,2,3] 输出：[2,3] 提示：
-链表中节点数目在范围 [0, 300] 内 -100 &lt;= Node.val &lt;= 100 题目数据保证链表已经按升序排列 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {ListNode} */ var deleteDuplicates = function (head) { //设置哑节点，方便删除 let dummy = new ListNode(0); dummy.</p>
+链表中节点数目在范围 [0, 300] 内 -100 &lt;= Node.val &lt;= 100 题目数据保证链表已经按升序排列 来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -266,18 +246,18 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+        <div class="summary">题目 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
 说明：不允许修改给定的链表。
 进阶：
 你是否可以使用 O(1) 空间解决此题？ 示例：
-示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 -&gt; 2 输入：head = [3,2,0,-4], pos = 1 输出：返回索引为 1 的链表节点 解释：链表中有一个环，其尾部连接到第二个节点。 示例 2： 1 -&gt; 2 -&gt; 1 输入：head = [1,2], pos = 0 输出：返回索引为 0 的链表节点 解释：链表中有一个环，其尾部连接到第一个节点。 示例 3： 1 -&gt; null 输入：head = [1], pos = -1 输出：返回 null 解释：链表中没有环。 提示：</p>
+示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 -&gt; 2 输入：head = [3,2,0,-4], pos = 1 输出：返回索引为 1 的链表节点 解释：链表中有一个环，其尾部连接到第二 …</div>
     
 </div>
 <div class="item">
@@ -287,19 +267,19 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
-                <a class="tags_link" href="/tags/hashtable/" rel="tag">hashtable</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个链表，判断链表中是否有环。
+        <div class="summary">题目 给定一个链表，判断链表中是否有环。
 如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
 如果链表中存在环，则返回 true 。 否则，返回 false 。
 进阶：
 你能用 O(1)（即，常量）内存解决此问题吗？ 示例：
-示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 [-&gt; 2] 输入：head = [3,2,0,-4], pos = 1 输出：true 解释：链表中有一个环，其尾部连接到第二个节点。 示例 2： 1 -&gt; 2 [-&gt; 1] 输入：head = [1,2], pos = 0 输出：true 解释：链表中有一个环，其尾部连接到第一个节点。 示例 3： 1 -&gt; null 输入：head = [1], pos = -1 输出：false 解释：链表中没有环。 提示：</p>
+示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 [-&gt; 2] 输入：head = [3,2,0,-4], …</div>
     
 </div>
 <div class="item">
@@ -309,16 +289,14 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个单链表 L：L0→L1→…→Ln-1→Ln ， 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
+        <div class="summary">题目 给定一个单链表 L：L0→L1→…→Ln-1→Ln ， 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-示例 1: 给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3. 示例 2: 给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3. 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reorder-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 1、使用数组存储，然后重新构建链表
-/** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {void} Do not return anything, modify head in-place instead. */ var reorderList = function (head) { const list = []; while (head !</p>
+示例 1: 给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3. 示例 2: 给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3. 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reorder-list 著作权归领扣网 …</div>
     
 </div>
 <div class="item">
@@ -328,17 +306,17 @@ JS实现 1、使用数组存储，然后重新构建链表
     <div class="date">2021-04-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <p class="summary">题目 请判断一个链表是否为回文链表。
+        <div class="summary">题目 请判断一个链表是否为回文链表。
 示例 1: 输入: 1-&gt;2 输出: false 示例 2: 输入: 1-&gt;2-&gt;2-&gt;1 输出: true 进阶： 你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/palindrome-linked-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、将值复制到数组中后用双指针法
-/** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {boolean} */ var isPalindrome = function (head) { const values = []; // 将链表的值保存到数组中 while (head !</p>
+/** * Definition for singly-linked list. * …</div>
     
 </div>
 <div class="item">
@@ -348,16 +326,14 @@ JS实现 1、将值复制到数组中后用双指针法
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。
+        <div class="summary">题目 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。
 请尝试使用原地算法完成。你的算法的空间复杂度应为 O(1)，时间复杂度应为 O(nodes)，nodes 为节点总数。
-示例 1: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL 输出: 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL 示例 2: 输入: 2-&gt;1-&gt;3-&gt;5-&gt;6-&gt;4-&gt;7-&gt;NULL 输出: 2-&gt;3-&gt;6-&gt;7-&gt;1-&gt;5-&gt;4-&gt;NULL 说明:
-应当保持奇数节点和偶数节点的相对顺序。 链表的第一个节点视为奇数节点，第二个节点视为偶数节点，以此类推。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/odd-even-linked-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {ListNode} */ var oddEvenList = function (head) { if (head === null) { return head; } // 偶节点的头节点 let evenHead = head.</p>
+示例 1: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL 输出: 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL 示例 2: 输入: 2-&gt;1-&gt;3-&gt;5-&gt;6-&gt;4-&gt;7-&gt;NULL 输出: …</div>
     
 </div>
 <div class="item">
@@ -367,16 +343,14 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。
+        <div class="summary">题目 请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。
 现有一个链表 &ndash;head = [4,5,1,9]，它可以表示为:
-示例 1： 4 -&gt; 5 -&gt; 1 -&gt; 9 输入：head = [4,5,1,9], node = 5 输出：[4,1,9] 解释：给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9. 示例 2： 输入：head = [4,5,1,9], node = 1 输出：[4,5,9] 解释：给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9. 提示：
-链表至少包含两个节点。 链表中所有节点的值都是唯一的。 给定的节点为非末尾节点并且一定是链表中的一个有效节点。 不要从你的函数中返回任何结果。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/delete-node-in-a-linked-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * this.val = val; * this.</p>
+示例 1： 4 -&gt; 5 -&gt; 1 -&gt; 9 输入：head = [4,5,1,9], node = 5 输出：[4,1,9] 解释：给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9. 示例 2： 输入：head = [4,5,1,9], node = 1 输出：[4,5,9] 解释：给定你链表中值为 1 的第三个节点，那么在调用了 …</div>
     
 </div>
 <div class="item">
@@ -386,13 +360,13 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * t
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 翻转后： 1 -&gt; 4 -&gt; 3 -&gt; 2 -&gt; 5 输入：head = [1,2,3,4,5], left = 2, right = 4 输出：[1,4,3,2,5] 示例 2： 输入：head = [5], left = 1, right = 1 输出：[5] 提示：
-链表中节点数目为 n 1 &lt;= n &lt;= 500 -500 &lt;= Node.</p>
+        <div class="summary">题目 给你单链表的头指针 head 和两个整数 left 和 right ，其中 left &lt;= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。 示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 翻转后： 1 -&gt; 4 -&gt; 3 -&gt; 2 -&gt; 5 输入：head = [1,2,3,4,5], left = 2, right = 4 输出：[1,4,3,2,5] 示例 2： 输入：head = [5], left = 1, right = 1 输出：[5] 提示：
+链表中节点数目为 n …</div>
     
 </div>
 <div class="item">
@@ -402,17 +376,17 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val) { * t
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 反转一个单链表。
+        <div class="summary">题目 反转一个单链表。
 示例:
 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL 进阶:
 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？ 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reverse-linked-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、迭代
-/** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {ListNode} */ var reverseList = function(head) { // 前一个节点 let prev = null; // 当前节点 let curr = head; while(curr !</p>
+/** * Definition for singly-linked list. * function …</div>
     
 </div>
 <div class="item">
@@ -422,14 +396,14 @@ JS实现 1、迭代
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
+        <div class="summary">题目 给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
 示例 1： 1 -&gt; 2 -&gt; 6 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 移除6： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 输入：head = [1,2,6,3,4,5,6], val = 6 输出：[1,2,3,4,5] 示例 2： 输入：head = [], val = 1 输出：[] 示例 3： 输入：head = [7,7,7,7], val = 7 输出：[] 提示：
-列表中的节点在范围 [0, 10^4] 内 1 &lt;= Node.val &lt;= 50 0 &lt;= k &lt;= 50 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+列表 …</div>
     
 </div>
 <div class="item">
@@ -439,16 +413,16 @@ JS实现 1、迭代
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/hashtable/" rel="tag">hashtable</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
         </div>
 </div>
 
-        <p class="summary">题目 编写一个程序，找到两个单链表相交的起始节点。
+        <div class="summary">题目 编写一个程序，找到两个单链表相交的起始节点。
 如下面的两个链表： A: a1 -&gt; a2 -&gt; c1 -&gt; c2 -&gt; c3 B: b1 -&gt; b2 -&gt; b3 -&gt; c1 -&gt; c2 -&gt; c3
 在节点 c1 开始相交。
-示例 1： A: 4 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 B: 5 -&gt; 0 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3 输出：Reference of the node with value = 8 输入解释：相交节点的值为 8 （注意，如果两个链表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。 示例 2： A: 0 -&gt; 9 -&gt; 1 -&gt; 2 -&gt; 4 B: 3 -&gt; 2 -&gt; 4 输入：intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1 输出：Reference of the node with value = 2 输入解释：相交节点的值为 2 （注意，如果两个链表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。 示例 3： A: 2 -&gt; 6 -&gt; 4 B: 1 -&gt; 5 输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2 输出：null 输入解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。 解释：这两个链表不相交，因此返回 null。 注意：</p>
+示例 1： A: 4 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 B: 5 -&gt; 0 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA …</div>
     
 </div>
 <div class="item">
@@ -458,14 +432,13 @@ JS实现 1、迭代
     <div class="date">2021-04-21</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
-进阶： 你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？ 示例 1： 4 -&gt; 2 -&gt; 1 -&gt; 3 排序后： 1 -&gt; 2 -&gt; 3 -&gt; 4 输入：head = [4,2,1,3] 输出：[1,2,3,4] 示例 2： -1 -&gt; 5 -&gt; 3 -&gt; 4 -&gt; 0 排序后： 1 -&gt; 0 -&gt; 3 -&gt; 4 -&gt; 5 输入：head = [-1,5,3,4,0] 输出：[-1,0,3,4,5] 示例 3： 输入：head = [] 输出：[] 提示：
-链表中节点的数目在范围 [0, 5 * 10^4] 内 -10^5 &lt;= Node.</p>
+        <div class="summary">题目 给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
+进阶： 你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？ 示例 1： 4 -&gt; 2 -&gt; 1 -&gt; 3 排序后： 1 -&gt; 2 -&gt; 3 -&gt; 4 输入：head = [4,2,1,3] 输出：[1,2,3,4] 示例 2： -1 -&gt; 5 -&gt; 3 -&gt; 4 -&gt; 0 排序后： 1 -&gt; 0 -&gt; 3 -&gt; 4 -&gt; 5 输入：head = [-1,5,3,4,0] 输 …</div>
     
 </div>
 <div class="item">
@@ -475,14 +448,14 @@ JS实现 1、迭代
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
+        <div class="summary">题目 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
 示例 1: 输入: 1-&gt;1-&gt;2 输出: 1-&gt;2 示例 2: 输入: 1-&gt;1-&gt;2-&gt;3-&gt;3 输出: 1-&gt;2-&gt;3 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.next = (next===undefined ? null : next) * } */ /** * @param {ListNode} head * @return {ListNode} */ var deleteDuplicates = function (head) { let current = head; while (current != null &amp;&amp; current.</p>
+JS实现 /** * Definition for singly-linked list. * …</div>
     
 </div>
 <div class="item">
@@ -492,16 +465,15 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="tags_link" href="/tags/merge/" rel="tag">merge</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/merge/" rel="tag">merge</a>
         </div>
 </div>
 
-        <p class="summary">题目 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+        <div class="summary">题目 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 示例 1： 输入：l1 = [1,2,4], l2 = [1,3,4] 输出：[1,1,2,3,4,4] 示例 2： 输入：l1 = [], l2 = [] 输出：[] 示例 3： 输入：l1 = [], l2 = [0] 输出：[0] 提示：
-两个链表的节点数目范围是 [0, 50] -100 &lt;= Node.val &lt;= 100 l1 和 l2 均按 非递减顺序 排列 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * Definition for singly-linked list. * function ListNode(val, next) { * this.val = (val===undefined ? 0 : val) * this.</p>
+两个链表的节点数目范围是 [0, 50] -100 &lt;= Node.val &lt;= 100 l1 和 l2 均按 非递减顺序 排列 来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -511,17 +483,17 @@ JS实现 /** * Definition for singly-linked list. * function ListNode(val, next)
     <div class="date">2021-02-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+        <div class="summary">题目 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
 思路 利用JS数组的unshift()方法，在数组开头插入数据。
-var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.log(nums); //[4,1,2,3] var nums = [1,2,3]; var temp = nums.shift(); console.log(temp); //1 console.log(nums); //[2,3] JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function printListFromTailToHead(head) { // write code here let result = []; if (head === null) { return result; } let current = head; while (current != null) { result.unshift(current.val); current = current.next; } return result; } Go实现 package main import ( &#34;container/list&#34; &#34;fmt&#34; ) type ListNode struct { Val int Next *ListNode } func printList(head *ListNode) { curr := head for curr !</p>
+var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.log(nums); //[4,1,2,3] var nums = [1,2,3]; var temp = nums.shift(); console.log(temp); //1 console.log(nums); //[2,3] JS实现 /*function ListNode(x){ …</div>
     
 </div>
 <div class="item">
@@ -531,18 +503,17 @@ var nums = [1,2,3]; var temp = nums.unshift(4); console.log(temp); //4 console.l
     <div class="date">2021-02-22</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，输出该链表中倒数第k个结点。
+        <div class="summary">题目 输入一个链表，输出该链表中倒数第k个结点。
 思路 利用快慢指针，快指针先走k步，然后快慢指针一起走，当快指针走到末尾，那么慢指针就到了倒数第k个节点了。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindKthToTail(head, k) { // write code here let fast = head, slow = head; for (let i = 0; i &lt; k; i++) { if (fast === null) return; fast = fast.next; } while (fast) { fast = fast.next; slow = slow.next; } return slow; } Test
-var linkedlist = { length: 7, head: { value: 1, next: { value: 2, next: { value: 2, next: { value: 3, next: { value: 4, next: { value: 4, next: { value: 5, next: null } }, }, }, }, }, }, }; function display(linkedlist) { var results = []; var current = linkedlist.</p>
+JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindKthToTail(head, k) { // write code here let fast = head, slow = head; for (let i = 0; i &lt; k; i++) { if (fast === null) return; fast = …</div>
     
 </div>
 <div class="item">
@@ -552,17 +523,16 @@ var linkedlist = { length: 7, head: { value: 1, next: { value: 2, next: { value:
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入一个链表，反转链表后，输出新链表的表头。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function ReverseList(pHead) { // write code here if (pHead === null || pHead.next === null) { return pHead; } let prev = null; //记录节点的前一个节点 let next = null; //记录节点的后一个节点 while (pHead != null) { next = pHead.next; //记录当前节点的下一个节点位置； pHead.next = prev; //让当前节点指向前一个节点位置，完成反转 prev = pHead; //prev 往右走 pHead = next; //当前节点往右继续走 } return prev; } Test
-var linkedlist = { length: 3, head: { value: 5, next: { value: 4, next: { value: 6, next: null } } }, }; ReverseList(linkedlist.</p>
+        <div class="summary">题目 输入一个链表，反转链表后，输出新链表的表头。
+JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function ReverseList(pHead) { // write code here if (pHead === null || pHead.next === null) { return pHead; } let prev = null; //记录节点的前一个节点 let next = null; //记录节点的后一个节点 while (pHead != null) { next = …</div>
     
 </div>
 <div class="item">
@@ -572,18 +542,17 @@ var linkedlist = { length: 3, head: { value: 5, next: { value: 4, next: { value:
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
+        <div class="summary">题目 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
 JS实现 1、递归实现
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } if (pHead1.val &lt; pHead2.val) { pHead1.next = Merge(pHead1.next, pHead2); return pHead1; } else { pHead2.next = Merge(pHead1, pHead2.next); return pHead2; } } 2、非递归实现
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { // write code here if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } let mergedHead = null; let current = null; while (pHead1 !</p>
+/*function ListNode(x){ this.val = x; this.next = null; }*/ function Merge(pHead1, pHead2) { if (pHead1 === null) { return pHead2; } if (pHead2 === null) { return pHead1; } if (pHead1.val &lt; pHead2.val) { pHead1.next = …</div>
     
 </div>
 <div class="item">
@@ -593,19 +562,18 @@ JS实现 1、递归实现
     <div class="date">2021-02-18</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）
+        <div class="summary">题目 输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）
 思路 什么是公共节点，并不是两个节点的值相同就是公共节点。 而是在第一链表和第二链表中都存在一个节点，该节点往后的子链表在两个链表中是相同的。
 如下图中链表6-7就是两个链表的公共链表，而节点6就是第一个公共节点。
-1 -&gt; 2 -&gt; 3 -&gt; 6 -&gt; 7 4 -&gt; 5 -&gt; 6 -&gt; 7 如果两个链表存在公共节点，那么公共节点出现在两个链表的尾部。如果我们从两个链表的尾部开始往前比较，那么最后一个相同的节点就是我们要找的节点。但是这两个链表是单向的，要实现尾节点最先比较，我们可以借助两个辅助栈。分别将两个链表的节点放入两个栈中，这样栈顶就是两个链表的尾节点，比较两个栈顶节点是否相同，如果相同，将栈顶弹出比较下一个栈顶，直到找到最后一个相同的栈顶。时间复杂度O(m + n)。
-JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function FindFirstCommonNode(pHead1, pHead2) { // write code here if (pHead1 === null || pHead2 === null) { return null; } let stack1 = [], stack2 = []; while (pHead1 != null) { stack1.push(pHead1); pHead1 = pHead1.</p>
+1 -&gt; 2 -&gt; 3 -&gt; 6 -&gt; 7 4 -&gt; 5 -&gt; 6 -&gt; 7 如果两个链表存在公共节点，那么公共节点出现在两个链表的尾部。如果我们从两个链表的尾部开始往前比较，那么最后一个相同的节点就是我 …</div>
     
 </div>
 <div class="item">
@@ -615,19 +583,19 @@ JS实现 /*function ListNode(x){ this.val = x; this.next = null; }*/ function Fi
     <div class="date">2021-02-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
+        <div class="summary">题目 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
 思路 1、设置快慢指针，假如有环，他们一定相遇在环中；
 2、两个指针相遇后，让两个指针分别从链表头和相遇点重新出发，每次走一步，最后一定相遇于环入口；
 JS实现 参考1
-/*function ListNode(x){ this.val = x; this.next = null; }*/ function EntryNodeOfLoop(pHead) { // write code here //至少3个节点才能成环 if (!pHead || !pHead.next || !pHead.next.next) { return null; } //定义快慢指针 let slow = pHead.next; let fast = pHead.next.next; while (slow &amp;&amp; fast) { if (fast !== slow) { fast = fast.next.next; slow = slow.next; } else { break; } } //没有环 if (!fast || !slow) { return null; } fast = pHead; while (slow !</p>
+/*function ListNode(x){ this.val = x; this.next = null; }*/ function EntryNodeOfLoop(pHead) { // write code here //至少3个节点才能成环 if (!pHead || !pHead.next || !pHead.next.next) { …</div>
     
 </div>
 <div class="item">
@@ -637,31 +605,39 @@ JS实现 参考1
     <div class="date">2021-02-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
         </div>
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="/categories/swordoffer/" rel="tag">swordoffer</a>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
         </div>
 </div>
 
-        <p class="summary">题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5
+        <div class="summary">题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5
 思路 非递归的代码：
 1、首先添加一个头节点，以方便碰到第一个，第二个节点就相同的情况；
 2、设置 pre ，last 指针， pre指针指向当前确定不重复的那个节点，而last指针相当于工作指针，一直往后面搜索。
-JS实现 // 非递归法 function deleteDuplication(pHead) { if (!pHead || !pHead.next) { return pHead; } let newHead = { val: &#34;a&#34;, next: pHead, }; let before = newHead; let current = newHead.next; while (current &amp;&amp; current.next) { if (current.val === current.next.val) { let val = current.val; while (current &amp;&amp; current.val === val) { current = current.next; } before.next = current; } else { current = current.</p>
+JS实现 // 非递归法 function deleteDuplication(pHead) { if (!pHead || !pHead.next) { …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/tags/linkedlist/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/tags/linkedlist/">Prev</a>
         <span class="pagination__item pagination__item--current">2/4</span>
-            <a class="pagination__item pagination__item--next btn" href="/tags/linkedlist/page/3/">Next</a>
+            <a class="pagination__item pagination__item--next" href="/tags/linkedlist/page/3/">Next</a>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

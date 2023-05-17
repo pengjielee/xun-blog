@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">algorithm</h1>
+        <h1 class="title">algorithm</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,15 +34,14 @@
     <div class="date">2021-05-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">Fisher–Yates shuffle 核心思想是从1到n之间随机取出一个数和最后一个数(n)交换，然后从1到n-1之间随机取出一个数和倒数第二个数(n-1)交换&hellip;
+        <div class="summary">Fisher–Yates shuffle 核心思想是从1到n之间随机取出一个数和最后一个数(n)交换，然后从1到n-1之间随机取出一个数和倒数第二个数(n-1)交换&hellip;
 步骤：
 写下从 1 到 N 的数字 取一个从 1 到剩下的数字（包括这个数字）的随机数 k 从低位开始，得到第 k 个数字（这个数字还没有被取出），把它写在独立的一个列表的最后一位 重复第 2 步，直到所有的数字都被取出 第 3 步写出的这个序列，现在就是原始数字的随机排列 经典实现 步骤：
-给定一组待混排的有限序列P 新初始化一个空的序列Q 从P中随机选取一个元素 将该元素放到序列Q的最后面，并从序列P中移除该元素 重复3-4的步骤，直到序列P中元素全部选取到了序列Q中，得到的序列Q即为一组P的混排序列 参考代码：
-function shuffle(array) { if (!Array.isArray(array)) { return []; } // 初始化序列 const result = []; for (let i = array.length; i &gt; 0; i--) { //随机生成索引 const idx = Math.floor(Math.random() * i); //将该元素加入序列 result.push(array[idx]); //从数组中移除该元素 array.splice(idx, 1); } return result; }; 流行实现 步骤：</p>
+给定一组待混排的有限序列P 新初始化一个空的序列Q 从P中随机选取一个元素 将该元素放到序列Q的最后面，并从序列P中移除该元 …</div>
     
 </div>
 <div class="item">
@@ -50,12 +51,12 @@ function shuffle(array) { if (!Array.isArray(array)) { return []; } // 初始化
     <div class="date">2021-04-28</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">堆排序 1、参考代码
-class HeapSort { //建堆 buildHeap(array) { //下标为0的位置保留 const arr = [0].concat(array); for (let i = arr.length; i &gt; 0; i--) { this._heapify(arr, arr.length, i); } return arr; } // 排序 sort(array) { const arr = this.buildHeap(array); // 先建堆 let len = arr.length - 1; while (len &gt; 1) { this._swap(arr, 1, len); // 交换顶元素和最后一位。顶元素永远是最大的。 len--; this._heapify(arr, len, 1); //剩下的元素重新建堆 直到len === 1 停止 } return arr.slice(1); } // 堆化（构建大顶堆） _heapify(arr, len, i) { while (true) { let maxPos = i; // 如果index i拥有叶左节点 并且左节点较大 if (i * 2 &lt;= len &amp;&amp; arr[i] &lt; arr[i * 2]) { maxPos = i * 2; } // 如果index i拥有叶右节点 与Max节点比较大小，选出父/左/右中最大的一个 if (i * 2 + 1 &lt;= len &amp;&amp; arr[maxPos] &lt; arr[i * 2 + 1]) { maxPos = i * 2 + 1; } if (maxPos === i) break; // 循环直到i节点为最大值 this.</p>
+        <div class="summary">堆排序 1、参考代码
+class HeapSort { //建堆 buildHeap(array) { //下标为0的位置保留 const arr = [0].concat(array); for (let i = arr.length; i &gt; 0; i--) { this._heapify(arr, arr.length, i); } return arr; } // 排序 sort(array) { const arr = this.buildHeap(array); // 先建堆 let len = arr.length - 1; while (len &gt; 1) { …</div>
     
 </div>
 <div class="item">
@@ -65,15 +66,15 @@ class HeapSort { //建堆 buildHeap(array) { //下标为0的位置保留 const a
     <div class="date">2021-04-28</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">理解堆 堆是一个完全二叉树； 堆中每一个节点的值都必须大于等于（或小于等于）其子树中每个节点的值； 完全二叉树：除了最后一层，其他层的节点个数都是满的，最后一层的节点都靠左排列。
+        <div class="summary">理解堆 堆是一个完全二叉树； 堆中每一个节点的值都必须大于等于（或小于等于）其子树中每个节点的值； 完全二叉树：除了最后一层，其他层的节点个数都是满的，最后一层的节点都靠左排列。
 几个例子：
 堆1：大顶堆 10 / \ 9 8 /\ /\ 6 5 7 4 / 3 堆2：大顶堆 10 / \ 8 9 /\ /\ 7 3 5 6 / 4 堆3：小顶堆 3 / \ 4 6 /\ /\ 5 8 9 10 / 7 堆的存储及操作 1、堆的存储
 完全二叉树适合用数组来存储。
-7 / \ 5 6 / \ / 4 2 1 用数组来存储： arr = [, 7, 5, 6, 4, 2, 1] idx = 0 1 2 3 4 5 6 - 数组下标为0的位置置空； - 数组中下标为i的节点的左子节点，就是下标为i* 2的节点，右子节点就是下标为i*2+1的节点，父节点就是下标为i/2的节点。 2、往堆中插入元素</p>
+7 / \ 5 6 / \ / 4 2 1 用数组来存储： arr = [, 7, 5, 6, 4, 2, 1] idx = 0 1 …</div>
     
 </div>
 <div class="item">
@@ -83,11 +84,11 @@ class HeapSort { //建堆 buildHeap(array) { //下标为0的位置保留 const a
     <div class="date">2021-04-27</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">实现1 var division = (list, left, right) =&gt; { // 以最左边的数(left)为基准 var base = list[left]; while (left &lt; right) { // 从序列右端开始，向左遍历，直到找到小于base的数 while (left &lt; right &amp;&amp; list[right] &gt;= base) { right--; } // 找到了比base小的元素，将这个元素放到最左边的位置 list[left] = list[right]; // 从序列左端开始，向右遍历，直到找到大于base的数 while (left &lt; right &amp;&amp; list[left] &lt;= base) { left++; } // 找到了比base大的元素，将这个元素放到最右边的位置 list[right] = list[left]; } // 最后将base放到left位置。此时，left位置的左侧数值应该都比left小； // 而left位置的右侧数值应该都比left大。 list[left] = base; return left; }; var sort = (list, left, right) =&gt; { // 左下标一定小于右下标，否则就越界了 if (left &lt; right) { // 对数组进行分割，取出下次分割的基准标号 var base = division(list, left, right); // 对“基准标号“左侧的一组数值进行递归的切割，以至于将这些数值完整的排序 sort(list, left, base - 1); // 对“基准标号“右侧的一组数值进行递归的切割，以至于将这些数值完整的排序 sort(list, base + 1, right); } }; var quickSort = (arr) =&gt; { sort(arr, 0, arr.</p>
+        <div class="summary">实现1 var division = (list, left, right) =&gt; { // 以最左边的数(left)为基准 var base = list[left]; while (left &lt; right) { // 从序列右端开始，向左遍历，直到找到小于base的数 while (left &lt; right &amp;&amp; list[right] &gt;= base) { right--; } // 找到了比base小的元素，将这个元素放到最左边的位置 list[left] = list[right]; // 从序列左端开始，向右遍历，直到找到大于base …</div>
     
 </div>
 <div class="item">
@@ -97,12 +98,11 @@ class HeapSort { //建堆 buildHeap(array) { //下标为0的位置保留 const a
     <div class="date">2021-04-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">题目 求二叉树的最大深度； 求二叉树的最小深度； 求二叉树中节点的个数； 求二叉树中叶子节点的个数； 求二叉树中第k层节点的个数； 判断二叉树是否是平衡二叉树； 判断二叉树是否是完全二叉树； 判断两个二叉树是否完全相同； 判断两个二叉树是否互为镜像； 翻转二叉树/镜像二叉树； 求两个二叉树的最低公共祖先节点； 二叉树的前序遍历； 二叉树的中序遍历； 二叉树的后序遍历； 构造二叉树（前序遍历和中序遍历/后序遍历和中序遍历）； 二叉树中插入/删除节点； 输入一个二叉树和一个整数，打印出二叉树中节点值的和等于输入整数所有的路径； 二叉树的搜索区间； 二叉树的层次遍历； 二叉树内两个节点的最长距离； 不同的二叉树； 判断二叉树是否是合法的二叉查找树（BST）； More 一篇文章搞定面试中的二叉树题目(java实现)
-https://www.jianshu.com/p/0190985635eb</p>
+        <div class="summary">题目 求二叉树的最大深度； 求二叉树的最小深度； 求二叉树中节点的个数； 求二叉树中叶子节点的个数； 求二叉树中第k层节点的个数； 判断二叉树是否是平衡二叉树； 判断二叉树是否是完全二叉树； 判断两个二叉树是否完全相同； 判断两个二叉树是否互为镜像； 翻转二叉树/镜像二叉树； 求两个二叉树的最低公共祖先节点； 二叉树的前序遍历； 二叉树的中序遍历； 二叉树的后序遍历； 构造二叉树（前序遍历和中序遍历/后序遍历和中序遍历）； 二叉树中插入/删除节点； 输入一个二叉树和一个整数，打印出二叉树中节点值的和等于输入整数所有的路径； 二叉树的搜索区间； 二叉树的层次遍历； 二叉树内两个节点的最长距离；  …</div>
     
 </div>
 <div class="item">
@@ -112,12 +112,12 @@ https://www.jianshu.com/p/0190985635eb</p>
     <div class="date">2021-04-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">题目 翻转链表； 判断链表是否有环； 链表排序； 链表相加求和； 获取链表倒数第n个节点； 删除链表倒数第n个节点； 删除链表中重复元素； 旋转链表； 重排链表； 链表划分； 翻转链表的n到m之间的节点； 合并K个排序过的链表； More 一篇文章搞定面试中的链表题目(java实现)
-https://www.jianshu.com/p/a64d1ef95980</p>
+        <div class="summary">题目 翻转链表； 判断链表是否有环； 链表排序； 链表相加求和； 获取链表倒数第n个节点； 删除链表倒数第n个节点； 删除链表中重复元素； 旋转链表； 重排链表； 链表划分； 翻转链表的n到m之间的节点； 合并K个排序过的链表； More 一篇文章搞定面试中的链表题目(java实现)
+https://www.jianshu.com/p/a64d1ef95980</div>
     
 </div>
 <div class="item">
@@ -127,15 +127,15 @@ https://www.jianshu.com/p/a64d1ef95980</p>
     <div class="date">2021-04-17</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">算法度量 1、算法内存使用
+        <div class="summary">算法度量 1、算法内存使用
 原地排序（Sorted in place）算法，特指空间复杂度是 O(1) 的排序算法。
 2、算法的稳定性
 经过某种排序算法排序之后：
-如果两个元素的前后顺序没有改变，那我们就把这种排序算法叫作稳定的排序算法； 如果前后顺序发生变化，那对应的排序算法就叫作不稳定的排序算法。 冒泡排序 var bubbleSort = (arr) =&gt; { const n = arr.length; if (n &lt;= 1) { return; } for (let i = 0; i &lt; n; i++) { for (let j = 0; j &lt; n - i - 1; j++) { if (arr[j] &gt; arr[j+1]) { const temp = arr[j]; arr[j] = arr[j + 1]; arr[j + 1] = temp; } } } }; 测试：</p>
+如果两个元素的前后顺序没有改变，那我们就把这种排序算法叫作稳定的排序算法； 如果前后顺序发生变化，那对应的排序算法就叫作不稳定的排序算法。 冒泡排序 var bubbleSort = (arr) =&gt; { const n = arr.length; if (n &lt;= 1) { return; } for (let i = 0; i &lt; n; i++) { for (let j = 0; j &lt; n - i - …</div>
     
 </div>
 <div class="item">
@@ -145,19 +145,14 @@ https://www.jianshu.com/p/a64d1ef95980</p>
     <div class="date">2021-04-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">桶排序 （Bucket sort） 核心思想是将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行排序。桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。
+        <div class="summary">桶排序 （Bucket sort） 核心思想是将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行排序。桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。
 比如对 9,10,20,45,40,27,32,35,31,50,53,63进行桶排序：
 桶1（0-9）: 9 桶2（10-19）: 19 桶3（20-29）: 20,27 桶4（30-39）: 32,35,31 桶5（40-49）: 45,40, 桶6（50-59）: 50,53 桶6（60-69）: 63 桶排序的时间复杂度为什么是 O(n) 呢?
-如果要排序的数据有 n 个，我们把它们均匀地划分到 m 个桶内，每个桶里就有 k=n/m 个元素。 每个桶内部使用快速排序，时间复杂度为 O(k * logk)。 m 个桶排序的时间复杂度就是 O(m * k * logk)，因为 k=n/m，所以整个桶排序的时间复杂度就是 O(n*log(n/m))。
-当桶的个数 m 接近数据个数 n 时，log(n/m) 就是一个非常小的常量，这个时候桶排序的时间复杂度接近 O(n)。
-计数排序 （Counting sort） 当要排序的 n 个数据，所处的范围并不大的时候，比如最大值是 k，我们就可以把数据划分成 k 个桶。每个桶内的数据值都是相同的，省掉了桶内排序的时间。
-题目：数组里有20个随机数，取值范围为从0到10，要求用最快的速度把这20个整数从小到大进行排序。
-1、整数的取值范围是从0到10，那么这些整数的值肯定是在0到10这11个数里面。于是我们可以建立一个长度为11的数组，数组下标从0到10，元素初始值全为0
-先假设20个随机整数的值是： 9, 3, 5, 4, 9, 1, 2, 7, 8, 1, 3, 6, 5, 3, 4, 0, 10, 9, 7, 9</p>
+如果要排序的数据有 n 个，我们把它们均匀地划分到 m  …</div>
     
 </div>
 <div class="item">
@@ -167,13 +162,12 @@ https://www.jianshu.com/p/a64d1ef95980</p>
     <div class="date">2021-04-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">排列 一般地，从n个不同元素中取出m（m≤n）个元素，按照一定的顺序排成一列，叫做从n个元素中取出m个元素的一个排列(permutation)。特别地，当m=n时，这个排列被称作全排列(all permutation)。
-var permute = (nums, k) =&gt; { let result = []; /* * 生成排列 * index表示向当前排列添加第index个元素。 * p表示当前的排列，其中拥有index-1个元素。 */ var generatePermutation = (nums, index, p) =&gt; { if (index === k) { result.push([].concat(p)); return; } for (let num of nums) { if (p.indexOf(num) &lt; 0) { p.push(num); generatePermutation(nums, index + 1, p); p.pop(); } } }; generatePermutation(nums, 0, []); return result; }; 组合 一般地，从n个不同的元素中，任取m（m≤n）个元素为一组，叫作从n个不同元素中取出m个元素的一个组合。
-var combine = (nums, k) =&gt; { let res = []; /* * 生成组合 * start表示需要从数组的start位置开始搜索元素加入当前组合c中。 * c表示当前的组合。 * 当前组合的长度等于k时，组合构造完成。 */ var generateCombinations = (nums, start, c) =&gt; { //当前组合的长度等于k时，保存当前组合 if (c.</p>
+        <div class="summary">排列 一般地，从n个不同元素中取出m（m≤n）个元素，按照一定的顺序排成一列，叫做从n个元素中取出m个元素的一个排列(permutation)。特别地，当m=n时，这个排列被称作全排列(all permutation)。
+var permute = (nums, k) =&gt; { let result = []; /* * 生成排列 * index表示向当前排列添加第index个元素。 * p表示当前的排列，其中拥有index-1个元素。 */ var generatePermutation = (nums, index, p) =&gt; { if (index === k) { …</div>
     
 </div>
 <div class="item">
@@ -183,16 +177,16 @@ var combine = (nums, k) =&gt; { let res = []; /* * 生成组合 * start表示需
     <div class="date">2021-03-11</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">二叉树【 每个节点最多有两个子节点。
+        <div class="summary">二叉树【 每个节点最多有两个子节点。
 10 / \ 9 20 / \ 15 35 二叉树的特点：
 每个节点最多有两个子树，节点的度最大为2； 左子树和右子树是有顺序的，次序不能颠倒； 即使某节点只有一个子树，也要区分左右子树； 对称二叉树 如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
 10 / \ 5 5 / \ / \ 1 4 4 1 实现思路:
 判断根节点相同； 左子树的右节点和右子树的左节点相同； 右子树的左节点和左子树的右节点相同； 模拟一个对称二叉树和非对称二叉树：
-//对称二叉树 const symmetricalTree = { val: 8, left: { val: 6, left: { val: 5, left: null, right: null }, right: { val: 7, left: null, right: null }, }, right: { val: 6, left: { val: 7, left: null, right: null }, right: { val: 5, left: null, right: null }, }, }; //非对称二叉树 const binaryTree = { val: 8, left: { val: 6, left: { val: 5, left: null, right: null }, right: { val: 7, left: null, right: null }, }, right: { val: 9, left: { val: 7, left: null, right: null }, right: { val: 5, left: null, right: null }, }, }; JS实现 利用递归实现对称二叉树判断</p>
+//对称二叉树 const symmetricalTree = { val: 8, left: { …</div>
     
 </div>
 <div class="item">
@@ -202,12 +196,12 @@ var combine = (nums, k) =&gt; { let res = []; /* * 生成组合 * start表示需
     <div class="date">2021-03-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">二叉查找树 二叉查找树(binary search tree)：当前根节点的左边全部比根节点小，当前根节点的右边全部比根节点大。
-class TreeNode { constructor(data) { this.data = data; this.left = null; this.right = null; } } class BinarySearchTree { constructor() { this.root = null; } insert(data) { var newNode = new TreeNode(data); if (this.root === null) { this.root = newNode; } else { this.insertNode(this.root, newNode); } } insertNode(node, newNode) { if (newNode.data &lt; node.data) { if (node.left === null) { node.left = newNode; } else { this.</p>
+        <div class="summary">二叉查找树 二叉查找树(binary search tree)：当前根节点的左边全部比根节点小，当前根节点的右边全部比根节点大。
+class TreeNode { constructor(data) { this.data = data; this.left = null; this.right = null; } } class BinarySearchTree { constructor() { this.root = null; } insert(data) { var newNode = new TreeNode(data); if (this.root === null) { …</div>
     
 </div>
 <div class="item">
@@ -217,30 +211,16 @@ class TreeNode { constructor(data) { this.data = data; this.left = null; this.ri
     <div class="date">2021-03-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">树的概念 节点分类：
+        <div class="summary">树的概念 节点分类：
 根节点 子节点 叶子节点 兄弟节点 其他：
 树的深度：从根节点到最底层节点的层数。 树的深度：树中节点的最大层次称为树的深度（或树的高度）。 节点的度：节点拥有的子树数称为节点的度。 叶子节点：度为0的节点称为叶节点（或终端节点）。 分支节点：度不为0的节点称为分支节点（或非终端节点）。 树的度：树内各节点的度的最大值。 节点层次：从根开始，根为第一层，根的孩子为第二层。 二叉树 二叉树：每个节点最多有两个子节点。
 10 / \ 9 20 / \ 15 35 二叉树的操作：
 1、创建二叉树； 2、遍历二叉树；
-先序遍历：先访问根节点，然后访问左节点，最后访问右节点（根-&gt;左-&gt;右）10-&gt;9-&gt;20-&gt;15-&gt;35 中序遍历：先访问左节点，然后访问根节点，最后访问右节点（左-&gt;根-&gt;右）9-&gt;10-&gt;15-&gt;20-&gt;35 后序遍历：先访问左节点，然后访问右节点，最后访问根节点（左-&gt;右-&gt;根）9-&gt;15-&gt;35-&gt;20-&gt;10 3、查询树的深度；
-4、查询树的最大值；
-通过先序和中序/中序和后序我们可以还原出原始的二叉树，但是通过先序和后序是无法还原出原始的二叉树的。（？）
-二叉树的特点：
-每个节点最多有两个子树，节点的度最大为2； 左子树和右子树是有顺序的，次序不能颠倒； 即使某节点只有一个子树，也要区分左右子树； 特殊的二叉树 1、斜树
-所有的节点都只有左子树（左斜树），或者只有右子树（右斜树）。
-2、满二叉树
-所有的分支节点都存在左子树和右子树，并且所有的叶子结点都在同一层上。
-满二叉树的特点：
-叶子只能出现在最下一层； 非叶子节点度一定是2； 在同样深度的二叉树中，满二叉树的节点个数最多，叶子树最多； 3、完全二叉树
-对一棵具有n个结点的二叉树按层序排号，如果编号为i的结点与同样深度的满二叉树编号为i结点在二叉树中位置完全相同，就是完全二叉树。
-满二叉树必须是完全二叉树，反过来不一定成立。
-对一棵具有n个节点的二叉树按层序编号，如果编号为i（1&lt;=i&lt;=n）的节点与同样深度的满二叉树中编号为i的节点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。
-完全二叉树特点：
-叶子节点只能出现在最下一层（满二叉树继承而来）； 最下层叶子节点一定集中在左 部连续位置； 倒数第二层，如有叶子节点，一定出现在右部连续位置； 同样节点树的二叉树，完全二叉树的深度最小（满二叉树也是对的）； </p>
+先序遍历：先访问根节点，然后访问左节点，最后访问右节点（ …</div>
     
 </div>
 <div class="item">
@@ -250,28 +230,18 @@ class TreeNode { constructor(data) { this.data = data; this.left = null; this.ri
     <div class="date">2021-03-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">树结构多种多样，我们最常用的还是二叉树。
+        <div class="summary">树结构多种多样，我们最常用的还是二叉树。
 特殊二叉树 1、满二叉树；
 2、完全二叉树；
 二叉树的存储 1、基于指针或者引用的二叉链式存储法；
 2、基于数组的顺序存储法；
 我们把根节点存储在下标 i = 1 的位置，那左子节点存储在下标 2 * i = 2 的位置，右子节点存储在 2 * i + 1 = 3 的位置。
 如果节点x存储在数组中下标为 i 的位置，下标为 2 * i 的位置存储的就是左子节点，下标为 2 * i + 1 的位置存储的就是右子节点。反过来，下标为 i / 2 的位置存储的就是它的父节点。
-通过这种方式，我们只要知道根节点存储的位置（一般情况下，为了方便计算子节点，根节点会存储在下标为1的位置），这样就可以通过下标计算，把整棵树都串起来。
-二叉树的遍历 前序遍历：对于树中的任意节点来说，先打印这个节点，然后再打印它的左子树，最后打印它的右子树。
-中序遍历：对于树中的任意节点来说，先打印它的左子树，然后再打印它本身，最后打印它的右子树。
-后序遍历：对于树中的任意节点来说，先打印它的左子树，然后再打印它的右子树，最后打印这个节点本身。
-前序遍历的递推公式：
-preOrder(root) = print root-&gt;preOrder(root-&gt;left)-&gt;preOrder(root-&gt;right)
-中序遍历的递推公式：
-inOrder(root) = inOrder(root-&gt;left)-&gt;print root-&gt;inOrder(root-&gt;right)
-后序遍历的递推公式：
-postOrder(root) = postOrder(root-&gt;left)-&gt;postOrder(root-&gt;right)-&gt;postOrder
-// 前序：根 -&gt; 左 -&gt; 右 void preOrder(Node* root){ if(root == null) return; print root; // 先打印根节点 preOrder(root-&gt;left); preOrder(root-&gt;right); } // 中序： 左 -&gt; 根 -&gt; 右 void inOrder(Node* root){ if(root == null) return; inOrder(root-&gt;left); print(root); // 中间打印根节点 inOrder(root-&gt;right); } // 后序：左 -&gt; 右 -&gt; 根 void postOrder(Node* root){ if(root == null) return; postOrder(root-&gt;left); postOrder(root-&gt;right); print root; // 最后打印根节点 } 通过遍历序列构造二叉树 给定二叉树: [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 前序遍历：3,9,null,null,20,15,7 中序遍历：null,9,null,3,15,20,7 后序遍历：null,null,9,15,7,20,3 1、前序和中序遍历序列构造二叉树：</p>
+通过这种方式，我们只要知道根节点存储的位置（一般情况下，为了方便计算子节点，根节点 …</div>
     
 </div>
 <div class="item">
@@ -281,11 +251,11 @@ postOrder(root) = postOrder(root-&gt;left)-&gt;postOrder(root-&gt;right)-&gt;pos
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">查找第一个等于给定值的元素（有重复元素） const binarySearch = (arr, value) =&gt; { let low = 0, high = arr.length - 1; while (low &lt;= high) { const mid = parseInt(low + (high - low) / 2); if (arr[mid] === value) { if (mid === 0 || arr[mid - 1] != value) { return mid; } else { high = mid - 1; } } else if (arr[mid] &lt; value) { low = mid + 1; } else { high = mid - 1; } } return -1; }; var nums = [3, 5, 6, 6, 6, 10]; console.</p>
+        <div class="summary">查找第一个等于给定值的元素（有重复元素） const binarySearch = (arr, value) =&gt; { let low = 0, high = arr.length - 1; while (low &lt;= high) { const mid = parseInt(low + (high - low) / 2); if (arr[mid] === value) { if (mid === 0 || arr[mid - 1] != value) { return mid; } else { high = mid - 1; } } else if (arr[mid] …</div>
     
 </div>
 <div class="item">
@@ -295,11 +265,11 @@ postOrder(root) = postOrder(root-&gt;left)-&gt;postOrder(root-&gt;right)-&gt;pos
     <div class="date">2021-03-08</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">循环实现（无重复元素） const binarySearch = (arr, value) =&gt; { let low = 0, high = arr.length - 1; while (low &lt;= high) { const mid = parseInt((low + high) / 2, 10); if (arr[mid] === value) { return mid; } else if (arr[mid] &lt; value) { low = mid + 1; } else { high = mid - 1; } } return -1; }; 递归实现（无重复元素） const binarySearch = (arr, value) =&gt; { const search = (arr, low, high, value) =&gt; { if (low &gt; high) { return -1; } const mid = parseInt((low + high) / 2, 10); if (arr[mid] === value) { return mid; } else if (arr[mid] &lt; value) { return search(arr, mid + 1, high, value); } else { return search(arr, low, mid - 1, value); } }; return search(arr, 0, arr.</p>
+        <div class="summary">循环实现（无重复元素） const binarySearch = (arr, value) =&gt; { let low = 0, high = arr.length - 1; while (low &lt;= high) { const mid = parseInt((low + high) / 2, 10); if (arr[mid] === value) { return mid; } else if (arr[mid] &lt; value) { low = mid + 1; } else { high = mid - 1; } } return -1; }; 递归实现（无重复元素） …</div>
     
 </div>
 <div class="item">
@@ -309,12 +279,12 @@ postOrder(root) = postOrder(root-&gt;left)-&gt;postOrder(root-&gt;right)-&gt;pos
     <div class="date">2021-03-06</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">题目 对于给定的n，打印出如下型式的蛇形矩阵。例如
-n=3时，输出： 1 2 3 8 9 4 7 6 5 n=4时，输出： 1 2 3 4 12 13 14 5 11 16 15 6 10 9 8 7 参考 var snake = (n) =&gt; { let row = n, col = row; var q = Math.ceil(n / 2); // 旋转几圈 // 创建存放的数组 var result = new Array(row); for (var i = 0; i &lt; row; i++) { result[i] = new Array(col); } var n = 0; // 第n+1圈 var begin = 1; // 每一圈起始值 // 第n+1圈top，right，bottom，left值 // 难点在于找到每一边上二维数组的索引变化规律 // top的索引值 result[n][n+i] // bottom索引值 result[row-1-n][col-1-n-i] // right、left类似 // right索引 result[n+i][col-1-n] // left索引 result[row-1-n-i][n] while (n &lt;= q) { var top = col - 2 * n; for (var i = 0; i &lt; top; i++) { result[n][i + n] = begin + i; } var right = row - 2 * n; for (var i = 0; i &lt; right; i++) { result[i + n][col - n - 1] = begin + top + i - 1; } var bottom = col - 2 * n; for (var i = 0; i &lt; bottom; i++) { result[row - n - 1][col - n - i - 1] = begin + top + right + i - 2; } var left = row - 2 * n - 1; for (var i = 0; i &lt; left; i++) { result[row - i - n - 1][n] = begin + top + right + bottom + i - 3; } begin += top + right + bottom + left - 3; n++; } return result; }; More 利用JavaScript实现蛇形矩阵</p>
+        <div class="summary">题目 对于给定的n，打印出如下型式的蛇形矩阵。例如
+n=3时，输出： 1 2 3 8 9 4 7 6 5 n=4时，输出： 1 2 3 4 12 13 14 5 11 16 15 6 10 9 8 7 参考 var snake = (n) =&gt; { let row = n, col = row; var q = Math.ceil(n / 2); // 旋转几圈 // 创建存放的数组 var result = new Array(row); for (var i = 0; i &lt; row; i++) { result[i] = new Array(col); } var n = …</div>
     
 </div>
 <div class="item">
@@ -324,11 +294,11 @@ n=3时，输出： 1 2 3 8 9 4 7 6 5 n=4时，输出： 1 2 3 4 12 13 14 5 11 16
     <div class="date">2021-03-05</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">数据结构 // 节点类 class Node { constructor(value) { this.value = value; // 存储值 this.next = null; // 存储下一个节点的引用 } } //链表类 class LinkedList { constructor() { this.length = 0; //链表的长度 this.head = null; //链表的头结点 } //链表的插入方法 append(value) { var node = new Node(value); //创建节点 if (!this.head) { this.head = node; //设置头结点 } else { var current = this.head; while (current.next) { //通过循环找到最后一个节点 current = current.next; } current.next = node; } this.</p>
+        <div class="summary">数据结构 // 节点类 class Node { constructor(value) { this.value = value; // 存储值 this.next = null; // 存储下一个节点的引用 } } //链表类 class LinkedList { constructor() { this.length = 0; //链表的长度 this.head = null; //链表的头结点 } //链表的插入方法 append(value) { var node = new Node(value); //创建节点 if (!this.head) { this.head = node; …</div>
     
 </div>
 <div class="item">
@@ -338,13 +308,12 @@ n=3时，输出： 1 2 3 8 9 4 7 6 5 n=4时，输出： 1 2 3 4 12 13 14 5 11 16
     <div class="date">2021-03-05</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">将两个有序数组合并成一个有序数组。
-实现1 //O(n) time &amp; O(n) space var mergeArr1 = (arr1, arr2) =&gt; { var result = [], index1 = 0, index2 = 0, current = 0; while (current &lt; arr1.length + arr2.length) { //debugger; var element1 = arr1[index1]; var element2 = arr2[index2]; if (element1 &lt; element2) { result[current] = element1; index1++; } else { result[current] = element2; index2++; } current++; } return result; }; 测试：
-var arr1 = [2, 5, 8], arr2 = [4, 6, 8, 10]; var result = mergeArr1(arr1, arr2); console.</p>
+        <div class="summary">将两个有序数组合并成一个有序数组。
+实现1 //O(n) time &amp; O(n) space var mergeArr1 = (arr1, arr2) =&gt; { var result = [], index1 = 0, index2 = 0, current = 0; while (current &lt; arr1.length + arr2.length) { //debugger; var element1 = arr1[index1]; var element2 = arr2[index2]; if (element1 &lt; element2) { …</div>
     
 </div>
 <div class="item">
@@ -354,14 +323,13 @@ var arr1 = [2, 5, 8], arr2 = [4, 6, 8, 10]; var result = mergeArr1(arr1, arr2); 
     <div class="date">2021-03-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">两个数组的交集 集合论中，设A，B是两个集合，由所有属于集合A且属于集合B的元素所组成的集合，叫做集合A与集合B的交集。
+        <div class="summary">两个数组的交集 集合论中，设A，B是两个集合，由所有属于集合A且属于集合B的元素所组成的集合，叫做集合A与集合B的交集。
 集合 {1,2,3} 和 {2,3,4} 的交集为 {2,3}。
-//filter实现 let intersect = (a,b) =&gt; a.filter(x =&gt; b.indexOf(x) &gt; -1); //Set实现 let intersect1 = (a, b) =&gt; { return a.filter(x =&gt; new Set(b).has(x)); } let intersect2 = (a, b) =&gt; { let result = new Set(); const other = new Set(b); a.forEach(value =&gt; { if (other.has(value)) { result.add(value); } }); return [...result]; } 两个数组的并集 集合论中，设A，B是两个集合，把他们所有的元素合并在一起组成的集合，叫做集合A与集合B的并集。
-集合{1, 2, 3} 和 {2, 3, 4} 的并集是 {1, 2, 3, 4}。</p>
+//filter实现 let intersect = (a,b) =&gt; a.filter(x =&gt; b.indexOf(x) &gt; -1); //Set实现 let intersect1 = (a, b) =&gt; { return a.filter(x =&gt; new Set(b).has(x)); } let intersect2 = (a, b) =&gt; { let …</div>
     
 </div>
 <div class="item">
@@ -371,12 +339,12 @@ var arr1 = [2, 5, 8], arr2 = [4, 6, 8, 10]; var result = mergeArr1(arr1, arr2); 
     <div class="date">2021-03-03</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">如何判断左右小括号是否全部匹配。如 (( ))()((((()))))？
-var isValid = function (str) { var stack = []; var map = { &#34;(&#34;: &#34;)&#34;, &#34;[&#34;: &#34;]&#34;, &#34;{&#34;: &#34;}&#34;, }; for (var char of str) { if (char in map) { stack.push(char); } else { if (!stack.length || char != map[stack.pop()]) { return false; } } } // 如果最后stack 里没有元素了， 就一定是匹配的 return !stack.length; }; </p>
+        <div class="summary">如何判断左右小括号是否全部匹配。如 (( ))()((((()))))？
+var isValid = function (str) { var stack = []; var map = { &#34;(&#34;: &#34;)&#34;, &#34;[&#34;: &#34;]&#34;, &#34;{&#34;: &#34;}&#34;, }; for (var char of str) { if (char in map) { stack.push(char); } else { if (!stack.length || char != map[stack.pop()]) { …</div>
     
 </div>
 <div class="item">
@@ -386,15 +354,14 @@ var isValid = function (str) { var stack = []; var map = { &#34;(&#34;: &#34;)&#
     <div class="date">2021-03-02</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">斐波那契数列 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
+        <div class="summary">斐波那契数列 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
 F(0) = 0, F(1) = 1, F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1. 斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144&hellip; ，这个数列从第3项开始，每一项都等于前两项之和。
 给定 N，计算 F(N) 1、递归
-const fib = (n) =&gt; { if(n &lt;= 1) { return n; } return fib(n - 1) + fib(n - 2); }; 2、记忆化自底向上
-const fib = (n) =&gt; { if(n &lt;= 1) { return n; } let cache = new Array(n+1).</p>
+const fib = (n) =&gt; { if(n &lt;= 1) { return n; } return fib(n - 1) + fib(n - 2); }; 2、记忆化 …</div>
     
 </div>
 <div class="item">
@@ -404,11 +371,11 @@ const fib = (n) =&gt; { if(n &lt;= 1) { return n; } let cache = new Array(n+1).<
     <div class="date">2021-02-10</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">链表数据结构 // 节点类 class Node { constructor(value) { this.value = value; // 存储值 this.next = null; // 存储下一个节点的引用 } } //链表类 class LinkedList { constructor() { this.length = 0; //链表的长度 this.head = null; //链表的头结点 } //添加节点 append(value) { var node = new Node(value); //创建节点 if (!this.head) { this.head = node; //设置头结点 } else { var current = this.head; while (current.next) { //通过循环找到最后一个节点 current = current.next; } current.next = node; } this.</p>
+        <div class="summary">链表数据结构 // 节点类 class Node { constructor(value) { this.value = value; // 存储值 this.next = null; // 存储下一个节点的引用 } } //链表类 class LinkedList { constructor() { this.length = 0; //链表的长度 this.head = null; //链表的头结点 } //添加节点 append(value) { var node = new Node(value); //创建节点 if (!this.head) { this.head = node; …</div>
     
 </div>
 <div class="item">
@@ -418,23 +385,30 @@ const fib = (n) =&gt; { if(n &lt;= 1) { return n; } let cache = new Array(n+1).<
     <div class="date">2021-02-09</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/algorithm/" rel="tag">algorithm</a>
+                <a class="link" href="/tags/algorithm/" rel="tag">algorithm</a>
         </div>
 </div>
 
-        <p class="summary">JS实现 //实现1 var reverse1 = (str) =&gt; { return str.split(&#34;&#34;).reverse().join(&#34;&#34;); }; //实现2 var reverse2 = (str) =&gt; { let result = &#34;&#34;; for (let char of str) { result = char + result; } return result; }; //实现3 var reverse3 = (str) =&gt; { return str.split(&#34;&#34;).reduce((result, char) =&gt; char + result); }; var str = &#39;hello&#39;; console.log(reverse1(str)); //&#39;olleh&#39; console.log(reverse2(str)); //&#39;olleh&#39; console.log(reverse3(str)); //&#39;olleh&#39; Go实现 实现1:
-package main import ( &#34;fmt&#34; ) func main() { str := &#34;hello&#34; result := Reverse(str) fmt.</p>
+        <div class="summary">JS实现 //实现1 var reverse1 = (str) =&gt; { return str.split(&#34;&#34;).reverse().join(&#34;&#34;); }; //实现2 var reverse2 = (str) =&gt; { let result = &#34;&#34;; for (let char of str) { result = char + result; } return result; }; //实现3 var reverse3 = (str) =&gt; { return …</div>
     
 </div>
 
         </section>
         
     <div class="pagination">
-            <a class="pagination__item pagination__item--prev btn" href="/tags/algorithm/page/2/">Prev</a>
+            <a class="pagination__item pagination__item--prev" href="/tags/algorithm/page/2/">Prev</a>
         <span class="pagination__item pagination__item--current">3/3</span>
     </div>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">dfs</h1>
+        <h1 class="title">dfs</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,19 +34,19 @@
     <div class="date">2021-05-12</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/bfs/" rel="tag">bfs</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/bfs/" rel="tag">bfs</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+        <div class="summary">题目 给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
 示例:
 输入: [1,2,3,null,5,null,4] 输出: [1, 3, 4] 解释: 1 &lt;--- / \ 2 3 &lt;--- \ \ 5 4 &lt;--- 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/binary-tree-right-side-view 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、BFS
 利用BFS进行层次遍历，记录下每层的最后一个元素。
-/** * Definition for a binary tree node. * function TreeNode(val, left, right) { * this.val = (val===undefined ? 0 : val) * this.left = (left===undefined ? null : left) * this.right = (right===undefined ? null : right) * } */ /** * @param {TreeNode} root * @return {number[]} */ var rightSideView = function (root) { const result = []; if (root === null) { return result; } //队列特点：先进先出 const q = []; //入队根节点 q.</p>
+/** * …</div>
     
 </div>
 <div class="item">
@@ -54,17 +56,16 @@ JS实现 1、BFS
     <div class="date">2021-04-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
-                <a class="tags_link" href="/tags/backtracking/" rel="tag">backtracking</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/backtracking/" rel="tag">backtracking</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
+        <div class="summary">题目 给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
 解集 不能 包含重复的子集。返回的解集中，子集可以按 任意顺序 排列。
 示例 1： 输入：nums = [1,2,2] 输出：[[],[1],[1,2],[1,2,2],[2],[2,2]] 示例 2： 输入：nums = [0] 输出：[[],[0]] 提示：
-1 &lt;= nums.length &lt;= 10 -10 &lt;= nums[i] &lt;= 10 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/subsets-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number[]} nums * @return {number[][]} */ var subsetsWithDup = function(nums) { const result = []; const len = nums.length; if (len === 0) { return result; } // 排序 nums = nums.</p>
+1 &lt;= nums.length &lt;= 10 -10 &lt;= nums[i] &lt;= 10 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/subsets-ii  …</div>
     
 </div>
 <div class="item">
@@ -74,19 +75,16 @@ JS实现 /** * @param {number[]} nums * @return {number[][]} */ var subsetsWithD
     <div class="date">2021-04-25</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
-                <a class="tags_link" href="/tags/backtracking/" rel="tag">backtracking</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/backtracking/" rel="tag">backtracking</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+        <div class="summary">题目 给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
 解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
 示例 1： 输入：nums = [1,2,3] 输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]] 示例 2： 输入：nums = [0] 输出：[[],[0]] 提示：
-1 &lt;= nums.length &lt;= 10 -10 &lt;= nums[i] &lt;= 10 nums 中的所有元素 互不相同 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/subsets 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-补充 子集：2^n 真子集：2^n - 1 非空子集：2^n - 1 非空真子集：2^n - 2
-JS实现 1、递归
-/** * @param {number[]} nums * @return {number[][]} */ var subsets = function (nums) { const result = []; const len = nums.</p>
+1 &lt;= nums.length &lt;= 10 -10 &lt;= nums[i] &lt;= 10 nums 中的所有元素 互不相同 来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
@@ -96,19 +94,15 @@ JS实现 1、递归
     <div class="date">2021-04-23</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
-                <a class="tags_link" href="/tags/backtracking/" rel="tag">backtracking</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/backtracking/" rel="tag">backtracking</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+        <div class="summary">题目 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
-1(!@#) 2(abc) 3(def) 4(ghi) 5(jkl) 6(mno) 7(pqrs) 8(tuv) 9(wxyz) *(+) 0(-) # 示例 1： 输入：digits = &#34;23&#34; 输出：[&#34;ad&#34;,&#34;ae&#34;,&#34;af&#34;,&#34;bd&#34;,&#34;be&#34;,&#34;bf&#34;,&#34;cd&#34;,&#34;ce&#34;,&#34;cf&#34;] 示例 2： 输入：digits = &#34;&#34; 输出：[] 示例 3： 输入：digits = &#34;2&#34; 输出：[&#34;a&#34;,&#34;b&#34;,&#34;c&#34;] 提示：
-0 &lt;= digits.length &lt;= 4 digits[i] 是范围 [&lsquo;2&rsquo;, &lsquo;9&rsquo;] 的一个数字。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-补充 String.prototype.slice()
-slice() 方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。
-str.slice(beginIndex[, endIndex]) beginIndex 从该索引（以 0 为基数）处开始提取原字符串中的字符。如果值为负数，会被当做 strLength + beginIndex 看待，这里的strLength 是字符串的长度（例如， 如果 beginIndex 是 -3 则看作是：strLength - 3）</p>
+1(!@#) 2(abc) 3(def) 4(ghi) 5(jkl) 6(mno) 7(pqrs) 8(tuv) 9(wxyz) *(+) 0(-) # 示例 1： 输入：digits = &#34;23&#34; 输 …</div>
     
 </div>
 <div class="item">
@@ -118,20 +112,20 @@ str.slice(beginIndex[, endIndex]) beginIndex 从该索引（以 0 为基数）�
     <div class="date">2021-04-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/bfs/" rel="tag">bfs</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/bfs/" rel="tag">bfs</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
         </div>
 </div>
 
-        <p class="summary">题目 翻转一棵二叉树。
+        <div class="summary">题目 翻转一棵二叉树。
 示例：
 输入： 4 / \ 2 7 / \ / \ 1 3 6 9 输出： 4 / \ 7 2 / \ / \ 9 6 3 1 备注: 这个问题是受到 Max Howell 的 原问题 启发的 ：
 谷歌：我们90％的工程师使用您编写的软件(Homebrew)，但是您却无法在面试时在白板上写出翻转二叉树这道题，这太糟糕了。
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/invert-binary-tree 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、递归
-/** * Definition for a binary tree node. * function TreeNode(val, left, right) { * this.val = (val===undefined ? 0 : val) * this.left = (left===undefined ?</p>
+/** * …</div>
     
 </div>
 <div class="item">
@@ -141,18 +135,17 @@ JS实现 1、递归
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
         </div>
 </div>
 
-        <p class="summary">题目 给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 高度平衡 二叉搜索树。
+        <div class="summary">题目 给你一个整数数组 nums ，其中元素已经按 升序 排列，请你将其转换为一棵 高度平衡 二叉搜索树。
 高度平衡 二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。
 示例 1：
 0 / \ -3 9 / / -10 5 输入：nums = [-10,-3,0,5,9] 输出：[0,-3,9,-10,null,5] 解释：[0,-10,5,null,-3,null,9] 也将被视为正确答案： 0 / \ -10 5 \ \ -3 9 示例 2：
-3 1 / \ 1 3 输入：nums = [1,3] 输出：[3,1] 解释：[1,3] 和 [3,1] 都是高度平衡二叉搜索树。 提示：
-1 &lt;= nums.length &lt;= 10^4 -10^4 &lt;= nums[i] &lt;= 10^4 nums 按 严格递增 顺序排列 来源：力扣（LeetCode） 链接：https://leetcode-cn.</p>
+3 1 / \ 1 3 输入：nums = [1,3] 输出：[3,1] 解释：[1,3] 和 [3,1] 都是高度平 …</div>
     
 </div>
 <div class="item">
@@ -162,21 +155,21 @@ JS实现 1、递归
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/bfs/" rel="tag">bfs</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
-                <a class="tags_link" href="/tags/queue/" rel="tag">queue</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/bfs/" rel="tag">bfs</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/queue/" rel="tag">queue</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个二叉树，检查它是否是镜像对称的。
+        <div class="summary">题目 给定一个二叉树，检查它是否是镜像对称的。
 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
 1 / \ 2 2 / \ / \ 3 4 4 3 但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
 1 / \ 2 2 \ \ 3 3 进阶：
 你可以运用递归和迭代两种方法解决这个问题吗？ 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/symmetric-tree 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 1、递归实现
-/** * Definition for a binary tree node. * function TreeNode(val, left, right) { * this.val = (val===undefined ? 0 : val) * this.left = (left===undefined ? null : left) * this.right = (right===undefined ?</p>
+/** * Definition for a …</div>
     
 </div>
 <div class="item">
@@ -186,27 +179,21 @@ JS实现 1、递归实现
     <div class="date">2021-03-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="tags_link" href="/tags/binarytree/" rel="tag">binarytree</a>
-                <a class="tags_link" href="/tags/bfs/" rel="tag">bfs</a>
-                <a class="tags_link" href="/tags/dfs/" rel="tag">dfs</a>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/bfs/" rel="tag">bfs</a>
+                <a class="link" href="/tags/dfs/" rel="tag">dfs</a>
         </div>
 </div>
 
-        <p class="summary">题目 给定一个二叉树，找出其最大深度。
+        <div class="summary">题目 给定一个二叉树，找出其最大深度。
 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
 说明: 叶子节点是指没有子节点的节点。
 示例： 给定二叉树 [3,9,20,null,null,15,7]，
 3 / \ 9 20 / \ 15 7 返回它的最大深度 3 。
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 补充 高度：从下往上。从最底层开始计数，计数起点是0；
-深度：从上往下。从根节点开始计数，计数起点是0；
-层次：与深度类似。计数起点是1；根节点在第1层；
-节点的高度 = 节点到叶子节点的最长路径（边数）； 节点的深度 = 根节点到这个节点所经历的边的个数； 节点的层数 = 节点的深度 + 1；
-树的高度 = 根节点的高度；
-JS实现 1、递归实现
-参考1：
-/** * Definition for a binary tree node. * function TreeNode(val) { * this.val = val; * this.left = this.right = null; * } */ /** * @param {TreeNode} root * @return {number} */ var maxDepth = function (root) { if (!</p>
+深度：从上往下。从根节点开始计数，计数 …</div>
     
 </div>
 
@@ -215,5 +202,13 @@ JS实现 1、递归实现
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>

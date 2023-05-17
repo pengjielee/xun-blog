@@ -11,9 +11,11 @@
     <title>Pengjielee&#39;s blog</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" />
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body><div id="main">
+<body>
+        <div id="main">
             <nav class="nav">
     <a href="/">首页</a> <span class="divide">|</span>
     <a href="/categories">分类</a>
@@ -23,7 +25,7 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="page-title">Git</h1>
+        <h1 class="title">Git</h1>
         <section class="list">
             <div class="item">
     <div class="title">
@@ -32,12 +34,11 @@
     <div class="date">2020-12-04</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/git/" rel="tag">Git</a>
+                <a class="link" href="/tags/git/" rel="tag">Git</a>
         </div>
 </div>
 
-        <p class="summary">1. 显示所有tag git tag 2. 查看某个版本的tag git tag -l &#39;v1.0.*&#39; 3. 创建标签 git tag -a v1.0.0 -m &#39;版本1.0&#39; 4. 查看标签的详情，可以看到你commit的内容 git show v1.0.0 5. 推送标签 git push origin v1.0.0 6. 删除本地标签 git tag -d v1.0.0 7. 删除远程标签 git push origin :refs/tags/v1.0.0 More Git tag用法
-https://www.jianshu.com/p/50c1b2433774</p>
+        <div class="summary">1. 显示所有tag git tag 2. 查看某个版本的tag git tag -l &#39;v1.0.*&#39; 3. 创建标签 git tag -a v1.0.0 -m &#39;版本1.0&#39; 4. 查看标签的详情，可以看到你commit的内容 git show v1.0.0 5. 推送标签 git push origin v1.0.0 6. 删除本地标签 git tag -d v1.0.0 7. 删除远程标签 git push origin :refs/tags/v1.0.0 More Git tag …</div>
     
 </div>
 <div class="item">
@@ -47,12 +48,12 @@ https://www.jianshu.com/p/50c1b2433774</p>
     <div class="date">2020-09-23</div>
         <div class="tags">
             <label class="label">Tags：</label>
-                <a class="tags_link" href="/tags/git/" rel="tag">Git</a>
+                <a class="link" href="/tags/git/" rel="tag">Git</a>
         </div>
 </div>
 
-        <p class="summary">问题：git pull后用git branch -a取不到最新分支信息。
-查看远程分支信息，发现不是最新的 git pull origin branchname git branch -a 解决办法：执行下面命令即可 git fetch origin git remote prune origin //可以用这个命令清除无效分支 </p>
+        <div class="summary">问题：git pull后用git branch -a取不到最新分支信息。
+查看远程分支信息，发现不是最新的 $ git pull origin branchname $ git branch -a 解决办法：执行下面命令即可 $ git fetch origin $ git remote prune origin //可以用这个命令清除无效分支 </div>
     
 </div>
 
@@ -61,5 +62,13 @@ https://www.jianshu.com/p/50c1b2433774</p>
 
     </div>
 
-        </div></body>
+        </div><script src="/js/highlight.min.js" />
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelectorAll("pre").forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+</body>
 </html>
