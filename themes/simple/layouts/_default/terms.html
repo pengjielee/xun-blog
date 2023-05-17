@@ -4,7 +4,7 @@
     {{ $length := len $terms -}}
     {{- if eq $name "tags" -}}
         <div class="page page-tags">
-            <h1 class="page-title">Tags</h1>
+            <h1 class="title">Tags</h1>
             <div class="list">
                 {{- range $key, $value := $terms }}
                     <div class="item">

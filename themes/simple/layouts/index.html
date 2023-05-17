@@ -1,29 +1,29 @@
 {{ define "main" }}
-    <div class="page page-home">
-        <header class="header">
-            <h1 class="title"><a href="{{ "" | relURL }}">{{ .Site.Title }}</a></h1>
-            <div class="subtitle">{{ .Site.Params.subtitle }}</div>
-        </header>
+  <div class="page page-home">
+    <header class="header">
+      <h1 class="title"><a href="{{ "" | relURL }}">{{ .Site.Title | upper }}</a></h1>
+      <div class="subtitle">{{ .Site.Params.subtitle }}</div>
+    </header>
 
-        {{- $recent := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-        {{- $recent_num := (.Site.Params.recentNum | default 10) }}
+    {{- $recentPost := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{- $recentNum := (.Site.Params.recentNum | default 10) }}
 
-        {{- if $recent }}
-            <div class="main">
-                <section class="list">
-                    {{- range first $recent_num $recent }}
-					{{- partial "post_item.html" . -}}
-					{{- end }}
-                </section>
+    {{- if $recentPost }}
+      <div class="main">
+        <section class="list">
+          {{- range first $recentNum $recentPost }}
+            {{- partial "post_item.html" . -}}
+          {{- end }}
+        </section>
 
-                <section class="more"><a href="/post">更多文章&gt;&gt;</a></section>
-            </div>
-        {{- end }}
+        <section class="more"><a href="/post">更多文章&gt;&gt;</a></section>
+      </div>
+    {{- end }}
 
-        {{- partial "nav.html" . -}}
+    {{- partial "nav.html" . -}}
 
-        <footer class="footer">
-            <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备14021004号</a>
-        </footer>
-    </div>
+    <footer class="footer">
+      <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备14021004号</a>
+    </footer>
+  </div>
 {{ end }}

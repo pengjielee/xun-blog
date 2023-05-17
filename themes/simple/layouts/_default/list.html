@@ -1,11 +1,11 @@
 {{ define "main" }}
     <div class="page page-list">
-        <h1 class="page-title">{{ .Title }}</h1>
+        <h1 class="title">{{ .Title }}</h1>
         <section class="list">
             {{ range .Pages.ByPublishDate.Reverse }}
                 {{- partial "post_item.html" . -}}
             {{ end }}
         </section>
+        {{ partial "pagination.html" . }}
     </div>
-    {{ partial "pagination.html" . }}
 {{ end }}

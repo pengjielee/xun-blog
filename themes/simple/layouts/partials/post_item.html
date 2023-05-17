@@ -4,6 +4,6 @@
     </div>
     {{- partial "post_meta.html" . -}}
     {{ if .Summary }}
-        <p class="summary">{{ .Summary }}</p>
+        <div class="summary">{{ .Summary | truncate 300 }}</div>
     {{ end }}
 </div>

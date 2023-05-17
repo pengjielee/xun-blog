@@ -6,7 +6,7 @@
         <div class="tags">
             <label class="label">Tags：</label>
             {{- range .Params.tags }}
-                <a class="tags_link" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/" rel="tag">
+                <a class="link" href="{{ "tags/" | relLangURL }}{{ . | urlize }}/" rel="tag">
                     {{- . -}}
                 </a>
             {{- end }}
@@ -15,7 +15,7 @@
     {{- if .Params.categories }}
         <div class="category">
             <label class="label">Category：</label>
-            <a class="tags_link" href="{{ "categories/" | relLangURL }}{{ .Params.categories | urlize }}/" rel="tag">
+            <a class="link" href="{{ "categories/" | relLangURL }}{{ .Params.categories | urlize }}/" rel="category">
                 {{- .Params.categories -}}
             </a>
         </div>
