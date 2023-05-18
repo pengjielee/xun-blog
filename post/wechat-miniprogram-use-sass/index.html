@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="实现思路">实现思路</h2>
+        <div class="content"><h2 id="实现思路">实现思路</h2>
 <p>使用脚本监听某个目录文件变化，把sass文件内容编译成wxss后缀的文件。</p>
 <h2 id="目录结构">目录结构</h2>
 <pre tabindex="0"><code>--assets（存放静态资源目录）  
@@ -132,28 +132,24 @@ chokidar.watch(watchFile).on(&#39;all&#39;, (event, file) =&gt; {
 <p>node-sass<br>
 <a href="https://github.com/sass/node-sass">https://github.com/sass/node-sass</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

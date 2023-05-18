@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><p>finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。<br>
+        <div class="content"><p>finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。<br>
 这避免了同样的语句需要在then()和catch()中各写一次的情况。</p>
 <h2 id="语法">语法</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">p</span>.<span style="color:#66d9ef">finally</span>(<span style="color:#a6e22e">onFinally</span>);
@@ -56,28 +56,24 @@
 <p>Promise.prototype.finally()<br>
 <a href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally">https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-finally</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

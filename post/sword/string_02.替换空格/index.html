@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="题目">题目</h2>
+        <div class="content"><h2 id="题目">题目</h2>
 <p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy。则经过替换之后的字符串为We%20Are%20Happy。</p>
 <h2 id="js实现">JS实现</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//实现1：调用自带函数
@@ -95,28 +95,24 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">s</span>, <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">&#34;%20&#34;</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

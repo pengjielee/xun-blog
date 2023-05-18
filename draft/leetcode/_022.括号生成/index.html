@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="题目">题目</h2>
+        <div class="content"><h2 id="题目">题目</h2>
 <p>数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。</p>
 <pre tabindex="0"><code>示例 1：
 输入：n = 3
@@ -57,28 +57,24 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

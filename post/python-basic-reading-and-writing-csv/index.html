@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><p>CSV (Comma Separated Values)，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号。</p>
+        <div class="content"><p>CSV (Comma Separated Values)，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号。</p>
 <h2 id="引入python-csv">引入python csv</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> csv
 </span></span></code></pre></div><h2 id="使用csv-reader读取">使用csv reader读取</h2>
@@ -141,28 +141,24 @@
 <p>Python CSV tutorial<br>
 <a href="http://zetcode.com/python/csv/">http://zetcode.com/python/csv/</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

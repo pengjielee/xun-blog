@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="安装-flask">安装 flask</h2>
+        <div class="content"><h2 id="安装-flask">安装 flask</h2>
 <pre tabindex="0"><code>$ pip install flask 
 </code></pre><p>查看flask版本</p>
 <pre tabindex="0"><code>$ flask --version
@@ -84,28 +84,24 @@ peng@localhost flask_web % flask run
  * Debugger is active!
  * Debugger PIN: 186-277-807
 </code></pre></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

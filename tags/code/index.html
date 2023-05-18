@@ -29,7 +29,7 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0promise.finally/">实现Promise.finally()</a>
+        <a href="/post/fe/%E5%AE%9E%E7%8E%B0json.stringify/">实现JSON.stringify()</a>
     </div><div class="post-meta">
     <div class="date">2021-03-31</div>
         <div class="tags">
@@ -38,9 +38,8 @@
         </div>
 </div>
 
-        <div class="summary">finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。
-这避免了同样的语句需要在then()和catch()中各写一次的情况。
-语法 p.finally(onFinally); p.finally(function() { // 返回状态为(resolved 或 rejected) }); 实现 Promise.prototype._finally = function (callback) { let P = …</div>
+        <div class="summary">写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如
+//输入 var object = { a: 1, b: 2, c: { d: 3 }, e: [4, 5, { g: 6 }] } //输出 参考 JSON.stringify(object, null, &#39; &#39;) &#34; { &#34;a&#34;: 1, &#34;b&#34;: 2, &#34;c&#34;: { &#34;d&#34;: 3 }, &#34;e&#34;: [ 4, …</div>
     
 </div>
 <div class="item">
@@ -63,7 +62,7 @@ iterable
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0json.stringify/">实现JSON.stringify()</a>
+        <a href="/post/fe/%E5%AE%9E%E7%8E%B0promise.finally/">实现Promise.finally()</a>
     </div><div class="post-meta">
     <div class="date">2021-03-31</div>
         <div class="tags">
@@ -72,8 +71,9 @@ iterable
         </div>
 </div>
 
-        <div class="summary">写一个函数format，传入一个javascript object，输出格式化后的string，为了简化，我们规定object里只有number、array、object三种类型。比如
-//输入 var object = { a: 1, b: 2, c: { d: 3 }, e: [4, 5, { g: 6 }] } //输出 参考 JSON.stringify(object, null, &#39; &#39;) &#34; { &#34;a&#34;: 1, &#34;b&#34;: 2, &#34;c&#34;: { &#34;d&#34;: 3 }, &#34;e&#34;: [ 4, …</div>
+        <div class="summary">finally() 方法返回一个Promise。在promise结束时，无论结果是fulfilled或者是rejected，都会执行指定的回调函数。这为在Promise是否成功完成后都需要执行的代码提供了一种方式。
+这避免了同样的语句需要在then()和catch()中各写一次的情况。
+语法 p.finally(onFinally); p.finally(function() { // 返回状态为(resolved 或 rejected) }); 实现 Promise.prototype._finally = function (callback) { let P = …</div>
     
 </div>
 <div class="item">
@@ -181,97 +181,6 @@ var p1 = new Promise((resolve, reject) =&gt; { setTimeout(resolve, 500, …</div
         <div class="summary">实现 var Jsonp = { loadScript: function(url) { var script = document.createElement(&#34;script&#34;); script.type = &#34;text/javascript&#34;; if (script.readyState) { script.onreadystatechange = function() { if (this.readyState == &#34;loaded&#34; || this.readyState == &#34;complete&#34;) { …</div>
     
 </div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">实现防抖节流</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">code</a>
-        </div>
-</div>
-
-        <div class="summary">防抖函数 1、防抖函数接收两个参数（运行函数，定时器时间间隔）；
-2、防抖函数返回一个函数（闭包）；
-3、闭包外定义定时器；
-4、闭包里：
-定义this，arguments； 首先清除定时器； 重新设置定时器； function debounce(fn, delay) { let timer = null; return function () { const self = this, args = arguments; timer &amp;&amp; clearTimeout(timer); timer = setTimeout(function () { fn.apply(self, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D/">实现深拷贝</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">code</a>
-        </div>
-</div>
-
-        <div class="summary">实现1 function deepClone(obj, hash = new WeakMap()) { if (obj instanceof RegExp) return new RegExp(obj); if (obj instanceof Date) return new Date(obj); if (obj === null || typeof obj != &#34;object&#34;) { return obj; // 如果不是复杂数据类型，直接返回 } if (hash.has(obj)) { return has.get(obj); } /** * 如果obj是数组， …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/">实现函数柯里化</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">code</a>
-        </div>
-</div>
-
-        <div class="summary">代码 function curry(fn, currArgs) { return function () { let args = [].slice.call(arguments); // 首次调用时，若未提供最后一个参数currArgs，则不用进行args的拼接 if (currArgs !== undefined) { args = args.concat(currArgs); } // 递归调用 if (args.length &lt; fn.length) { return curry(fn, args); } // 递归出口 return fn.apply(null, args); …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E7%B3%BB%E7%BB%9F/">实现缓存系统</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">code</a>
-        </div>
-</div>
-
-        <div class="summary">题目 基于 localStorage 设计一个 1M 的缓存系统，需要实现缓存淘汰机制。
-设计思路如下：
-存储的每个对象需要添加两个属性：分别是过期时间和存储时间。 利用一个属性保存系统中目前所占空间大小，每次存储都增加该属性。当该属性值大于 1M 时，需要按照时间排序系统中的数据，删除一定量的数据保证能够存储下目前需要存储的数据。 每次取数据时，需要判断该缓存数据是否过期，如果过期就删除。 以下是代码实现，实现了思路，但是可能会存在 Bug，但是这种设计题一般是给出设计思路和部分代码，不会需要写出一个无问题的代码
-class Store { constructor() { let store …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/%E5%AE%9E%E7%8E%B0ajax/">实现Ajax</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">code</a>
-        </div>
-</div>
-
-        <div class="summary">简单实现 var xhr = null; // Old compatibility code, no longer needed. if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ... xhr = new XMLHttpRequest(); } else if (window.ActiveXObject) { // IE 6 and older xhr = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); } xhr.onreadystatechange = function () { …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/localstorage-set-the-expiration-time/">LocalStorage设置过期时间</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-03</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/code/" rel="tag">Code</a>
-        </div>
-</div>
-
-        <div class="summary">代码 class Storage { constructor(name) { this.name = &#34;storage&#34;; } //设置缓存 setItem(params) { let obj = { name: &#34;&#34;, value: &#34;&#34;, expires: &#34;&#34;, startTime: new Date().getTime(), //记录何时将值存入缓存，毫秒级 }; let options = {}; //将obj和传进来的params合并 Object.assign(options, obj, params); let { …</div>
-    
-</div>
 
         </section>
         
@@ -285,19 +194,19 @@ class Store { constructor() { let store …</div>
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

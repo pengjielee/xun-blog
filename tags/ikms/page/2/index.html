@@ -29,7 +29,7 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/project/ikms-27/">27.使用request获取网页内容.md</a>
+        <a href="/project/ikms-11/">11.Electron设置Dock信息.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -38,12 +38,12 @@
         </div>
 </div>
 
-        <div class="summary">install $ npm install request $ npm install request-promise usage const request = require(&#39;request&#39;); request(&#39;https://www.baidu.com&#39;, function (error, response, body) { console.error(&#39;error:&#39;, error); // Print the error if one occurred console.log(&#39;statusCode:&#39;, …</div>
+        <div class="summary">const { app } = require(&#34;electron&#34;); const path = require(&#34;path&#34;); app.dock.setIcon(path.join(__dirname, &#34;../assets/IconTemplate@2x.png&#34;)); const dockMenu = Menu.buildFromTemplate([ { label: &#34;New Window&#34;, click() { console.log(&#34;New Window&#34;); }, }, { label: …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-26/">26.使用cheerio获取文章标题.md</a>
+        <a href="/project/ikms-12/">12.Electron设置程序菜单.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -52,189 +52,7 @@
         </div>
 </div>
 
-        <div class="summary">install $ npm install cheerio usage const cheerio = require(&#34;cheerio&#34;); const $ = cheerio.load(html); const title = $(&#34;head title&#34;).text(); More cheerio https://github.com/cheeriojs/cheerio</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-26/">26.Electron隐藏显示开发者工具.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">if (process.platform === &#34;darwin&#34;) { const template = [ { label: &#34;我的知识库&#34;, submenu: [ { label: &#34;退出&#34;, accelerator: &#34;Command+Q&#34;, click: function () { app.quit(); }, }, ], }, { label: &#34;编辑&#34;, submenu: [ { label: &#34;复制&#34;, accelerator: &#34;CmdOrCtrl+C&#34;, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-25/">25.Electron备份还原sqlite数据库.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">const backupDb = () =&gt; { const options = { title: &#34;请选择要备份的文件名&#34;, buttonLabel: &#34;保存&#34;, defaultPath: &#34;my.db&#34;, filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#34;db&#34;] }], }; dialog.showSaveDialog(options).then(async (result) =&gt; { if (!result.canceled) { const …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-24/">24.Electron消息提示框.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">const options = { type: &#34;info&#34;, title: &#34;Information&#34;, message: &#39;hello world&#39;, buttons: [&#34;Yes&#34;,&#34;No&#34;], }; dialog.showMessageBox(options); </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-23/">23.使用prettier格式化代码.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">install $ npm install prettier usage const prettier = require(&#34;prettier&#34;); const code = ` const now = dayjs() const date = now.format(&#34;YYYY-MM-DD&#34;) const time = now.format(&#34;HH:mm:ss&#34;) const timestamp = now.valueOf() `; const content = prettier.format(code, { parser: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-22/">22.使用codemirror编辑器.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">include &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34; /&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;assets/codemirror/codemirror.css&#34; /&gt; &lt;/head&gt; &lt;script type=&#34;text/javascript&#34; src=&#34;assets/codemirror/codemirror.js&#34;&gt;&lt;/script&gt; usage const Edit = { template: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-21/">21.使用hightlight.js输出代码.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">install $ npm install highlight.js include &lt;script type=&#34;text/javascript&#34;&gt; const hljs = require(&#34;highlight.js&#34;); Vue.use(hljs.vuePlugin); &lt;/script&gt; usage &lt;highlightjs autodetect :code=&#34;content&#34; /&gt; More https://github.com/highlightjs/highlight.js</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-20/">20.Electron中使用Vue.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">index.html &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;p class=&#34;message&#34;&gt;{{ message }}&lt;/p&gt; &lt;/div&gt; &lt;/body&gt; &lt;script src=&#34;https://unpkg.com/vue@2.6.12/dist/vue.min.js&#34;&gt;&lt;/script&gt; &lt;script …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-19/">19.Electron在浏览器中打开新链接.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">const { shell } = require(&#34;electron&#34;); shell.openExternal(&#34;https://www.baidu.com&#34;); </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-18/">18.编码解码.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">const encode = (str) =&gt; { var s = &#34;&#34;; if (str.length == 0) return &#34;&#34;; s = str.replace(/&amp;/g, &#34;&amp;amp;&#34;); s = s.replace(/&lt;/g, &#34;&amp;lt;&#34;); s = s.replace(/&gt;/g, &#34;&amp;gt;&#34;); s = s.replace(/\s/g, &#34;&amp;nbsp;&#34;); s = s.replace(/\&#39;/g, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-17/">17.Electron发送通知.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">渲染进程（H5 Notification） const notifyMe = () =&gt; { const message = &#39;您有新的内容保存到粘贴板&#39;; // Let&#39;s check if the browser supports notifications if (!(&#34;Notification&#34; in window)) { alert(&#34;This browser does not support desktop notification&#34;); } // Let&#39;s check whether notification …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-16/">16.使用dayjs格式化日期.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">安装 $ npm install dayjs 使用 const dayjs = require(&#34;dayjs&#34;); const now = dayjs(); const date = now.format(&#34;YYYY-MM-DD&#34;); const time = now.format(&#34;HH:mm:ss&#34;); const timestamp = now.valueOf(); More https://github.com/iamkun/dayjs</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-15/">15.Electron使用sqlite3.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">安装 $ npm install sqlite3 $ npm install bluebird App Dao const sqlite3 = require(&#34;sqlite3&#34;); const Promise = require(&#34;bluebird&#34;); class AppDAO { constructor(dbFilePath) { this.db = new sqlite3.Database(dbFilePath, (err) =&gt; { if (err) { console.log(&#34;Could not connect to …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-14/">14.使用Nodejs保存文件.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">const fs = require(&#34;fs&#34;); const filePath = &#39;&#39;; const content = &#39;hello world&#39;; fs.writeFileSync(filePath, content); </div>
+        <div class="summary">const { app, Menu } = require(&#34;electron&#34;); const setAppMenu = () =&gt; { if (process.platform === &#34;darwin&#34;) { const template = [ { label: &#34;Application&#34;, submenu: [ { label: &#34;Quit&#34;, accelerator: &#34;Command+Q&#34;, click: function () { app.quit(); }, }, ], }, { label: …</div>
     
 </div>
 <div class="item">
@@ -254,7 +72,7 @@
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-12/">12.Electron设置程序菜单.md</a>
+        <a href="/project/ikms-14/">14.使用Nodejs保存文件.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -263,12 +81,12 @@
         </div>
 </div>
 
-        <div class="summary">const { app, Menu } = require(&#34;electron&#34;); const setAppMenu = () =&gt; { if (process.platform === &#34;darwin&#34;) { const template = [ { label: &#34;Application&#34;, submenu: [ { label: &#34;Quit&#34;, accelerator: &#34;Command+Q&#34;, click: function () { app.quit(); }, }, ], }, { label: …</div>
+        <div class="summary">const fs = require(&#34;fs&#34;); const filePath = &#39;&#39;; const content = &#39;hello world&#39;; fs.writeFileSync(filePath, content); </div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-11/">11.Electron设置Dock信息.md</a>
+        <a href="/project/ikms-15/">15.Electron使用sqlite3.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -277,12 +95,12 @@
         </div>
 </div>
 
-        <div class="summary">const { app } = require(&#34;electron&#34;); const path = require(&#34;path&#34;); app.dock.setIcon(path.join(__dirname, &#34;../assets/IconTemplate@2x.png&#34;)); const dockMenu = Menu.buildFromTemplate([ { label: &#34;New Window&#34;, click() { console.log(&#34;New Window&#34;); }, }, { label: …</div>
+        <div class="summary">安装 $ npm install sqlite3 $ npm install bluebird App Dao const sqlite3 = require(&#34;sqlite3&#34;); const Promise = require(&#34;bluebird&#34;); class AppDAO { constructor(dbFilePath) { this.db = new sqlite3.Database(dbFilePath, (err) =&gt; { if (err) { console.log(&#34;Could not connect to …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-10/">10.Electron设置系统托盘图标.md</a>
+        <a href="/project/ikms-16/">16.使用dayjs格式化日期.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -291,12 +109,12 @@
         </div>
 </div>
 
-        <div class="summary">const trayIcon = new Tray(path.join(__dirname, &#34;../assets/IconTemplate.png&#34;)); trayIcon.on(&#34;click&#34;, function () { if (mainWindow === null) { return; } if (mainWindow.isVisible()) { mainWindow.hide(); } else { mainWindow.show(); } }); </div>
+        <div class="summary">安装 $ npm install dayjs 使用 const dayjs = require(&#34;dayjs&#34;); const now = dayjs(); const date = now.format(&#34;YYYY-MM-DD&#34;); const time = now.format(&#34;HH:mm:ss&#34;); const timestamp = now.valueOf(); More https://github.com/iamkun/dayjs</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-09/">09.Electron保存文件对话框.md</a>
+        <a href="/project/ikms-17/">17.Electron发送通知.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -305,12 +123,12 @@
         </div>
 </div>
 
-        <div class="summary">const { dialog } = require(&#34;electron&#34;); const options = { title: &#34;请选择要保存的文件名&#34;, buttonLabel: &#34;保存&#34;, defaultPath: &#39;test.txt&#39;, filters: [{ name: &#34;Custom File Type&#34;, extensions: [&#39;txt&#39;] }], }; dialog.showSaveDialog(options).then((result) =&gt; { if …</div>
+        <div class="summary">渲染进程（H5 Notification） const notifyMe = () =&gt; { const message = &#39;您有新的内容保存到粘贴板&#39;; // Let&#39;s check if the browser supports notifications if (!(&#34;Notification&#34; in window)) { alert(&#34;This browser does not support desktop notification&#34;); } // Let&#39;s check whether notification …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-08/">08.Electron渲染进程向主进程发消息.md</a>
+        <a href="/project/ikms-18/">18.编码解码.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -319,12 +137,12 @@
         </div>
 </div>
 
-        <div class="summary">渲染进程：renderer.js const ipcRenderer = require(&#34;electron&#34;).ipcRenderer; ipcRenderer.send(&#34;save-dialog&#34;, { filename: filename, type: type }); 主进程：main.js const { ipcMain } = require(&#34;electron&#34;); ipcMain.on(&#34;save-dialog&#34;, (event, data) =&gt; { }); </div>
+        <div class="summary">const encode = (str) =&gt; { var s = &#34;&#34;; if (str.length == 0) return &#34;&#34;; s = str.replace(/&amp;/g, &#34;&amp;amp;&#34;); s = s.replace(/&lt;/g, &#34;&amp;lt;&#34;); s = s.replace(/&gt;/g, &#34;&amp;gt;&#34;); s = s.replace(/\s/g, &#34;&amp;nbsp;&#34;); s = s.replace(/\&#39;/g, …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-07/">07.Electron主进程向渲染进程发消息.md</a>
+        <a href="/project/ikms-19/">19.Electron在浏览器中打开新链接.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -333,12 +151,12 @@
         </div>
 </div>
 
-        <div class="summary">主进程：main.js mainWindow.webContents.send(&#34;refresh-notes&#34;, { message: &#39;reload&#39; }); 渲染进程：renderer.js const ipcRenderer = require(&#34;electron&#34;).ipcRenderer; ipcRenderer.on(&#34;refresh-notes&#34;, (event, data) =&gt; { //getNotes(); }); </div>
+        <div class="summary">const { shell } = require(&#34;electron&#34;); shell.openExternal(&#34;https://www.baidu.com&#34;); </div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/project/ikms-06/">06.Electron注册全局快捷键.md</a>
+        <a href="/project/ikms-20/">20.Electron中使用Vue.md</a>
     </div><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
@@ -347,77 +165,7 @@
         </div>
 </div>
 
-        <div class="summary">const { app, BrowserWindow, globalShortcut } = require(&#39;electron&#39;); const registerGlobalKey = () =&gt; { const key = &#39;CommandOrControl+Option+S&#39;; const ret = globalShortcut.register(key, function () { console.log(`hello world from ${key}`) }); if(!ret){ console.log(`${key} registert …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-05/">05.Electron渲染进程报错.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">报错信息 Uncaught ReferenceError: require is not defined at index.html:93 解决方法：设置 nodeIntegration: true mainWindow = new BrowserWindow({ minWidth: 300, backgroundColor: &#34;#fff&#34;, webPreferences: { nodeIntegration: true, }, }); </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-04/">04.Electron使用jQuery.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">安装jQuery $ npm install jquery index.html &lt;script&gt; const $ = require(&#34;jquery&#34;); window.jQuery = $; &lt;/script&gt; </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-03/">03.Electron注入环境变量.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">package.json &#34;scripts&#34;: { &#34;dev&#34;: &#34;export NODE_ENV=development &amp;&amp; electron-forge start&#34;, &#34;start&#34;: &#34;electron-forge start&#34;, &#34;package&#34;: &#34;electron-forge package&#34;, &#34;make&#34;: &#34;electron-forge make&#34;, &#34;publish&#34;: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-02/">02.Electron主进程代码.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">main.js const { app, BrowserWindow } = require(&#39;electron&#39;); const path = require(&#39;path&#39;); // Handle creating/removing shortcuts on Windows when installing/uninstalling. if (require(&#39;electron-squirrel-startup&#39;)) { // eslint-disable-line global-require app.quit(); } // Keep a …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/project/ikms-01/">01.Electron应用创建.md</a>
-    </div><div class="post-meta">
-    <div class="date">2020-12-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/ikms/" rel="tag">ikms</a>
-        </div>
-</div>
-
-        <div class="summary">创建Electron APP npx create-electron-app my-new-app # or yarn create electron-app my-new-app # then cd my-new-app npm start More electron-forge https://github.com/electron-userland/electron-forge</div>
+        <div class="summary">index.html &lt;body&gt; &lt;div id=&#34;app&#34;&gt; &lt;p class=&#34;message&#34;&gt;{{ message }}&lt;/p&gt; &lt;/div&gt; &lt;/body&gt; &lt;script src=&#34;https://unpkg.com/vue@2.6.12/dist/vue.min.js&#34;&gt;&lt;/script&gt; &lt;script …</div>
     
 </div>
 
@@ -434,19 +182,19 @@
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

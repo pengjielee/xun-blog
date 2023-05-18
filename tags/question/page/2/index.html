@@ -29,166 +29,6 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/fe/15.%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8Fvs%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F/">15.观察者模式vs发布订阅模式</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">联系 / 意图 / 区别 / 适用场景 1、联系
-发布-订阅模式是观察者模式的一种变体。发布-订阅只是把一部分功能抽象成一个独立的ChangeManager。
-2、意图
-都是某个对象(subject, publisher)改变，使依赖于它的多个对象(observers, subscribers)得到通知。
-3、区别与适用场景
-总的来说，发布-订阅模式适合更复杂的场景。
-在「一对多」的场景下，发布者的某次更新只想通知它的部分订阅者？
-在「多对一」或者「多对多」场景下。一个订阅者依赖于多个发布者，某个发布者更新后是否需要通知订阅者？还是等所有发布者都更新完毕再通知订阅者？
-这些逻辑都可以放 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/14.%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%90%88%E9%9B%86/">14.实现数组方法合集</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">实现数组方法flat // 实现1 var flat1 = (arr, number = 10) =&gt; { let result = [],count = 0; var helper = (arr) =&gt; { let res = []; count++; for (let item of arr) { if (Array.isArray(item)) { if (count === number) { break; } res = res.concat(helper(item)); } else { res.push(item); } } return res; }; result …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/12.css%E4%BC%98%E5%85%88%E7%BA%A7/">12.CSS优先级</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">一道题目 &lt;style&gt; .classA { color: blue; } .classB { color: red; } p { color: black; } &lt;/style&gt; &lt;p class=&#34;classB classA&#34;&gt;hello&lt;/p&gt; &lt;!-- 元素p内的文字最终什么颜色：red --&gt; 解释：“类选择器” 的优先级要高于 “类型选择器”；后面声明的类选择器 &gt; 先声明的类选择器，所以颜色为red（css）。
-更多实例 1、
-&lt;style&gt; div { width: 100px; …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/11.typeof%E6%93%8D%E4%BD%9C%E7%AC%A6/">11.typeof操作符</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">一道题目 typeof typeof typeof null; //&#39;string&#39; typeof操作符 typeof 操作符返回一个字符串，表示未经计算的操作数的类型。
-语法：
-typeof operand typeof(operand) 1、数值
-console.log(typeof 42); //&#39;number&#39; console.log(typeof 3.14); //&#39;number&#39; console.log(typeof(42)); //&#39;number&#39; console.log(typeof Math.LN2); …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/10.function.prototype-object.prototype/">10.Function.prototype &amp; Object.prototype.md</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">一道题目 Function.prototype.a = () =&gt; alert(1); Object.prototype.b = () =&gt; alert(2); function Foo() {} var bar = new Foo(); bar.a(); //Uncaught TypeError: bar.a is not a function bar.b(); //2 表达式结果 以下为chrome 88.0.4324.96
-function F(){}; var o = {}; // 这是一个构造函数 typeof F; //&#39;function&#39; // 这是一 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/09.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">09.代码输出结果</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-12</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">1、 实现一个工具方法，将下划线命名格式的字符串转化为驼峰命名格式
-//实现1 var convert1 = (name) =&gt; { let result = name.split(&#34;_&#34;); const [first, ...rest] = result; return ( first + rest .map((item) =&gt; item.substring(0, 1).toUpperCase() + item.substring(1)) .join(&#34;&#34;) ); }; //实现2 var convert2 = (name) =&gt; { …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/08.%E9%83%A8%E9%97%A8%E7%BB%84%E5%90%88/">08.部门组合</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-08</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">题目 求部门安排所有组合。
-示例1：
-部门：{&#39;frontend&#39;: [1, 2], &#39;backend&#39;: [3, 4], &#39;devops&#39;: [5]} 人数：{&#39;frontend&#39;: 2, &#39;backend&#39;: 1} 组合：[[1, 2, 3], [1, 2, 4]] 要求：按员工ID升序排序
-实现 /** * 部门安排所有组合 * @param departments: dict, key是部门名, value是每个部门对应所有员工ID数组 * 例 {&#39;frontend&#39;: [1, 2], …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">07.字符串处理</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-08</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">统计数组中每个字符串出现次数 /** * 统计数组中每个字符串出现次数 * @param string[] strs: 字符串数组, 例如 [&#39;aa&#39;, &#39;ab&#39;, &#39;ab&#39;, &#39;cc&#39;, &#39;cba&#39;] * @return {[key: string]: number} 出现次数对象, 例如 { aa: 1, ab: 2, cc: 1, cba: 1 } */ var frequencyMap = (strs) =&gt; { const map = {}; for (let i = 0; i &lt; …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/06.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">06.代码输出结果</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-08</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">1. function fn2(){ for(var i=0;i&lt;4;i++){ var timer=setInterval(function(i,timer){ console.log(i); clearInterval(timer) },10,i,timer); } } fn2(); 输出：0 1 2 3 3 3 3 重复
-2. function fn1(){ for(var i=0;i&lt;4;i++){ var timer=setTimeout(function(i){ console.log(i); clearTimeout(timer) },10,i); } } …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/fe/05.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">05.代码输出结果</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-02</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/question/" rel="tag">question</a>
-        </div>
-</div>
-
-        <div class="summary">1. 输出是什么？ function sayHi() { console.log(name) console.log(age) var name = &#39;Lydia&#39; let age = 21 } sayHi() A: Lydia 和 undefined B: Lydia 和 ReferenceError C: ReferenceError 和 21 D: undefined 和 ReferenceError 我的：D（ok）
-2. 输出是什么？ for (var i = 0; i &lt; 3; i++) { setTimeout(() =&gt; …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
         <a href="/post/fe/04.%E4%BB%A3%E7%A0%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C/">04.代码输出结果</a>
     </div><div class="post-meta">
     <div class="date">2021-03-30</div>
@@ -290,19 +130,19 @@ https://github.com/haizlin/fe-interview
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

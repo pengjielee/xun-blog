@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><p>发布订阅模式，定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JS中，我们一般用事件模型来替代传统的发布-订阅模式。</p>
+        <div class="content"><p>发布订阅模式，定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JS中，我们一般用事件模型来替代传统的发布-订阅模式。</p>
 <h2 id="1-现实中的发布-订阅模式">1. 现实中的发布-订阅模式</h2>
 <p>购房者与售楼处；</p>
 <p>购房者：订阅者；
@@ -500,28 +500,24 @@
 <h2 id="source">Source</h2>
 <p>JavaScript设计模式与开发实践：第8章 发布-订阅模式</p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="install">install</h2>
+        <div class="content"><h2 id="install">install</h2>
 <pre tabindex="0"><code>$ npm install highlight.js
 </code></pre><h2 id="include">include</h2>
 <pre tabindex="0"><code>&lt;script type=&#34;text/javascript&#34;&gt;
@@ -46,28 +46,24 @@
 </code></pre><h2 id="more">More</h2>
 <p><a href="https://github.com/highlightjs/highlight.js">https://github.com/highlightjs/highlight.js</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

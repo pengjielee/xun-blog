@@ -181,101 +181,6 @@ body { …</div>
         <div class="summary">安装 $ npm install --save-dev --save-exact prettier 创建一个空的配置文件 $ echo {}&gt; .prettierrc.js 配置.prettierrc.js module.exports = { arrowParens: &#34;avoid&#34;, bracketSpacing: true, printWidth: 100, semi: true, singleQuote: true, tabWidth: 2, trailingComma: &#34;all&#34;, jsxSingleQuote: false, …</div>
     
 </div>
-<div class="item">
-    <div class="title">
-        <a href="/post/react-tutorial-setting-environment-variables/">React教程：设置环境变量</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-03</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-        </div>
-</div>
-
-        <div class="summary">Mac系统下环境变量 1、注入环境变量，export NODE_ENV=development
-package.json
-{ &#34;scripts&#34;: { &#34;dev&#34;: &#34;export NODE_ENV=development &amp;&amp; webpack serve&#34;, &#34;build&#34;: &#34;export NODE_ENV=production &amp;&amp; webpack&#34; }, } 2、使用环境变量 process.env.NODE_ENV
-webpack.config.js
-const path …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/react-tutorial-helloworld/">React教程：Hello World</a>
-    </div><div class="post-meta">
-    <div class="date">2021-03-03</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-        </div>
-</div>
-
-        <div class="summary">创建项目 # 创建项目目录 $ mkdir hello-world # 进入项目目录 $ cd hello-world # 初始化 package.json 文件 $ npm init -y # 创建源码src目录（所有源代码都放在src目录），并创建入口文件 index.js $ mkdir src &amp;&amp; touch index.js # 安装react和react-dom $ npm install react react-dom # 安装babel-loader，用于处理js文件 # 安装@babel/preset-react，用于处理jsx $ npm install …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/how-to-make-a-full-screen-page-in-react/">如何在React中全屏化页面</a>
-    </div><div class="post-meta">
-    <div class="date">2021-02-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/screenfull/" rel="tag">screenfull</a>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-        </div>
-</div>
-
-        <div class="summary">安装 $ npm install screenfull React中使用screenfull 1、引入
-import screenfull from &#39;screenfull&#39;; 2、全屏
-const handleClick = () =&gt; { if (screenfull.isEnabled) { //全屏整个页面 //screenfull.request(); //全屏某个元素 screenfull.request(element); } }; 3、切换
-const handleToggle = () =&gt; { if (screenfull.isEnabled) …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/use-typescript-in-react/">React中使用TypeScript</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-11</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-                <a class="link" href="/tags/typescript/" rel="tag">TypeScript</a>
-        </div>
-</div>
-
-        <div class="summary">初始化 $ mkdir react-ts-app $ cd react-ts-app $ npm init -y $ npm install react react-dom $ mkdir src $ cd src $ touch index.html $ touch App.tsx src/index.html &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;utf-8&#34; /&gt; &lt;meta http-equiv=&#34;X-UA-Compatible&#34; …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/the-react-higher-order-component/">React高阶组件</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-11</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-        </div>
-</div>
-
-        <div class="summary">高阶组件（HOC），High Order Component。 高阶组件（HOC）是 React 中用于复用组件逻辑的一种高级技巧。HOC 自身不是 React API 的一部分，它是一种基于 React 的组合特性而形成的设计模式。
-高阶组件是参数为组件，返回值为新组件的函数。
-class NoteList extends React.Component { constructor(props) { super(props); } render() { return ( &lt;div className=&#34;list&#34;&gt; { …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/the-react-hook-use/">React Hook使用</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-11</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/react/" rel="tag">React</a>
-        </div>
-</div>
-
-        <div class="summary">useState import React, { useState } from &#39;react&#39;; function Counter() { const [count, setCount] = useState(0); return ( &lt;div&gt; &lt;p className=&#39;title&#39;&gt;You clicked {count} times&lt;/p&gt; &lt;br /&gt; &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Click me&lt;/button&gt; …</div>
-    
-</div>
 
         </section>
         
@@ -289,19 +194,19 @@ class NoteList extends React.Component { constructor(props) { super(props); } re
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

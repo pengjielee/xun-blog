@@ -29,7 +29,7 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/leetcode/194.%E8%BD%AC%E7%BD%AE%E6%96%87%E4%BB%B6/">194.转置文件</a>
+        <a href="/post/leetcode/192.%E7%BB%9F%E8%AE%A1%E8%AF%8D%E9%A2%91/">192.统计词频</a>
     </div><div class="post-meta">
     <div class="date">2021-07-19</div>
         <div class="tags">
@@ -39,13 +39,13 @@
         </div>
 </div>
 
-        <div class="summary">题目 给定一个文件 file.txt，转置它的内容。
-你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。
-示例：
-假设 file.txt 文件内容如下：
-name age alice 21 ryan 30 应当输出：
-name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/transpose-file 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 COUNT=`head -1 file.txt | wc -w` for (( i = 1; …</div>
+        <div class="summary">题目 写一个 bash 脚本以统计一个文本文件 words.txt 中每个单词出现的频率。
+为了简单起见，你可以假设：
+words.txt只包括小写字母和 &rsquo; &rsquo; 。 每个单词只由小写字母组成。 单词间由一个或多个空格字符分隔。 示例:
+假设 words.txt 内容如下：
+the day is sunny the the the sunny is 你的脚本应当输出（以词频降序排列）：
+the 4 is 3 sunny 2 day 1 说明:
+不要担心词频相同的单词的排序问题，每个单词出现的频率都是唯一的。 你可以使用一行 Unix pipes 实现吗？ 来源：力 …</div>
     
 </div>
 <div class="item">
@@ -71,7 +71,7 @@ name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcod
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/192.%E7%BB%9F%E8%AE%A1%E8%AF%8D%E9%A2%91/">192.统计词频</a>
+        <a href="/post/leetcode/194.%E8%BD%AC%E7%BD%AE%E6%96%87%E4%BB%B6/">194.转置文件</a>
     </div><div class="post-meta">
     <div class="date">2021-07-19</div>
         <div class="tags">
@@ -81,13 +81,13 @@ name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcod
         </div>
 </div>
 
-        <div class="summary">题目 写一个 bash 脚本以统计一个文本文件 words.txt 中每个单词出现的频率。
-为了简单起见，你可以假设：
-words.txt只包括小写字母和 &rsquo; &rsquo; 。 每个单词只由小写字母组成。 单词间由一个或多个空格字符分隔。 示例:
-假设 words.txt 内容如下：
-the day is sunny the the the sunny is 你的脚本应当输出（以词频降序排列）：
-the 4 is 3 sunny 2 day 1 说明:
-不要担心词频相同的单词的排序问题，每个单词出现的频率都是唯一的。 你可以使用一行 Unix pipes 实现吗？ 来源：力 …</div>
+        <div class="summary">题目 给定一个文件 file.txt，转置它的内容。
+你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。
+示例：
+假设 file.txt 文件内容如下：
+name age alice 21 ryan 30 应当输出：
+name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/transpose-file 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+实现 COUNT=`head -1 file.txt | wc -w` for (( i = 1; …</div>
     
 </div>
 <div class="item">
@@ -119,19 +119,19 @@ Line 10 说明:
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

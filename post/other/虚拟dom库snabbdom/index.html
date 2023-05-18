@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="定义虚拟节点">定义虚拟节点</h2>
+        <div class="content"><h2 id="定义虚拟节点">定义虚拟节点</h2>
 <p>//vnode.js</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">vnode</span>(<span style="color:#a6e22e">sel</span>, <span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">children</span>, <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">elm</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">key</span>;
@@ -485,28 +485,24 @@
 <p>snabbdom<br>
 <a href="https://github.com/snabbdom/snabbdom">https://github.com/snabbdom/snabbdom</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

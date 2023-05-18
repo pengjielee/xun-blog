@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="问题">问题</h2>
+        <div class="content"><h2 id="问题">问题</h2>
 <p>使用SublimeText默认打开 .md 后缀的文件，页面显示一片白，阅读起来很不爽。</p>
 <h2 id="markdownediting">MarkdownEditing</h2>
 <p>MarkdownEditing是一款SublimeText插件，可以高亮显示语法，还可以快速插入 Markdown 标记。</p>
@@ -60,28 +60,24 @@
 <p>MarkdownEditing<br>
 <a href="https://github.com/SublimeText-Markdown/MarkdownEditing">https://github.com/SublimeText-Markdown/MarkdownEditing</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

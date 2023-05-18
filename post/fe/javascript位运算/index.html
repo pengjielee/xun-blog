@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="什么是位运算">什么是位运算</h2>
+        <div class="content"><h2 id="什么是位运算">什么是位运算</h2>
 <p>现代计算机中所有的数据都以二进制的形式存储在设备中。即 0、1 两种状态，计算机对二进制数据进行的运算(+、-、*、/)都叫位运算，即将符号位共同参与运算的运算。</p>
 <h2 id="位运算-and">位运算 AND</h2>
 <p>当对一对数位执行位运算 AND 时，如果数位均为 1 则返回 1。</p>
@@ -404,28 +404,24 @@
 <p>JavaScript位运算<br>
 <a href="https://www.w3school.com.cn/js/js_bitwise.asp">https://www.w3school.com.cn/js/js_bitwise.asp</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

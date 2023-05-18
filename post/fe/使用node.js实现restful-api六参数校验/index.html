@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content" id="content"><p>1、安装express-validator</p>
+        <div class="content"><p>1、安装express-validator</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install express-validator
 </span></span></code></pre></div><p>2、修改src/routes/user.js</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>const express <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;express&#34;</span><span style="color:#f92672">)</span>;
@@ -102,28 +102,24 @@
 </span></span><span style="display:flex;"><span>返回：
 </span></span><span style="display:flex;"><span><span style="color:#f92672">{</span><span style="color:#e6db74">&#34;status&#34;</span>:1,<span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;修改密码&#34;</span><span style="color:#f92672">}</span>
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="文章">文章</h2>
+        <div class="content"><h2 id="文章">文章</h2>
 <p>Build your own React<br>
 <a href="https://pomb.us/build-your-own-react/">https://pomb.us/build-your-own-react/</a></p>
 <p>壹题汇总 | 木易杨前端进阶<br>
@@ -60,28 +60,24 @@
 <p>关于写文章的一点经验<br>
 <a href="https://mp.weixin.qq.com/s/fJNIvghKrN_HZaO-qNfgkQ">https://mp.weixin.qq.com/s/fJNIvghKrN_HZaO-qNfgkQ</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

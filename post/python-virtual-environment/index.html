@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="虚拟环境">虚拟环境</h2>
+        <div class="content"><h2 id="虚拟环境">虚拟环境</h2>
 <p>虚拟环境是系统的一个位置，可以在其中安装包，并将其与其他Python包隔离。这样能够针对不同项目创建一个独立的环境，便于后期的移植。</p>
 <h2 id="虚拟环境管理工具">虚拟环境管理工具</h2>
 <p>主要有三种：</p>
@@ -177,28 +177,24 @@ Django version 3.1.7, using settings &#39;mysite.settings&#39;
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 </code></pre></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

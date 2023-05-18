@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="问题">问题</h2>
+        <div class="content"><h2 id="问题">问题</h2>
 <p>每次创建新的页面时，如果都要去更改webpack的入口 配置文件，那样太不爽了，我们改造我们的代码来动态获取入口文件。</p>
 <h2 id="改造">改造</h2>
 <p>1、安装glob</p>
@@ -98,28 +98,24 @@
 </span></span></code></pre></div><p>项目源码见（切换 tag 至 multi-page-app4）<code>git checkout multi-page-app4</code>：
 <a href="https://github.com/pengjielee/reactapp/tree/main/multi-pages">https://github.com/pengjielee/reactapp/tree/main/multi-pages</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

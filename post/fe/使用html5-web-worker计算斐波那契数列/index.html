@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="未使用web-worker计算斐波那契数列">未使用Web Worker计算斐波那契数列</h2>
+        <div class="content"><h2 id="未使用web-worker计算斐波那契数列">未使用Web Worker计算斐波那契数列</h2>
 <p><img src="https://cdn.nlark.com/yuque/0/2020/gif/188528/1603442748471-040fa8c6-c3c8-4174-9e88-00f887c5e17a.gif#align=left&amp;display=inline&amp;height=462&amp;margin=%5Bobject%20Object%5D&amp;name=webworker01.gif&amp;originHeight=462&amp;originWidth=640&amp;size=1290833&amp;status=done&amp;style=none&amp;width=640" alt="webworker01.gif"></p>
 <ul>
 <li>计算较小数时，浏览器还可以快速响应；</li>
@@ -99,28 +99,24 @@ onmessage = e =&gt; {
 </code></pre><h2 id="完整代码">完整代码</h2>
 <p><a href="https://github.com/pengjielee/learn-demo/tree/main/demos/webworker-demo">webworker-demo</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

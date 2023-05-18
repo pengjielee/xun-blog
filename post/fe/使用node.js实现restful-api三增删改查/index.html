@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content" id="content"><p>1、定义项目结构</p>
+        <div class="content"><p>1、定义项目结构</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">src</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">/</span><span style="color:#a6e22e">controllers</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#f92672">/</span><span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">js</span>
@@ -220,28 +220,24 @@
 </span></span></code></pre></div><p>d. 更新用户</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">curl</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">d</span><span style="color:#e6db74">&#39;id=611a291a757c7112578ec31a&amp;username=admin1&amp;password=1234561&amp;email=386276251@qq.com&#39;</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">X</span> <span style="color:#a6e22e">PUT</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">:</span><span style="color:#75715e">//localhost:3000/api/user
 </span></span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

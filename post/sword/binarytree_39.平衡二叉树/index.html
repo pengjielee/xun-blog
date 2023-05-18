@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="题目">题目</h2>
+        <div class="content"><h2 id="题目">题目</h2>
 <p>输入一棵二叉树，判断该二叉树是否是平衡二叉树。</p>
 <p>平衡二叉树一般指平衡树。<br>
 平衡树(Balance Tree，BT) 指的是，任意节点的子树的高度差都小于等于1。</p>
@@ -88,28 +88,24 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Math.<span style="color:#a6e22e">abs</span>(<span style="color:#a6e22e">left</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">right</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

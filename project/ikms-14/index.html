@@ -34,35 +34,31 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><pre tabindex="0"><code>const fs = require(&#34;fs&#34;);
+        <div class="content"><pre tabindex="0"><code>const fs = require(&#34;fs&#34;);
 
 const filePath = &#39;&#39;;
 const content = &#39;hello world&#39;;
 
 fs.writeFileSync(filePath, content);
 </code></pre></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

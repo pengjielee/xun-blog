@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="创建electron-app">创建Electron APP</h2>
+        <div class="content"><h2 id="创建electron-app">创建Electron APP</h2>
 <pre tabindex="0"><code>npx create-electron-app my-new-app
 # or
 yarn create electron-app my-new-app
@@ -46,28 +46,24 @@ npm start
 <p>electron-forge
 <a href="https://github.com/electron-userland/electron-forge">https://github.com/electron-userland/electron-forge</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

@@ -48,21 +48,6 @@ image::https://i.loli.net/2021/02/26/yb1ncvwMjeEhNVl.png[Python核心编程（�
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/flask-web-development-redirect-abort-notfound/">Flask Web开发：重定向,终止响应,错误页</a>
-    </div><div class="post-meta">
-    <div class="date">2021-02-25</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
-        </div>
-</div>
-
-        <div class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
         <a href="/post/flask-web-development-session-implements-simple-login/">Flask Web开发：Session实现简单登录</a>
     </div><div class="post-meta">
     <div class="date">2021-02-25</div>
@@ -75,6 +60,21 @@ image::https://i.loli.net/2021/02/26/yb1ncvwMjeEhNVl.png[Python核心编程（�
 
         <div class="summary">设置密钥 app.secret_key = b&#39;_5#y2L&#34;F4Q8z\n\xec]/&#39; 生成随机密钥：
 $ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &#39;nimei&#39; …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-redirect-abort-notfound/">Flask Web开发：重定向,终止响应,错误页</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <div class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) …</div>
     
 </div>
 <div class="item">
@@ -195,236 +195,6 @@ $ type -a python3 or $ which python3 2、配置Sublime Text
         <div class="summary">查看python版本/更新pip $ python3 --version $ pip install --upgrade pip 安装 pip install pymongo 连接mongodb from pymongo import MongoClient # 格式化输出 from pprint import pprint client = MongoClient(&#39;mongodb://localhost:27017/&#39;) # 指定数据库 db = client.wangyi # 指定集合 collection = db.playlist 插入 # 插入单条 result = …</div>
     
 </div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-operating-the-mysql/">Python基础：操作Mysql</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-16</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">导入pymysql import pymysql.cursors 连接数据库 import pymysql.cursors def connect(): return pymysql.connect(host=&#39;localhost&#39;, port=3306, user=&#39;root&#39;, password=&#39;386mysql.&#39;, database=&#39;test&#39;, charset=&#39;utf8mb4&#39;, cursorclass=pymysql.cursors.DictCursor) 插入数据 def insert(): …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-reading-and-writing-csv/">Python基础：读写CSV</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-15</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">CSV (Comma Separated Values)，逗号分隔值，有时也称为字符分隔值，因为分隔字符也可以不是逗号。
-引入python csv import csv 使用csv reader读取 contacts.csv
-10,jim,18614023231 11,tom,18614023232 12,mike,18614023233 with open(contacts.csv,newline=&#39;&#39;) as csvfile: reader=csv.reader(csvfile,delimiter=&#39;,&#39;) for row in reader: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-sending-a-network-request/">Python基础：发送网络请求</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-14</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">安装 pip install requests 导入 import requests 发送get请求 r = requests.get(&#39;http://www.baidu.com&#39;) r.status_code #200 r.text r.encoding r.cookies r.headers r.headers[&#39;content-type&#39;] 发送post请求（自定义头部） headers = { &#39;Authorization&#39;: &#39;bearer …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-exception-handling/">Python基础：异常处理</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-13</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">触发异常 创建 division.py 文件
-result = 2 / 0 print(result) 程序报错：
-Traceback (most recent call last): File &#34;division.py&#34;, line 1, in &lt;module&gt; result = 2 / 0 ZeroDivisionError: division by zero 捕获异常 try: result = 2 / 0 print(result) except ZeroDivisionError: print(&#39;除数不能为0&#39;) # output: 除数不 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-reading-and-writing-file/">Python基础：文件读写</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-10</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">准备工作 1、文件结构
-python_work（目录） -- hello.txt -- read_all.py -- read_by_line.py -- write_file.py -- append_file.py 2、创建hello.txt，内容如下：
-hello world hello tomorrow hello time hello myself 读取整个文件 创建read_all.py，内容如下：
-with open(&#39;hello.txt&#39;) as file_reader: content = file_reader.read() print(content) 逐 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-class/">Python基础：类</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-09</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建类 创建 animal.py 文件，定义动物类。
-class Animal: &#34;&#34;&#34;初始化方法&#34;&#34;&#34; def __init__(self, name, age): self.name = name self.age = age &#34;&#34;&#34;方法eat&#34;&#34;&#34; def eat(self): print(self.name.title() + &#39; &#39; + &#39;is eating.&#39;) &#34;&#34;&#34;方法run&#34;&#34;&#34; def …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-function/">Python基础：函数</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-08</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">定义函数 # 定义函数 def hello(): print(&#39;hello world!&#39;) # 调用函数 hello() # Prints out: hello world! 参数传递 1、设置参数
-def hello(name): print(&#39;hello %s&#39; % name) temp = hello(&#39;jack&#39;) # Prints out: hello jack print(temp) # Prints out: None def sum(a, b): return a + b sum(1, 2) # Prints out: 3 2、 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-baisc-tuple/">Python基础：元组</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-07</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建元组 # 定义空元组 t1 = () print(t1) # Prints out: () print(type(t1)) # Prints out: &lt;class &#39;tuple&#39;&gt; # 定义一元组 t2 = (2,) print(t2) # Prints out: (2,) print(type(t2)) # Prints out: &lt;class &#39;tuple&#39;&gt; # 定义三元组 t3 = (30, 10, 55) print(t3) # Prints out: (30, 10, 55) print(type(t3)) # …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-dict/">Python基础：字典</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-06</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建字典 1、使用{}字面量
-person = { &#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39; } print(person) # Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;} 2、使用内置函数dict
-person = dict(id=1, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-set/">Python基础：集合</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-05</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">集合特性 集合（set）是一个无序的不重复元素序列。
-确定性。 互异性。 无序性。 创建集合 1、使用大括号 {} 创建
-colors = { &#39;red&#39;, &#39;green&#39;, &#39;blue&#39; } print(colors) # Prints out: {&#39;green&#39;, &#39;red&#39;, &#39;blue&#39;} numbers = { 1, 2, 3, 3, 4 } print(numbers) # Prints out: {1, 2, 3, 4} 2、使用 set() 函数创建
-colors = …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-statement/">Python基础：语句</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">if语句 1、if
-print(&#39;请输入用户名：&#39;) name = input() if name == &#39;peng&#39;: print(&#39;登录成功&#39;) 2、if&hellip;else
-print(&#39;请输入登录用户名：&#39;) name = input() print(&#39;请输入登录密码：&#39;) password = input() if name == &#39;admin&#39; and password == &#39;123456&#39;: print(&#39;登录成功!&#39;) else: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-list/">Python基础：列表</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-03</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建列表 1、使用[]字面量
-numbers = [1,3,5,7,9,10] print(numbers) # Prints out: [1, 3, 5, 7, 9, 10] 2、使用list()函数创建
-numbrers = list((1,3,5,7,9,10)) print(numbers) # Prints out: [1, 3, 5, 7, 9, 10] str = list(&#39;python&#39;) print(str) # Prints out: [&#39;p&#39;, &#39;y&#39;, &#39;t&#39;, &#39;h&#39;, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-string/">Python基础：字符串</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-03</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建字符串 使用单引号&rsquo; &rsquo; 或 双引号 &quot; &quot; 来创建字符串
-str1 = &#34;Jack&#34; str2 = &#39;Jim&#39; 字符串操作 1、 字符串索引访问
-message = &#39;hello&#39; print(message[0]) # Prints out: h print(message[1]) # Prints out: e print(message[-1]) # Prints out: o print(message[-2]) # Prints out: l print(message[5]) # …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-user-input/">Python基础：用户输入</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-02</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">接受用户名问好 name = input(&#39;Please enter your name: &#39;) print(&#39;Hello,&#39; + name + &#39;!&#39;) 接受一个数值 age = input(&#39;How old are you? &#39;) if (age.isdigit()): if (int(age) &gt; 18): print(&#34;You&#39;re not a kid anymore.&#34;) else: print(&#34;You&#39;re just a kid.&#34;) else: …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/python-basic-hello-world/">Python基础：输出Hello World</a>
-    </div><div class="post-meta">
-    <div class="date">2020-11-02</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-        </div>
-</div>
-
-        <div class="summary">创建hello_world.py文件 print(&#34;Hello World&#34;) 运行 python3 hello_world.py # output: Hello World </div>
-    
-</div>
 
         </section>
         
@@ -438,19 +208,19 @@ message = &#39;hello&#39; print(message[0]) # Prints out: h print(message[1]) # 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

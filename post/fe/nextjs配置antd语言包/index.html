@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="需求">需求</h2>
+        <div class="content"><h2 id="需求">需求</h2>
 <p>antd 目前的默认文案是英文，我们需要使用中文。</p>
 <h2 id="nextjs自定义-app">nextjs自定义 App</h2>
 <p>创建./pages/_app.js</p>
@@ -70,28 +70,24 @@
 <p>自定义 App<br>
 <a href="https://www.nextjs.cn/docs/advanced-features/custom-app">https://www.nextjs.cn/docs/advanced-features/custom-app</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

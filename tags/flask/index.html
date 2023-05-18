@@ -29,21 +29,6 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/flask-web-development-redirect-abort-notfound/">Flask Web开发：重定向,终止响应,错误页</a>
-    </div><div class="post-meta">
-    <div class="date">2021-02-25</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/python/" rel="tag">Python</a>
-                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
-        </div>
-</div>
-
-        <div class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
         <a href="/post/flask-web-development-session-implements-simple-login/">Flask Web开发：Session实现简单登录</a>
     </div><div class="post-meta">
     <div class="date">2021-02-25</div>
@@ -56,6 +41,21 @@
 
         <div class="summary">设置密钥 app.secret_key = b&#39;_5#y2L&#34;F4Q8z\n\xec]/&#39; 生成随机密钥：
 $ python -c &#39;import os; print(os.urandom(16))&#39; 首页 from flask import Flask, request, redirect, url_for, session, render_template from markupsafe import escape app = Flask(__name__) app.secret_key = &#39;nimei&#39; …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/flask-web-development-redirect-abort-notfound/">Flask Web开发：重定向,终止响应,错误页</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-25</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/python/" rel="tag">Python</a>
+                <a class="link" href="/tags/flask/" rel="tag">Flask</a>
+        </div>
+</div>
+
+        <div class="summary">重定向 from flask import abort, redirect, url_for @app.route(&#39;/welcome&#39;) def welcome(): return redirect(url_for(&#39;login&#39;)) 终止响应 from flask import abort, redirect, url_for @app.route(&#39;/login&#39;) def login(): abort(401) 404页面 from flask import render_template @app.errorhandler(404) …</div>
     
 </div>
 <div class="item">
@@ -133,19 +133,19 @@ Flask 1.0.2 Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 05:52:31) [GCC 4.2.1 C
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

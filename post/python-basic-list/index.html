@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="创建列表">创建列表</h2>
+        <div class="content"><h2 id="创建列表">创建列表</h2>
 <p>1、使用[]字面量</p>
 <pre tabindex="0"><code>numbers = [1,3,5,7,9,10]
 print(numbers) # Prints out: [1, 3, 5, 7, 9, 10]
@@ -123,28 +123,24 @@ print(len(list1)) # Prints out: 5
 list1.clear()
 print(list1) # Prints out: []
 </code></pre></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="查看python版本更新pip">查看python版本/更新pip</h2>
+        <div class="content"><h2 id="查看python版本更新pip">查看python版本/更新pip</h2>
 <pre tabindex="0"><code>$ python3 --version
 $ pip install --upgrade pip
 </code></pre><h2 id="安装">安装</h2>
@@ -118,28 +118,24 @@ print(result)
 <p>getting started with python and mongodb <br>
 <a href="https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb">https://www.mongodb.com/blog/post/getting-started-with-python-and-mongodb</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

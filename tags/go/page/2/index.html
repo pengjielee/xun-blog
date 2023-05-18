@@ -29,150 +29,6 @@
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/golang/go%E5%90%88%E5%B9%B6%E6%95%B0%E7%BB%84%E5%92%8C%E9%93%BE%E8%A1%A8/">Go合并数组和链表</a>
-    </div><div class="post-meta">
-    <div class="date">2023-03-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">合并两个有序数组 /* nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 */ func mergeArr(nums1 []int, m int, nums2 []int, n int) { p := m - 1 q := n - 1 k := len(nums1) - 1 for p &gt;= 0 &amp;&amp; q &gt;= 0 { if nums1[p] &gt; nums2[q] { nums1[k] = nums1[p] p -= 1 } else { nums1[k] = nums2[q] q -= 1 } k -= …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/go%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91/">Go递归遍历二叉树</a>
-    </div><div class="post-meta">
-    <div class="date">2023-03-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">type TreeNode struct { Val int Left *TreeNode Right *TreeNode } 前序遍历 func preorderTraversal(root *TreeNode) []int { var result []int preorder(root, &amp;result) return result } func preorder(root *TreeNode, output *[]int) { if root != nil { *output = append(*output, root.Val) preorder(root.Left, …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/go%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E6%95%B0/">Go判断回文数</a>
-    </div><div class="post-meta">
-    <div class="date">2023-03-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">解法一
-func isPalindrome(x int) bool { //负数不是回文数 if x &lt; 0 { return false } if x%10 == 0 &amp;&amp; x != 0 { return false } arr := make([]int, 0, 32) for x &gt; 0 { arr = append(arr, x%10) x = x / 10 } for i, j := 0, len(arr)-1; i &lt;= j; i, j = i+1, j-1 { if arr[i] != arr[j] { return false } } …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/go%E5%AE%9E%E7%8E%B0%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Go实现二分查找</a>
-    </div><div class="post-meta">
-    <div class="date">2023-03-20</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">二分查找 需要注意的三点：
-循环退出条件，注意是 low &lt;= high，而不是 low &lt; high。 mid 的取值，mid := low + (high-low)/2 low 和 high 的更新。low = mid + 1，high = mid - 1。 package main import ( &#34;fmt&#34; ) func main() { s1 := []int{1, 3, 4, 6, 9} fmt.Println(binarySearch(s1, 6)) //3 } func binarySearch(nums []int, target int) …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/008.go%E8%AF%AD%E8%A8%80switch%E8%AF%AD%E5%8F%A5/">008.Go语言switch语句</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">问好 package main import ( &#34;fmt&#34; ) func main() { var name string fmt.Printf(&#34;请输入姓名：&#34;) fmt.Scanln(&amp;name) switch name { case &#34;jim&#34;: fmt.Println(&#34;你好 &#34; + name) case &#34;tom&#34;: fmt.Println(&#34;hello &#34; + name) case &#34;mike&#34;: fmt.Println(&#34;hi &#34; + …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/007.go%E8%AF%AD%E8%A8%80%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/">007.Go语言循环语句</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">计算 1 到 10 的数字之和 package main import ( &#34;fmt&#34; ) func main() { var sum = 0 for i := 0; i &lt;= 10; i++ { sum += i } fmt.Println(sum) } sum 小于 10 的时候计算 sum 自相加后的值 package main import &#34;fmt&#34; func main() { //sum 小于 10 的时候计算 sum 自相加后的值 sum := 1 for sum &lt;= 10 { sum += sum } …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/006.go%E8%AF%AD%E8%A8%80%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">006.Go语言条件语句</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">判断用户年龄 package main import ( &#34;fmt&#34; ) func main() { var age int fmt.Printf(&#34;请输入年龄：&#34;) fmt.Scanln(&amp;age) if age &gt;= 18 { fmt.Println(&#34;您已成年，可以上网。&#34;) } else { fmt.Println(&#34;未成人不能上网！&#34;) } } </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/005.go%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/">005.Go获取用户输入</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">从控制台读取输入 方式1：
-package main import ( &#34;fmt&#34; ) func main() { var name string var age int fmt.Printf(&#34;请输入姓名：&#34;) fmt.Scanln(&amp;name) fmt.Printf(&#34;请输入年龄：&#34;) fmt.Scanln(&amp;age) fmt.Printf(&#34;输入的姓名：%v, 年龄:%v \n&#34;, name, age) } 方式2：
-package main import ( &#34;fmt&#34; ) func …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/004.go%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E/">004.Go语言变量声明</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">使用var关键字，后跟所需的名称以及变量将保存的值的类型。 var 变量名称 变量类型 //声明字符串变量 var message string //声明int变量 var number int //声明bool变量 var flag bool 声明变量并赋值 var message string = &#34;hello world&#34; 同一语句中为多个变量赋值 var width, height, name = 10, 20, &#34;jack&#34; 如果在声明变量的同时为其赋值，通常可以在声明中省略变量类型。 var width = 10 var height = 30 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/golang/003.go%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">003.Go语言数据类型</a>
-    </div><div class="post-meta">
-    <div class="date">2022-12-04</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/go/" rel="tag">Go</a>
-        </div>
-</div>
-
-        <div class="summary">字符串 package main import ( &#34;fmt&#34; &#34;reflect&#34; ) func main() { //定义字符串变量 var message string //打印变量类型 fmt.Println(reflect.TypeOf(message)) //string //打印变量 fmt.Println(message) //&#34;&#34;，默认为空字符串 message = &#34;Hello World&#34; fmt.Println(message) //Hello World } int类型 package main …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
         <a href="/post/golang/002.%E7%AC%AC%E4%B8%80%E4%B8%AAgo%E7%A8%8B%E5%BA%8F/">002.第一个Go程序.md</a>
     </div><div class="post-meta">
     <div class="date">2022-12-04</div>
@@ -220,19 +76,19 @@ http://c.biancheng.net/golang/ …</div>
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

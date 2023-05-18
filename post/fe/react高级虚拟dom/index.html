@@ -30,7 +30,7 @@
     <div class="date">2021-03-13</div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="什么是虚拟dom">什么是虚拟DOM</h2>
+        <div class="content"><h2 id="什么是虚拟dom">什么是虚拟DOM</h2>
 <p>虚拟DOM就是一个普通的 JavaScript 对象，包含了 tag、props、children 三个属性。</p>
 <p>虚拟 DOM 的优势是：</p>
 <ul>
@@ -220,28 +220,24 @@ Output:
 <p>build-your-own-react<br>
 <a href="https://pomb.us/build-your-own-react/">https://pomb.us/build-your-own-react/</a></p>
 </div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

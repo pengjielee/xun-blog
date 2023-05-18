@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="渲染模板">渲染模板</h2>
+        <div class="content"><h2 id="渲染模板">渲染模板</h2>
 <p>1、创建模板目录 <code>templates</code>，及模板文件</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>$ mkdir templates <span style="color:#f92672">&amp;&amp;</span> cd templates 
 </span></span><span style="display:flex;"><span>$ touch hello.html
@@ -124,28 +124,24 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> render_template(<span style="color:#e6db74">&#39;upload.html&#39;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Upload&#34;</span>)
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

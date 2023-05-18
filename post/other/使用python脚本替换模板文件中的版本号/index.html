@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="需求">需求</h2>
+        <div class="content"><h2 id="需求">需求</h2>
 <p>后端模板文件引用前端资源，发布时，使用Python脚本自动替换前端资源的版本。</p>
 <h2 id="准备工作">准备工作</h2>
 <p>前端使用Webpack构建，每次构建完成时，会生成一个buildfile.json</p>
@@ -171,28 +171,24 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(BUILD_FILES):
 </span></span><span style="display:flex;"><span>		run()
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>

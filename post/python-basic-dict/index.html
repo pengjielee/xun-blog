@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content" id="content"><h2 id="创建字典">创建字典</h2>
+        <div class="content"><h2 id="创建字典">创建字典</h2>
 <p>1、使用{}字面量</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>person <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;id&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;name&#39;</span>: <span style="color:#e6db74">&#39;peng&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;address&#39;</span>: <span style="color:#e6db74">&#39;Beijing&#39;</span> }
 </span></span><span style="display:flex;"><span>print(person) <span style="color:#75715e"># Prints out: {&#39;id&#39;: 1, &#39;name&#39;: &#39;peng&#39;, &#39;age&#39;: 20, &#39;address&#39;: &#39;Beijing&#39;}</span>
@@ -95,28 +95,24 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> counter<span style="color:#f92672">.</span>items():
 </span></span><span style="display:flex;"><span>  print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;字母</span><span style="color:#e6db74">{</span>key<span style="color:#e6db74">}</span><span style="color:#e6db74">出现了</span><span style="color:#e6db74">{</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">次.&#39;</span>)
 </span></span></code></pre></div></div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-    		let size = 16;
-    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
-        document.querySelector("#increase").onclick = function(){
-        	size++;
-        	content.style.fontSize = `${size}px`;
-        }
-        document.querySelector("#decrease").onclick = function(){
-        	size--;
-        	content.style.fontSize = `${size}px`;
-        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
 </script>
 </body>
