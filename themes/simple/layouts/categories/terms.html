@@ -5,7 +5,7 @@
             {{ range .Pages.ByPublishDate.Reverse }}
                 <div class="item">
                     <div class="title">
-                        <a href="{{ .RelPermalink }}">{{ .Title | upper }}</a>
+                        <a href="{{ .RelPermalink }}">{{ strings.FirstUpper .Title  }}</a>
                     </div>
                     {{- partial "post_meta.html" . -}}
                 </div>

@@ -9,7 +9,7 @@
                 {{- range $key, $value := $terms }}
                     <div class="item">
                         <a class="terms-link" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
-                            <span class="text">{{ $value.Term }}</span>
+                            <span class="text">{{ strings.FirstUpper $value.Term }}</span>
                             <span class="count">({{ len $value.Pages }})</span>
                         </a>
                     </div>

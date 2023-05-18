@@ -1,6 +1,6 @@
 {{ define "main" }}
     <div class="page page-list">
-        <h1 class="title">{{ .Title }}</h1>
+        <h1 class="title">{{ strings.FirstUpper .Title }}</h1>
         <section class="list">
             {{ range .Paginator.Pages }}
                 {{- partial "post_item.html" . -}}

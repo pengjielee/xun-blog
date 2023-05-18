@@ -1,5 +1,5 @@
 ---
-title: 'redis基础'
+title: 'Redis基础'
 date: 2023-03-24T10:34:51+08:00
 keywords: ''
 description: ''
