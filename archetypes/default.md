@@ -4,8 +4,7 @@ date: {{ .Date }}
 keywords: ''
 description: ''
 tags: ['Go']
-categories: []
+categories: ''
 draft: true
-difficulty: ''
 ---
 

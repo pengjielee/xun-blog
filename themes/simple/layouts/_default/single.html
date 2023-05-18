@@ -4,10 +4,6 @@
             <h1 class="title">{{ .Title }}</h1>
             {{- partial "post_meta.html" . -}}
         </header>
-        <div class="content" id="content">{{ .Content }}</div>
-        <div class="controls">
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
-        </div>
+        <div class="content">{{ .Content }}</div>
     </div>
 {{ end }}
