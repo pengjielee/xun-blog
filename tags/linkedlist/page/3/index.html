@@ -25,44 +25,9 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="title">linkedlist</h1>
+        <h1 class="title">Linkedlist</h1>
         <section class="list">
             <div class="item">
-    <div class="title">
-        <a href="/post/leetcode/160.%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8/">160.相交链表</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-21</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
-        </div>
-</div>
-
-        <div class="summary">题目 编写一个程序，找到两个单链表相交的起始节点。
-如下面的两个链表： A: a1 -&gt; a2 -&gt; c1 -&gt; c2 -&gt; c3 B: b1 -&gt; b2 -&gt; b3 -&gt; c1 -&gt; c2 -&gt; c3
-在节点 c1 开始相交。
-示例 1： A: 4 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 B: 5 -&gt; 0 -&gt; 1 -&gt; 8 -&gt; 4 -&gt; 5 输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_148.%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">148.排序链表</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-21</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
-进阶： 你可以在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序吗？ 示例 1： 4 -&gt; 2 -&gt; 1 -&gt; 3 排序后： 1 -&gt; 2 -&gt; 3 -&gt; 4 输入：head = [4,2,1,3] 输出：[1,2,3,4] 示例 2： -1 -&gt; 5 -&gt; 3 -&gt; 4 -&gt; 0 排序后： 1 -&gt; 0 -&gt; 3 -&gt; 4 -&gt; 5 输入：head = [-1,5,3,4,0] 输 …</div>
-    
-</div>
-<div class="item">
     <div class="title">
         <a href="/post/leetcode/083.%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">083.删除排序链表中的重复元素</a>
     </div><div class="post-meta">
@@ -219,13 +184,34 @@ JS实现 参考1
 /*function ListNode(x){ this.val = x; this.next = null; }*/ function EntryNodeOfLoop(pHead) { // write code here //至少3个节点才能成环 if (!pHead || !pHead.next || !pHead.next.next) { …</div>
     
 </div>
+<div class="item">
+    <div class="title">
+        <a href="/post/delete-duplicate-nodes-in-the-linked-list/">56.删除链表中重复的结点</a>
+    </div><div class="post-meta">
+    <div class="date">2021-02-09</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/linkedlist/" rel="tag">LinkedList</a>
+        </div>
+        <div class="category">
+            <label class="label">Category：</label>
+            <a class="link" href="/categories/swordoffer/" rel="category">swordoffer</a>
+        </div>
+</div>
+
+        <div class="summary">题目 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5
+思路 非递归的代码：
+1、首先添加一个头节点，以方便碰到第一个，第二个节点就相同的情况；
+2、设置 pre ，last 指针， pre指针指向当前确定不重复的那个节点，而last指针相当于工作指针，一直往后面搜索。
+JS实现 // 非递归法 function deleteDuplication(pHead) { if (!pHead || !pHead.next) { …</div>
+    
+</div>
 
         </section>
         
     <div class="pagination">
             <a class="pagination__item pagination__item--prev" href="/tags/linkedlist/page/2/">Prev</a>
-        <span class="pagination__item pagination__item--current">3/4</span>
-            <a class="pagination__item pagination__item--next" href="/tags/linkedlist/page/4/">Next</a>
+        <span class="pagination__item pagination__item--current">3/3</span>
     </div>
 
     </div>

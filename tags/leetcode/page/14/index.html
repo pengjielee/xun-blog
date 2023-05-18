@@ -25,186 +25,124 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="title">leetcode</h1>
+        <h1 class="title">Leetcode</h1>
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/draft/leetcode/_040.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8Cii/">040.组合总和II</a>
+        <a href="/post/leetcode/054.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">054.螺旋矩阵</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-23</div>
+    <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
-candidates 中的每个数字在每个组合中只能使用一次。
-说明：
-所有数字（包括目标数）都是正整数。 解集不能包含重复的组合。 示例：
-示例 1: 输入: candidates = [10,1,2,7,6,1,5], target = 8, 所求解集为: [ [1, 7], [1, 2, 5], [2, 6], [1, 1, 6] ] 示例 2: 输入: candidates = [2,5,2,1,2], target = 5, 所求解集为: [ …</div>
+        <div class="summary">题目 给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
+示例 1： 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]] 1 2 3 4 5 6 7 8 9 输出：[1,2,3,6,9,8,7,4,5] 示例 2： 输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]] 1 2 3 4 5 6 7 8 9 10 11 12 输出：[1,2,3,4,8,12,11,10,9,5,6,7] 提示： m == matrix.length n == matrix[i].length 1 …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/039.%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8C/">039.组合总和</a>
+        <a href="/post/leetcode/059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5ii/">059.螺旋矩阵II</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-23</div>
+    <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
-candidates 中的数字可以无限制重复被选取。
-说明：
-所有数字（包括 target）都是正整数。 解集不能包含重复的组合。 示例：
-示例 1： 输入：candidates = [2,3,6,7], target = 7, 所求解集为： [ [7], [2,2,3] ] 示例 2： 输入：candidates = [2,3,5], target = 8, 所求解集为： [ [2,2,2,2], [2,3,3], [3,5] ] 提 …</div>
+        <div class="summary">题目 给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+示例 1： 输入：n = 3 输出：[[1,2,3],[8,9,4],[7,6,5]]
+示例 2： 输入：n = 1 输出：[[1]] 提示：
+1 &lt;= n &lt;= 20
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/spiral-matrix-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * @param {number} n * …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/061.%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">061.旋转链表</a>
+        <a href="/post/leetcode/026.%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">026.删除有序数组中的重复项</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
+    <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动 k 个位置。
-示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5
-rotate 1: 5 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 rotate 2: 4 -&gt; 5 -&gt; 1 -&gt; 2 -&gt; 3
-输入：head = [1,2,3,4,5], k = 2 输出：[4,5,1,2,3]
-示例 2： 0 -&gt; 1 -&gt; 2
-rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/024.%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">024.两两交换链表中的节点</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-示例 1： 输入：head = [1,2,3,4] 输出：[2,1,4,3] 示例 2： 输入：head = [] 输出：[] 示例 3： 输入：head = [1] 输出：[1] 提示：
-链表中节点的数目在范围 [0, 100] 内 0 &lt;= Node.val &lt;= 100 进阶：你能在不修改链表节点值的情况下解决这个问题吗?（也就是说，仅修改节点本身。）
-来源：力扣（LeetCode） 链 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/019.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E7%BB%93%E7%82%B9/">019.删除链表的倒数第N个结点</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
                 <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
         </div>
 </div>
 
-        <div class="summary">题目 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
-进阶：你能尝试使用一趟扫描实现吗？
-示例 1： 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 //删除倒数第2个后： 1 -&gt; 2 -&gt; 3 -&gt; 5 输入：head = [1,2,3,4,5], n = 2 输出：[1,2,3,5] 示例 2： 输入：head = [1], n = 1 输出：[] 示例 3： 输入：head = [1,2], n = 1 输出：[1] 提示：
-链表中结点的数目为 sz 1 &lt;= sz &lt;= 30 0 &lt;= Node.val …</div>
+        <div class="summary">题目 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
+不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+说明:
+为什么返回数值是整数，但输出的答案是数组呢?
+请注意，输入数组是以「引用」方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
+你可以想象内部操作如下:
+// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝 int len = removeDuplicates(nums); // 在函数里修改输入数组对于调用者是可见的。 // 根据你的函数返回的长 …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/002.%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/">002.两数相加</a>
+        <a href="/post/leetcode/001.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">001.两数之和</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
+    <div class="date">2021-03-16</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
-请你将两个数相加，并以相同形式返回一个表示和的链表。
-你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
-示例 1： 2 -&gt; 4 -&gt; 3 + 5 -&gt; 6 -&gt; 4 ------------- = 7 -&gt; 0 -&gt; 8 输入：l1 = [2,4,3], l2 = [5,6,4] 输出：[7,0,8] 解释：342 + 465 = 807. 示例 2： 输入：l1 = [0], l2 = [0] 输出：[0] 示例 3： …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/082.%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0ii/">082.删除排序链表中的重复元素II</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-        </div>
-</div>
-
-        <div class="summary">题目 存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。
-返回同样按升序排列的结果链表。
-示例 1： 输入：head = [1,2,3,3,4,4,5] 输出：[1,2,5] 示例 2： 输入：head = [1,1,1,2,3] 输出：[2,3] 提示：
-链表中节点数目在范围 [0, 300] 内 -100 &lt;= Node.val &lt;= 100 题目数据保证链表已经按升序排列 来源：力扣（LeetCode） 链 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8ii/">142.环形链表II</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
-为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
-说明：不允许修改给定的链表。
-进阶：
-你是否可以使用 O(1) 空间解决此题？ 示例：
-示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 -&gt; 2 输入：head = [3,2,0,-4], pos = 1 输出：返回索引为 1 的链表节点 解释：链表中有一个环，其尾部连接到第二 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/">141.环形链表</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
-                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
                 <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/sum/" rel="tag">sum</a>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个链表，判断链表中是否有环。
-如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
-如果链表中存在环，则返回 true 。 否则，返回 false 。
-进阶：
-你能用 O(1)（即，常量）内存解决此问题吗？ 示例：
-示例 1： 3 -&gt; 2 -&gt; 0 -&gt; -4 [-&gt; 2] 输入：head = [3,2,0,-4], …</div>
+        <div class="summary">题目 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+你可以按任意顺序返回答案。
+示例 1： 输入：nums = [2,7,11,15], target = 9 输出：[0,1] 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。 示例 2： 输入：nums = [3,2,4], target = 6 输出：[1,2] 示例 3： 输入：nums = [3,3], target = 6 输出：[0,1]  …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/143.%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/">143.重排链表</a>
+        <a href="/post/leetcode/155.%E6%9C%80%E5%B0%8F%E6%A0%88/">155.最小栈</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-22</div>
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
+                <a class="link" href="/tags/design/" rel="tag">design</a>
+        </div>
+</div>
+
+        <div class="summary">题目 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
+push(x) —— 将元素 x 推入栈中。 pop() —— 删除栈顶的元素。 top() —— 获取栈顶元素。 getMin() —— 检索栈中的最小元素。 示例:
+输入： [&#34;MinStack&#34;,&#34;push&#34;,&#34;push&#34;,&#34;push&#34;,&#34;getMin&#34;,&#34;pop&#34;,&#34;top&#34;,&#34;getMin&#34;] [[],[-2],[0],[-3],[],[],[],[]] 输出： …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/020.%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/">020.有效的括号</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个只包括 &lsquo;(&rsquo;，&rsquo;)&rsquo;，&rsquo;{&rsquo;，&rsquo;}&rsquo;，&rsquo;[&rsquo;，&rsquo;]&rsquo; 的字符串 s ，判断字符串是否有效。
+有效字符串需满足：
+左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 示例 1： 输入：s = &#34;()&#34; 输出：true 示例 2： 输入：s = &#34;()[]{}&#34; 输出：true 示例 3： 输入：s = &#34;(]&#34; 输出：false 示例 4： 输入：s = …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/083.%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">083.删除排序链表中的重复元素</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
@@ -212,9 +150,66 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 …</div>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个单链表 L：L0→L1→…→Ln-1→Ln ， 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-示例 1: 给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3. 示例 2: 给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3. 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/reorder-list 著作权归领扣网 …</div>
+        <div class="summary">题目 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
+示例 1: 输入: 1-&gt;1-&gt;2 输出: 1-&gt;2 示例 2: 输入: 1-&gt;1-&gt;2-&gt;3-&gt;3 输出: 1-&gt;2-&gt;3 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * Definition for singly-linked list. * …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/021.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">021.合并两个有序链表</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/linkedlist/" rel="tag">linkedlist</a>
+                <a class="link" href="/tags/merge/" rel="tag">merge</a>
+        </div>
+</div>
+
+        <div class="summary">题目 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+示例 1： 输入：l1 = [1,2,4], l2 = [1,3,4] 输出：[1,1,2,3,4,4] 示例 2： 输入：l1 = [], l2 = [] 输出：[] 示例 3： 输入：l1 = [], l2 = [0] 输出：[0] 提示：
+两个链表的节点数目范围是 [0, 50] -100 &lt;= Node.val &lt;= 100 l1 和 l2 均按 非递减顺序 排列 来源：力扣（LeetCode） 链 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/069.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">069.x的平方根</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binary-search/" rel="tag">binary-search</a>
+        </div>
+</div>
+
+        <div class="summary">题目 实现 int sqrt(int x) 函数。
+计算并返回 x 的平方根，其中 x 是非负整数。
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+示例 1: 输入: 4 输出: 2 示例 2: 输入: 8 输出: 2 说明: 8 的平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/sqrtx 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+思路 由于 x 平方根的整数部分ans 是满足 k^2 &lt;= x 的最大 k 值，因 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/035.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">035.搜索插入位置</a>
+    </div><div class="post-meta">
+    <div class="date">2021-03-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+你可以假设数组中无重复元素。
+示例 1: 输入: [1,3,5,6], 5 输出: 2
+示例 2: 输入: [1,3,5,6], 2 输出: 1
+示例 3: 输入: [1,3,5,6], 7 输出: 4
+示例 4: 输入: [1,3,5,6], 0 输出: 0
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/search-insert-position 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注 …</div>
     
 </div>
 
@@ -222,8 +217,7 @@ rotate 1: 2 -&gt; 1 -&gt; 0 rotate 2: 1 -&gt; 2 -&gt; 0 …</div>
         
     <div class="pagination">
             <a class="pagination__item pagination__item--prev" href="/tags/leetcode/page/13/">Prev</a>
-        <span class="pagination__item pagination__item--current">14/21</span>
-            <a class="pagination__item pagination__item--next" href="/tags/leetcode/page/15/">Next</a>
+        <span class="pagination__item pagination__item--current">14/14</span>
     </div>
 
     </div>

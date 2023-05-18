@@ -25,181 +25,181 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="title">leetcode</h1>
+        <h1 class="title">Leetcode</h1>
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/leetcode/193.%E6%9C%89%E6%95%88%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81/">193.有效电话号码</a>
+        <a href="/post/leetcode/057.%E6%8F%92%E5%85%A5%E5%8C%BA%E9%97%B4/">057.插入区间</a>
     </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
+    <div class="date">2021-07-14</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/bash/" rel="tag">bash</a>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个包含电话号码列表（一行一个电话号码）的文本文件 file.txt，写一个单行 bash 脚本输出所有有效的电话号码。
-你可以假设一个有效的电话号码必须满足以下两种格式： (xxx) xxx-xxxx 或 xxx-xxx-xxxx。（x 表示一个数字）
-你也可以假设每行前后没有多余的空格字符。
+        <div class="summary">题目 给你一个 无重叠的 ，按照区间起始端点排序的区间列表。
+在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。
+示例 1： 输入：intervals = [[1,3],[6,9]], newInterval = [2,5] 输出：[[1,5],[6,9]] 示例 2： 输入：intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8] 输出：[[1,2],[3,10],[12,16]] 解释：这是因为新的区间 [4,8] 与 [3,5],[6,7],[8,10] 重叠。  …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/056.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">056.合并区间</a>
+    </div><div class="post-meta">
+    <div class="date">2021-07-14</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/merge/" rel="tag">merge</a>
+        </div>
+</div>
+
+        <div class="summary">题目 以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+示例 1： 输入：intervals = [[1,3],[2,6],[8,10],[15,18]] 输出：[[1,6],[8,10],[15,18]] 解释：区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2： 输入：intervals = [[1,4],[4,5]] 输出：[[1,5]] 解释：区间 [1,4] 和 [4,5] 可被视为重叠区间。 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/097.%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/">097.交错字符串</a>
+    </div><div class="post-meta">
+    <div class="date">2021-07-14</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定三个字符串 s1、s2、s3，请你帮忙验证 s3 是否是由 s1 和 s2 交错 组成的。
+两个字符串 s 和 t 交错 的定义与过程如下，其中每个字符串都会被分割成若干 非空 子字符串：
+s = s1 + s2 + &hellip; + sn t = t1 + t2 + &hellip; + tm |n - m| &lt;= 1 交错 是 s1 + t1 + s2 + t2 + s3 + t3 + &hellip; 或者 t1 + s1 + t2 + s2 + t3 + s3 + &hellip; 提示：a + b 意味着字符串 a 和 b 连接。</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/099.%E6%81%A2%E5%A4%8D%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">099.恢复二叉搜索树</a>
+    </div><div class="post-meta">
+    <div class="date">2021-07-14</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。
+进阶：使用 O(n) 空间复杂度的解法很容易实现。你能想出一个只使用常数空间的解决方案吗？
+示例 1： 1 / \ 3 null / \ null 2 3 / \ 1 null / \ null 2 输入：root = [1,3,null,null,2] 输出：[3,1,null,null,2] 解释：3 不能是 1 左孩子，因为 3 &gt; 1 。交换 1 和 3 使二叉搜索树有效。 示例 2： 3 / \ 1 4 / \ / null null 2 2 / \ 1 4 / \ …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/016.%E6%9C%80%E6%8E%A5%E8%BF%91%E7%9A%84%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">016.最接近的三数之和</a>
+    </div><div class="post-meta">
+    <div class="date">2021-07-13</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/sum/" rel="tag">sum</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
 示例：
-假设 file.txt 内容如下：
-987-123-4567 123 456 7890 (123) 456-7890 你的脚本应当输出下列有效的电话号码：
-987-123-4567 (123) 456-7890 来源：力扣（LeetCode） 链 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/194.%E8%BD%AC%E7%BD%AE%E6%96%87%E4%BB%B6/">194.转置文件</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/bash/" rel="tag">bash</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个文件 file.txt，转置它的内容。
-你可以假设每行列数相同，并且每个字段由 &rsquo; &rsquo; 分隔。
-示例：
-假设 file.txt 文件内容如下：
-name age alice 21 ryan 30 应当输出：
-name alice ryan age 21 30 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/transpose-file 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-实现 COUNT=`head -1 file.txt | wc -w` for (( i = 1; …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/184.%E9%83%A8%E9%97%A8%E5%B7%A5%E8%B5%84%E6%9C%80%E9%AB%98%E7%9A%84%E5%91%98%E5%B7%A5/">184.部门工资最高的员工</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sql/" rel="tag">sql</a>
-        </div>
-</div>
-
-        <div class="summary">题目 Employee 表包含所有员工信息，每个员工有其对应的 Id, salary 和 department Id。
-+----+-------+--------+--------------+ | Id | Name | Salary | DepartmentId | +----+-------+--------+--------------+ | 1 | Joe | 70000 | 1 | | 2 | Jim | 90000 | 1 | | 3 | Henry | 80000 | 2 | | 4 | Sam | 60000 | 2 | | 5 | Max | 90000 | 1 | …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_185.%E9%83%A8%E9%97%A8%E5%B7%A5%E8%B5%84%E5%89%8D%E4%B8%89%E9%AB%98%E7%9A%84%E6%89%80%E6%9C%89%E5%91%98%E5%B7%A5/">185.部门工资前三高的所有员工</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sql/" rel="tag">sql</a>
-        </div>
-</div>
-
-        <div class="summary">题目 Employee 表包含所有员工信息，每个员工有其对应的工号 Id，姓名 Name，工资 Salary 和部门编号 DepartmentId 。
-+----+-------+--------+--------------+ | Id | Name | Salary | DepartmentId | +----+-------+--------+--------------+ | 1 | Joe | 85000 | 1 | | 2 | Henry | 80000 | 2 | | 3 | Sam | 60000 | 2 | | 4 | Max | 90000 | 1 | | 5 | …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_186._%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8Dii/">186.翻转字符串里的单词II</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 JS实现 </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_187.%E9%87%8D%E5%A4%8D%E7%9A%84dna%E5%BA%8F%E5%88%97/">187.重复的DNA序列</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 所有 DNA 都由一系列缩写为 &lsquo;A&rsquo;，&lsquo;C&rsquo;，&lsquo;G&rsquo; 和 &lsquo;T&rsquo; 的核苷酸组成，例如：&ldquo;ACGAATTCCG&rdquo;。在研究 DNA 时，识别 DNA 中的重复序列有时会对研究非常有帮助。
-编写一个函数来找出所有目标子串，目标子串的长度为 10，且在 DNA 字符串 s 中出现次数超过一次。 示例 1： 输入：s = &#34;AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT&#34; 输 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_188._%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAiv/">188.买卖股票的最佳时机IV</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/stock/" rel="tag">stock</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
-设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
-注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-示例 1： 输入：k = 2, prices = [2,4,1] 输出：2 解释：在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。 示例 2： 输入：k = 2, prices = [3,2,6,5,0,3] 输出：7 解释：在第 2 天 ( …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/180.%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%95%B0%E5%AD%97/">180.连续出现的数字</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sql/" rel="tag">sql</a>
-        </div>
-</div>
-
-        <div class="summary">题目 表：Logs
-+-------------+---------+ | Column Name | Type | +-------------+---------+ | id | int | | num | varchar | +-------------+---------+ id 是这个表的主键。 编写一个 SQL 查询，查找所有至少连续出现三次的数字。
-返回的结果表中的数据可以按 任意顺序 排列。
-查询结果格式如下面的例子所示：
-Logs 表： +----+-----+ | Id | Num | +----+-----+ | 1 | 1 | | 2 | 1 | | 3 | 1 | | …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/181.%E8%B6%85%E8%BF%87%E7%BB%8F%E7%90%86%E6%94%B6%E5%85%A5%E7%9A%84%E5%91%98%E5%B7%A5/">181.超过经理收入的员工</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sql/" rel="tag">sql</a>
-        </div>
-</div>
-
-        <div class="summary">题目 Employee 表包含所有员工，他们的经理也属于员工。每个员工都有一个 Id，此外还有一列对应员工的经理的 Id。
-+----+-------+--------+-----------+ | Id | Name | Salary | ManagerId | +----+-------+--------+-----------+ | 1 | Joe | 70000 | 3 | | 2 | Henry | 80000 | 4 | | 3 | Sam | 60000 | NULL | | 4 | Max | 90000 | NULL | …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/182.%E6%9F%A5%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E7%AE%B1/">182.查找重复的电子邮箱</a>
-    </div><div class="post-meta">
-    <div class="date">2021-07-19</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sql/" rel="tag">sql</a>
-        </div>
-</div>
-
-        <div class="summary">题目 编写一个 SQL 查询，查找 Person 表中所有重复的电子邮箱。
-示例：
-+----+---------+ | Id | Email | +----+---------+ | 1 | a@b.com | | 2 | c@d.com | | 3 | a@b.com | +----+---------+ 根据以上输入，你的查询应返回以下结果：
-+---------+ | Email | +---------+ | a@b.com | +---------+ 说明：所有电子邮箱都是小写字母。
+输入：nums = [-1,2,1,-4], target = 1 输出：2 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。 提示：
+3 &lt;= nums.length &lt;= 10^3 -10^3 &lt;= nums[i] &lt;= 10^3 -10^4 &lt;= target &lt;= 10^4
 来源：力扣（LeetCode） 链 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/189.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/">189.旋转数组</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-26</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+进阶：
+尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。 你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？ 示例 1: 输入: nums = [1,2,3,4,5,6,7], k = 3 输出: [5,6,7,1,2,3,4] 解释: 向右旋转 1 步: [7,1,2,3,4,5,6] 向右旋转 2 步: [6,7,1,2,3,4,5] 向右旋转 3 步: [5,6,7,1,2,3,4] 示例 2: 输入：nums = [-1,-100,3,99], k = 2 输 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/350._%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86ii/">350.两个数组的交集II</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-26</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定两个数组，编写一个函数来计算它们的交集。
+示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明：
+输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 进阶：
+如果给定的数组已经排好序呢？你将如何优化你的算法？ 如果 nums1 的大小比 nums2 小很多，哪种方法更优？ 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/217.%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0/">217.存在重复元素</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-26</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个整数数组，判断是否存在重复元素。
+如果存在一值在数组中出现至少两次，函数返回 true 。如果数组中每个元素都不相同，则返回 false 。
+示例 1: 输入: [1,2,3,1] 输出: true 示例 2: 输入: [1,2,3,4] 输出: false 示例 3: 输入: [1,1,1,3,3,4,3,2,4,2] 输出: true 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/contains-duplicate 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/297.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">297.二叉树的序列化与反序列化</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/design/" rel="tag">design</a>
+        </div>
+</div>
+
+        <div class="summary">题目 序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
+请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。
+提示: 输入输出格式与 LeetCode 目前使用的方式一致，详情请参阅 LeetCode 序列化二叉树的格式。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。
+示例 1： 输入：root = …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/380.%E5%B8%B8%E6%95%B0%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0/">380.常数时间插入、删除和获取随机元素</a>
+    </div><div class="post-meta">
+    <div class="date">2021-05-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/design/" rel="tag">design</a>
+        </div>
+</div>
+
+        <div class="summary">题目 设计一个支持在平均 时间复杂度 O(1) 下，执行以下操作的数据结构。
+insert(val)：当元素 val 不存在时，向集合中插入该项。 remove(val)：元素 val 存在时，从集合中移除该项。 getRandom：随机返回现有集合中的一项。每个元素应该有相同的概率被返回。 示例 :
+// 初始化一个空的集合。 RandomizedSet randomSet = new RandomizedSet(); // 向集合中插入 1 。返回 true 表示 1 被成功地插入。 randomSet.insert(1); // 返回 false ，表示集合中不存在 2 。 …</div>
     
 </div>
 
@@ -207,7 +207,7 @@ Logs 表： +----+-----+ | Id | Num | +----+-----+ | 1 | 1 | | 2 | 1 | | 3 | 1 |
         
     <div class="pagination">
             <a class="pagination__item pagination__item--prev" href="/tags/leetcode/page/2/">Prev</a>
-        <span class="pagination__item pagination__item--current">3/21</span>
+        <span class="pagination__item pagination__item--current">3/14</span>
             <a class="pagination__item pagination__item--next" href="/tags/leetcode/page/4/">Next</a>
     </div>
 

@@ -25,171 +25,206 @@
 </nav>
 
     <div class="page page-list">
-        <h1 class="title">leetcode</h1>
+        <h1 class="title">Leetcode</h1>
         <section class="list">
             <div class="item">
     <div class="title">
-        <a href="/post/leetcode/451.%E6%A0%B9%E6%8D%AE%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E9%A2%91%E7%8E%87%E6%8E%92%E5%BA%8F/">451.根据字符出现频率排序</a>
+        <a href="/post/leetcode/107.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86ii/">107.二叉树的层序遍历II</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
+    <div class="date">2021-04-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sort/" rel="tag">sort</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/bfs/" rel="tag">bfs</a>
+                <a class="link" href="/tags/queue/" rel="tag">queue</a>
         </div>
 </div>
 
-        <div class="summary">题目 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
-示例 1: 输入: &#34;tree&#34; 输出: &#34;eert&#34; 解释: &#39;e&#39;出现两次，&#39;r&#39;和&#39;t&#39;都只出现一次。 因此&#39;e&#39;必须出现在&#39;r&#39;和&#39;t&#39;之前。此外，&#34;eetr&#34;也是一个有效的答案。 示例 2: 输入: &#34;cccaaa&#34; 输出: &#34;cccaaa&#34; 解释: &#39;c&#39;和&#39;a&#39;都出现三次。此外，&#34;aaaccc&#34; …</div>
+        <div class="summary">题目 给定一个二叉树，返回其节点值自底向上的层序遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
+例如：
+给定二叉树 [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 返回其自底向上的层序遍历为： [ [15,7], [9,20], [3] ] 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 1、反转其返回结果（102.二叉树的层 …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/post/leetcode/215.%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%85%83%E7%B4%A0/">215.数组中的第K个最大元素</a>
+        <a href="/post/leetcode/145.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86/">145.二叉树的后序遍历</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
+    <div class="date">2021-04-19</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/sort/" rel="tag">sort</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
         </div>
 </div>
 
-        <div class="summary">题目 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
-示例 1: 输入: [3,2,1,5,6,4] 和 k = 2 输出: 5 解释：排序后：1,2,3,4,5,6，第2大元素是5 示例 2: 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4 输出: 4 解释：排序后：1,2,2,3,3,4,5,5,6，第4大元素是4 说明:
-你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
+        <div class="summary">题目 给定一个二叉树，返回它的 后序 遍历。
+示例:
+输入: [1,null,2,3] 1 \ 2 / 3 输出: [3,2,1] 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/binary-tree-postorder-traversal 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+思路 后序遍历：左 -&gt; 右 -&gt; 根
+JS实现 1、递归实现
+/** * Definition for a binary tree node. * function …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/144.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/">144.二叉树的前序遍历</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+示例 1： 1 \ 2 / 3 输入：root = [1,null,2,3] 输出：[1,2,3] 示例 2： 输入：root = [] 输出：[] 示例 3： 输入：root = [1] 输出：[1] 示例 4： 1 / 2 输入：root = [1,2] 输出：[1,2] 示例 5： 1 \ 2 输入：root = [1,null,2] 输出：[1,2] 提示：
+树中节点数目在范围 [0, 100] 内 -100 &lt;= Node.val &lt;= 100 进阶：递归算法很简单，你可以通过迭代算法完成吗？
+来源：力 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/103.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%94%AF%E9%BD%BF%E5%BD%A2%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/">103.二叉树的锯齿形层序遍历</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/queue/" rel="tag">queue</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
+例如：
+给定二叉树 [3,9,20,null,null,15,7], 3 / \ 9 20 / \ 15 7 返回锯齿形层序遍历如下： [ [3], [20,9], [15,7] ] 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 /** * …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/094.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/">094.二叉树的中序遍历</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-19</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/binarytree/" rel="tag">binarytree</a>
+                <a class="link" href="/tags/stack/" rel="tag">stack</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个二叉树的根节点 root ，返回它的 中序 遍历。
+示例 1： 1 \ 2 / 3 输入：root = [1,null,2,3] 输出：[1,3,2] 示例 2： 输入：root = [] 输出：[] 示例 3： 输入：root = [1] 输出：[1] 示例 4： 1 / 2 输入：root = [1,2] 输出：[2,1] 示例 5： 1 \ 2 输入：root = [1,null,2] 输出：[1,2] 提示：
+树中节点数目在范围 [0, 100] 内 -100 &lt;= Node.val &lt;= 100 进阶:
+递归算法很简单，你可以通过迭代算法完成吗？ 来源：力 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/922.%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84ii/">922.按奇偶排序数组II</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-17</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个非负整数数组 A， A 中一半整数是奇数，一半整数是偶数。
+对数组进行排序，以便当 A[i] 为奇数时，i 也是奇数；当 A[i] 为偶数时， i 也是偶数。
+你可以返回任何满足上述条件的数组作为答案。
+示例：
+输入：[4,2,5,7] 输出：[4,5,2,7] 解释：[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。 提示：
+2 &lt;= A.length &lt;= 20000 A.length % 2 == 0 0 &lt;= A[i] &lt;= 1000 来源：力扣（LeetCode） 链 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/905.%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/">905.按奇偶排序数组</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-17</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定一个非负整数数组 A，返回一个数组，在该数组中， A 的所有偶数元素之后跟着所有奇数元素。
+你可以返回满足此条件的任何数组作为答案。
+示例：
+输入：[3,1,2,4] 输出：[2,4,3,1] 输出 [4,2,3,1]，[2,4,1,3] 和 [4,2,1,3] 也会被接受。 提示：
+1 &lt;= A.length &lt;= 5000 0 &lt;= A[i] &lt;= 5000 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/sort-array-by-parity 著作权归领扣网络所有。商业转载请联系官方授权，非商业转 …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/349.%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">349.两个数组的交集</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-17</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/sort/" rel="tag">sort</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给定两个数组，编写一个函数来计算它们的交集。
+示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2] 示例 2： 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[9,4] 说明：
+输出结果中的每个元素一定是唯一的。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+JS实现 1、排序 + …</div>
+    
+</div>
+<div class="item">
+    <div class="title">
+        <a href="/post/leetcode/015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">015.三数之和</a>
+    </div><div class="post-meta">
+    <div class="date">2021-04-15</div>
+        <div class="tags">
+            <label class="label">Tags：</label>
+                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/array/" rel="tag">array</a>
+                <a class="link" href="/tags/two-pointers/" rel="tag">two-pointers</a>
+                <a class="link" href="/tags/sum/" rel="tag">sum</a>
+        </div>
+</div>
+
+        <div class="summary">题目 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+注意：答案中不可以包含重复的三元组。
+示例 1： 输入：nums = [-1,0,1,2,-1,-4] 输出：[[-1,-1,2],[-1,0,1]] 示例 2： 输入：nums = [] 输出：[] 示例 3： 输入：nums = [0] 输出：[] 提示：
+0 &lt;= nums.length &lt;= 3000 -10^5 &lt;= nums[i] &lt;= 10^5
 来源：力扣（LeetCode） 链 …</div>
     
 </div>
 <div class="item">
     <div class="title">
-        <a href="/draft/leetcode/_227.%E5%9F%BA%E6%9C%AC%E8%AE%A1%E7%AE%97%E5%99%A8ii/">227.基本计算器II</a>
+        <a href="/post/leetcode/075.%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB/">075.颜色分类</a>
     </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
+    <div class="date">2021-04-15</div>
         <div class="tags">
             <label class="label">Tags：</label>
                 <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
+                <a class="link" href="/tags/sort/" rel="tag">sort</a>
+                <a class="link" href="/tags/quicksort/" rel="tag">quicksort</a>
+                <a class="link" href="/tags/pointers/" rel="tag">pointers</a>
         </div>
 </div>
 
-        <div class="summary">题目 JS实现 </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/409.%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/">409.最长回文串</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/string/" rel="tag">string</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
-在构造过程中，请注意区分大小写。比如 &ldquo;Aa&rdquo; 不能当做一个回文字符串。
-注意: 假设字符串的长度不会超过 1010。
-示例 1:
-输入: &#34;abccccdd&#34; 输出: 7 解释: 我们可以构造的最长的回文串是&#34;dccaccd&#34;, 它的长度是 7。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/longest-palindrome 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_028.%E5%AE%9E%E7%8E%B0strstr/">028.实现strStr()</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/string/" rel="tag">string</a>
-        </div>
-</div>
-
-        <div class="summary">题目 实现 strStr() 函数。
-给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回 -1 。
-说明：
-当 needle 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与 C 语言的 strstr() 以及 Java 的 indexOf() 定义相符。 示例：
-示例 1： 输入：haystack = &#34;hello&#34;, needle = &#34;ll&#34; 输出：2  …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/003.%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/">003.无重复字符的最长子串</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-                <a class="link" href="/tags/hashtable/" rel="tag">hashtable</a>
-                <a class="link" href="/tags/string/" rel="tag">string</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
-示例 1: 输入: s = &#34;abcabcbb&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;abc&#34;，所以其长度为 3。 示例 2: 输入: s = &#34;bbbbb&#34; 输出: 1 解释: 因为无重复字符的最长子串是 &#34;b&#34;，所以其长度为 1。 示例 3: 输入: s = &#34;pwwkew&#34; 输出: 3 解释: 因为无重复字符的最长子串是 &#34;wke&#34;，所以其长度为 3。 请注意，你的答案必须是 子串 的长 …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_696._%E8%AE%A1%E6%95%B0%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%90%E4%B8%B2/">696.计数二进制子串</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 JS实现 </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/draft/leetcode/_647.%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">647.回文子串</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 JS实现 </div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/205.%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">205.同构字符串</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定两个字符串 s 和 t，判断它们是否是同构的。
-如果 s 中的字符可以按某种映射关系替换得到 t ，那么这两个字符串是同构的。
-每个出现的字符都应当映射到另一个字符，同时不改变字符的顺序。不同字符不能映射到同一个字符上，相同字符只能映射到同一个字符上，字符可以映射到自己本身。
-示例 1: 输入：s = &#34;egg&#34;, t = &#34;add&#34; 输出：true 示例 2： 输入：s = &#34;foo&#34;, t = &#34;bar&#34; 输出：false 示例 3： 输入：s = &#34;paper&#34;, t = …</div>
-    
-</div>
-<div class="item">
-    <div class="title">
-        <a href="/post/leetcode/242.%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/">242.有效的字母异位词</a>
-    </div><div class="post-meta">
-    <div class="date">2021-04-27</div>
-        <div class="tags">
-            <label class="label">Tags：</label>
-                <a class="link" href="/tags/leetcode/" rel="tag">leetcode</a>
-        </div>
-</div>
-
-        <div class="summary">题目 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
-示例 1: 输入: s = &#34;anagram&#34;, t = &#34;nagaram&#34; 输出: true 示例 2: 输入: s = &#34;rat&#34;, t = &#34;car&#34; 输出: false 说明:
-你可以假设字符串只包含小写字母。 进阶:
-如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？ 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/valid-anagram 著作 …</div>
+        <div class="summary">题目 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+示例 1： 输入：nums = [2,0,2,1,1,0] 输出：[0,0,1,1,2,2] 示例 2： 输入：nums = [2,0,1] 输出：[0,1,2] 示例 3： 输入：nums = [0] 输出：[0] 示例 4： 输入：nums = [1] 输出：[1] 提示：
+n == nums.length 1 &lt;= n &lt;= 300 nums[i] 为 0、1 或 2 进 …</div>
     
 </div>
 
@@ -197,7 +232,7 @@
         
     <div class="pagination">
             <a class="pagination__item pagination__item--prev" href="/tags/leetcode/page/10/">Prev</a>
-        <span class="pagination__item pagination__item--current">11/21</span>
+        <span class="pagination__item pagination__item--current">11/14</span>
             <a class="pagination__item pagination__item--next" href="/tags/leetcode/page/12/">Next</a>
     </div>
 

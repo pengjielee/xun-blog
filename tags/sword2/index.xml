@@ -63,24 +63,6 @@ JS实现 /** * Definition for a binary tree node. * function TreeNode(val) { * t
     </item>
     
     <item>
-      <title>20.表示数值的字符串</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_20.%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <pubDate>Thu, 26 Aug 2021 17:15:09 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_20.%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>19.正则表达式匹配</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_19.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
-      <pubDate>Thu, 26 Aug 2021 17:14:58 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_19.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
       <title>18.删除链表的节点</title>
       <link>https://www.pengjielee.cn/post/sword2/18.%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/</link>
       <pubDate>Thu, 26 Aug 2021 17:14:46 +0800</pubDate>
@@ -94,96 +76,6 @@ JS实现 /** * Definition for a binary tree node. * function TreeNode(val) { * t
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 参考1:
 /** * Definition for singly-linked list. * function ListNode(val) { * this.</description>
-    </item>
-    
-    <item>
-      <title>17.打印从1到最大的n位数</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_17.%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</link>
-      <pubDate>Thu, 26 Aug 2021 17:14:35 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_17.%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>16.数值的整数次方</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_16.%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</link>
-      <pubDate>Thu, 26 Aug 2021 17:14:23 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_16.%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>15.二进制中1的个数</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_15.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
-      <pubDate>Thu, 26 Aug 2021 17:14:12 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_15.%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>14-ii.剪绳子ii</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_14-ii.%E5%89%AA%E7%BB%B3%E5%AD%90ii/</link>
-      <pubDate>Thu, 26 Aug 2021 17:14:01 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_14-ii.%E5%89%AA%E7%BB%B3%E5%AD%90ii/</guid>
-      <description>题目 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]&amp;hellip;k[m - 1] 。请问 k[0]k[1]&amp;hellip;*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
-答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-示例 1： 输入: 2 输出: 1 解释: 2 = 1 + 1, 1 × 1 = 1 示例 2: 输入: 10 输出: 36 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36 提示：
-2 &amp;lt;= n &amp;lt;= 1000 注意：本题与主站 343 题相同：https://leetcode-cn.com/problems/integer-break/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var cuttingRope = function(n) { }; </description>
-    </item>
-    
-    <item>
-      <title>14-i.剪绳子</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_14-i.%E5%89%AA%E7%BB%B3%E5%AD%90/</link>
-      <pubDate>Thu, 26 Aug 2021 17:13:50 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_14-i.%E5%89%AA%E7%BB%B3%E5%AD%90/</guid>
-      <description>题目 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 k[0],k[1]&amp;hellip;k[m-1] 。请问 k[0]k[1]&amp;hellip;*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
-示例 1： 输入: 2 输出: 1 解释: 2 = 1 + 1, 1 × 1 = 1 示例 2: 输入: 10 输出: 36 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36 提示：
-2 &amp;lt;= n &amp;lt;= 58 注意：本题与主站 343 题相同：https://leetcode-cn.com/problems/integer-break/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/jian-sheng-zi-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var cuttingRope = function(n) { }; </description>
-    </item>
-    
-    <item>
-      <title>13.机器人的运动范围</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_13.%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</link>
-      <pubDate>Thu, 26 Aug 2021 17:13:34 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_13.%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>12.矩阵中的路径</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</link>
-      <pubDate>Thu, 26 Aug 2021 17:13:18 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>11.旋转数组的最小数字</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</link>
-      <pubDate>Thu, 26 Aug 2021 17:13:03 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>07.重建二叉树</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_07.%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
-      <pubDate>Thu, 26 Aug 2021 17:12:41 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_07.%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
-      <description>题目 JS实现 </description>
     </item>
     
     <item>
@@ -218,15 +110,6 @@ JS实现 /** * @param {number[]} nums * @return {number} */ var findRepeatNumber
     </item>
     
     <item>
-      <title>68-ii.二叉树的最近公共祖先</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_68-ii.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</link>
-      <pubDate>Wed, 25 Aug 2021 15:04:32 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_68-ii.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
       <title>67.把字符串转换成整数</title>
       <link>https://www.pengjielee.cn/post/sword2/67.%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/</link>
       <pubDate>Wed, 25 Aug 2021 15:04:06 +0800</pubDate>
@@ -246,63 +129,6 @@ JS实现 /** * @param {number[]} nums * @return {number} */ var findRepeatNumber
 输入: &amp;ldquo;4193 with words&amp;rdquo; 输出: 4193 解释: 转换截止于数字 &amp;lsquo;3&amp;rsquo; ，因为它的下一个字符不为数字。 示例4:
 输入: &amp;ldquo;words and 987&amp;rdquo; 输出: 0 解释: 第一个非空字符是 &amp;lsquo;w&amp;rsquo;, 但它不是数字或正、负号。 因此无法执行有效的转换。 示例5:
 输入: &amp;ldquo;-91283472332&amp;rdquo; 输出: -2147483648 解释: 数字 &amp;ldquo;-91283472332&amp;rdquo; 超过 32 位有符号整数范围。 因此返回 INT_MIN (−231) 。</description>
-    </item>
-    
-    <item>
-      <title>66.构建乘积数组</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_66.%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</link>
-      <pubDate>Wed, 25 Aug 2021 15:03:58 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_66.%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>65.不用加减乘除做加法</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_65.%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</link>
-      <pubDate>Wed, 25 Aug 2021 15:03:25 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_65.%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95/</guid>
-      <description>题目 写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
-示例: 输入: a = 1, b = 1 输出: 2 提示：
-a, b 均可能是负数或 0 结果不会溢出 32 位整数
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} a * @param {number} b * @return {number} */ var add = function(a, b) { }; </description>
-    </item>
-    
-    <item>
-      <title>62.圆圈中最后剩下的数字</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_62.%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</link>
-      <pubDate>Wed, 25 Aug 2021 14:04:14 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_62.%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>61.扑克牌中的顺子</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_61.%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</link>
-      <pubDate>Wed, 25 Aug 2021 14:03:57 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_61.%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
-      <title>60.n个骰子的点数</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_60.n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</link>
-      <pubDate>Wed, 25 Aug 2021 14:02:50 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_60.n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0/</guid>
-      <description>题目 把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。
-你需要用一个浮点数数组返回答案，其中第 i 个元素代表这 n 个骰子所能掷出的点数集合中第 i 小的那个的概率。
-示例 1:
-输入: 1 输出: [0.16667,0.16667,0.16667,0.16667,0.16667,0.16667] 示2:
-输入: 2 输出: [0.02778,0.05556,0.08333,0.11111,0.13889,0.16667,0.13889,0.11111,0.08333,0.05556,0.02778]
-限制：
-1 &amp;lt;= n &amp;lt;= 11
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number[]} */ var dicesProbability = function(n) { }; </description>
     </item>
     
     <item>
@@ -347,15 +173,6 @@ JS实现 /** * @param {string} s * @return {number} */ var lengthOfLongestSubstr
     </item>
     
     <item>
-      <title>46</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_46.%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <pubDate>Wed, 25 Aug 2021 09:04:24 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_46.%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
       <title>47.礼物的最大价值</title>
       <link>https://www.pengjielee.cn/post/sword2/47.%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC/</link>
       <pubDate>Wed, 25 Aug 2021 09:04:11 +0800</pubDate>
@@ -372,75 +189,6 @@ JS实现 参考1：滚动数组
     </item>
     
     <item>
-      <title>42.连续子数组的最大和</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_42.%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</link>
-      <pubDate>Wed, 25 Aug 2021 09:03:55 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_42.%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</guid>
-      <description>题目 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
-要求时间复杂度为O(n)。
-示例1: 输入: nums = [-2,1,-3,4,-1,2,1,-5,4] 输出: 6 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。 提示：
-1 &amp;lt;= arr.length &amp;lt;= 10^5 -100 &amp;lt;= arr[i] &amp;lt;= 100 注意：本题与主站 53 题相同：https://leetcode-cn.com/problems/maximum-subarray/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number[]} nums * @return {number} */ var maxSubArray = function(nums) { }; </description>
-    </item>
-    
-    <item>
-      <title>63.股票的最大利润</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_63.%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</link>
-      <pubDate>Wed, 25 Aug 2021 08:59:05 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_63.%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6/</guid>
-      <description>题目 假设把某股票的价格按照时间先后顺序存储在数组中，请问买卖该股票一次可能获得的最大利润是多少？
-示例 1: 输入: [7,1,5,3,6,4] 输出: 5 解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。 示例 2: 输入: [7,6,4,3,1] 输出: 0 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。 限制：
-0 &amp;lt;= 数组长度 &amp;lt;= 10^5
-注意：本题与主站 121 题相同：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number[]} prices * @return {number} */ var maxProfit = function(prices) { }; </description>
-    </item>
-    
-    <item>
-      <title>10-II.青蛙跳台阶问题</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_10-ii.%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Wed, 25 Aug 2021 08:58:18 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_10-ii.%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98/</guid>
-      <description>题目 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
-答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-示例 1：
-输入：n = 2 输出：2 示例 2：
-输入：n = 7 输出：21 示例 3：
-输入：n = 0 输出：1 提示：
-0 &amp;lt;= n &amp;lt;= 100 注意：本题与主站 70 题相同：https://leetcode-cn.com/problems/climbing-stairs/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var numWays = function(n) { }; </description>
-    </item>
-    
-    <item>
-      <title>10-I.斐波那契数列</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_10-i.%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</link>
-      <pubDate>Wed, 25 Aug 2021 08:57:24 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_10-i.%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</guid>
-      <description>题目 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下：
-F(0) = 0, F(1) = 1 F(N) = F(N - 1) + F(N - 2), 其中 N &amp;gt; 1. 斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。
-答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-示例 1： 输入：n = 2 输出：1 示例 2： 输入：n = 5 输出：5 提示：
-0 &amp;lt;= n &amp;lt;= 100
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }; </description>
-    </item>
-    
-    <item>
-      <title>58.II.左旋转字符串</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_58.ii.%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
-      <pubDate>Tue, 24 Aug 2021 15:04:22 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_58.ii.%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
-      <description>题目 JS实现 </description>
-    </item>
-    
-    <item>
       <title>05.替换空格</title>
       <link>https://www.pengjielee.cn/post/sword2/05.%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</link>
       <pubDate>Tue, 24 Aug 2021 15:03:06 +0800</pubDate>
@@ -452,27 +200,6 @@ JS实现 /** * @param {number} n * @return {number} */ var fib = function(n) { }
 0 &amp;lt;= s 的长度 &amp;lt;= 10000
 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 JS实现 /** * @param {string} s * @return {string} */ var replaceSpace = function(s) { let result = &amp;#39;&amp;#39;; for(let i = 0; i &amp;lt; s.length; i++){ if(s[i] === &amp;#39; &amp;#39;){ result += &amp;#39;%20&amp;#39;; }else { result += s[i]; } } return result; }; </description>
-    </item>
-    
-    <item>
-      <title>35.复杂链表的复制</title>
-      <link>https://www.pengjielee.cn/draft/sword2/_35.%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</link>
-      <pubDate>Tue, 24 Aug 2021 13:35:19 +0800</pubDate>
-      
-      <guid>https://www.pengjielee.cn/draft/sword2/_35.%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/</guid>
-      <description>题目 请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
-示例 1：
-输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]] 输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
-示例 2：
-输入：head = [[1,1],[2,1]] 输出：[[1,1],[2,1]]
-示例 3：
-输入：head = [[3,null],[3,0],[3,null]] 输出：[[3,null],[3,0],[3,null]]
-示例 4： 输入：head = [] 输出：[] 解释：给定的链表为空（空指针），因此返回 null。
-提示：
--10000 &amp;lt;= Node.val &amp;lt;= 10000 Node.random 为空（null）或指向链表中的节点。 节点数目不超过 1000 。
-注意：本题与主站 138 题相同：https://leetcode-cn.com/problems/copy-list-with-random-pointer/
-来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-JS实现 /** * // Definition for a Node. * function Node(val, next, random) { * this.val = val; * this.</description>
     </item>
     
     <item>

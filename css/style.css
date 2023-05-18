@@ -144,7 +144,7 @@ table tbody + tbody {
 }
 .list .summary {
     line-height: 25px;
-    color: #333;
+    color: #444;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -195,6 +195,9 @@ table tbody + tbody {
 }
 .page-home .nav {
     margin: 20px 0 5px;
+}
+.page-home .pagination {
+    
 }
 
 /* 文章详情页面 */
