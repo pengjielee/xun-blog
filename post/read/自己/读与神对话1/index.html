@@ -30,17 +30,31 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><p>2022.10.12</p>
+        <div class="content" id="content"><p>2022.10.12</p>
 <p>生活的意义不在于抵达任何地方——而在于发现你在那里，向来在那里，已经在那里。你永远处在纯粹创造的时刻中。因此生活的意义就是创造——创造出你的身份和本质，然后去经验它。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

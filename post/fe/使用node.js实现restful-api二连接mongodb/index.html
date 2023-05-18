@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><p>1、操作mongodb</p>
+        <div class="content" id="content"><p>1、操作mongodb</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">创建数据库</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">use</span> <span style="color:#a6e22e">testdb</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">switched</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">db</span> <span style="color:#a6e22e">testdb</span>
@@ -115,14 +115,28 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">dev</span>
 </span></span></code></pre></div><p>访问 <a href="http://localhost:3000/users">http://localhost:3000/users</a>，输出：[{&quot;_id&quot;:&ldquo;611a0fcdd0d4bcd817972903&rdquo;,&ldquo;name&rdquo;:&ldquo;admin&rdquo;}]</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="题目">题目</h2>
+        <div class="content" id="content"><h2 id="题目">题目</h2>
 <p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
 <p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
 <p>示例 1:</p>
@@ -84,14 +84,28 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">merged</span>;
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

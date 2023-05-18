@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="题目">题目</h2>
+        <div class="content" id="content"><h2 id="题目">题目</h2>
 <p>实现 strStr() 函数。</p>
 <p>给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回  -1 。</p>
 <p>说明：</p>
@@ -73,14 +73,28 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

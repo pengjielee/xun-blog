@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><p>中国是工人阶级领导的，以工农联盟为基础的社会主义国家。</p>
+        <div class="content" id="content"><p>中国是工人阶级领导的，以工农联盟为基础的社会主义国家。</p>
 <ul>
 <li>新中国，“新”在哪？</li>
 <li>什么是无产阶级？</li>
@@ -43,14 +43,28 @@
 <li>共产党要统计中国一万年吗？</li>
 </ul>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

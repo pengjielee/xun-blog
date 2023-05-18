@@ -34,21 +34,35 @@
         </div>
 </div>
 </header>
-        <div class="content"><p>=== Python编程：从入门到实践</p>
+        <div class="content" id="content"><p>=== Python编程：从入门到实践</p>
 <p>image::https://i.loli.net/2021/02/26/TCJnDdrj97OQ3BR.png[Python编程：从入门到实践,170,200]</p>
 <p>可从微信读书观看。</p>
 <p>=== Python核心编程（第3版）</p>
 <p>image::https://i.loli.net/2021/02/26/yb1ncvwMjeEhNVl.png[Python核心编程（第3版),200,200]</p>
 <p>网盘: <a href="https://pan.baidu.com/s/1tpNel6LNDmG2CkxAaL7D_w%5B''">https://pan.baidu.com/s/1tpNel6LNDmG2CkxAaL7D_w[''</a>, role=&ldquo;external&rdquo;, window=&quot;_blank&quot;] 提取码: pgwx</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

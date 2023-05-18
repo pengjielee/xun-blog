@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="题目">题目</h2>
+        <div class="content" id="content"><h2 id="题目">题目</h2>
 <p>LL今天心情特别好，因为他去买了一副扑克牌，发现里面居然有2个大王，2个小王(一副牌原本是54张^ _ ^)&hellip;他随机从中抽出了5张牌，想测测自己的手气，看看能不能抽到顺子，如果抽到的话，他决定去买体育彩票，嘿嘿！！&ldquo;红心A，黑桃3，小王，大王，方片5&rdquo;，&ldquo;Oh My God!&ldquo;不是顺子&hellip;..</p>
 <p>LL不高兴了，他想了想，决定大小 王可以看成任何数字，并且A看作1，J为11，Q为12，K为13。上面的5张牌就可以变成&quot;1，2，3，4，5&rdquo;(大小王分别看作2和4)，&ldquo;So Lucky!&quot;。LL决定去买体育彩票啦。</p>
 <p>现在，要求你使用这幅牌模拟上面的过程，然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。为了方便起见，你可以认为大小王是0。</p>
@@ -82,14 +82,28 @@
 <p>剑指OFFER&mdash;-61、扑克牌顺子(js实现)<br>
 <a href="https://blog.csdn.net/qq_40816360/article/details/93788920">https://blog.csdn.net/qq_40816360/article/details/93788920</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

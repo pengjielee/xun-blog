@@ -30,7 +30,7 @@
     <div class="date">2021-03-01</div>
 </div>
 </header>
-        <div class="content"><h2 id="阅读">阅读</h2>
+        <div class="content" id="content"><h2 id="阅读">阅读</h2>
 <!-- raw HTML omitted -->
 <h2 id="工具">工具</h2>
 <!-- raw HTML omitted -->
@@ -45,14 +45,28 @@
 <h2 id="其他">其他</h2>
 <!-- raw HTML omitted -->
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

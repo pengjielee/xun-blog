@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><pre tabindex="0"><code>const backupDb = () =&gt; {
+        <div class="content" id="content"><pre tabindex="0"><code>const backupDb = () =&gt; {
   const options = {
     title: &#34;请选择要备份的文件名&#34;,
     buttonLabel: &#34;保存&#34;,
@@ -76,14 +76,28 @@ const restoreDb = () =&gt; {
   });
 };
 </code></pre></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

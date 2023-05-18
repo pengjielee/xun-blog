@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="技术">技术</h2>
+        <div class="content" id="content"><h2 id="技术">技术</h2>
 <p>在react中使用防抖以及节流函数_smz8023的博客-CSDN博客_react中使用防抖函数<br>
 <a href="https://blog.csdn.net/smz8023/article/details/103428483">https://blog.csdn.net/smz8023/article/details/103428483</a></p>
 <p>微信小程序封装wx.request方法 - 日暮途远i - 博客园<br>
@@ -54,14 +54,28 @@
 <p>前端常用的15个linux命令<br>
 <a href="https://mp.weixin.qq.com/s/8CQCG7mEcWy6oFxiePeQRg">https://mp.weixin.qq.com/s/8CQCG7mEcWy6oFxiePeQRg</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

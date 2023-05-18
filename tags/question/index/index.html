@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p>&lsquo;##&rsquo; 1、node-interview</p>
+        <div class="content" id="content"><p>&lsquo;##&rsquo; 1、node-interview</p>
 <p><a href="https://github.com/ElemeFE/node-interview/tree/master/sections/zh-cn">https://github.com/ElemeFE/node-interview/tree/master/sections/zh-cn</a></p>
 <p>&lsquo;##&rsquo; 2、Front-end Developer Interview Questions</p>
 <p><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions">https://github.com/h5bp/Front-end-Developer-Interview-Questions</a></p>
@@ -60,14 +60,28 @@
 <p>&lsquo;##&rsquo; 11、FE-Interview</p>
 <p><a href="https://github.com/lgwebdream/FE-Interview">https://github.com/lgwebdream/FE-Interview</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

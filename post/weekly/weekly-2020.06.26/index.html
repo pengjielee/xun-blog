@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="20200622">2020.06.22</h2>
+        <div class="content" id="content"><h2 id="20200622">2020.06.22</h2>
 <p>1、VPN技术<br>
 <a href="https://zhuanlan.zhihu.com/p/112797914">https://zhuanlan.zhihu.com/p/112797914</a></p>
 <p>2、MAC VPN连接，L2TP需要共享密钥的问题<br>
@@ -72,14 +72,28 @@ l2tpnoipsec
 <a href="https://github.com/fxsjy/jieba">https://github.com/fxsjy/jieba</a>
 <a href="https://github.com/isnowfy/snownlp">https://github.com/isnowfy/snownlp</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -30,7 +30,7 @@
     <div class="date">2021-02-26</div>
 </div>
 </header>
-        <div class="content"><p>== 什么是Asciidoctor？</p>
+        <div class="content" id="content"><p>== 什么是Asciidoctor？</p>
 <p>Asciidoctor 是一个 快速的 文本处理器和发布工具链，它可以将 AsciiDoc 文档转化成 HTML5、 DocBook 5 (或 4.5) 以及其他格式。&ndash;摘自官网</p>
 <p>== Asciidoctor vs Markdown</p>
 <p>Asciidoctor功能更强大，语法更加复杂，学习成本更高。</p>
@@ -146,14 +146,28 @@ image::https://www.baidu.com/img/flexible/logo/pc/result.png[Sunset,100,50]
 <p>AsciiDoc 语法快速参考 +
 <a href="https://asciidoctor.cn/docs/asciidoc-syntax-quick-reference/index.html">https://asciidoctor.cn/docs/asciidoc-syntax-quick-reference/index.html</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><h2 id="go中文">go中文</h2>
+        <div class="content" id="content"><h2 id="go中文">go中文</h2>
 <p><a href="https://go-zh.org/">https://go-zh.org/</a></p>
 <p><a href="https://tour.go-zh.org/list">https://tour.go-zh.org/list</a></p>
 <h2 id="heading"></h2>
@@ -61,14 +61,28 @@
 <h2 id="go123">go123</h2>
 <p><a href="https://hao.studygolang.com/">https://hao.studygolang.com/</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p><strong>周雪光</strong></p>
+        <div class="content" id="content"><p><strong>周雪光</strong></p>
 <h3 id="第1章-导论中国国家治理的制度逻辑">第1章 导论：中国国家治理的制度逻辑</h3>
 <ul>
 <li>
@@ -805,14 +805,28 @@
 </ul>
 <p>导出于 2022-09-28 14:50:49</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

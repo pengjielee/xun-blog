@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="20200713">2020.07.13</h2>
+        <div class="content" id="content"><h2 id="20200713">2020.07.13</h2>
 <p>1、Vue vs React:</p>
 <p>关于Vue和React的一些对比及个人思考（上）<br>
 <a href="https://juejin.im/post/5e153e096fb9a048297390c1">https://juejin.im/post/5e153e096fb9a048297390c1</a></p>
@@ -130,14 +130,28 @@ Vue 代码很优雅！</p>
 <p>2、在React中使用Swiper<br>
 <a href="https://www.cnblogs.com/qdjj/p/12401671.html">https://www.cnblogs.com/qdjj/p/12401671.html</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

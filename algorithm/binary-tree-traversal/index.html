@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p>树结构多种多样，我们最常用的还是二叉树。</p>
+        <div class="content" id="content"><p>树结构多种多样，我们最常用的还是二叉树。</p>
 <h2 id="特殊二叉树">特殊二叉树</h2>
 <p>1、满二叉树；<br>
 2、完全二叉树；</p>
@@ -411,14 +411,28 @@ postOrder(root) = postOrder(root-&gt;left)-&gt;postOrder(root-&gt;right)-&gt;pos
 <p>987.二叉树的垂序遍历<br>
 <a href="https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/">https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

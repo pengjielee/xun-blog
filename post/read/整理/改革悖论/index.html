@@ -34,18 +34,32 @@
         </div>
 </div>
 </header>
-        <div class="content"><h4 id="什么是改革悖论">什么是“改革悖论”？</h4>
+        <div class="content" id="content"><h4 id="什么是改革悖论">什么是“改革悖论”？</h4>
 <p>即改革需要从现有体制中获益最大的政府权力部门及其官员来加以推进，而这种改革最终又可能会“改革掉”该部门及其官员手中的权力。那么，这样的改革真的能有效推进吗？</p>
 <p>摘自包刚升《被误解的民主》</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

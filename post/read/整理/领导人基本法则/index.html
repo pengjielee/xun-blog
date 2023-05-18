@@ -30,7 +30,7 @@
     <div class="date">2022-09-27</div>
 </div>
 </header>
-        <div class="content"><p>领导人有5个基本法则可用于在任何体制下获得成功：</p>
+        <div class="content" id="content"><p>领导人有5个基本法则可用于在任何体制下获得成功：</p>
 <h5 id="法则1让你的致胜联盟越小越好">法则1：让你的致胜联盟越小越好。</h5>
 <p>一个小规模的致胜联盟使领导人只需依赖极少数人就能保持权位。越少的不可或缺者相当于领导人拥有更多控制权，对支出的自由裁量权也越大。</p>
 <h5 id="法则2让你的名义选择人集团越大越好">法则2：让你的名义选择人集团越大越好。</h5>
@@ -46,14 +46,28 @@
 <p>让我们为缅甸的丹瑞将军喝彩，在2008年的纳尔吉斯飓风之后他控制了外界提供的粮食援助，让他的军队支持者拿到黑市上去倒卖，而不是援助灾民——至少13.8万人死于那场风灾，有的报告甚至认为死亡人数高达50万人。</p>
 <p>摘自《独裁者手册》</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

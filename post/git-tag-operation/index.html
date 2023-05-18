@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="1-显示所有tag">1. 显示所有tag</h2>
+        <div class="content" id="content"><h2 id="1-显示所有tag">1. 显示所有tag</h2>
 <pre tabindex="0"><code>git tag
 </code></pre><h2 id="2-查看某个版本的tag">2. 查看某个版本的tag</h2>
 <pre tabindex="0"><code>git tag -l &#39;v1.0.*&#39;
@@ -52,14 +52,28 @@
 <p>Git tag用法<br>
 <a href="https://www.jianshu.com/p/50c1b2433774">https://www.jianshu.com/p/50c1b2433774</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -36,7 +36,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="题目">题目</h2>
+        <div class="content" id="content"><h2 id="题目">题目</h2>
 <p>给你一个整数数组 nums ，设计算法来打乱一个没有重复元素的数组。</p>
 <p>实现 Solution class:</p>
 <ul>
@@ -110,14 +110,28 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * var param_2 = obj.shuffle()
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
 </span></span></code></pre></div></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

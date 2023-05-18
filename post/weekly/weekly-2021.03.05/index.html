@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="摘录">摘录</h2>
+        <div class="content" id="content"><h2 id="摘录">摘录</h2>
 <p>1、</p>
 <p>第一条：不读的权利。<br>
 第二条：跳读的权利。<br>
@@ -63,14 +63,28 @@
 <p>写了十年技术博客，我收获了什么<br>
 <a href="https://insights.thoughtworks.cn/technical-blog-experience/">https://insights.thoughtworks.cn/technical-blog-experience/</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

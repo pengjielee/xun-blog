@@ -30,7 +30,7 @@
     <div class="date">2021-03-01</div>
 </div>
 </header>
-        <div class="content"><h3 id="ikms个人知识管理系统">ikms，个人知识管理系统；</h3>
+        <div class="content" id="content"><h3 id="ikms个人知识管理系统">ikms，个人知识管理系统；</h3>
 <ul>
 <li>一个本地的知识库管理系统。支持Url、代码、笔记管理；</li>
 <li>使用Electron + Vue2.6 + sqlite实现的本地知识管理系统；</li>
@@ -79,14 +79,28 @@
 <a href="https://github.com/pengjielee/blog">https://github.com/pengjielee/blog</a></li>
 </ul>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

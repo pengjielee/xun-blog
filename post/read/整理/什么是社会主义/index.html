@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p>社会主义作为一种意识形态的出现，是对资本主义早期发展的反应。</p>
+        <div class="content" id="content"><p>社会主义作为一种意识形态的出现，是对资本主义早期发展的反应。</p>
 <h4 id="社会主义的发展">社会主义的发展</h4>
 <p>1、 空想社会主义</p>
 <p>欧文、圣西门和傅里叶等人都是空想社会主义的代表，他们强调集体主义和互助，批评资本主义的诸种负面现象。</p>
@@ -63,14 +63,28 @@
 <p>社会主义比较注重人基本需求的满足。每一个人都有很多基本需求，每个人应该拥有满足这些基本需求的权利。所以，共产主义的口号是“各尽所能，按需分配”。</p>
 <p>摘自包刚升《政治学通识》</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

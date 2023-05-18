@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="环境">环境</h2>
+        <div class="content" id="content"><h2 id="环境">环境</h2>
 <ul>
 <li>操作系统：MacOS Big Sur（版本11.2）</li>
 <li>SublimeText：Version 3.1.1</li>
@@ -58,14 +58,28 @@ $ which python3
 </code></pre><p>将文件重命名为 Python3.sublime-build，保存至默认目录。</p>
 <p>选择菜单 Tools -&gt; Build System -&gt; Python3，再选择菜单Tools -&gt; Build (或 command + B)。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

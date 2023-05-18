@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="20200615">2020.06.15</h2>
+        <div class="content" id="content"><h2 id="20200615">2020.06.15</h2>
 <p>1、从“懂管理的IT人”，到“懂IT的管理者”<br>
 <a href="https://mp.weixin.qq.com/s/sj9z5nwKytD8eOquOiwORA">https://mp.weixin.qq.com/s/sj9z5nwKytD8eOquOiwORA</a></p>
 <p>“懂IT的管理者”和“懂管理的IT人”，到底有什么区别？</p>
@@ -111,14 +111,28 @@
 <p>2、
 We are all consenting adults here.（大家都是成年人）</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

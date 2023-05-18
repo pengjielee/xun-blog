@@ -30,7 +30,7 @@
     <div class="date">2021-03-13</div>
 </div>
 </header>
-        <div class="content"><h2 id="more">More</h2>
+        <div class="content" id="content"><h2 id="more">More</h2>
 <p>虚拟 DOM 到底是什么？ <br>
 <a href="https://juejin.cn/post/6844903870229905422#heading-6">https://juejin.cn/post/6844903870229905422#heading-6</a></p>
 <p>让虚拟DOM和DOM-diff不再成为你的绊脚石<br>
@@ -40,14 +40,28 @@ snabbdom   <br>
 <p>virtual-dom    <br>
 <a href="https://github.com/Matt-Esch/virtual-dom">https://github.com/Matt-Esch/virtual-dom</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

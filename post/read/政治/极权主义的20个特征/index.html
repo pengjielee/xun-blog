@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p>胡适介绍的极权主义的二十个特征：</p>
+        <div class="content" id="content"><p>胡适介绍的极权主义的二十个特征：</p>
 <p>1、
 狭义的国家主义情绪，提高至宗教狂的程度。</p>
 <p>2、
@@ -80,14 +80,28 @@
 <p>20、
 工业、农业、商业，皆受执政党及领袖的统制。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

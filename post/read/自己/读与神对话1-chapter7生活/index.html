@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><p>title: &ldquo;与神对话1 - chapter7生活&rdquo;
+        <div class="content" id="content"><p>title: &ldquo;与神对话1 - chapter7生活&rdquo;
 date: 2022-10-12T11:02:58+08:00
 categories: &lsquo;read&rsquo;
 draft: true</p>
@@ -38,14 +38,28 @@ draft: true</p>
 <p>你选择的东西，你统统能够得到。</p>
 <p>只要永远忠于真实——你的真实经验——就好了。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

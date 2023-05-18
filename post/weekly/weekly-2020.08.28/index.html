@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="cdn">CDN</h2>
+        <div class="content" id="content"><h2 id="cdn">CDN</h2>
 <p>如何部署 CDN 网络<br>
 <a href="https://cloud.tencent.com/developer/article/1358553">https://cloud.tencent.com/developer/article/1358553</a></p>
 <p>已经部署的程序，如何正确的加上CDN<br>
@@ -92,14 +92,28 @@
 <p>MDN getBoundingClientRect()<br>
 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect">https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

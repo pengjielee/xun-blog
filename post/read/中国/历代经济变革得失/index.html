@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p><strong>吴晓波</strong></p>
+        <div class="content" id="content"><p><strong>吴晓波</strong></p>
 <h3 id="洋务运动不是一场迟到的运动">洋务运动不是一场“迟到的运动”</h3>
 <ul>
 <li>在中国开始洋务运动的19世纪60年代中期，后来成为全球最强经济体的三个国家——美国、德国以及日本——也刚刚完成了国家的统一，并相继开始它们的现代化之旅。</li>
@@ -510,14 +510,28 @@
 </ul>
 <p>导出于 2022-09-28 13:12:57</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

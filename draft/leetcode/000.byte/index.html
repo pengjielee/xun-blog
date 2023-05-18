@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><h2 id="字节跳动前端高频算法题榜截止-2021-年-8-月">字节跳动前端高频算法题榜（截止 2021 年 8 月）</h2>
+        <div class="content" id="content"><h2 id="字节跳动前端高频算法题榜截止-2021-年-8-月">字节跳动前端高频算法题榜（截止 2021 年 8 月）</h2>
 <p>题目 出现次数；</p>
 <ul>
 <li>
@@ -508,14 +508,28 @@
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

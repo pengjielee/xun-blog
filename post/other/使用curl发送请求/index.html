@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="get请求">get请求</h2>
+        <div class="content" id="content"><h2 id="get请求">get请求</h2>
 <pre tabindex="0"><code>curl https://cnodejs.org/api/v1/topics
 </code></pre><h2 id="post请求">post请求</h2>
 <p>1、application/x-www-form-urlencoded</p>
@@ -53,14 +53,28 @@
 <p>Curl Cookbook<br>
 <a href="https://catonmat.net/cookbooks/curl">https://catonmat.net/cookbooks/curl</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

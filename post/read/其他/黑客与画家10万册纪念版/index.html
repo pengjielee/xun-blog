@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p><strong>保罗·格雷厄姆</strong></p>
+        <div class="content" id="content"><p><strong>保罗·格雷厄姆</strong></p>
 <h3 id="平装版译者序">平装版译者序</h3>
 <ul>
 <li>因为毒品是非法的，所以一起使用的话，就创造出了一种共同反叛的标志。</li>
@@ -599,14 +599,28 @@
 </ul>
 <p>导出于 2022-09-28 14:20:27</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

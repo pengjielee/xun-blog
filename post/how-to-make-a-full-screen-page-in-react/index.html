@@ -35,7 +35,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="安装">安装</h2>
+        <div class="content" id="content"><h2 id="安装">安装</h2>
 <pre tabindex="0"><code>$ npm install screenfull
 </code></pre><h2 id="react中使用screenfull">React中使用screenfull</h2>
 <p>1、引入</p>
@@ -85,14 +85,28 @@
 <p>screenfull <br>
 <a href="https://github.com/sindresorhus/screenfull.js">https://github.com/sindresorhus/screenfull.js</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

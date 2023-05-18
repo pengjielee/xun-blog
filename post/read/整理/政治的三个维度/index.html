@@ -30,7 +30,7 @@
     <div class="date">2022-09-27</div>
 </div>
 </header>
-        <div class="content"><p>对领导人而言，政治情势可以被分解为三种人群：名义选择人集团、实际选择人集团和致胜联盟。</p>
+        <div class="content" id="content"><p>对领导人而言，政治情势可以被分解为三种人群：名义选择人集团、实际选择人集团和致胜联盟。</p>
 <h5 id="1名义选择人集团">1、名义选择人集团</h5>
 <p>名义选择人集团包含了所有在选择领导人时至少具有某些法定发言权的人。</p>
 <p>正如每个美国公民肯定都意识到的，虽然拥有选举权很重要，但归根结底，没有哪个个人在谁领导国家上有太多发言权。</p>
@@ -48,14 +48,28 @@
 <p>在不同国家、不同企业或任何其他组织里，这三种人群的规模差异几乎决定了政治里发生的一切——领导人能做什么，什么事是他们能或不能逃脱追究的，他们必须对谁负责，在他们的领导之下每个人享有的相对生活质量（或者说，常常不享有）。</p>
 <p>摘自《独裁者手册》</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

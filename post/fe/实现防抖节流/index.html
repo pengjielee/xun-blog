@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="防抖函数">防抖函数</h2>
+        <div class="content" id="content"><h2 id="防抖函数">防抖函数</h2>
 <p>1、防抖函数接收两个参数（运行函数，定时器时间间隔）；<br>
 2、防抖函数返回一个函数（闭包）；<br>
 3、闭包外定义定时器；<br>
@@ -91,14 +91,28 @@ c. 判断是否达到必须运行时间间隔：
 </span></span><span style="display:flex;"><span>  };
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -30,7 +30,7 @@
     <div class="date">0001-01-01</div>
 </div>
 </header>
-        <div class="content"><h2 id="讨论过程">讨论过程</h2>
+        <div class="content" id="content"><h2 id="讨论过程">讨论过程</h2>
 <p>李朋杰 @10:44
 场景：开发小程序版本（原微信公众号h5）</p>
 <p>1.微信原生开发
@@ -69,14 +69,28 @@ chameleon,7.6k
 <h2 id="讨论结果">讨论结果</h2>
 <p>大家都倾向于使用微信原生开发。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

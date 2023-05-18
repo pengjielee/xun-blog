@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="html结构">HTML结构</h2>
+        <div class="content" id="content"><h2 id="html结构">HTML结构</h2>
 <pre tabindex="0"><code>&lt;section class=&#34;card&#34;&gt;
   &lt;input type=&#34;file&#34; class=&#34;input&#34; accept=&#34;text/*&#34; id=&#34;fileInput&#34;/&gt;
   &lt;div class=&#34;preview&#34; id=&#34;filePreview&#34;&gt;&lt;/div&gt;
@@ -75,14 +75,28 @@ reader.onload = function (evt) {
 };
 reader.readAsBinaryString(file);
 </code></pre></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

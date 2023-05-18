@@ -38,7 +38,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><p><strong>黄珍奎</strong></p>
+        <div class="content" id="content"><p><strong>黄珍奎</strong></p>
 <h3 id="前言-追救了我们">前言 “追”救了我们</h3>
 <ul>
 <li>拯救我们的并非那为了实现目标的手段，而是成为目标本身的“它”。</li>
@@ -1887,14 +1887,28 @@
 </ul>
 <p>导出于 2022-09-28 14:01:49</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

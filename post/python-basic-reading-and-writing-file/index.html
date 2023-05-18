@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="准备工作">准备工作</h2>
+        <div class="content" id="content"><h2 id="准备工作">准备工作</h2>
 <p>1、文件结构</p>
 <pre tabindex="0"><code>python_work（目录）
 -- hello.txt
@@ -68,14 +68,28 @@ with open(&#39;newfile.txt&#39;, &#39;w&#39;) as file_writer:
 with open(&#39;appendfile.txt&#39;, &#39;a&#39;) as file_writer:
   file_writer.write(&#39;Hello World.&#39;)
 </code></pre></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="安装">安装</h2>
+        <div class="content" id="content"><h2 id="安装">安装</h2>
 <pre tabindex="0"><code>$ npm install dayjs
 </code></pre><h2 id="使用">使用</h2>
 <pre tabindex="0"><code>const dayjs = require(&#34;dayjs&#34;);
@@ -46,14 +46,28 @@ const timestamp = now.valueOf();
 </code></pre><h2 id="more">More</h2>
 <p><a href="https://github.com/iamkun/dayjs">https://github.com/iamkun/dayjs</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

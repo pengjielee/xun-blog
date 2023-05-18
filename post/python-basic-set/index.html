@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="集合特性">集合特性</h2>
+        <div class="content" id="content"><h2 id="集合特性">集合特性</h2>
 <p>集合（set）是一个无序的不重复元素序列。</p>
 <ol>
 <li>确定性。</li>
@@ -191,14 +191,28 @@
 </span></span></code></pre></div><h2 id="more">More</h2>
 <p><a href="https://www.runoob.com/python3/python3-set.html">https://www.runoob.com/python3/python3-set.html</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="promise规范">Promise规范</h2>
+        <div class="content" id="content"><h2 id="promise规范">Promise规范</h2>
 <ul>
 <li>promise 有三个状态：pending，fulfilled，rejected。「规范 Promise/A+ 2.1」</li>
 <li>new promise时， 需要传递一个executor()执行器，执行器立即执行；</li>
@@ -390,14 +390,28 @@
 <p>“你能手写一个 Promise 吗”<br>
 <a href="https://zhuanlan.zhihu.com/p/183801144">https://zhuanlan.zhihu.com/p/183801144</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

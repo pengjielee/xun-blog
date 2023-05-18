@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="主进程mainjs">主进程：main.js</h2>
+        <div class="content" id="content"><h2 id="主进程mainjs">主进程：main.js</h2>
 <pre tabindex="0"><code>mainWindow.webContents.send(&#34;refresh-notes&#34;, { message: &#39;reload&#39; });
 </code></pre><h2 id="渲染进程rendererjs">渲染进程：renderer.js</h2>
 <pre tabindex="0"><code>const ipcRenderer = require(&#34;electron&#34;).ipcRenderer;
@@ -43,14 +43,28 @@ ipcRenderer.on(&#34;refresh-notes&#34;, (event, data) =&gt; {
   //getNotes();
 });
 </code></pre></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

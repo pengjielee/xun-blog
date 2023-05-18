@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="桶排序-bucket-sort">桶排序 （Bucket sort）</h2>
+        <div class="content" id="content"><h2 id="桶排序-bucket-sort">桶排序 （Bucket sort）</h2>
 <p>核心思想是将要排序的数据分到几个有序的桶里，每个桶里的数据再单独进行排序。桶内排完序之后，再把每个桶里的数据按照顺序依次取出，组成的序列就是有序的了。</p>
 <p>比如对 9,10,20,45,40,27,32,35,31,50,53,63进行桶排序：</p>
 <pre tabindex="0"><code>桶1（0-9）:  9
@@ -122,14 +122,28 @@ m 个桶排序的时间复杂度就是 O(m * k * logk)，因为 k=n/m，所以�
 <p>计数排序<br>
 <a href="https://www.runoob.com/w3cnote/counting-sort.html">https://www.runoob.com/w3cnote/counting-sort.html</a></p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

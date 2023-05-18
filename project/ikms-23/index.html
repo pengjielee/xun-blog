@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="install">install</h2>
+        <div class="content" id="content"><h2 id="install">install</h2>
 <pre tabindex="0"><code>$ npm install prettier
 </code></pre><h2 id="usage">usage</h2>
 <pre tabindex="0"><code>const prettier = require(&#34;prettier&#34;);
@@ -48,14 +48,28 @@ const code = `
 
 const content = prettier.format(code, { parser: &#34;babel&#34;, semi: false });
 </code></pre></div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>

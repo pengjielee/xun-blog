@@ -34,7 +34,7 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="form上传">Form上传</h2>
+        <div class="content" id="content"><h2 id="form上传">Form上传</h2>
 <p>1、前端</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">section</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h2</span>&gt;上传单个文件&lt;/<span style="color:#f92672">h2</span>&gt;
@@ -415,14 +415,28 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>2、XMLHttpRequest.setRequestHeader() 必须在 open() 之后、send() 之前调用 setRequestHeader() 方法。</p>
 </div>
+        <div class="controls">
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
     </div>
 
-        </div><script src="/js/highlight.min.js" />
-<script>
+        </div><script src="/js/highlight.min.js"></script>
+<script type="text/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
+    		let size = 16;
+    		const content = document.querySelector("#content");
         document.querySelectorAll("pre").forEach((block) => {
             hljs.highlightBlock(block);
         });
+        document.querySelector("#increase").onclick = function(){
+        	size++;
+        	content.style.fontSize = `${size}px`;
+        }
+        document.querySelector("#decrease").onclick = function(){
+        	size--;
+        	content.style.fontSize = `${size}px`;
+        }
     });
 </script>
 </body>
