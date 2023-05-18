@@ -26,7 +26,7 @@
 
     <div class="page page-single">
         <header class="header">
-            <h1 class="title">26.使用cheerio获取文章标题.md</h1><div class="post-meta">
+            <h1 class="title">26.Electron隐藏显示开发者工具.md</h1><div class="post-meta">
     <div class="date">2020-12-20</div>
         <div class="tags">
             <label class="label">Tags：</label>
@@ -34,17 +34,45 @@
         </div>
 </div>
 </header>
-        <div class="content"><h2 id="install">install</h2>
-<pre tabindex="0"><code>$ npm install cheerio
-</code></pre><h2 id="usage">usage</h2>
-<pre tabindex="0"><code>const cheerio = require(&#34;cheerio&#34;);
-
-const $ = cheerio.load(html);
-const title = $(&#34;head title&#34;).text();
-</code></pre><h2 id="more">More</h2>
-<p>cheerio
-<a href="https://github.com/cheeriojs/cheerio">https://github.com/cheeriojs/cheerio</a></p>
-</div>
+        <div class="content"><pre tabindex="0"><code>if (process.platform === &#34;darwin&#34;) {
+    const template = [
+      {
+        label: &#34;我的知识库&#34;,
+        submenu: [
+          {
+            label: &#34;退出&#34;,
+            accelerator: &#34;Command+Q&#34;,
+            click: function () {
+              app.quit();
+            },
+          },
+        ],
+      },
+      {
+        label: &#34;编辑&#34;,
+        submenu: [
+          { label: &#34;复制&#34;, accelerator: &#34;CmdOrCtrl+C&#34;, selector: &#34;copy:&#34; },
+          { label: &#34;粘贴&#34;, accelerator: &#34;CmdOrCtrl+V&#34;, selector: &#34;paste:&#34; },
+        ],
+      },
+      {
+        label: &#34;开发&#34;,
+        submenu: [
+          {
+            label: &#34;DevTools&#34;,
+            accelerator: &#34;CmdOrCtrl+Shift+I&#34;,
+            click(item, focusedWindow) {
+              if (focusedWindow) focusedWindow.webContents.toggleDevTools();
+            },
+          },
+        ],
+      },
+    ];
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  } else {
+    Menu.setApplicationMenu(null);
+  }
+</code></pre></div>
     </div>
 
         </div><script src="/js/highlight.min.js"></script>
