@@ -33,17 +33,21 @@ a:hover {
     color: #315efb;
 }
 
+a.link {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+/* 代码块 */
 pre,
 code {
     background-color: #f5f5f5;
     border: 1px solid #ebebeb;
 }
-
 code {
     padding: 0 5px;
     color: #c33;
 }
-
 pre {
     display: block;
     padding: 0;
@@ -53,7 +57,6 @@ pre {
     overflow: auto;
     color: #000;
 }
-
 pre code {
     padding: 0;
     color: inherit;
@@ -62,27 +65,25 @@ pre code {
     border: 0;
 }
 
+/* 表格 */
 table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
-  border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
 }
-
 table th,
 table td {
-  padding: 10px;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+    padding: 10px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }
-
 table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
 }
-
 table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+    border-top: 2px solid #dee2e6;
 }
 
 #main {
@@ -99,6 +100,17 @@ table tbody + tbody {
     margin-right: 10px;
 }
 
+.controls {
+    position: fixed;
+    right: 10px;
+    bottom: 10%;
+    display: none;
+}
+.controls>button  {
+     cursor: pointer;
+}
+
+/* 导航 */
 .nav {
     display: flex;
     align-items: center;
@@ -109,11 +121,7 @@ table tbody + tbody {
     margin: 0 10px;
 }
 
-a.link {
-     color: var(--primary-color);
-     margin-right: 8px;
-}
-
+/* 分页 */
 .pagination {
     margin: 30px 0;
 }
@@ -125,6 +133,7 @@ a.link {
     margin-right: 15px;
 }
 
+/* 列表 */
 .list .item {
     margin-bottom: 20px;
 }
@@ -143,6 +152,7 @@ a.link {
     -webkit-box-orient: vertical;
 }
 
+/* 页面基础 */
 .page {
     padding: 0 20px;
 }
@@ -198,7 +208,8 @@ a.link {
     margin-bottom: 15px;
 }
 .page-single .content {
-    line-height: 28px;
+    line-height: 30px;
+    font-size: 17px;
 }
 .page-single .post-meta {
     justify-content: center;
@@ -210,14 +221,14 @@ a.link {
 .page-single .content li p {
     text-indent: 30px;
 }
-
 .page-single .content ul,
-.page-single .content li  {
+.page-single .content li {
     margin: 0;
     padding: 0;
 }
 .page-single .content a {
-    color: var(--primary-color);
+    /*text-decoration: underline;*/
+    color: #0d29e1;
 }
 
 /* 归档页面 */
@@ -227,7 +238,7 @@ a.link {
     margin-bottom: 20px;
 }
 .page-archive .archive-post {
-   margin: 0 0 20px 20px;
+    margin: 0 0 20px 20px;
 }
 .page-archive .post-link {
     margin-left: 10px;
@@ -271,6 +282,9 @@ a.link {
     }
     .pagination {
         text-align: center;
+    }
+    .controls {
+        display: none;
     }
 }
 
