@@ -2,7 +2,7 @@
     <div class="page page-list">
         <h1 class="title">{{ .Title }}</h1>
         <section class="list">
-            {{ range .Pages.ByPublishDate.Reverse }}
+            {{ range .Paginator.Pages }}
                 {{- partial "post_item.html" . -}}
             {{ end }}
         </section>
