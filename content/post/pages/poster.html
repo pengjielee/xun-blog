@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/element-plus/dist/index.css"
+    />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body,
+      #app {
+        width: 100%;
+        height: 100vh;
+      }
+      [v-cloak] {
+        display: none;
+      }
+      .page-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        margin: 0px 20px;
+      }
+      .page-form .title {
+        font-size: 18px;
+        text-align: center;
+      }
+      .page-form .textarea {
+        margin: 25px 0;
+        padding: 10px;
+        resize: vertical;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 100%;
+        box-shadow: 0 3px 3px 2px #ddd;
+        height: 450px;
+        max-height: 450px;
+      }
+      .page-form .btn {
+        border: none;
+        padding: 8px 0;
+        border: 1px solid #1e80ff;
+        cursor: pointer;
+        background: #1e80ff;
+        color: #fff;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .page-form .btn:hover {
+        background: #1171ee;
+        border: 1px solid #1171ee;
+      }
+      .page-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        padding: 0 30px;
+        line-height: 30px;
+        font-size: 16px;
+        text-indent: 30px;
+      }
+      .controls {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0px;
+        display: flex;
+      }
+      .controls .block {
+        flex: 0 1 50%;
+      }
+      .controls .btn {
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 12px 0;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .controls .btn-color {
+        border-top: 1px solid #eee;
+        background: #fff;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .controls .btn-download {
+        border: 1px solid #1e80ff;
+        background: #1e80ff;
+        color: #fff;
+      }
+      .controls .el-color-picker__trigger {
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div class="page-form" v-if="visible">
+        <textarea
+          ref="textareaRef"
+          class="textarea"
+          v-model="content"
+          :placeholder="title"
+          @input="handleInput"
+          maxlength="400"
+        ></textarea>
+        <button class="btn" @click="handleSubmit">提交</button>
+      </div>
+      <div v-else>
+        <div
+          class="page-preview"
+          ref="previewRef"
+          :style="{ backgroundColor: backgroundColor, color: textColor }"
+        >
+          {{content}}
+        </div>
+        <div class="controls">
+          <div class="block">
+            <button class="btn btn-color">
+              <el-color-picker
+                v-model="backgroundColor"
+                @change="handleBgChange"
+              ></el-color-picker>
+              <span>背景</span>
+            </button>
+          </div>
+          <div class="block">
+            <button class="btn btn-download" @click="handleDownload">
+              下载
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="//unpkg.com/vue@3"></script>
+  <script src="//unpkg.com/element-plus"></script>
+  <script
+    type="text/javascript"
+    src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"
+  ></script>
+  <script>
+    const { createApp, ref } = Vue;
+
+    const App = {
+      setup() {
+        const title = ref("请输入海报文字");
+        const content = ref("");
+        const textareaRef = ref(null);
+        const previewRef = ref(null);
+        const visible = ref(true);
+        const backgroundColor = ref("#fff");
+        const textColor = ref("#000");
+
+        const handleInput = (e) => {
+          if (e.target.scrollHeight > 300) {
+            textareaRef.value.style.height = e.target.scrollHeight + "px";
+          } else {
+            textareaRef.value.style.height = 300 + "px";
+          }
+        };
+        const handleSubmit = () => {
+          if (content.value.length <= 0) {
+            return;
+          }
+          visible.value = false;
+        };
+        const handleDownload = () => {
+          html2canvas(previewRef.value).then((canvas) => {
+            const a = document.createElement("a");
+            a.href = canvas.toDataURL("image/png");
+            a.download = `${Date.now()}.png`;
+            a.click();
+          });
+        };
+        const handleBgChange = (bgColor) => {
+          if (!bgColor) {
+            textColor.value = "#000000";
+            return;
+          }
+          textColor.value = bgColor != "#FFFFFF" ? "#FFFFFF" : "#000000";
+        };
+
+        return {
+          visible,
+          title,
+          content,
+          handleInput,
+          handleSubmit,
+          handleDownload,
+          handleBgChange,
+          textareaRef,
+          previewRef,
+          backgroundColor,
+          textColor,
+        };
+      },
+    };
+    const app = createApp(App);
+    app.use(ElementPlus);
+    app.mount("#app");
+  </script>
+</html>
